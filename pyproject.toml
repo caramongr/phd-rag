@@ -1,0 +1,13 @@
+[project]
+name = "phd-rag"
+version = "0.1.0"
+description = "PhD Academic RAG backend"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "pydantic>=2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

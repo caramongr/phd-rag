@@ -1,0 +1,99 @@
+RAG-001 implementation.
+Project: PhD Academic RAG
+Task ID: RAG-001
+Goal: Create the initial backend project skeleton, configuration layer, domain models, metadata schema, and tests.
+Do not implement retrieval, embeddings, Qdrant access, PDF parsing, DOCX parsing, or LLM calls yet.
+Environment
+- Python 3.12
+- FastAPI
+- Pydantic v2
+- Project path: F:\phd-rag
+Architecture rules
+- Keep the code explicit and easy to audit.
+- Do not use LangChain, LlamaIndex, or any agent framework.
+- Do not introduce a database yet.
+- Do not introduce Qdrant integration yet.
+- Do not introduce Ollama integration yet.
+- Do not add unnecessary abstractions.
+- Use type hints throughout.
+- Use enums for controlled metadata values.
+- Add docstrings where they clarify domain meaning.
+Required project structure
+app/
+├── __init__.py
+├── main.py
+├── config.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── document.py
+│   ├── chunk.py
+│   └── enums.py
+│
+└── api/
+    ├── __init__.py
+    └── health.py
+
+tests/
+├── test_health.py
+├── test_document_model.py
+└── test_chunk_model.py
+
+Domain model: Document
+Fields:
+id: UUID
+file_hash: str
+filename: str
+source_path: str
+original_folders: list[str]
+
+title: str | None
+authors: list[str]
+year: int | None
+doi: str | None
+url: str | None
+
+document_type: DocumentType
+publication_status: PublicationStatus
+authority: AuthorityLevel
+
+topics: list[str]
+related_projects: list[RelatedProject]
+
+language: str | None
+page_count: int | None
+
+version: str | None
+supersedes_document_id: UUID | None
+
+imported_at: datetime
+updated_at: datetime
+notes: str | None
+
+Enums
+DocumentType
+PUBLISHED_PAPER
+CONFERENCE_PAPER
+BOOK
+REPORT
+THESIS
+AUTHOR_PAPER
+SUMMARY
+RESEARCH_NOTE
+SUPERVISION_RECORD
+SUPERVISOR_FEEDBACK
+GUIDELINE
+
+PublicationStatus
+PUBLISHED
+SUBMITTED
+DRAFT
+WORKING_DRAFT
+ACTIVE
+SUPERSEDED
+ARCHIVED
+
+AuthorityLevel
+PRIMARY_EVIDENCE
+HIGH
+MEDIUM
