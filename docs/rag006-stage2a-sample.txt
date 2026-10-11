@@ -1,0 +1,630 @@
+RAG-006 Stage 2A - title-based enrichment validation sample
+============================================================
+unique documents examined:        466
+eligible population (DOI-less + strong title): 169
+sample size:                      30
+title searches attempted:         30
+STRONG:                           12
+AMBIGUOUS:                        8
+NO_MATCH:                         10
+API/network failures:             0
+  network errors:                 0
+  HTTP errors (excluding 404):    0
+accepted (merged):                12
+cached responses used:            7
+cache misses:                     43
+API requests made:                45
+  api.crossref.org: 28
+  api.openalex.org: 17
+
+sample composition:
+  title source            DOCUMENT_TEXT 16, PDF_METADATA 14
+  title length            long (>=13 words) 7, medium (7-12 words) 12, short (<=6 words) 11
+  year                    no year 4, year 26
+  authors                 authors 18, no authors 12
+  local publication type  PREPRINT 5, UNKNOWN 25
+  year range              1977-2026
+  with arXiv id           6
+
+Metadata coverage within the sample (documents with the field populated):
+  field               before   after   delta
+  authors                 18      22      +4
+  year                    26      28      +2
+  DOI                      0      12     +12
+  venue                    0      10     +10
+  publisher                0      12     +12
+  publication type         5      13      +8
+  abstract                 0       6      +6
+
+Per-document results
+--------------------
+1. jmir-2023-1-e39989.pdf  [literature]
+   local title:        'The Effects of Immersive Virtual Reality Applications on Enhancing the Learning Outcomes of Undergraduate Health Care Students: Systematic Review With Meta-synthesis'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2000
+   local first author: jmir
+   external provider:  CROSSREF
+   external title:     'The Effects of Immersive Virtual Reality Applications on Enhancing the Learning Outcomes of Undergraduate Health Care Students: Systematic Review With Meta-synthesis'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Justina Yat Wa Liu
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'The Effects of Immersive Virtual Reality Applications on Enhancing the Learning Outcomes of Undergraduate Health Care Students: Systematic Review With Meta-synthesis'
+   external DOI:       10.2196/39989
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+2. Situated Cognition and the culture of learning.pdf  [literature]
+   local title:        'Situated Cognition and the Culture of Learning'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         1989
+   local first author: jsb
+   external provider:  CROSSREF
+   external title:     'Situated Cognition and the Culture of Learning'
+   similarity:         1.000
+   external year:      1988
+   external 1st author:John S. Brown
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Situated Cognition and the Culture of Learning'
+   external DOI:       10.21236/ada204690
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+3. Zhou-ICRA2017.pdf  [literature]
+   local title:        'Two-Eye Model-Based Gaze Estimation from A Kinect Sensor'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2014
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Two-eye model-based gaze estimation from a Kinect sensor'
+   similarity:         1.000
+   external year:      2017
+   external 1st author:Xiaolong Zhou
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Two-Eye Model-Based Gaze Estimation from A Kinect Sensor'
+   external DOI:       10.1109/icra.2017.7989194
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+4. dwork-11787006_1.pdf  [literature]
+   local title:        'Diﬀerential Privacy'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         None
+   local first author: Cynthia Dwork
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Diﬀerential Privacy'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+5. KenHubbellRoundtableWhitePaper.pdf  [literature]
+   local title:        'Design evidence based learning experiences'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         None
+   local first author: None
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Design evidence based learning experiences'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+6. dwork.pdf  [literature]
+   local title:        'Diﬀerential Privacy'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         1977
+   local first author: Cynthia Dwork
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Diﬀerential Privacy'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+7. Leutenegger-p37.pdf  [literature]
+   local title:        'Keyframe-Based Visual-Inertial SLAM Using Nonlinear Optimization'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2013
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization'
+   similarity:         1.000
+   external year:      2013
+   external 1st author:Stefan Leutenegger
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization'
+   external DOI:       10.15607/rss.2013.ix.037
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              Robotics: Science and Systems IX
+   publication type:   CONFERENCE_PAPER
+   publisher:          Robotics: Science and Systems Foundation
+   abstract present:   no
+8. Mayer.pdf  [literature]
+   local title:        'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2015
+   local first author: Nikolaus Mayer
+   external provider:  CROSSREF
+   external title:     'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Nikolaus Mayer
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation'
+   external DOI:       10.1109/cvpr.2016.438
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   publisher:          IEEE
+   abstract present:   no
+9. View of Challenges with Gamification in Higher Education.pdf  [literature]
+   local title:        'View of Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2024
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers'
+   similarity:         0.967
+   external year:      2024
+   external 1st author:Kevin Fuchs
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers'
+   external DOI:       10.47852/bonviewijce32021604
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              International Journal of Changes in Education
+   publication type:   JOURNAL_ARTICLE
+   publisher:          Modestum Ltd
+   abstract present:   yes
+10. 2507.01597v1.pdf  [literature]
+   local title:        'T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         None
+   local first author: Yuehang Si
+   external provider:  OPENALEX
+   external title:     'T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Yuehang Si
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning'
+   external DOI:       10.48550/arxiv.2507.01597
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   publisher:          Cornell University
+   abstract present:   yes
+11. Bender1-2014-CGF-Position_Based_Survey (1).pdf  [literature]
+   local title:        'A Survey on Position-Based Simulation Methods in Computer Graphics'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2014
+   local first author: Jan Bender
+   external provider:  CROSSREF
+   external title:     'A Survey on Position‐Based Simulation Methods in Computer Graphics'
+   similarity:         1.000
+   external year:      2014
+   external 1st author:Jan Bender
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'A Survey on Position‐Based Simulation Methods in Computer Graphics'
+   external DOI:       10.1111/cgf.12346
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              Computer Graphics Forum
+   publication type:   JOURNAL_ARTICLE
+   publisher:          Wiley
+   abstract present:   yes
+12. Learning-Styles-and-Learning-Spaces....-Enhancing-Experiential-Learning-in-Higher-Education.pdf  [literature]
+   local title:        'Learning Styles and Learning Spaces: Enhancing Experiential Learning in Higher Education'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2016
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Learning Styles and Learning Spaces: Enhancing Experiential Learning in Higher Education'
+   similarity:         1.000
+   external year:      2005
+   external 1st author:Alice Y. Kolb
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Learning Styles and Learning Spaces: Enhancing Experiential Learning in Higher Education'
+   external DOI:       10.5465/amle.2005.17268566
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+13. watkins-BF00992698.pdf  [literature]
+   local title:        '<Emphasis Type="Italic">Q </Emphasis>-learning'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         1992
+   local first author: CHRISTOPHER J.C.H. WATKINS
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     '<Emphasis Type="Italic">Q </Emphasis>-learning'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+14. -John_Biggs_and_Catherine_Tang-_Teaching_for_Quali-BookFiorg-.pdf  [literature]
+   local title:        'Teaching for Quality Learning at University'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2012
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Book review: Teaching for quality learning at university'
+   similarity:         0.878
+   external year:      2016
+   external 1st author:Christina Davison
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Teaching for Quality Learning at University'
+   external DOI:       10.18538/lthe.v13.n2.266
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+15. 2504.03966v1.pdf  [literature]
+   local title:        'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2025
+   local first author: Kovan Mzwri
+   external provider:  CROSSREF
+   external title:     'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Kovan Mzwri
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant'
+   external DOI:       10.21203/rs.3.rs-6256444/v1
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              None
+   publication type:   PREPRINT
+   publisher:          Springer Science and Business Media LLC
+   abstract present:   yes
+16. vr-rag-2504.08256v2.pdf  [literature]
+   local title:        'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2025
+   local first author: Shiyi Ding
+   external provider:  CROSSREF
+   external title:     'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Shiyi Ding
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments'
+   external DOI:       10.1109/vrw66409.2025.00034
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)
+   publication type:   CONFERENCE_PAPER
+   publisher:          IEEE
+   abstract present:   no
+17. Du-2025.acl-long.1459.pdf  [literature]
+   local title:        'MAPoRL2: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2025
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning'
+   similarity:         0.995
+   external year:      2025
+   external 1st author:Chanwoo Park
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning'
+   external DOI:       10.18653/v1/2025.acl-long.1459
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+   publication type:   CONFERENCE_PAPER
+   publisher:          Association for Computational Linguistics
+   abstract present:   no
+18. Bujanca_FullFusbujanca-ion_A_Framework_for_Semantic_Reconstruction_of_Dynamic_Scenes_ICCVW_2019_paper.pdf  [literature]
+   local title:        'The University of Manchester Research'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2026
+   local first author: General rights
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'The University of Manchester Research'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+19. Plagiarism_detection_in_Programming_cour.pdf  [literature]
+   local title:        'Plagiarism detection in Programming coursework.'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2025
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Plagiarism detection in Programming coursework.'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Constantine Mukasa
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Plagiarism detection in Programming coursework.'
+   external DOI:       10.18260/1-2--38399
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              2021 First-Year Engineering Experience Proceedings
+   publication type:   CONFERENCE_PAPER
+   publisher:          ASEE Conferences
+   abstract present:   no
+20. thermal-2509.18929v1.pdf  [literature]
+   local title:        'Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2025
+   local first author: Muhammad Kaif Laghari
+   external provider:  OPENALEX
+   external title:     'Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Muhammad Kaif Laghari
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom'
+   external DOI:       10.48550/arxiv.2509.18929
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   publisher:          Cornell University
+   abstract present:   yes
+21. Lin-View of Design and Application of Intelligent Assisted Learning System for Higher Education Students.pdf  [literature]
+   local title:        'View of Design and Application of Intelligent Assisted Learning System for Higher Education Students'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2026
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Design and Application of Intelligent Assisted Learning System for Higher Education Students'
+   similarity:         0.958
+   external year:      2024
+   external 1st author:Yushi Lin
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'View of Design and Application of Intelligent Assisted Learning System for Higher Education Students'
+   external DOI:       10.52783/jes.3114
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+22. ssrn-5016008.pdf  [literature]
+   local title:        'The Impact of Virtual Reality on Student Engagement in Higher Education'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         None
+   local first author: ssrn
+   external provider:  CROSSREF
+   external title:     'The Impact of Virtual Reality on Student Engagement in Higher Education'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Nandita Suhag
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'The Impact of Virtual Reality on Student Engagement in Higher Education'
+   external DOI:       10.2139/ssrn.5016008
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              None
+   publication type:   PREPRINT
+   publisher:          Elsevier BV
+   abstract present:   no
+23. valverde-2510.14270v1.pdf  [literature]
+   local title:        'GauSSmart: Enhanced 3D Reconstruction through 2D Foundation Models and Geometric Filtering'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2025
+   local first author: Alexander Valverde
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'GauSSmart: Enhanced 3D Reconstruction through 2D Foundation Models and Geometric Filtering'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   PREPRINT
+   publisher:          None
+   abstract present:   no
+24. 1777-Article Text-3547-1-10-20230831.pdf  [literature]
+   local title:        'Novel Mechanism of Action Drug Candidates for Tuberculosis'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2023
+   local first author: None
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Novel Mechanism of Action Drug Candidates for Tuberculosis'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+25. Manukonda-1820-Article Text-4650-5556-10-20240420.pdf  [literature]
+   local title:        'Paper Title (use style: paper title)'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2024
+   local first author: ashock
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Paper Title (use style: paper title)'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+26. wise-assessment-briefing9.pdf  [literature]
+   local title:        'A3 fold - briefing 9.pages'
+   local title source: PDF_METADATA (MEDIUM)
+   local year:         2015
+   local first author: None
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'A3 fold - briefing 9.pages'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+27. smithEJ982673.pdf  [literature]
+   local title:        'PREDICTIVE MODELING TO FORECAST STUDENT OUTCOMES AND DRIVE EFFECTIVE INTERVENTIONS IN ONLINE COMMUNITY COLLEGE COURSES'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2012
+   local first author: RROGERS
+   external provider:  CROSSREF
+   external title:     'Predictive Modeling to Forecast Student Outcomes and Drive Effective Interventions in Online Community College Courses'
+   similarity:         1.000
+   external year:      2012
+   external 1st author:Vernon C. Smith
+   match status:       STRONG
+   accepted:           yes
+   resolved title:     'Predictive Modeling to Forecast Student Outcomes and Drive Effective Interventions in Online Community College Courses'
+   external DOI:       10.24059/olj.v16i3.275
+   DOI origin:         title-based external match (not observed in the document)
+   venue:              Online Learning
+   publication type:   JOURNAL_ARTICLE
+   publisher:          The Online Learning Consortium
+   abstract present:   yes
+28. Welch-Motion_Tracking_No_Silver_Bullet_but_a_Respectable.pdf  [literature]
+   local title:        'Motion Tracking: No Silver Bullet, but a Respectable Arsenal'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2002
+   local first author: Motion Tracking Survey
+   external provider:  CROSSREF
+   external title:     'Motion tracking: no silver bullet, but a respectable arsenal'
+   similarity:         1.000
+   external year:      2002
+   external 1st author:G. Welch
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Motion Tracking: No Silver Bullet, but a Respectable Arsenal'
+   external DOI:       10.1109/mcg.2002.1046626
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+29. Discussion_on_the_Cultivation_of_College.pdf  [literature]
+   local title:        'Discussion on the Cultivation of College Studentsʹ Ability of Practice and Innovation'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         2016
+   local first author: None
+   external provider:  None
+   external title:     None
+   similarity:         n/a
+   external year:      None
+   external 1st author:None
+   match status:       NO_MATCH
+   accepted:           no
+   resolved title:     'Discussion on the Cultivation of College Studentsʹ Ability of Practice and Innovation'
+   external DOI:       None
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+30. Intelligent_tutoring_systems_D_Sleeman_a.pdf  [literature]
+   local title:        'Book Reviews'
+   local title source: DOCUMENT_TEXT (MEDIUM)
+   local year:         1985
+   local first author: ARTIFICIAL INTELLIGENCE
+   external provider:  CROSSREF
+   external title:     'Book reviews…Book reviews…Book reviews'
+   similarity:         1.000
+   external year:      1999
+   external 1st author:None
+   match status:       AMBIGUOUS
+   accepted:           no
+   resolved title:     'Book Reviews'
+   external DOI:       10.1111/j.2042-3292.1999.tb00939.x
+   DOI origin:         None
+   venue:              None
+   publication type:   None
+   publisher:          None
+   abstract present:   no
+
+Unresolved (AMBIGUOUS / NO_MATCH - nothing merged)
+  jmir-2023-1-e39989.pdf  [AMBIGUOUS]  similarity=1.0
+  Situated Cognition and the culture of learning.pdf  [AMBIGUOUS]  similarity=1.0
+  Zhou-ICRA2017.pdf  [AMBIGUOUS]  similarity=1.0
+  dwork-11787006_1.pdf  [NO_MATCH]  similarity=None
+  KenHubbellRoundtableWhitePaper.pdf  [NO_MATCH]  similarity=None
+  dwork.pdf  [NO_MATCH]  similarity=None
+  Learning-Styles-and-Learning-Spaces....-Enhancing-Experiential-Learning-in-Higher-Education.pdf  [AMBIGUOUS]  similarity=1.0
+  watkins-BF00992698.pdf  [NO_MATCH]  similarity=None
+  -John_Biggs_and_Catherine_Tang-_Teaching_for_Quali-BookFiorg-.pdf  [AMBIGUOUS]  similarity=0.8775510204081632
+  Bujanca_FullFusbujanca-ion_A_Framework_for_Semantic_Reconstruction_of_Dynamic_Scenes_ICCVW_2019_paper.pdf  [NO_MATCH]  similarity=None
+  Lin-View of Design and Application of Intelligent Assisted Learning System for Higher Education Students.pdf  [AMBIGUOUS]  similarity=0.9583333333333334
+  valverde-2510.14270v1.pdf  [NO_MATCH]  similarity=None
+  1777-Article Text-3547-1-10-20230831.pdf  [NO_MATCH]  similarity=None
+  Manukonda-1820-Article Text-4650-5556-10-20240420.pdf  [NO_MATCH]  similarity=None
+  wise-assessment-briefing9.pdf  [NO_MATCH]  similarity=None
+  Welch-Motion_Tracking_No_Silver_Bullet_but_a_Respectable.pdf  [AMBIGUOUS]  similarity=1.0
+  Discussion_on_the_Cultivation_of_College.pdf  [NO_MATCH]  similarity=None
+  Intelligent_tutoring_systems_D_Sleeman_a.pdf  [AMBIGUOUS]  similarity=1.0

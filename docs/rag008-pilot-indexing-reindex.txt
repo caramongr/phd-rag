@@ -1,0 +1,65 @@
+RAG-008 indexing report
+=======================
+
+corpus root:                data
+collection:                 phd_rag_chunks_v1
+qdrant target:              local path .qdrant_data
+collection created:         False
+
+Embedding model
+---------------
+model:                      BAAI/bge-m3
+revision:                   5617a9f61b028005a4858fdac845db406aefb181
+identifier:                 BAAI/bge-m3|rev=5617a9f61b028005a4858fdac845db406aefb181|dim=1024|norm=1|lib=sentence-transformers6.1.0
+library:                    sentence-transformers 6.1.0
+device:                     cpu
+vector dimension:           1024
+distance:                   Cosine
+normalization:              l2 (unit-norm, cosine-ready)
+max input tokens:           8192
+
+Corpus and population
+---------------------
+documents embedded:         100
+documents visited:          100
+total RAG-007 chunks seen:  100
+retrieval-eligible chunks:  100
+excluded (ineligible):      0
+  of which references:      0
+chunks embedded:            100
+points indexed:             100
+skipped chunks:             0
+
+Timing
+------
+embedding seconds:          0.011
+embeddings/second:          9090.91
+chunks/second:              0.51
+upload seconds:             0.689
+total seconds:              197.161
+
+Embedding cache
+---------------
+cache hits:                 100
+cache misses:               0
+cache entries:              100
+
+Qdrant
+------
+payload indexes:            corpus_role, evidence_eligible, content_type, year, document_id, file_hash
+points before:              100
+points after:               100
+inserted:                   0
+updated/upserted:           100
+duplicate point ids:        0
+stale points:               0
+stale points deleted:       0
+
+Corpus identity
+---------------
+chunking version:           rag007-normalize-v1
+corpus fingerprint:         d9723980cf423dc5fc18a23f0a4bfa85a86dcb64f56f898c8057d73cddb117f2
+document hashes digest:     19fc14e0c17314452ca032b38b9af7768f6650a0b4cb24bdc237b4cdc0cfe0d8
+chunk ids digest:           72de3425808cf27056d2d7eae1bf5d9e6a334d82c9acd63c179ee80cb1d4b663
+
+index manifest:             docs\rag008-index-manifest.json

@@ -1,0 +1,465 @@
+001	future_chapters	2013	python-docx	Chapter 1 Introduction to AI and VR Implementation in Higher Education	Chapter_1_Introduction_Revised.docx	cc70e251-d432-5d2d-b218-6d568607a38b
+002	future_chapters	2013	Konstantinos Liakopoulos	Chapter 10 AI and VR architecture, system design and proposed implementation	Chapter_10_AI_VR_architecture_and_proposed_implementation.docx	ff9a403e-d434-5608-a7a4-357ebaaf1271
+003	future_chapters	2013	python-docx	Chapter 2 Theoretical Foundations of AI and VR in Higher Education	Chapter_2_Theoretical_Foundations_Revised.docx	27ed783a-0165-5e19-a075-e79e9e86e41b
+004	future_chapters	2013	python-docx	Chapter 3 Historical Development and Current Role of Artificial Intelligence in Higher Education	Chapter_3_Historical_Development_and_Current_Role_of_AI_Revised.docx	ea123669-8038-5139-9f4b-91e131475206
+005	future_chapters	2026	None	None	Chapter 7.docx	e3ccff6f-380b-5f35-a52b-05ea4290752e
+006	future_chapters	2013	None	Chapter 8 The LATTICE framework for AI and VR in higher education	Chapter_8_LATTICE_Complete.docx	56880f83-ba2c-5c47-a634-e6fe44c69e43
+007	future_chapters	2013	Konstantinos Liakopoulos	Chapter 9 Research methodology and study design	Chapter_9_Research_methodology_and_study_design.docx	7fd053a8-ca0b-5492-b2d8-b2ad7383107c
+008	future_chapters	2026	None	None	chapter4.docx	ca06c43a-b57d-5108-8a90-e14980ccec28
+009	guidance	None	None	Future Chapters Guidance Policy	future_chapters_guidance_policy.md	55609c43-3473-506e-8104-cccbd8bc0a5e
+010	literature	2025	Lili WANG	. REVIEW . Artiﬁcial intelligence for virtual reality: a review	WANG-202-5-s11432-024-4541-9.pdf	c4a83974-d360-598b-a57b-f21d987b5b74
+011	literature	2023	Shanwen Zhang	060624-28.张善文+An Adaptive Learning Method Based on Knowledge Graph.docx	zhang-QOPqvPzf5HcL0SMcDsGhMTi2KjdNwiMIxTxC4vXi.pdf	f74eb586-1fa8-5ae7-a1c5-88db338a7399
+012	literature	2024	Sonic	None	1726-JASR202414(3)277-288Nigeria.pdf	9eb5683a-9b61-5671-9063-74f63f22aabf
+013	literature	1985	Ken Perlin	1870154b.tif	perlin.pdf	2107112c-36a0-51f8-a092-20cb641ed9c2
+014	literature	2011	None	None	2011_HanBlack_HapticSimulation.pdf	a5872239-9e76-5a2d-9364-51d491a0cb9b
+015	literature	2024	COMPUTER	None	3126-Article Text-14139-1-10-20240405.pdf	4d824942-891e-59f7-b8a6-b7985319f91d
+016	literature	2023	kerbl	3D Gaussian Splatting for Real-Time Radiance Field Rendering	kerbl-2308.04079v1.pdf	9b37c016-aab4-528a-9c43-b28dd8044bce
+017	literature	2023	kerbl	3D Gaussian Splatting for Real-Time Radiance Field Rendering	kerbl-2023.pdf	ad792367-53a0-5002-8b04-90229d16602e
+018	literature	2023	Yining Hong	3D-LLM: Injecting the 3D World into Large Language Models	Hong-2307.12981v1.pdf	33d04e1d-a68e-57a9-a006-f979512c7f9b
+019	literature	2023	None	None	8-AI_and_VR_Enabled_Modern_LMS_for_Student.pdf	099908ce-06d3-5534-9b55-1991b9a03866
+020	literature	1992	CHRISTOPHER J.C.H. WATKINS	<Emphasis Type="Italic">Q </Emphasis>-learning	watkins-BF00992698.pdf	34658ba7-6435-5de1-9b53-01a044c60092
+021	literature	2024	Ming Li	A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education	A-Bibliometric-Analysis-of-Artificial-Intelligence-Higher-Education.pdf	f7e05f84-2b77-58b2-9fa9-3eb4559a50d9
+022	literature	2019	Michael Haenlein	A Brief History of Artificial Intelligence: On the Past, Present, and Future of Artificial Intelligence	HaenleinMichael-ABriefHistoryofArtificialIntelligence.pdf	dfcbd887-daeb-5b41-861c-bfc8452bd1d4
+023	literature	2024	Efe Precious Onakpojeruo	A Comparative Analysis of the Novel Conditional Deep Convolutional Neural Network Model, Using Conditional Deep Convolutional Generative Adversarial Network-Generated Synthetic and Augmented Brain Tumor Datasets for Image Classification	Onakpojeruo-brainsci-14-00559-v2.pdf	00da9659-e059-59b1-8416-5dce4a81dbf3
+024	literature	2022	Richard Mayer	A Computer-Based Game that Promotes Mathematics Learning More than a Conventional Approach	A_Computer-Based_Game_that_Promotes_Mathematics_Le.pdf	291d632c-b0d4-5fe8-ae84-d137dfddbf56
+025	literature	2024	IOR PRESS	A Deep Reinforcement Learning Framework for Optimized Container Scheduling and Load Balancing	Bhukya-14.pdf	e30cccbd-e00a-5a1a-b7d0-e6972eb29cb3
+026	literature	2024	Lin Li	A Dynamic Adaptive and Resource-Allocated Selection Method Based on TOPSIS and VIKOR in Federated Learning	li-2024-s11063-024-11493-4 (1).pdf	2ad2c8eb-7f4e-510d-a285-68dbbe9d7d5e
+027	literature	2015	Nikolaus Mayer	A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation	Mayer.pdf	35e5b65f-131a-5ee7-b7a6-1e7b8b1fcdc6
+028	literature	2023	Manuel Antonio Rodríguez Magaña	A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCATION	un-nuevo-enfoque-educativo-en-el-modelo-de-aprendizaje-adaptativo-hibrido-en-la-educacion-media-superior.pdf	5f048c34-a44c-56ec-8957-42f72b833dc3
+029	literature	2023	KHALID BENABBES	A New Hybrid Approach to Detect and Track Learner’s Engagement in e-Learning	A_New_Hybrid_Approach_to_Detect_and_Trac.pdf	3f169efa-6e6b-557c-923a-b491550c3c7f
+030	literature	2022	Computer Modeling in	A Review of the Current Task Offloading Algorithms, Strategies and Approach in Edge Computing Systems	TSP_CMES_21394.pdf	65aa93a4-a323-5a04-a92a-ee2bc0e07dfc
+031	literature	2025	DRP	A Review on Background, Technology, Comparison, and Future Tendency of Video Generation	Han-DRP+CMLAI+2025-42-49.pdf	8764a3cc-e963-5e96-bc7a-26732cbd13e6
+032	literature	2020	Mile Randjelovic	A SYSTEMIC APPROACH TO IMPROVING INNOVATIVENESS IN HIGHER EDUCATION Dejana Zlatanović1*, Jelena Nikolić1, Zlatko Nedelko2	1008-8089-4-PB.pdf	02a39fa7-ea0b-5afa-b489-6da1a7710111
+033	literature	2022	Francisco Macia-Varela	A Separate Reality: An Update on Place Illusion and Plausibility in Virtual Reality	frvir-03-914392.pdf	747e4ced-2eef-5423-8a97-bd864309d2fd
+034	literature	2014	Jan Bender	A Survey on Position-Based Simulation Methods in Computer Graphics	Bender1-2014-CGF-Position_Based_Survey (1).pdf	0bef8b72-b321-5c11-89c1-032b8d64faec
+035	literature	2025	Ridouane Oubagine	A Unified AI Architecture for Self-Regulated Learning: Cognitive Modeling, Meta-Learning, and Continual Adaptation	Oubagine-algorithms.pdf	6a8e6d1a-920c-5536-80e7-9a7160ed2aa0
+036	literature	2017	Scott M. Lundberg	A Uniﬁed Approach to Interpreting Model Predictions	Lundberg-1705.07874v2.pdf	f74f79b4-1c5e-566b-81f2-a88256b186a0
+037	literature	2023	Dorota Stadnicka	A Virtual Reality Laboratory for Blended Learning Education: Design, Implementation and Evaluation	Antonelli-education-13-00528.pdf	c5788ba4-89d2-5ebd-8669-813c765704dc
+038	literature	2024	Domínguez Vázquez	A classroom experience for teaching and learning of high school geometry through virtual reality	EJ1445016.pdf	4eaf159b-f872-53ad-8e78-0aa1371ef334
+039	literature	2024	Domínguez Vázquez	A classroom experience for teaching and learning of high school geometry through virtual reality	a-classroom-experience-for-teaching-and-learning-of-high-school-geometry-through-virtual-reality-14634 (1).pdf	c6e99f17-49aa-522c-9271-1bff9a99ee94
+040	literature	2024	Maria Jorina van Kooten	A framework to integrate artificial intelligence training into radiology residency programs: preparing the future radiologist	s13244-023-01595-3 (1).pdf	f9fbf5d3-046a-5b12-8a87-d47f37eda93b
+041	literature	2022	Pei Dang	A real 3D scene rendering optimization method based on region of interest and viewing frustum predic	A_real_3D_scene_rendering_optimization_method_base.pdf	8c52c644-db67-5dc4-b2b2-29dfee1bf875
+042	literature	2023	Zi-Yu Huang	A study on computer vision for facial emotion recognition	Huang-s41598-023-35446-4.pdf	5ee4ad93-7f14-5841-8478-f3509730fc93
+043	literature	2025	Gang Chen	A survey on surface reconstruction based on 3D Gaussian splatting	xu-peerj-cs-3034.pdf	b1427575-9339-594b-bbc3-7a73a6545b97
+044	literature	2019	radianti	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	radianti-2020.pdf	35975b07-3c97-5029-8308-6d2b00b97f30
+045	literature	2019	None	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	radianti-main.pdf	183c60e1-5577-515a-ae0f-8f7b9fa27a6d
+046	literature	2019	None	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	Radianti -main.pdf	5825dc2e-f042-57b5-95d0-182a04b63d5c
+047	literature	2019	None	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	A systematic review of immersive virtual reality applications for higher education_ Design elements, lessons learned, and research agenda.pdf	0d6edbef-ec08-5df9-95ae-0d684f03015c
+048	literature	2019	Jaziar Radianti	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	9-A systematic review of immersive virtual reality applications for.pdf	00a5338f-74df-5381-add3-e9071c319faa
+049	literature	2019	None	A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda	ratiandi.pdf	79307000-69de-506e-908f-c365cad7183f
+050	literature	2017	Apple Chow	None	A-new-version-of-the-Tortoise-and-the-Hare-Story.pdf	07d4974c-3247-58b0-aeb0-c10415a4bb0b
+051	literature	2015	Feedback as Dialogue	A3 fold - briefing 10.pages	wise-assessment-briefing10.pdf	9a3dec69-7936-5ea8-8e93-40416392a098
+052	literature	2015	Dai Hounsell	A3 fold - briefing 11.pages	wise-assessment-briefing11.pdf	e5abd147-3dd9-5c4b-aa1c-8f12d6872a60
+053	literature	2015	Tracy Zou	A3 fold - briefing 3.pages	groupwork-briefing.pdf	1e645e4d-ec1b-5d90-adf8-f1849134b4d4
+054	literature	2015	None	A3 fold - briefing 9.pages	wise-assessment-briefing9.pdf	8e6f1987-53c2-507d-8a32-509459b11ad8
+055	literature	2021	SIGCHI	AI Literacy: Definition, Teaching, Evaluation and Ethical Issues	AILiteracyReviewASIST.pdf	ad53d9d1-62ec-55cf-939e-145912d9cb86
+056	literature	2009	Luis Manuel Escobedo Figueroa	AI TEACHERS USING A VR/MR ENVIRONMENT FOR GREATER STUDENT INTERACTION AND IMMERSION	AI_Teachers_Using_a_VR_MR_Environment_fo.pdf	171f755f-4f2f-5b14-a9bd-b4e386757871
+057	literature	2021	None	AI and education - Guidance for policymakers	2021_UNESCO_AI-and-education-Guidande-for-policy-makers_EN.pdf	ef821869-71d9-5f7e-8a64-e4a0295d2ed2
+058	literature	2024	None	AI-Driven Learning Management Systems: Modern Developments, Challenges and Future Trends during the Age of ChatGPT	AI-Driven_Learning_Management_Systems_Modern_Devel.pdf	14e7db1d-9c9d-5a04-9979-52a440a38c94
+059	literature	2021	Seung Lee	AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach	17836-Article Text-21330-1-2-20210518.pdf	4c463dc8-41d1-5fbe-8f78-394b038adfeb
+060	literature	2025	Gangadhar Vasanthapuram	AI-Powered Generative Framework for Automated Clinical Audit Narratives: Regulated Prompt Engineering with LLMs and NLP	4-AI-Powered.pdf	dcffd446-8c47-592c-b812-b4b1857cb2f5
+061	literature	2023	How to Cite	AI-enabled virtual reality systems for dental education	4-AI_enabled_virtual_reality_systems_for_dent.pdf	424e6e21-09d2-5e57-aa9f-e004ed674fbf
+062	literature	2023	Personal	AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296	Siminto-1c1e2c1794156134b1b186fd4824fc64072d.pdf	64fced39-0364-5654-b57e-c70021683c93
+063	literature	2021	Fahmi	ALGORITHMS COMPARISON FOR NON-REQUIREMENTS CLASSIFICATION USING THE SEMANTIC FEATURE OF SOFTWARE REQUIREMENT STATEMENTS	Fahmi-7606-25899-1-PB.pdf	4af149ff-ca45-50ba-8231-4472a8cfb2b8
+064	literature	2024	None	ANALYSIS OF THE APPLICATION OF ARTIFICIAL INTELLIGENCE IN TECHNICAL AND TECHNOLOGICAL TRAINING IN UNIVERSITY EDUCATION María Luisa Pincay Cedeño1 Mariela Nuñez Figueroa2 Paul Marcelo Tacle Humanante3 Wildo Sucasaire Monroy4	145+n4+RGSA+ING.pdf	3bf66162-0a2a-5cde-a73f-10ac28bc5b83
+065	literature	2022	Huan He	AUTM Flow: Atomic Unrestricted Time Machine for Monotonic Normalizing Flows	Cai-2206.02102v1.pdf	764ba2ae-ce09-5ac4-9d47-b48dc4fb1ad2
+066	literature	2022	Aryamaan Jain	Adaptive & Multi-Resolution Procedural Infinite Terrain Generation with Diffusion Models and Perlin Noise	Jain-inf_terrain_generation.pdf	d768536d-2c62-5222-b707-031326d5ec70
+067	literature	2023	Ilie Gligorea	Adaptive Learning Using Artificial Intelligence in e-Learning: A Literature Review	education-13-01216-v2.pdf	8c3af9a0-caa9-5c96-b557-8800d421c562
+068	literature	2023	Marius Cioca	Adaptive Learning Using Artiﬁcial Intelligence in e-Learning: A Literature Review	Adaptive_Learning_Using_Artificial_Intel.pdf	1371ab05-2b29-554a-b6bf-afac2fa0a10f
+069	literature	2026	lin	Adaptive Neighbor Graph Aggregated Graph Attention Network for Heterogeneous Graph Embedding	lin-3616377.pdf	2970675c-e372-5605-a8a1-fcf8eeca5611
+070	literature	2025	karthi	Adaptive Neuro-Symbolic Systems for Real Time Ethical Decision-Making in Autonomous Agents	Shetrone-IRJAEM-03-04-0254-2504265-1571-1576.pdf	80d641b3-61ab-52c2-9077-99b1f73d6292
+071	literature	2021	Benjy Marks	Adoption of virtual reality technology in higher education: An evaluation of five teaching semesters in a purpose-designed laboratory	1-Adoption of virtual reality technology in higher -australia.pdf	ddb0bf76-3e78-5b1b-bc94-655e1d1d9f40
+072	literature	2022	Symmetric Integral	AlphaPose: Whole-Body Regional Multi-Person Pose Estimation and Tracking in Real-Time	fang-alpha.pdf	a87b615a-82bc-5169-97e4-d765a798e5b4
+073	literature	2022	Yanqiu Xu	An Adaptive Learning System for English Vocabulary Using Machine Learning	Mobile Information Systems - 2022 - Xu - An Adaptive Learning System for English Vocabulary Using Machine Learning.pdf	710b7ca2-c593-5e62-b605-0e35ee0f64e1
+074	literature	2022	None	An Automated Virtual Reality Training System for Teacher-Student Interaction: A Randomized Controlled Trial	2-An Automated Virtual Reality Training System for Teacher-Student Interaction_ A Randomized Controlled Trial - PMC.pdf	cc44474d-b374-59b6-ae29-c4c7fc2b71ad
+075	literature	2023	None	An Educational Virtual Reality Game from an Embodied Cognitive Perspective	kong-An_Educational_Virtual_Reality_Game_from_an_Embodi.pdf	9338115f-7222-589d-9958-61996efb9214
+076	literature	2023	Waleed Mugahed Al-Rahmi and	An Expert-Opinion-Based Evaluation Framework for Sustainable Technology-Enhanced Learning Using Z-Numbers and Fuzzy Logarithm Methodology of Additive Weights	An_Expert_Opinion_Based_Evaluation_Frame.pdf	7d1a053d-ae98-57a6-8f6b-a55da5be8ba0
+077	literature	2006	Greg Welch	An Introduction to the Kalman Filter	Welch-kalman_intro.pdf	8a37e468-eb5a-512b-b7bf-51696c64e573
+078	literature	2022	None	An evaluation of the use of Turnitin as a tool for electronic submission, marking, and feedback in higher education in South Africa: Students’ perspective	An_evaluation_of_the_use_of_Turnitin_as.pdf	41763bf0-909f-5dcd-9776-7f02d3c6a575
+079	literature	2025	Bonan Yang	Analysis of Student Progression Through Curricular Networks: A Case Study in an Illinois Public Institution	Yang-electronics-14-03016.pdf	2127a766-8d19-59b4-9633-b527236fd854
+080	literature	2021	Sungjin Hong	Analyzing Visual Attention of People with Intellectual Disabilities during Virtual Reality-Based Job Training	electronics-10-01652-v2.pdf	3444bc71-77ba-572a-a74b-b0ec03bca26b
+081	literature	2024	Aybeyan Selim	Application of the digital twin model in higher education	selim-Trud Multimedia_za eprints.pdf	d73efb13-a307-5584-8d3b-8866de41c208
+082	literature	2025	Sonia Tencer	Artificial Intelligence and Extended Reality in the Training of Vascular Surgeons: A Narrative Review	Halman-medsci-13-00126.pdf	d47aedc5-e4f9-520e-83eb-14aad6564d40
+083	literature	2019	None	Artificial Intelligence and Machine Learning in Pathology: The Present Landscape of Supervised Methods	Rashidi-10.1177_2374289519873088.pdf	9169496d-4172-52a3-84bf-e7fb43d40352
+084	literature	2022	Catherine Adams	Artificial Intelligence and Teachers’ New Ethical Obligations	Artificial_Intelligence_and_Teachers_New.pdf	fc64b8c6-da9c-5e1f-a8dc-ff59c31dfbcf
+085	literature	2020	LIJIA CHEN	Artificial Intelligence in Education: A Review	Artificial_Intelligence_in_Education_A_Review.pdf	ca77d796-6707-5396-ba47-af57444421ea
+086	literature	2019	Francisco-Javier Hinojo-Lucena	Artificial Intelligence in Higher Education: A Bibliometric Study on its Impact in the Scientific Literature	education-09-00051 (1).pdf	87d54e2c-5f3c-5087-8da5-c91673d81d9b
+087	literature	2023	Yaron Meron	Artificial intelligence in design education: evaluating ChatGPT as a virtual colleague for post-graduate course development	artificial-intelligence-in-design-education-evaluating-chatgpt-as-a-virtual-colleague-for-post-graduate-course-development.pdf	30321934-2658-5acc-ad2c-8a921217af1b
+088	literature	2023	Yaron Meron	Artificial intelligence in design education: evaluating ChatGPT as a virtual colleague for post-graduate course development	Artificial_intelligence_in_design_educat.pdf	26c10e6a-455a-55f5-a78d-f590b4769e4f
+089	literature	2021	Fan Ouyang	Artificial intelligence in education: The three paradigms	6-Artificial intelligence in education The three paradigms.pdf	199421da-7d58-50ba-9527-284453cb5011
+090	literature	2021	Helen Crompton	Artificial intelligence in higher education: the state of the field	s41239-023-00392-8.pdf	d776f45a-924f-58c9-9c8c-47cbcc866719
+091	literature	2025	IJ-AI	Artificial intelligence multilingual image-to-speech for accessibility and text recognition	26962-59303-1-PB.pdf	f6d43ded-e105-59bf-9974-9707de07bce1
+092	literature	2023	M.K. Nallakaruppan and	Artiﬁcial Intelligence Generative Tools and Conceptual Knowledge in Problem Solving in Chemistry	Artificial_Intelligence_Generative_Tools.pdf	8e494734-1344-5add-9f3d-ec672e5fd035
+093	literature	2022	ilkkaw	Aspects associated with health care professionals’ digital health competence development – a qualitative study	111771-Article Text-230125-1-10-20220414.pdf	78ad3d69-50fc-52d4-abe0-bdd947e0c522
+094	literature	2023	Makrina Viola Kosti	Assessing Virtual Reality Spaces for Elders Using Image-Based Sentiment Analysis and Stress Level Detection	3-image-based-sentiment-analysis.pdf	c39622ed-67ca-5c7b-9278-e64c7414caab
+095	literature	2024	Vikrant Vikram Singh	Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy	671f1348-5c67-4863-b862-9864dbed253a.pdf	64e3adf5-01f2-5846-a8d6-657c8a1e7574
+096	literature	2016	Volodymyr Mnih	Asynchronous Methods for Deep Reinforcement Learning	Mnih-1602.01783v2.pdf	86cad48c-e816-5b63-a6a6-d3abbc1db06a
+097	literature	2024	Google Brain	Attention Is All You Need	Vaswani-1706.03762v7.pdf	9b60bccf-fc16-52b7-894c-726960bf809f
+098	literature	2022	Diederik P. Kingma	Auto-Encoding Variational Bayes	kingma-1312.6114v11.pdf	4dcadf2c-949e-538f-bc31-d98eaefeb8bd
+099	literature	2023	Chang Soon Tony Hii	Automated Gait Analysis Based on a Marker-Free Pose Estimation Model	Hii-sensors-23-06489.pdf	103f62bf-890d-55eb-be7b-167aef4fa4d6
+100	literature	2019	Frank Hutter	Automated Machine Learning	Hutter-978-3-030-05318-5.pdf	5f0a89f4-a969-5e41-8d3f-a8f772f50e60
+101	literature	2023	Koong Lin	Automating Assessment and Providing Personalized Feedback in E-Learning: The Power of Template Matching	Automating_Assessment_and_Providing_Pers.pdf	b13bef7a-b0fc-50b9-92d5-c6bfd63e5940
+102	literature	2019	Jacob Devlin	BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding	Devlin.pdf	fe8a7f45-206c-57f0-ac21-11f9e54da20a
+103	literature	2009	Gregory A. Kimble	Behaviorism and Unity in Psychology	kimble-2000-behaviorism-and-unity-in-psychology.pdf	89aff1f8-3bb3-594d-be44-a5be6a36dd43
+104	literature	2024	Mikko Liukkonen MSc	Benefits and challenges of the integration of haptics‐enhanced virtual reality training within dental curricula	Felszeghy-2024- Benefits and challenges of the integration of haptics‐enhanced virtual.pdf	db231a1b-f14c-530d-9a2d-7c2b7e9737c8
+105	literature	2024	Rahul Kumar	Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education	BEJ+33+(3)+Kumar+-+Beyond+Reproach+(FINAL).pdf	952135c0-44bb-5190-b1ff-cdc68c8bfe62
+106	literature	2024	Xiaochen Wang	Beyond the Books: Exploring Factors Shaping Chinese English Learners’ Engagement with Large Language Models for Vocabulary Learning	education-14-00496.pdf	f1b99a8d-1aad-5cd5-94a3-fe2304cc8a36
+107	literature	2025	Xiaolu Hou	BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation	hou.pdf	6eaf5b10-1771-5961-839d-42a884158e3a
+108	literature	2025	Xiaolu Hou	BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation	hou-2501.10462v2.pdf	741d21c8-d062-5e18-942a-3a61a08e9a45
+109	literature	1985	ARTIFICIAL INTELLIGENCE	Book Reviews	Intelligent_tutoring_systems_D_Sleeman_a.pdf	8a51cd65-70fa-58c3-9a7e-ab2fb9db76db
+110	literature	2020	Elena Buchatskaya	Bootstrap Your Own Latent A New Approach to Self-Supervised Learning	grill-2006.07733v3.pdf	18a10675-2d39-598e-9220-9bd77e96ab0e
+111	literature	2025	Kovan Mzwri	Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant	2504.03966v1.pdf	c8e336f6-9a19-58f4-926c-3000d3678a81
+112	literature	2023	Zhouqian Jiang	COMPUTER VISION APPLICATIONS IN CONSTRUCTION AND ASSET MANAGEMENT PHASES: A LITERATURE REVIEW	Jiang-2023_09-ITcon-Jiang.pdf	4403e029-da85-56b6-979f-7e945207a38b
+113	literature	2026	Aditya Kommineni	Can speech foundation models effectively identify languages in low-resource multilingual aging populations?	komnini-095204_1_10.0039265.pdf	da02e4fa-6661-5e3b-bc77-a06a4751ed71
+114	literature	2018	None	Case Study Texas A&M University | College Station, TX	aleks-case-study-chem-am-collins (1).pdf	4fd8559a-f40c-52e8-b992-0fd8fb7d5006
+115	literature	2023	None	Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers	Challenges with gamification.pdf	545e83ab-5d45-55b0-bde7-a49b80b9a227
+116	literature	2022	Mohammad AL-Smadi	ChatGPT and Beyond: The Generative AI Revolution in Education	2311.15198v1.pdf	69f892c9-9ee1-5ceb-be68-e4a92e1ad120
+117	literature	2024	Content Available at	ChatGPT: Bullshit spewer or the end of traditional assessments in higher education? Jürgen RudolphA	689-Article Text-3059-3-10-20230710.pdf	cf8825bf-a65f-571d-bc81-845c6b77969f
+118	literature	2024	Niklas Humble	Cheaters or AI-Enhanced Learners: Consequences of ChatGPT for Programming Education	2.+EL+3154+Final+revised+Humble+et+al+typeset+181223.pdf	635bfe03-7c2e-5851-9d30-66212b39a25c
+119	literature	2024	Venkata Manoj Tatikonda	Cloud-Based Virtual Reality (VR) in Education	IJRPR22809.pdf	c8b986e3-0a5e-5c42-97b8-be87a176d15d
+120	literature	2017	H. Brendan McMahan	Communication-Efﬁcient Learning of Deep Networks from Decentralized Data	McHanan-1602.05629v4.pdf	0d2a5517-04ee-501c-8a87-6cffede9f01b
+121	literature	2024	DRP	Comparison of Latest 3D Content Generation Models with Minimal Input Images	Xie-CMLAI+2024-39-47.pdf	1afe68db-f9b6-5252-bc71-a5d1e47fe836
+122	literature	2023	Hossain Koolivand	Comparison of the effectiveness of virtual reality-based education and conventional teaching methods in dental education: a systematic review	Koolivand1-s12909-023-04954-2.pdf	39a22f63-1ad1-53ef-b00a-2856e35c147e
+123	literature	2019	Gavin Peter Hendricks	Connectivism as a Learning Theory and Its Relation to Open Distance Education	madikld,+4773-final+proofread.pdf	3e0ef67a-5316-5943-8e45-26f6b67d7988
+124	literature	2025	Yu Ouyang	Construction of intelligent evaluation model forphysical education classroom in primary andsecondary schools based on posture estimation andmotion recognition	Ouyang-v1_covered_bf9ad5fe-73d6-4155-a674-254b38cbaeca.pdf	0b1c04c2-9e6f-5555-89a2-983344ca34e8
+125	literature	2014	Peter Kandlbinder	Constructive alignment in university teaching	Constructive_Alignment36087.pdf	d5f32200-edb8-55c8-87b4-259af60e9fd8
+126	literature	2022	Suha Rabbani	Contrastive Self-Supervised Learning for Stress Detection from ECG Data	Rabbani-bioengineering-09-00374-v2.pdf	d755c5a4-f446-5082-9c31-a98a1f91af79
+127	literature	2015	Sofia Adelaide Osimo	Conversations between self and self as Sigmund Freud—A virtual body ownership paradigm for self counselling	srep13899.pdf	6188963a-1b65-5068-8b4c-76535429c74b
+128	literature	2024	Anca Dragan	Cooperative Inverse Reinforcement Learning	Hadfield-Menell-1606.03137v4.pdf	40f0637e-2f50-5d68-a0da-9752d6023f79
+129	literature	2012	Kimberly E. Arnold	Course Signals at Purdue: Using Learning Analytics to Increase Student Success	Course_Signals_at_Purdue_Using_learning.pdf	02d1fe97-e62e-542c-bac3-40b0b44c3268
+130	literature	2017	Lily Min Zeng	Course outline template	_dadf187afa89208d9a2b982762429995_Course-outline-template.pdf	807a3989-c55e-5df4-a52b-b72982ce0401
+131	literature	2012	End User Computing Services	Course signals at Purdue: Using learning analytics to increase student success	Course_signals_at_Purdue_Using_learning_analytics_.pdf	2a628ddf-3a23-5176-8b8c-c759e758c276
+132	literature	2023	None	Creation of Educational Innovations through Cloud-based Constructivism and Connectivism Learning for Undergraduates	Creation_of_Educational_Innovations_thro.pdf	e62a9eb7-77f6-5f50-a016-04e7aef9bfc6
+133	literature	2023	Fiona French	Creative use of OpenAI in education: Case studies from game	Creative_Use_of_OpenAI_in_Education_Case.pdf	fcb7f167-cb41-563a-a659-2af29b0e394e
+134	literature	2024	Mohammed A. Al-Sharafi	Current and Future Trends on Intelligent Technology	A_Review_of_the_Metaverse_in_Higher_Educ.pdf	4401ffdc-57fd-524b-9f66-901391b65594
+135	literature	2025	Valiya Ramazanova	Curriculum–Vacancy–Course Recommendation Model Based on Knowledge Graphs, Sentence Transformers, and Graph Neural Networks	Ramazanova-technologies-13-00340.pdf	73cec609-0524-5cab-a894-0e0ce30d3e77
+136	literature	2022	Ben Poole	DREAMFUSION: TEXT-TO-3D USING 2D DIFFUSION	Poole-2209.14988v1.pdf	04756b7a-f176-5447-bb2d-1208b46d2976
+137	literature	2024	Maxim Topaz	Decoding disparities: evaluating automatic speech recognition system performance in transcribing Black and White patient verbal communication with nurses in home healthcare	Zolnoori-ooae130.pdf	3528f99a-0e67-5d40-aaa6-a51897372ceb
+138	literature	2024	Kaiqi Chen	Deep Generative Models for 3D Content Creation: A Comprehensive Survey of Architectures, Challenges, and Emerging Trends	Chen-preprints202410.2397.v1.pdf	0270d3d1-ef30-5eac-b6ed-73e87566c54a
+139	literature	2015	None	Deep Knowledge Tracing	Piech-Deep-Knowledge-Tracing.pdf	7b7df284-3b86-517c-9db3-01fea9808a50
+140	literature	2022	Yizhong Zhang	Deep Learning Distributed Architecture Design Implementation for Computer Vision	zhang-Wireless Communications and Mobile Computing - 2022 - Zhang - Deep Learning Distributed Architecture Design Implementation.pdf	62ea32c0-8164-5d76-9d02-2bf5c9159803
+141	literature	2015	Hado van Hasselt	Deep Reinforcement Learning with Double Q-learning	deep-reinforcment-learnign-van-hasselt.pdf	9320e4c5-3f1b-56a5-8619-4e0cac6bd8c8
+142	literature	2017	chen	DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs	chen-1606.00915v2.pdf	ed143ec7-d433-512d-9606-76fb1cc15749
+143	literature	2020	White Paper	Democratising AI	DEMOCRATISING_AI_final (2).pdf	9fb41e90-2f5f-5d26-a33a-340528cb25b3
+144	literature	None	None	Design evidence based learning experiences	KenHubbellRoundtableWhitePaper.pdf	8bc58ad2-4dad-53b2-8c0a-d0468984b221
+145	literature	2006	I. Van den Berg	Design principles and outcomes of peer assessment in higher education	SHE_2006.pdf	f023c7ba-95e5-5e24-b513-a9907285b1f6
+146	literature	2024	Xiuyu Lin	Design strategies for VR science and education games from an embodied cognition perspective: a literature-based meta-analysis	lin-2fpsyg-14-1292110.pdf	7a246e91-3464-5582-bfac-865e5d47d7a6
+147	literature	2021	Virtual Reality	Designing an Artificial Agent for Cognitive Apprenticeship Learning of Elevator Pitch in Virtual Reality	cognitive-vr.pdf	b89d0bb1-12d4-5e15-8898-7d471d0a3d19
+148	literature	2023	Christopher McCarty f	Developing a model for AI Across the curriculum: Transforming the higher education landscape via innovation in AI literacy	Developing a model for AI Across the curriculum _ Transforming the higher education landscape via innovation in AI literacy.pdf	c14170b6-c157-51d7-bacb-e320c37f5799
+149	literature	2023	Shahab Boumi	Development of a Multivariate Poisson Hidden Markov Model for Application in Educational Data Mining	Development of a Multivariate Poisson Hidden Markov Model for App.pdf	5321286d-20e8-5b84-b018-de7be5fe0854
+150	literature	2025	Author	Development of an Academic Services Chatbot Based on Retrieval-Augmented Generation (RAG)	[15].+Artikel_Mohammad+Labib+Husain.pdf	f335c924-1c1c-50da-b891-3dd0c737ecad
+151	literature	2017	Azalia Mirhoseini	Device Placement Optimization with Reinforcement Learning	Mirhoseini-1706.04972v2.pdf	f01618f7-ba1f-57c8-b63f-373101f5bb7b
+152	literature	2025	None	Digital Representation and AI-driven Virtual Experience for Historic Houses. The Case Study of Borgo Storico Seghetti Panichi.	clini-isprs-archives-XLVIII-M-9-2025-337-2025.pdf	fd304494-588d-5107-a0af-60b9e95c93f9
+153	literature	2022	Margaret Bearman	Discourses of artificial intelligence in higher education: a critical literature review	s10734-022-00937-2.pdf	4d96b454-885e-57ad-8ed6-a012160575ef
+154	literature	2016	None	Discussion on the Cultivation of College Studentsʹ Ability of Practice and Innovation	Discussion_on_the_Cultivation_of_College.pdf	a175edd0-b018-553e-a8de-d470d96ad63d
+155	literature	1977	Cynthia Dwork	Diﬀerential Privacy	dwork.pdf	a2411701-6faf-5ecc-9bd8-e8f4b357ed76
+156	literature	None	Cynthia Dwork	Diﬀerential Privacy	dwork-11787006_1.pdf	4dff0003-c6b3-51b1-aea0-87bae4b8e2c0
+157	literature	2016	Ziyu Wang	Dueling Network Architectures for Deep Reinforcement Learning	wang-Dueling DQN-Wang-2016.pdf	c6fc1de5-176b-5d25-9a2b-e0458b767418
+158	literature	2017	None	Dynamic Key-Value Memory Networks for Knowledge Tracing	Zhang-Dynamic-Networks for.pdf	c8821114-c39d-5550-94c2-cf6cce7f20c1
+159	literature	2015	Richard A. Newcombe	DynamicFusion: Reconstruction and Tracking of Non-rigid Scenes in Real-Time	newcombe2015dra.pdf	63297d82-4ee6-5078-9473-082eb415ea57
+160	literature	2019	None	EDUCATION AND TRAINING Virtual reality and the transformation of medical education	Pottle-main.pdf	39a7311a-6f95-559d-9ea5-3029cc9c10f1
+161	literature	2023	Amir Abbas Yahyaeian	ENHANCING MECHANICAL ENGINEERING EDUCATION THROUGH A VIRTUAL INSTRUCTOR IN AN AI-DRIVEN VIRTUAL REALITY FATIGUE TEST LAB	5-Mechanical - A VIRTUAL INSTRUCTOR IN AN AI-DRIVEN VIRTUAL REALITY.pdf	0dcb4d81-cc0f-5bd8-a6ea-a7b02bea4092
+162	literature	2020	Rachel Manirambona	None	EPRS_STU(2020)641530_EN.pdf	811d5e98-3608-5f7c-8a9f-68902ac7e38c
+163	literature	2023	Joseph Crawford	Editorial: Artificial Intelligence is Awesome, but Good Teaching Should Always Come First.	Crawford-Artificial+Intelligence+is+Awesome+but+Good+Teaching+Should+Always+Come+First. (1).pdf	194d60c7-d78a-5d10-83fc-4fcaab08530f
+164	literature	2023	R.V. Mahendra Gowda	Education 5.0: Evolution of Promising Digital Technologies – A Comprehensive Review	Education_5_0_Evolution_of_Promising_Dig.pdf	3e414ddc-9f66-5b63-af85-68b079c0783f
+165	literature	2023	Daniel H. Chang	Educational Design Principles of Using AI Chatbot That Supports Self-Regulated Learning in Education: Goal Setting, Feedback, and Personalization	Chang-sustainability-15-12921-v2.pdf	07e15b0f-c6a9-547e-9636-16771f4c1ccf
+166	literature	2021	Sathiya kumar Renganayagalu	Effectiveness of VR Head Mounted Displays in Professional Training: A Systematic Review	Renganayagalu-s10758-020-09489-9.pdf	6ff2df17-269a-5dc9-bd0b-3ba40aec7aec
+167	literature	2021	jmir	Effectiveness of Virtual Reality in Nursing Education: Meta-Analysis	chen-jmir-2020-9-e18290.pdf	2b11bc7e-a9d2-543b-aaab-8148cfbd890a
+168	literature	2020	Apoorv Saxena	Efficient, QoE aware delivery of 3600 videos on VR headsets over mobile links	Saxena-30220.pdf	502c188b-ff92-5da0-8349-cd15f4e8d3ed
+169	literature	2016	Caroline J. Falconer	Embodying self-compassion within virtual reality and its effects on patients with depression	embodying-self-compassion-within-virtual-reality-and-its-effects-on-patients-with-depression.pdf	d22bce8d-4b83-5bc3-b91f-aa111c2cf56a
+170	literature	2024	None	Enhanced personalized learning exercise question recommendation model based on knowledge tracing	Enhanced_personalized_learning_exercise.pdf	75ac8911-8b71-5864-92dc-919791efe8fa
+171	literature	2019	Kalliopi-Evangelia Stavroulia(*)	Enhancing Reflection and Empathy Skills via Using a Virtual Reality Based Learning Framework	pkpadmin,+18_Enhancing+Reflection+and+Empathy+Skills+via+Using+a+Virtual+Reality+Based+Learning+Framework.pdf	805a1965-aa16-58be-a314-78b5ebd95e12
+172	literature	2025	Inokentii Korniienko	Enhancing career adaptability through immersive virtual reality training	Scientific Bulletin of Mukachevo State University. Series “Pedagogy and Psychology”_11_1_2025-41-50.pdf	18ebffec-c23c-5ad7-a3f4-7dccccddd5b1
+173	literature	2024	Z. Qin	Enhancing endoscopic scene reconstruction with color-aware inverse rendering through neural SDF and radiance fields	quin-boe-15-6-3914.pdf	a9d632ce-2952-589d-ab57-174f301db2e3
+174	literature	2024	Dalin Zhang	Environmental-structure-perception-based adaptive pose fusion method for LiDAR-visual-inertial odometry	zhao-et-al-2024-environmental-structure-perception-based-adaptive-pose-fusion-method-for-lidar-visual-inertial-odometry.pdf	c3f5bb7b-7f4f-5d4c-8a58-753b4b89fb97
+175	literature	2023	Carmen García-Mateo	Ethical Challenges in the Development of Virtual Assistants Powered by Large Language Models †	Ethical_Challenges_in_the_Development_of.pdf	605dd049-2b25-59a7-9d37-f26a45b67481
+176	literature	2023	Balta	Ethical Considerations in Using AI in Educational Research	ethical-considerations-in-using-ai-in-educational-research-14205.pdf	44bdaa86-b3fc-51dc-b113-093d8c82e288
+177	literature	2023	Zacharoula Smyrnaiou	Ethical Use of Artificial Intelligence and New Technologies in Education 5.0	ethical-use-of-artificial-intelligence-and-new-technologies-in-education-50 (1).pdf	b3a475fe-ead0-5d64-a325-bcac063f94f0
+178	literature	2023	Zacharoula Smyrnaiou	Ethical Use of Artiﬁcial Intelligence and New Technologies in Education 5.0	Ethical_Use_of_Artificial_Intelligence_and_New_Tec (1).pdf	24a7b185-3a67-57eb-83f8-b4051016104d
+179	literature	2023	Zacharoula Smyrnaiou	Ethical Use of Artiﬁcial Intelligence and New Technologies in Education 5.0	Ethical_Use_of_Artificial_Intelligence_and_New_Tec.pdf	b49a14f5-ed63-556f-8591-7f28636f23eb
+180	literature	2022	European Commission	Ethical guidelines on the use of artificial intelligence (AI) and data in teaching and learning for Educators	eu-ethical guidelines on the use of artificial intelligence-NC0722649ENN.pdf	6e5fd99e-c476-5b6f-a880-bb81c45258ea
+181	literature	2023	Alexander Skulmowski	Ethical issues of educational virtual reality	Skulmowski-main.pdf	f76fcd1a-393f-51df-9c9e-422d6175a940
+182	literature	2023	Blanka Klimova	Ethical issues of the use of AI-driven mobile apps for education	fpubh-10-1118116.pdf	1f8e1f1c-acbd-5db4-9a67-e974b57d52f5
+183	literature	2024	CROSSFIELD Clare	European Parliament	TA-9-2024-0138_EN.pdf	3d6432b9-43cf-5444-96e5-ae1a027836b4
+184	literature	2022	None	Evaluating artificial intelligence literacy courses for fostering conceptual learning, literacy and empowerment in university students: Refocusing to conceptual building	Evaluating artificial intelligence literacy courses for fostering conceptual learning, literacy and empowerment in university students_ Refocusing to conceptual building.pdf	38e68ca2-b4e0-5c40-b532-8e19c0214d7a
+185	literature	2022	Xiangying Jiang	Evaluating the reading and listening outcomes of beginning‐level Duolingo courses	Foreign Language Annals - 2022 - Jiang - Evaluating the reading and listening outcomes of beginning‐level Duolingo courses.pdf	2aa4180b-2223-5c47-b266-33490b2b8bff
+186	literature	2023	Yujing Wang	Evaluation of Dynamic Thermal Comfort of Virtual Reality Headsets in Motion	Wang1-978-1-958651-61-2_7.pdf	669458a2-8fd0-5c79-b398-51c364a657dd
+187	literature	2018	Heather Richelle Weltman	Evaluation of an adaptive tutorial supporting the teaching of mathematics	Weltman-etal-EJEE2018.pdf	44f926d0-c46b-5ef9-9790-6c2c005b47b1
+188	literature	2021	Siu-Cheung Kong	Evaluation of an artificial intelligence literacy course for university students with diverse study backgrounds	1-s2.0-S2666920X21000205-main.pdf	e1b1e168-a96f-58b5-aecc-9a6945267e46
+189	literature	2022	Ming-Huang Lin	Examining performance of VR sketch modeling tool in personal sketches	Examining performance of VR sketch modeling tool in personal sket (1).pdf	6e27b7a6-2bdd-52df-adb8-6e2a4c939503
+190	literature	2009	Robin Holding Kay	Examining the benefits and challenges of using audience response systems: A review of the literature	Examining_the_Benefits_and_Challenges_of_Using_Aud.pdf	abb1a2d2-016b-5d91-a53a-beffee7ef1fc
+191	literature	2017	Lily Min Zeng	Experiential Learning	Information-Sheet---experiential-learning.pdf	6aae7965-3639-5a28-902d-a213faa56dc7
+192	literature	2005	David Kolb	Experiential Learning: Experience As The Source Of Learning And Development	Experiential_Learning_Experience_As_The_Source_Of_.pdf	ab4f395b-570e-5e09-833c-7b6331719c68
+193	literature	2019	Siham Tabikg	Explainable Artiﬁcial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI	Arrietaa-1910.10045v2.pdf	c6469466-e1bb-53ef-8d31-726f43d21b32
+194	literature	2024	user	Exploration of Artificial Intelligence (AI) Application in Higher Education: A Research Study in Kolaka, Southeast Sulawesi	3396-Article Text-14836-1-10-20240121.pdf	0a845974-6e89-5649-bbe7-0fc6723bc127
+195	literature	2023	Hassan Danial	Exploring Students’ Perception of Using ChatGPT in Higher Education	exploring-students-perception-of-using-chatgpt-in-higher-education.pdf	543f898c-b5b4-5aa6-94f6-7e102f504aa9
+196	literature	2011	Konrad J. Schönborn	Exploring relationships between students’ interaction and learning with a haptic virtual biomolecular model	Schonborn-FULLTEXT01.pdf	25c1cfe1-3bb0-52ca-ba7e-70a73672950e
+197	literature	2025	Computer Animation	Exploring the Impact of Multimodal Long Conversations in VR on Attitudes Toward Behavior Change, Memory Retention, and Cognitive Load	VankitComputer Animation   Virtual - 2025 - Vankit - Exploring the Impact of Multimodal Long Conversations in VR on Attitudes.pdf	9cce682e-8ee1-59ad-af74-1d717d676bc7
+198	literature	2023	Ting Wang	Exploring the Potential Impact of Artificial Intelligence (AI) on International Students in Higher Education: Generative AI, Chatbots, Analytics, and International Student Success	applsci-13-06716-v2.pdf	cf9e3024-3bbf-50aa-be33-2bcd78bf26e6
+199	literature	2024	Muriel T. Zaatar	Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai	IJIET-V14N5-2092.pdf	75b5d75b-1b7b-5620-94a3-194b2a2b08e3
+200	literature	2023	Kinsgley Bekom Abang	Exploring the potential of artificial intelligence tools in educational measurement and assessment	Exploring_the_potential_of_artificial_in.pdf	4c96da88-ace1-5fef-83b8-d89baf7cc95b
+201	literature	2023	Owan et al.	Exploring the potential of artificial intelligence tools in educational measurement and assessment	exploring-the-potential-of-artificial-intelligence-tools-in-educational-measurement-and-assessment-13428 (1).pdf	fa2cdd9a-2879-5146-8f93-4dcfe162b6bc
+202	literature	2022	Nguyen	Federated Learning for Smart Healthcare: A Survey	Nguyen-3501296.pdf	d58bbb43-2c29-59be-bbfb-ac8b9cb5cafa
+203	literature	2024	banse	Federated Learning with Differential Privacy	banse-2402.02230v1.pdf	9d6a8e9c-3824-53f7-a40f-3d15cf0a5481
+204	literature	2020	MOHAMMED ALEDHARI	Federated Learning: A Survey on Enabling Technologies, Protocols, and Applications	Aledhari-Federated_Learning_A_Survey_on_Enabling_Technologies_Protocols_and_Applications.pdf	e1351853-bd99-5b83-a010-38c51687af77
+205	literature	2021	None	Feedback That Leads to Improvement in Student Essays: Testing the Hypothesis that “Where to Next” Feedback is Most Powerful	feduc-06-645758.pdf	040be51c-277c-5092-a341-a485582c7378
+206	literature	2010	John Kerr	Flow: The Psychology of Optimal Experience	Flow_The_Psychology_of_Optimal_Experience.pdf	bf1d7f6b-ea11-5c0c-bcaa-cff5cfc864e8
+207	literature	2022	Brendan David-John	For Your Eyes Only: Privacy-preserving eye-tracking datasets	David-John-etra22-davidjohn.pdf	47d43648-0413-5c73-81c3-8e0aa5b4b2f1
+208	literature	1906	David Nicol	Formative Assessment and Self-Regulated Learning: A Model and Seven Principles of Good Feedback Practice	Formative_Assessment_and_Self-Regulated_Learning_A.pdf	dc8ed75a-3b09-5c36-bc25-64b1c073dd57
+209	literature	2005	mavi.sanchez	From presence to consciousness through virtual reality	Presence_Consciousness_Jan12_2004.pdf	f6a35107-c013-5c33-a1c6-534ca7a21f66
+210	literature	2024	Mingzhi Dai	Frontiers of Intelligent Education: Artificial Intelligence Reshaping the New Landscape of Chinese Higher Education	5-3683+JARE+2024.3.pdf	e42660eb-0789-5228-a25d-79f88640ba41
+211	literature	2021	Paula Miranda	Full Papers.doc	202102L013.pdf	dcb631bb-3867-5b12-80ba-b261a2cd7ba0
+212	literature	2019	None	None	FundamentalVR_ValidationFeb2019_BOTA.pdf	3e27dd6c-7ec7-5963-a985-2b33897a846a
+213	literature	2024	None	GNN-LS: A Learning Style Prediction in Online Environments using Graph Neural Networks	GNN_LS_A_Learning_Style_Prediction_in_On.pdf	6abfb36f-7734-5bce-85e5-3148540469b7
+214	literature	2024	Azin Yazdi	Gamification in Online Education: A Visual Bibliometric Network Analysis	information-15-00081-v2.pdf	e1c887ad-52f7-5634-aade-474236a9a112
+215	literature	2024	Sylvester Arnab and Panagiotis	Gamiﬁcation in Online Education: A Visual Bibliometric Network Analysis	Gamification_in_Online_Education_A_Visua.pdf	175f91ed-d0d1-5c35-a31e-ca9694db9d5a
+216	literature	2025	Alexander Valverde	GauSSmart: Enhanced 3D Reconstruction through 2D Foundation Models and Geometric Filtering	valverde-2510.14270v1.pdf	ecbeb87a-c8ac-5699-a67e-9c0f3ca4147b
+217	literature	2025	Yulin Shen	GaussianShopVR: Facilitating Immersive 3D Authoring Using Gaussian Splatting in VR	shen-hao-UIST_2025_GaussianShopVR.pdf	6c93c1fe-005f-5e12-983b-3a2e84f49218
+218	literature	2024	Christopher Honig	GenAI Teachers: Constructivist Learning Design and Value Propositions	ncowie,+1487-ASCILITE+Conference+Full+287-297.pdf	e950936c-db77-5012-9eae-9547d5392474
+219	literature	2024	Ruding Lou	General framework of geometric simplification for mitigating cybersickness	General_Framework_of_Geometric_Simplific.pdf	be8f5b8a-474a-57e0-ab70-4927d9fe313b
+220	literature	2024	Cecilia Ka Yuk Chan	Generative AI in Higher Education; The ChatGPT Effect	Generative-ai-higher-education-book.pdf	03978b38-e55f-54c6-9845-bd7cf847e959
+221	literature	2014	Sherjil Ozair	Generative Adversarial Nets	Goodfellow-2014.pdf	f92691a3-8ec7-502d-87fa-2cd1244f54cd
+222	literature	2025	Dave Paulson	Generative Adversarial Networks (GANs) for Medical Image Synthesis and Data Augmentation	Paulson-Victor-2025-preprints202506.1310.v1.pdf	f4623882-efc0-5655-afea-0103d84a743c
+223	literature	2024	None	Generative Artificial Intelligence in Higher Education: Exploring Ways of Harnessing Pedagogical Practices with the Assistance of ChatGPT	06-IJCE42022489_online.pdf	ea2be3e9-aaac-540a-bff2-593f0b4fafb6
+224	literature	2009	None	None	Gentry-thesis.pdf	5c02f866-7f24-5c19-b615-09c994dc319e
+225	literature	2020	Anna Laakkonen	None	Ginkel_Ruiz_Mononen_Karaman_de_Keijzer_Sitthiworachart.pdf	4cf8aadd-783b-5340-8893-a12fc52add84
+226	literature	2024	Yue Yang	HOLODECK: Language Guided Generation of 3D Embodied AI Environments	yang-2312.09067v2.pdf	943d1f5d-c40c-597f-9811-066b1b89fa98
+227	literature	2018	Bosede Iyiade Edwards	Haptic Virtual Reality and Immersive Learning for Enhanced Organic Chemistry Instruction	Edwards.pdf	ded97214-8886-562e-871d-519bf3528de5
+228	literature	2018	reviewer	Haptic Virtual Reality and Immersive Learning for Enhanced Organic Chemistry Instruction	Edwards1.pdf	36c9adbd-5e26-5367-bf68-61f46e12c6f4
+229	literature	2024	María Lucía Gutiérrez Gómez	Haptic experience to significantly motivate anatomy learning in medical students	Haptic_experience_to_significantly_motivate_anatom.pdf	a72bfccd-faa1-5ff6-939d-7becb3972c12
+230	literature	2019	Hu Linmei	Heterogeneous Graph Attention Networks for Semi-supervised Short Text Classification	Hu1-D19-1488.pdf	0990bbc2-d7b8-50d1-8ec2-606650b05c4a
+231	literature	2021	Chenghao Jia	Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data	JIA-2021.naacl-main.164.pdf	ed5dbcf0-cbe9-5f31-8590-aee2dcd333c6
+232	literature	2020	None	Heterogeneous Graph Transformer	hu-3366423.3380027.pdf	21200218-cc00-52c8-9a5a-34410b6e4340
+233	literature	2023	Fabio De Felice	How Does the Metaverse Shape Education? A Systematic Literature Review	applsci-13-05682 (1).pdf	9f4ff296-6d26-57e2-9969-0626b7587762
+234	literature	2023	Hsin-Hung Lin	How to Prepare High-Level Massive Online Open Courses for the Metaverse: Tools and Needs †	How_to_Prepare_High_Level_Massive_Online.pdf	8b5da671-1a8b-5bda-b350-a4ca556d004a
+235	literature	2014	Mel Slater	How to build an embodiment lab: achieving body representation illusions in virtual reality	frobt-01-00009.pdf	ec56a11f-1464-5fbe-884d-df2f0c1932ee
+236	literature	2017	Lawrence W. Fritz	INDOOR POSITIONING BY VISUAL-INERTIAL ODOMETRY	Ramezani-isprs-annals-IV-2-W4-371-2017.pdf	450f5355-94f4-5706-86bf-aec4607253c3
+237	literature	2022	Insook Han	Immersive virtual reality for increasing presence and empathy	2022_HanShinKoShin_Immersivevirtualrealityforincreasingpresenceandempathy.pdf	b11ad40d-7417-5559-b0ce-430d5648acd7
+238	literature	2024	Angelos Chalkiadakis	Impact of Artificial Intelligence and Virtual Reality on Educational Inclusion: A Systematic Review of Technologies Supporting Students with Disabilities	education-14-01223.pdf	b1030462-226f-50cd-ba07-b833da70ff62
+239	literature	2020	IAENG	Impact of Artificial Intelligence in Special Need Education to Promote Inclusive Pedagogy	1418-ET004.pdf	294288ac-b905-5bf2-808b-7ae74287d109
+240	literature	2024	Japheth Kodua Wiredu a	Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the Upper East Region	Wiredu1782024AJRCOS119977.pdf	5c0fb81a-a4ea-5945-a428-73b48cb6220e
+241	literature	2023	Stefania-Larisa Predescu (Burciu)	Impact of VR Application in an Academic Context	Impact_of_VR_Application_in_an_Academic.pdf	7b14e13c-4a4f-50b7-9084-ec3acfbc9bd9
+242	literature	2023	hasegawa-lab	Implementation of Automated Feedback System for Japa- nese Essays in Intermediate Education	57_Huy_Phan.pdf	8e2fdaf8-ce1c-5d62-b55d-9fd8a32106bd
+243	literature	2020	Chiao Ling Huang	Influence of Students’ Learning Style, Sense of Presence, and Cognitive Load on Learning Outcomes in an Immersive Virtual Reality Learning Environment	Mod-2.1-Huang-Influence-of-students-learning-style-sense-of-presence-and-cognitive-load-on-learning-outcomes.pdf	d74e5cf6-0bb9-5b4c-b125-c2cbe4581378
+244	literature	2024	None	Information Technology Students' Perceptions Toward Using Virtual Reality Technology for Educational Purposes	Information_Technology_Students_Percepti.pdf	909de705-027f-58f8-92c1-911ff9f1429b
+245	literature	2025	Mario Lorenz	Insights from the global education survey on the use of VR-haptics in dental education	Bencharit-fdmed-6-1576646.pdf	d778fa80-f2f5-5ed1-963e-51b7b027c8dd
+246	literature	2022	Gigapixel image	Instant Neural Graphics Primitives with a Multiresolution Hash Encoding	muller-2201.05989v2.pdf	111ff846-d5bf-5425-b1ab-e0fb338d41a5
+247	literature	2024	Talia Tene	Integrating immersive technologies with STEM education: a systematic review	feduc-09-1410163.pdf	1fc04180-ba8e-5878-80de-df937206e004
+248	literature	2024	Haojie Lian	Integration of 3D Gaussian Splatting and Neural Radiance Fields in Virtual Reality Fire Fighting	lian-remotesensing-16-02448-v2 (2).pdf	cea77fc7-c78d-59e8-859b-d8fcba4ba8b1
+249	literature	2014	Tine Nielsen	Intellectual style theories: different types of categorizations and their relevance for practitioners	2193-1801-3-737.pdf	0c5e4462-dc97-5e26-85df-1e21782094d8
+250	literature	2022	None	Intelligence Augmentation for Educators, Training Pro- fessionals, and Learners	Intelligence_Augmentation_for_Educators.pdf	42f7b46e-3c39-51fa-b26a-7c6f87f92ff6
+251	literature	2025	Mark Beliaev	Inverse Reinforcement Learning by Estimating Expertise of Demonstrators	Beliaev-33705-Article Text-37773-1-2-20250410.pdf	6fab04aa-52d2-5169-8e2a-fb40233c5fc3
+252	literature	2023	Tieyuan Liu	Iterative heterogeneous graph learning for knowledge graph-based recommendation	Liu-Tieyuan-s41598-023-33984-5.pdf	5799f9df-3865-5548-97c8-616fff56551a
+253	literature	2019	Shuyue Guan	JMI-18219SSR 11..11 ++	guan-2019-JMI-006-031411.pdf	000203c3-443b-55d9-a767-0085eaf194e3
+254	literature	2024	Personal	Journal International of Lingua and Technology, 3(2) – August 2024 345-361	Using_the_Duolingo_Application_as_a_Vocabulary_Lea.pdf	3d55af2e-af9a-5f82-9848-198d912b9bd5
+255	literature	2013	None	Keyframe-Based Visual-Inertial SLAM Using Nonlinear Optimization	Leutenegger-p37.pdf	7fc1631b-8722-591d-8664-deb7c61ac285
+256	literature	2024	Lindner et al	Knowledge Gain and the Impact of Stress in a fully immersive Virtual Reality-based Medical Emergencies Training with Automated Feedback: A Randomized Controlled Trial.	preprint-67412-accepted.pdf	f1c0f903-5e2d-5110-863d-84eb1ca6831a
+257	literature	2014	Chris Russell	LNCS 8695 - Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes	Russell-agapito-978-3-319-10584-0_38.pdf	cda10612-cec5-5695-8582-af89250d5e59
+258	literature	2015	Olaf Ronneberger	LNCS 9351 - U-Net: Convolutional Networks for Biomedical Image Segmentation	Ronneberger-978-3-319-24574-4_28.pdf	0da6bb56-fac0-58d3-8ee0-544f1452a42c
+259	literature	2025	shin	LOCALITY-AWARE GAUSSIAN COMPRESSION FOR FAST AND HIGH-QUALITY RENDERING	shin-2025-2501.05757v3.pdf	89a09106-76a6-50ff-a816-f8120141aea4
+260	literature	2024	Yanmin Wu	Language-Assisted 3D Scene Understanding	Wu.pdf	ee40d792-5119-59e0-b590-216b9ac8d89f
+261	literature	2020	Jan-Philipp Stauffert	Latency and Cybersickness: Impact, Causes, and Measures. A Review	Stauffert-frvir-01-582204.pdf	ed5d2915-c23c-56fc-a6b5-954e9baf7bc1
+262	literature	2021	Rosa Lisa Iannone	Learning Analytics for Primary and Secondary Schools	kovanovic-7543-Article Text-35849-2-10-20210903.pdf	20e5850f-a9db-52fd-9bf0-a70bdfb21949
+263	literature	2022	Jonathan P. San Diego	Learning Clinical Skills Using Haptic vs. Phantom Head Dental Chair Simulators in Removal of Artificial Caries: Cluster-Randomized Trials with Two Cohorts’ Cavity Preparation	diego-dentistry-10-00198.pdf	4327d212-13d0-55d0-bf70-be24ae8782dd
+264	literature	2016	None	Learning Styles and Learning Spaces: Enhancing Experiential Learning in Higher Education	Learning-Styles-and-Learning-Spaces....-Enhancing-Experiential-Learning-in-Higher-Education.pdf	95b1ee7a-5185-532b-90fb-187be0c9cf1c
+265	literature	2004	Simon Cassidy	Learning Styles: An overview of theories, models, and measures	LS_OverView.pdf	7fa1a868-6644-56e2-9f42-064159ee5ccc
+266	literature	2017	Learning Outcomes	Lesson Plan	_cbebd8b56e2c84f3ba31404a84542b37_Lesson-plan-template.pdf	fce4a72f-e174-5991-b01b-b3f3c8a8e816
+267	literature	2019	Markel Sanz Ausin	Leveraging Deep Reinforcement Learning for Pedagogical Policy Induction in an Intelligent Tutoring System	Sanz-Leveraging-Deep-Reinforcement-Learning-Pedagogical.pdf	bc0672c3-3327-507e-b0d9-a81512b17666
+268	literature	2025	Lusheng Zhang	LoRA-INT8 Whisper: A Low-Cost Cantonese Speech Recognition Framework for Edge Devices	zhang-sensors-25-05404-v2.pdf	78f9ee29-c577-5de2-9247-70443b3c75ba
+269	literature	2025	None	MAPoRL2: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning	Du-2025.acl-long.1459.pdf	e9d66e40-7a73-5f50-b095-c300a6c46108
+270	literature	2022	Qian Hu	MBHAN: Motif-Based Heterogeneous GraphAttention Network	hu-2022-applsci-12-05931-v2.pdf	489d2f74-8f0b-5b13-b645-084fde7cbbac
+271	literature	2023	IOR PRESS	MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review	The Emerging Role of Artificial Intelligence.pdf	2732c646-40a1-5442-953e-d75141481bb0
+272	literature	2024	Wim Leemans	Magic NeRF lens: interactive fusion of neural radiance ﬁelds for virtual facility inspection	Li(dia)frvir-05-1377245.pdf	66362206-3476-5773-89b5-af1d643f6772
+273	literature	2023	Chen-Hsuan Lin	Magic3D: High-Resolution Text-to-3D Content Creation	Lin_Magic3D_High-Resolution_Text-to-3D_Content_Creation_CVPR_2023_paper.pdf	917f1231-a486-5976-a54b-12c7c9ec9805
+274	literature	2023	Xun Huang	Magic3D: High-Resolution Text-to-3D Content Creation	Lin-2211.10440v2.pdf	95b32100-f845-5b77-8fab-9b73dccd2c4b
+275	literature	2014	Manos Tsakiris	None	Maister_et_al_TICS_authors_version_Figures.pdf	3ee4f6ce-adc5-591b-af12-f922bdcb2d6a
+276	literature	2018	Kaiming He	Mask R-CNN	he-1703.06870v3.pdf	7ef46eca-0218-592e-abee-3c612031c782
+277	literature	2016	Ram Gopal Raj	Microsoft Word - 01 Thermal Prediction Models for Virtualized Data center Servers by using Thermal-profiles.docx	Chaudhry-4550.pdf	6d8173dd-e3b9-5d63-b5b9-ea858523d170
+278	literature	2023	MYPC	Microsoft Word - jrspelt738003	jrspelt738003.pdf	89e66de3-cd0b-5d90-b30c-128e9d8bbd0c
+279	literature	2019	Danial Hooshyar	Mining Educational Data to Predict Students’ Performance through Procrastination Behavior	Hooshyar-entropy-22-00012.pdf	2665dde8-934a-5a38-8efb-faa1f9059c3e
+280	literature	2022	Jonathan T. Barron	Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields	baron2022.pdf	d4390349-04a3-5bcc-bc98-9541b5ff73bf
+281	literature	2021	Jonathan T. Barron	Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields	baron2021.pdf	7361df4c-f8fb-5137-a20e-75a15ced10ca
+282	literature	2017	None	Modeling Relational Data with Graph Convolutional Networks	Schlichtkrull.pdf	655d39ad-178f-5ff3-8447-ba320c93f1dc
+283	literature	2019	Lei Xu	Modeling Tabular data using Conditional GAN	Xu-NeurIPS-2019-modeling-tabular-data-using-conditional-gan-Paper.pdf	2ebaad31-de67-56d2-8cc0-17233dde5c13
+284	literature	2022	Soni Sweta	None	Modern_Approach_to_Educational_Data_Mini.pdf	1bbb12a1-aafe-5b4e-b9d8-e17efbecf5b8
+285	literature	2002	Motion Tracking Survey	Motion Tracking: No Silver Bullet, but a Respectable Arsenal	Welch-Motion_Tracking_No_Silver_Bullet_but_a_Respectable.pdf	cbe0899c-1591-5a9a-8dbc-d9b3f3ce2954
+286	literature	2020	Lowe	Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments	Lowe-1706.02275v4.pdf	585abfee-4ef1-54ba-ace9-da36a229f714
+287	literature	2022	CMC	Multi-Agent Deep Reinforcement Learning-Based Resource Allocation in HPC/AI Converged Cluster	narantuya-TSP_CMC_23318.pdf	d2c820b7-7368-5aa9-a52f-272837705033
+288	literature	2026	None	Multi-Agent Deep Reinforcement Learning-Based Resource Allocation in HPC/AI Converged Cluster	Narantuya1.pdf	c3efbd71-f723-5bfc-be28-a962509f46e3
+289	literature	2024	Yun-Wei Chu	Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics	chu-2212.02985v2 (1).pdf	fc67d2b2-654b-5826-a53e-97f2794828e5
+290	literature	2019	Yao-Hung Hubert Tsai	Multimodal Transformer for Unaligned Multimodal Language Sequences	Tsai-2019.pdf	20a4c2b8-b49f-5dcf-9f25-2afbb94cfc61
+291	literature	None	PRIVACY POLICY	None	Nanome-Privacy.pdf	c69ef95d-6f1d-59c7-93de-8b0b39677276
+292	literature	2025	Muhammad Kaif Laghari	Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom	thermal-2509.18929v1.pdf	e00637ea-a40f-5c7e-bb69-b49b7d19e1ca
+293	literature	2024	EVANGELIA DASKALAKI	Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia	2408.15686v1.pdf	b7fd8835-b6bc-593b-aa08-089b8a8ebfd5
+294	literature	2020	Jonathan T. Barron	NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis	Mildenhall-2003.08934v2.pdf	bc6dcfbe-4643-55b3-adf9-d922b45439db
+295	literature	2025	Lihui Liu	Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective	Liu-3748239.3748249.pdf	98eab917-c15e-570b-8506-1da8fd7f909e
+296	literature	2025	Awolesi Abolanle Ogunboyo	Neuro-Symbolic Generative AI for Explainable Reasoning	Ogunboyo.pdf	551f93ff-89ca-510e-9c68-e39561c5201a
+297	literature	2025	Siva Prasad Sunkara	Neuro-symbolic AI for enterprise systems: Transforming CRM & ERP through logical and statistical AI integration	sunkara-WJAETS-2025-0491.pdf	6e43c33e-2705-574b-b674-fdfb34902333
+298	literature	2025	Shraddhaben R. Gajjar	Neuro-symbolic ai for cloud intrusion detection: A hybrid intelligence approach	gazzar-GSCARR-2025-0049.pdf	58ab3f88-ce8c-5a76-b14a-48abdc59c085
+299	literature	2025	Alberto Marchisio	Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions	2507.18139v1.pdf	5ac34e67-b3ba-5ab0-8051-74985bed64bf
+300	literature	2023	None	Novel Mechanism of Action Drug Candidates for Tuberculosis	1777-Article Text-3547-1-10-20230831.pdf	e422efaf-e070-52b6-b321-fa0bed43d374
+301	literature	2020	Philip Hardie	Nursing & Midwifery students’ experience of immersive virtual reality storytelling: an evaluative study	Nursing_Midwifery_students_experience_of_immersiv.pdf	e56886ab-4152-5741-8779-e86b4aaf2e88
+302	literature	2024	Graham Sellers	OpenGL® SuperBible: Comprehensive Tutorial and Reference, Sixth Edition	sellers.pdf	5c836ad2-a3fa-59aa-911b-bcdd49097f68
+303	literature	2019	Tomas Simon	OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Afﬁnity Fields	cao-1812.08008v2.pdf	6bd54652-475c-5ac8-b6fe-1fb5e51d7d60
+304	literature	2024	JIAOLAN PAN	Original Paper AI-driven English Language Learning Program and Academic Writing Integrity in the Era of Intelligent Interface	41687-367761-1-PB.pdf	a589a559-bd5b-5069-9041-bdbe3a3bfc17
+305	literature	2019	None	PATE-GAN: GENERATING SYNTHETIC DATA WITH DIFFERENTIAL PRIVACY GUARANTEES	jordon-498_pate_gan_generating_synthetic_.pdf	2ca3225a-3162-5c53-b050-d45f85e88edf
+306	literature	2012	RROGERS	PREDICTIVE MODELING TO FORECAST STUDENT OUTCOMES AND DRIVE EFFECTIVE INTERVENTIONS IN ONLINE COMMUNITY COLLEGE COURSES	smithEJ982673.pdf	b1cba1e1-ae43-55ba-a122-0d5f22239c7d
+307	literature	2024	ashock	Paper Title (use style: paper title)	Manukonda-1820-Article Text-4650-5556-10-20240420.pdf	538b6620-868f-59cf-8d31-0a18828740bd
+308	literature	2024	Shahin Vassigh	Performance-Driven VR Learning for Robotics	Performance_Driven_VR_Learning_for_Robot.pdf	9edce86d-b911-5f16-94ce-2606ea5a4cd7
+309	literature	2023	None	None	Personalised_Presentation_of_Mathematics.pdf	1cb299cb-a2e6-5812-8bf8-e5cca3e339b4
+310	literature	2009	None	Place illusion and plausibility can lead to realistic behaviour in immersive virtual environments	rstb20090138.pdf	3e7eb81f-a13e-51fd-910a-c7604f62162b
+311	literature	2025	None	Plagiarism detection in Programming coursework.	Plagiarism_detection_in_Programming_cour.pdf	a622ea36-bcdd-53b5-adc9-e9fc15bb32ca
+312	literature	2022	None	Policy-Gradient-Based Reinforcement Learning for Computing Resources Allocation in O-RAN	Sharara.pdf	496cdc08-237d-598e-a725-0a1c814319d3
+313	literature	2013	degro	Positioning and Presenting Design Science Research for Maximum Impact	GregorHevnerMISQ2013.pdf	e8df9121-58aa-53a5-9eb8-158f3f8fc806
+314	literature	2019	Christothea Herodotou	Predictive Learning Analytics “At Scale”: Towards Guidelines to Successful Implementation in Higher Education Based on the Case of the Open University UK	herodotou-EJ1212490.pdf	e14a3109-74c2-56cf-8193-cf73b7218a77
+315	literature	2021	Alban Petit	Preventing posterior collapse in variational autoencoders for text generation via decoder regularization	Pettit-corro.pdf	b3ddad60-ff89-53df-9912-5ab650201d62
+316	literature	2024	mededu	Proposing a Principle-Based Approach for Teaching AI Ethics in Medical Education	mededu-2024-1-e55368.pdf	02d6ac4b-7b44-5064-ac2e-c6dd7c1971b1
+317	literature	2022	Robert Stanyon	Providing Individual Student Feedback at Scale for Mathematical Disciplines	Providing_Individual_Student_Feedback_at.pdf	f4c41525-eb45-5778-9e77-a5d3af8995fe
+318	literature	2022	None	Providing Individual Student Feedback at Scale for Mathematical Disciplines	providing-individual-student-feedback-at-scale-for-2z1t7r17.pdf	66fa508a-6587-55b4-b176-6dd6f4235b46
+319	literature	2017	John Schulman	Proximal Policy Optimization Algorithms	Schulman-Proximal-Policy-Optimization-Algorithms.pdf	fbcbdeaa-c803-51e8-b250-29e9251d96cc
+320	literature	2024	None	Pseudo-walking Sensation by Anteroposterior or Lateral Galvanic Vestibular Stimulation and Synchronous Foot-sole Vibrations	Pseudo-walking_Sensation_by_Anteroposterior_or_Lateral_Galvanic_Vestibular_Stimulation_and_Synchronous_Foot-sole_Vibrations.pdf	cbc452ed-9da3-5a49-ac54-7105fd7e6a77
+321	literature	2009	QAA	QAA277 Transforming Assess.qxd	transforming-assessment-and-feedback.pdf	fb5eab3e-46dc-5a6c-816c-f8b021363033
+322	literature	2018	Tabish Rashid	QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning	Rashid,.pdf	61845985-61ce-5011-b36c-9396ff3447c6
+323	literature	2025	Weeyoung Kwon	R3eVision: A Survey on Robust Rendering, Restoration, and Enhancement for 3D Low-Level Vision	Kwon-2025.pdf	520aafa1-f48a-5f10-9421-a9315a5bcd4c
+324	literature	2025	Shiyi Ding	RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments	vr-rag-2504.08256v2.pdf	55ec114b-0535-5465-89f6-658a442deba2
+325	literature	2024	None	REPROGRAMMING LEARNING IN THE WAKE OF AN AI SURGE	REPROGRAMMING LEARNING.pdf	9936cead-151a-5f60-aeed-c72f7a1344d4
+326	literature	2018	None	RMPE: Regional Multi-Person Pose Estimation	fang.pdf	9a4a087c-f0da-5eb7-8267-5e5bc10dddb9
+327	literature	2022	None	Recognizing and monitoring infectious sources of schistosomiasis by developing deep learning models with high-resolution remote sensing images	xue-v1_covered.pdf	030a3832-c7c9-57f5-983a-ba9151f21762
+328	literature	2024	Maria Rangoussi	Recommender Systems for Teachers: A Systematic Literature Review of Recent (2011–2023) Research	Recommender_Systems_for_Teachers_A_Syste.pdf	1ab230da-54b0-57ec-9c8c-8cdd8f99328d
+329	literature	2020	Panos Achlioptas	ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identiﬁcation in Real-World Scenes	Achlioptas1-123460409.pdf	e300fb52-ca8f-5524-b668-ed274b21eccf
+330	literature	2017	Lily Min Zeng	Reflection – An exemplar	Reflection--exemplar.pdf	9b85f651-317a-5a06-b219-37819875939b
+331	literature	2017	Lily Min Zeng	None	Reflection-rubric.pdf	33621472-f70d-5f62-a475-94c4148d1169
+332	literature	2017	Lily Min Zeng	None	Reflection-worksheet.docx	c80c3d9e-a764-5533-af1c-9c55904c5f3a
+333	literature	2023	Mike Urmeneta	Reflections on the Artificial Intelligence Transformation: Responsible Use and the Role of Institutional Research and Institutional Effectiveness Professionals	APF-164-Reflections-on-the-AI-Tranformation.pdf	fad37635-6fb4-5d1f-94b4-dc1d055463ea
+334	literature	2022	Firstname Lastname	Reinforcement Learning Based Multipath QUIC Scheduler for Multimedia Streaming	lee-yoo-sensors-22-06333-v4.pdf	dad6124e-4039-558c-88c8-42357783db64
+335	literature	2023	Junting Nie	Research on Improving Education Quality and Efficiency through Artificial Intelligence and Big Data Analysis	article_1702441361.pdf	51b59f6e-b637-57c9-90d9-b7eaeacd049c
+336	literature	2024	Siyu Pan	Research on Teaching Strategies of Immersive Experiential Teaching for Collaborative Learning in Elementary and Middle Schools Based on AI and VR	article_1723113769 (1).pdf	ca458faf-b56e-519d-93b4-1ebce1e16040
+337	literature	2022	Chia-Chen Chen	Research on the Influence of AI and VR Technology for Students’ Concentration and Creativity	fpsyg-13-767689.pdf	ac9aaec3-25da-55b2-9fa3-b08b9e4c5d45
+338	literature	2015	Christian Szegedy	Rethinking the Inception Architecture for Computer Vision	Wojna_1512.00567.pdf	3420e5f7-3b86-5538-9db8-745a19195277
+339	literature	2021	Aleksandra Piktus	Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks	lewis-2005.11401v4.pdf	77fa46e4-2209-58da-8ccd-e91cbfddcb5f
+340	literature	2023	Tufan Adiguzel	Revolutionizing education with AI: Exploring the transformative potential of ChatGPT	Revolutionizing_education_with_AI_Explor.pdf	c8226632-b189-55fa-bfaf-1a08ac731236
+341	literature	2022	Anonymous Submission	Robust Speech Recognition via Large-Scale Weak Supervision	Radford-2212.04356v1.pdf	682f3429-3f7f-562e-9df1-01931801ea86
+342	literature	2022	Panagiotis Fotaris	Room2Educ8: A Framework for Creating Educational Escape Rooms Based on Design Thinking Principles	education-12-00768.pdf	c5ad7282-c251-5bf1-9118-e2c0b10b5da6
+343	literature	2025	Wenfeng Huang	SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical Endoscopic Reconstruction	huang-2025-2510.27318v1.pdf	1f446294-d85f-5667-8010-8555fc681a51
+344	literature	2017	Wojke	SIMPLE ONLINE AND REALTIME TRACKING WITH A DEEP ASSOCIATION METRIC Nicolai Wojke†, Alex Bewley⋄, Dietrich Paulus† University of Koblenz-Landau†, Queensland University of Technology⋄	Wojke-1703.07402v1.pdf	6a3cf5ce-121e-505f-bc80-c97b4a637431
+345	literature	2016	Wei Liu	SSD: Single Shot MultiBox Detector	liu-1512.02325v5.pdf	4b613e0c-0fed-5afd-af93-6a66385e02de
+346	literature	2024	Ocal	SceneTeller: Language-to-3D Scene Generation	Ocal-2407.20727v1.pdf	f119d7aa-2d1a-5a24-aad9-71de08742ffe
+347	literature	2020	Georgios A. Kaissis	Secure, privacy-preserving and federated machine learning in medical imaging	kaissis2020.pdf	14d2a06f-32f5-53f9-ac20-3615b4d28e0d
+348	literature	2008	Edward L. Deci	Self-Determination Theory: A Macrotheory of Human Motivation, Development, and Health	deci2008.pdf	b56c7283-b243-5806-bcda-c0e39c857300
+349	literature	2025	Xianghui Meng	Self-Evolving Generative AI Tutors: Reinforcement Learning-Augmented ITS for Personalized, Proactive, and Context-Aware Student Engagement	meng-Self-Evolving_Generative_AI_Tutors_Reinforcement_L.pdf	b56e1d01-31e0-5438-8dde-41883a20c498
+350	literature	2025	Xianghui Meng	Self-Evolving Generative AI Tutors: Reinforcement Learning-Augmented ITS for Personalized, Proactive, and Context-Aware Student Engagement	Yang_v1_covered_eec7bbe6-ac9e-427b-83a8-4f863ef5b6c8.pdf	ff307988-6a9e-5fde-9aa1-e2b5ee207e6f
+351	literature	2022	Konrad Heidler	Self-supervised audiovisual representation learning for remote sensing data	Heidler-1-s2.0-S1569843222003181-main.pdf	2de538e1-32b3-570e-9b2c-3fbae39650e9
+352	literature	2023	Zhaoxing Li	Sim-GAIL: A generative adversarial imitation learning approach of student modelling for intelligent tutoring systems	Sim-GAIL A generative adversarial imitation learning approach.pdf	f33590b9-9da7-5a84-817f-a06bcc5aeb92
+353	literature	1989	jsb	Situated Cognition and the Culture of Learning	Situated Cognition and the culture of learning.pdf	cf899ab4-a54f-5b77-a1ee-163072d94abe
+354	literature	2024	TU Munich	SoK: Data Privacy in Virtual Reality	darigo-popets-2024-Virtual_reality-1.pdf	6ab10f56-c35b-5457-b723-c53326c19f76
+355	literature	2020	Katri-Liis Lepik	Social Innovation in Higher	978-3-030-84044-0.pdf	75af2e00-d510-57dc-a94e-d0190526b914
+356	literature	2018	Tuomas Haarnoja	Soft Actor-Critic:  Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor	Haarnoja-1801.01290v2.pdf	54df1924-3cf9-5339-be86-155d07c17fd0
+357	literature	2023	Wayne Holmes	Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education	+6089-.pdf	0c57c674-0ea2-51dc-a1b5-57a0626febb5
+358	literature	2020	R. Mantiuk	State of the Art on Neural Rendering	tewari-2020.pdf	c2030404-d483-579a-b7cb-fa963d413570
+359	literature	2022	Education	State of the art and practice in AI in education	Euro J of Education - 2022 - Holmes - State of the art and practice in AI in education.pdf	dcc06388-7495-5c67-8735-6112dda12729
+360	literature	2023	None	Storyboard Template	storyboard-for-vr.pdf	dc2c7851-87bf-518e-9960-f93398c63ab3
+361	literature	2016	Margaret Bearman	Support for assessment practice: developing the Assessment Design Decisions Framework	Support for assessment practice_ developing the Assessment Design.pdf	dd86de18-7b95-5dd1-bd00-34f81489369a
+362	literature	2024	Jiajun Pan	Synthesis on AI in Education: How can AI support teachers at their job?	Synthesis_on_AI_in_Education_How_can_AI.pdf	a37c81b1-e071-5a0c-b508-8258dbf6f2e7
+363	literature	2023	Jun-Feng Yao	Systematic review of digital twin technology and applications	yao-s42492-023-00137-4.pdf	8669cc13-713d-5e66-b04b-11cb1ab494ef
+364	literature	2019	Olaf Zawacki-Richter	Systematic review of research on artificial intelligence applications in higher education – where are the educators?	Zawacki-Richter-s41239-019-0171-0 (2).pdf	b7da4828-ac95-5c89-84f6-579d9f71d8f6
+365	literature	None	Yuehang Si	T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning	2507.01597v1.pdf	ae8fa682-e894-5838-bae1-463f130555fc
+366	literature	2014	UCM User	None	TBLishereanditWorks.docx	07bb5fea-bd3e-5775-9e75-dc523bc67933
+367	literature	2022	Yuliia Rudnik	TEACHER STUDENTS TRAINING TO IMPLEMENT AR AND VR TECHNOLOGIES IN FOREIGN LANGUAGE TEACHING	84-93.pdf	da149821-7dd4-5b09-a459-72ada5117cda
+368	literature	2023	Guido Makransky	None	TICOL_Makransky_Petersen_preprint.pdf	2a1c6429-d195-5d4d-9d7d-0f76573f1529
+369	literature	2013	Erfan	Taxonomies of Educational Objective Domain	Taxonomies_of_Educational_Objective_Domain.pdf	10b8db9c-4152-5d29-8d05-5ca15de7fd71
+370	literature	2010	Lon Addams	Teach Positive Networking for Life-long Impact	EJ1072608.pdf	426ca540-7182-5df5-b82d-2687704885b4
+371	literature	2012	None	Teaching for Quality Learning at University	-John_Biggs_and_Catherine_Tang-_Teaching_for_Quali-BookFiorg-.pdf	9da80a75-90ce-5409-9414-eab4b1acbbb0
+372	literature	2024	Wenqing Wang	Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation	Wan-Yun.2412.05560v1.pdf	6b59d753-067b-5607-b97b-c7f381f77b4f
+373	literature	2023	Cecilia Ka Yuk Chan	The AI Revolution in Education: Will AI Replace or Assist Teachers in Higher Education?	The_AI_Revolution_in_Education_Will_AI_R.pdf	b424bd8b-4dac-5827-8172-82e5e3c5914f
+374	literature	2023	Margaret Joshua	The AIR Professional File.pdf	ED656076.pdf	a7689f96-a9c0-5218-a260-561c66b76a8c
+375	literature	2021	Guido Makransky	The Cognitive Affective Model of Immersive Learning (CAMIL): a Theoretical Research-Based Model of Learning in Immersive Virtual Reality	Makransky-s10648-020-09586-2.pdf	cb841a11-d283-5ef3-a090-3d8806d77ad8
+376	literature	2000	jmir	The Effects of Immersive Virtual Reality Applications on Enhancing the Learning Outcomes of Undergraduate Health Care Students: Systematic Review With Meta-synthesis	jmir-2023-1-e39989.pdf	2b4c5e56-3345-5c77-be68-bf40af92eaf5
+377	literature	2021	Florin-Valeriu Pantelimon	The Evolution of AI-Driven Educational Systems during the COVID-19 Pandemic	sustainability-13-13501-v2.pdf	d3475201-e026-5b49-b5cc-0821a8f84c1a
+378	literature	2020	Foteini Grivokostopoulou	The Eﬀectiveness of Embodied Pedagogical Agents and Their Impact on Students Learning in Virtual Worlds	7-The Effectiveness of Embodied Pedagogical Agents.pdf	0c641dc4-606d-5e05-b2be-a94ee325b94b
+379	literature	2025	Leyli Nouraei Yeganeh	The Future of Education: A Multi-Layered Metaverse Classroom Model for Immersive and Inclusive Learning	futureinternet-17-00063.pdf	69242759-093c-5b4f-bf86-96c6db3c2110
+380	literature	2023	Karen Bernhardt-Walther	The Impact of ALEKS on Student Learning in First-Year University Mathematics for Economics	ALEKS_McKeown (1).pdf	bd742747-a531-56d6-9a49-a619bb6a5f61
+381	literature	2023	Windows User	The Impact of Artificial Intelligence On Higher Learning Institutions	1028-Article Text-5719-1-10-20230406.pdf	12bb5cd5-f321-510d-b53b-45e0bbadfbda
+382	literature	2023	Hengameh Karimi	The Impact of Artificial Intelligence on Higher Education in England	ce_2023121415391547.pdf	1f62710e-3bb9-5091-a23e-3edb61886d12
+383	literature	None	ssrn	The Impact of Virtual Reality on Student Engagement in Higher Education	ssrn-5016008.pdf	a1bfb598-4a4c-5bda-bc05-33eecaf3d761
+384	literature	2022	Shayan Doroudi	The Intertwined Histories of Artificial Intelligence and Education	s40593-022-00313-2 (1).pdf	245f7e9e-0825-553e-8cea-d78ad8dbadd7
+385	literature	2023	Mehmet	The Relationship between Teaching-Learning Conceptions and Sense of Self- Efficacy of Pre-Service EFL Teachers İngilizce Öğretmen Adaylarının Öğretme-Öğrenme Anlayışları ile Öz-Yeterlik Duyguları Arasındaki İlişki	10.21733-ibad.1215907-2818323.pdf	32a1908c-78d9-5155-b391-ab0701f8b570
+386	literature	2024	None	The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges	2406.18900v1.pdf	d18deaf8-fa6f-59a7-88a9-8663320fc3cc
+387	literature	2016	Neha Patki	The Synthetic data vault	Patki-SDV.pdf	27a52924-d030-5f34-8a44-92ed3225a82f
+388	literature	2023	None	The Transformative Impact of Artificial Intelligence on Educational Financial Management	article_1700813556.pdf	9bc5fcea-517d-5c59-b99c-ad88e98bddcd
+389	literature	2020	MUHAMMAD ASIF HASAN	The Transition From Intelligent to Affective Tutoring System: A Review and Open Issues	The_Transition_From_Intelligent_to_Affec.pdf	d7306d64-3899-5567-bf52-4370aaf7f6bb
+390	literature	2026	General rights	The University of Manchester Research	Bujanca_FullFusbujanca-ion_A_Framework_for_Semantic_Reconstruction_of_Dynamic_Scenes_ICCVW_2019_paper.pdf	bf671258-4afb-533f-b74d-bba91184abf3
+391	literature	2024	Adiii	The application of virtual reality and augmented reality in dentistry – a literature review	Kanwal,-18.pdf	41c577e3-567c-5353-a2fb-5b444cb0cdbb
+392	literature	2016	PDF Download	The asynchronous time warp for virtual reality on consumer hardware	Waveren.pdf	b51363de-bb63-5f71-a403-6a289efc9f77
+393	literature	2023	Will Yeadon	The death of the short-form physics essay in the coming AI revolution	Yeadon_2023_Phys._Educ._58_035027.pdf	e75d8e1c-f7b7-5c74-b7fb-07d1010aafdc
+394	literature	2024	Smith	The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency	28_01_10125-73595.pdf	f8cd5d9a-967c-5052-913f-028710e5276c
+395	literature	2020	Nicola Rieke	The future of digital health with federated learning	rieke-s41746-020-00323-1.pdf	19cae170-6443-5ff8-bfb3-e9509251bad1
+396	literature	2024	Samo Varsik	The potential impact of Artificial Intelligence on equity and inclusion in education (EN)	15df715b-en (1).pdf	5ef01f60-b8bc-5785-bb38-b4498275bbb0
+397	literature	2021	Michael J. Reiss	The use of AI in education: Practicalities and ethical considerations	10-The_use_of_AI_in_education_Practicalitie.pdf	c9bfdf04-db8b-5fea-9a90-55174f3ca8e4
+398	literature	2023	ALEKSANDRA KLASNJA-MILICEVIC	Top-N Knowledge Concept Recommendations in MOOCs Using a Neural Co-Attention Model	Top_N_Knowledge_Concept_Recommendations.pdf	6e9d613f-509e-5299-b201-760605dd8dcb
+399	literature	2023	Marvin Mergen	Towards Integrating Virtual Reality into Medical Curricula: A Single Center Student Survey	Towards_Integrating_Virtual_Reality_into.pdf	163e02b6-24b3-5ab1-bc6b-28ab44686292
+400	literature	2016	View all	Towards foveated rendering for gaze-tracked virtual reality	Patney-2980179.2980246.pdf	15283e2a-d507-5c29-be6f-26ff65d3b936
+401	literature	2022	Gleyvis Coro-Montanet	Train Strategies for Haptic and 3D Simulators to Improve the Learning Process in Dentistry Students	Montanet-ijerph-19-04081.pdf	bcb772ff-8699-576e-893a-abeb61f9f226
+402	literature	2013	Antoine Bordes	Translating Embeddings for Modeling Multi-relational Data	bordes-NIPS-2013-translating-embeddings-for-modeling-multi-relational-data-Paper.pdf	f7ca1d56-fb0e-5d67-a562-d78b23738616
+403	literature	2023	LENOVO	Tree-Based Ensemble Methods and Their Applications for Predicting Students’ Academic Performance	Ayulani-sriatmaja,+Bevina+16880-AAP.pdf	9036557f-bd6d-5e28-b0e6-666e0295e8bd
+404	literature	2024	None	None	Turnitin_Plagiarism_AI_Similarity_Index.pdf	54637774-82c9-518f-ade9-09734a845baa
+405	literature	2017	None	Tutorial Information Sheet	_02c35dd815e349ec9bdd95e990275f57_Information-sheet-_-Problem-based-learning.pdf	4de8b452-5674-571a-a9b6-01f4c0923707
+406	literature	2014	None	Two-Eye Model-Based Gaze Estimation from A Kinect Sensor	Zhou-ICRA2017.pdf	cf56e8d9-31a7-5155-af06-cf192f116b2f
+407	literature	2025	Yuquan Zhang	UE-SLAM: Monocular Neural Radiance Field SLAM with Semantic Mapping Capabilities	Zhang-symmetry-17-00508-v2 (1).pdf	78a521f4-80d6-596d-8f49-2ebbcc0db8e0
+408	literature	2025	Denis Zhidkikh	Understanding Self-Regulated Learning Behavior Among High and Low Dropout Risk Students During CS1: Combining Trace Logs, Dropout Prediction and Self-Reports	ZHIDKIKH, -2025-2506.09178v1.pdf	e99641b9-480a-5ff0-9e50-310ba826c4e7
+409	literature	2026	Schomaker	University of Groningen Optimized latent-code selection for explainable conditional text-to-image GANs Zhang, Zhenxing; Schomaker, Lambert	Zhang & Schomaker-2022.pdf	551d49b8-13f5-528e-9034-6531b7081850
+410	literature	2023	Jiahong Su (苏嘉红)	Unlocking the Power of ChatGPT: A Framework for Applying Generative AI in Education	su-(su-jia-hong)-yang-(yang-wei-peng)-2023-unlocking-the-power-of-chatgpt-a-framework-for-applying-generative-ai-in.pdf	16223735-b28e-5121-a58a-4908d0976ca5
+411	literature	2020	Phillip Isola	Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks	Zhu-1703.10593v7.pdf	372ac6c8-a79d-54a6-9edb-8913f5e1f37a
+412	literature	2024	Xue Zhou	Unveiling Students’ Experiences and Perceptions of Artiﬁcial Intelligence Usage in Higher Education	NavigatingAIadoptionV12March.pdf	489eaa8b-d143-57b0-9fdd-310a3aedb3ed
+413	literature	2021	games	Using a 360° Virtual Reality or 2D Video to Learn History Taking and Physical Examination Skills for Undergraduate Medical Students: Pilot Randomized Controlled Trial	games-2021-4-e13124.pdf	ad369ad1-d2b3-5829-924f-bf045930af86
+414	literature	2017	Ewa Seidel	Using predictive analytics to target and improve first year student attrition	seidel.pdf	2ed35cca-121b-5bee-9597-92de0e16d388
+415	literature	2020	Rosa Lisa Iannone	Utilizing Student Time Series Behaviour in Learning Management Systems for Early Prediction of Course Performance	Chen-6777-Article Text-34169-4-10-20200919.pdf	e419cfa5-40b8-51e0-8a31-482bb1882af9
+416	literature	2018	Tong Qin	VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator	Qin-VINS-Mono_A_Robust_and_Versatile_Monocular_Visual-Inertial_State_Estimator.pdf	1f624da7-3721-5a37-a64e-e329bdfdd92e
+417	literature	2020	Steven M. LaValle	VIRTUAL REALITY	LaValle-vrbook.pdf	66d2ce61-06bf-59b1-bb23-3cdfc8f85597
+418	literature	2019	Guoquan (Paul) Huang	VISUAL-INERTIAL NAVIGATION: A CONCISE REVIEW	Huang-1906.02650v1.pdf	667f30d7-fb18-5abd-a66a-5a346fd287f4
+419	literature	2024	None	Variational autoencoders for generative modeling of drug dosing determinants in renal, hepatic, metabolic, and cardiac disease states	Titar -Murali-Ramanathan.pdf	8ba0b7f5-23d6-5b9c-b497-2c0cbcd539dc
+420	literature	2024	None	View of Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers	View of Challenges with Gamification in Higher Education.pdf	03c09bbc-75d3-521f-b5e7-b96f93b63456
+421	literature	2026	None	View of Design and Application of Intelligent Assisted Learning System for Higher Education Students	Lin-View of Design and Application of Intelligent Assisted Learning System for Higher Education Students.pdf	230b420e-db09-5826-958e-f2c30d24141c
+422	literature	2024	Dayanne	Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students	53 (2).pdf	1bd20276-30bb-531d-b5a1-9a7cdc65f0d1
+423	literature	2025	Hanbing Wang	Virtual Reality and Education in Kizil Cave Murals: Multisensory Interaction for Heritage Sustainability	wang-et-al-2025-virtual-reality-and-education-in-kizil-cave-murals-multisensory-interaction-for-heritage-sustainability.pdf	558ae9de-8c7e-5990-8c61-bb87637dbbdd
+424	literature	2022	Written Communication	Virtual Reality and Embodiment in Multimodal Meaning Making	mills-et-al-2022-virtual-reality-and-embodiment-in-multimodal-meaning-making.pdf	d12186b9-9da2-5f21-81e4-0d36a55b1e17
+425	literature	2021	jmir	Virtual Reality for Health Professions Education: Systematic Review and Meta-Analysis by the Digital Health Education Collaboration	jmir-2019-1-e12959.pdf	04ee8608-56ed-53bc-aa46-edeb428b2108
+426	literature	2023	Andreas Marougkas	Virtual Reality in Education: A Review of Learning Theories, Approaches and Methodologies for the Last Decade	electronics-12-02832-v2.pdf	94b8b4e7-eb79-5597-bb2e-2d67580763a7
+427	literature	2023	None	Virtual Reality in Medical Students’ Education: Scoping Review	aaaa.pdf	9eebc22b-1224-581a-9562-32403a2a7ec5
+428	literature	2022	Ping Zhou	Virtual Reality-Integrated Immersion-Based Teaching to English Language Learning Outcome	fpsyg-12-767363.pdf	54d9da6e-e5a1-5f77-b94d-59f84f998614
+429	literature	2023	Nesse van der Meer	Virtual reality and collaborative learning: a systematic literature review	frvir-04-1159905.pdf	e91abe32-9e6e-5a37-8cb7-68ee51aa2ac2
+430	literature	2024	Kathy A. Mills	Virtual reality games for 3D multimodal designing and knowledge across the curriculum	Mills-s13384-024-00695-3.pdf	df0d87b5-fc87-5555-a538-408a0a533c40
+431	literature	2023	Sarah Alnamlah	Virtual reality simulation of panoramic radiographic anatomy for dental students	Alsufyani-Journal of Dental Education - 2023 - Alsufyani - Virtual reality simulation of panoramic radiographic anatomy for dental.pdf	fddc2c7c-9b48-5cf2-a3e8-e5985eb3b491
+432	literature	2016	Matthias Innmann	VolumeDeform: Real-time Volumetric Non-rigid Reconstruction	Innmann1-1603.08161v2.pdf	5c929799-e2e4-5889-8938-84cb2a365010
+433	literature	2020	Yi-Hao Peng	WalkingVibe: Reducing Virtual Reality Sickness and Improving Realism while Walking in VR using Unobtrusive Head-mounted Vibrotactile Feedback	CHI20_WalkingVibe_preprint.pdf	e91a83e5-3e6a-50cf-ba62-6130393b655b
+434	literature	2019	None	None	Wang-3308558.3313562.pdf	b36e31ff-a970-52ca-96ef-ea97bdf758eb
+435	literature	2023	Content Available at	War of the chatbots: Bard, Bing Chat, ChatGPT, Ernie and beyond. The new AI gold rush and its impact on higher education Jürgen RudolphA	rudolf-771-Article Text-3333-4-10-20230616 (3).pdf	702912af-8fa4-526e-a2bd-95f65dfd3285
+436	literature	2016	Classroom Strategy	What Is it and How Can it Best be Used?	The_Flipped_Classroom_Strategy_What_Is_I.pdf	a76b2c45-1ee0-5bd5-9f23-954d7b2d6955
+437	literature	2023	Digital Audio and Video	Will Dynamic Foveation Boost Cloud VR Gaming Experience?	Will_Dynamic_Foveation_Boost_Cloud_VR_Gaming_Experience.pdf	447e3284-6598-5217-bd7b-0f843d934fc4
+438	literature	2016	redmon	You Only Look Once: Uniﬁed, Real-Time Object Detection	redmon-1506.02640v5.pdf	126acc19-fb60-5a03-9170-1c69b5adc466
+439	literature	2019	ARTIFICIAL INTELLIGENCE	None	ai_hleg_ethics_guidelines_for_trustworthy_ai-en_87F84A41-A6E8-F38C-BFF661481B40077B_60419.pdf	53e69fd9-2cac-50ec-b75a-d3279dc55353
+440	literature	2008	None	None	catmull_thesis.pdf	2e3018dc-39bb-5722-9edf-1ae734237c8c
+441	literature	2024	Economics of Information Technology	None	economics-ai.pdf	ea591cad-d2fc-5e64-b5a5-992a95189a68
+442	literature	1983	PUB DATE	ed235185.tif.pdf	ED235185.pdf	1dc36afe-f1c6-5702-8e7a-de5d2b33986c
+443	literature	1987	DOCUMENT RESUME	ed282491.tif.pdf	Seven Principles for Good Practice in Undergraduate.pdf	63cc6d3a-a0b0-5b9c-8fc8-2fdccdbf9f65
+444	literature	2007	DOCUMENT RESUME	ed284181.tif.pdf	cognitive-app.pdf	13145105-c42b-56ed-8a87-5a89fe33a662
+445	literature	2007	None	None	rummary-download.pdf	cf63cefb-0674-53a2-aa29-ac0868f83cea
+446	literature	2025	None	None	shen-3746059.3747803.pdf	947c2953-b9e2-5b14-acfa-14c40a2908ab
+447	literature	2024	None	None	whitton_langan_the.pdf	09ef2112-c72e-5c55-8789-c7ab6938f011
+448	literature	2016	Marco Tulio Ribeiro	“Why Should I Trust You?” Explaining the Predictions of Any Classiﬁer	ribiero-1602.04938v3.pdf	2d8d07a6-801a-590b-a75f-871a4ee2889c
+449	literature	2021	Elodie Bouzbib	”Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions	Bouzbib.pdf	063e96df-224f-550d-99a8-0ee295e091b6
+450	my_work	2025	Konstantinos Liakopoulos	None	Historical-Development-24-02-2025.docx	39797dff-8833-5a2b-8a19-84d28792aa95
+451	my_work	2026	Konstantinos Liakopoulos	Intelligent Immersion: AI and VR Tools for Next-Generation Higher Education	liakopoulos-paper-1.pdf	02ffcc76-6ab1-5c84-a05b-86b832807b37
+452	my_work	2024	Konstantinos Liakopoulos	None	Theoretical Foundations of AI and VR in Higher Education-12-12-2024.docx	6c97894b-93bc-5e25-9fe1-5b2e0e24ccf6
+453	my_work	2024	Konstantinos Liakopoulos	None	introduction-version-12-12-2024.docx	ab765e90-c662-5567-85d0-3bff5944c968
+454	my_work	2026	None	None	second-paper-draft-final.docx	d8919983-e93b-5ce4-ab53-7fb470c99f8f
+455	rules	2024	None	Academic Writing Guidelines	writing_guidelines.md	2194bff4-3ffa-530d-bdec-831c22cc0ecf
+456	rules	2005	Graeme Prescott	PREPARING FOR DISSERTATIONS AND PROJECTS	preparing for dissertations and projects.pdf	c341efff-08e9-558d-b443-5e586fa9c80d
+457	rules	None	None	PhD Direction and Supervisor Plan	phd_direction_and_supervisor_plan.md	23dafbf7-b7d8-521a-b5bd-8ae041ca035a
+458	rules	2022	None	Plagiarism	plagiarism.pdf	32ca3cdc-cc6a-5738-88c7-7339f37bc635
+459	rules	2018	Graeme Prescott	Proofreading	Proofreading.pdf	f584ceb5-01d6-5990-adf5-10318859fb31
+460	rules	2020	Gould	Reference checklist	Reference-checklist (1).pdf	8073ad91-4bbd-5cb3-9143-d0512d6fa475
+461	rules	2017	Graeme Prescott	Writing a Dissertation	Writing-a-Dissertation.pdf	7e47eff1-7edd-589c-9565-0dd7b2eebe85
+462	rules	2026	None	None	plan.docx	bd2f23bf-f057-5ce8-8531-c5a4a171d628
+463	summaries	2025	Konstantinos Liakopoulos	None	summaries-27-09-2025.docx	e9aa9469-bf7a-563a-9bb2-dabaf5f1f397
+464	supervision	2026	Form	None	APR-Form-2025.docx	26cc6f1b-b644-5640-8b76-47b1b91e5233
+465	supervision	2026	Form	None	APR-Form-2026.docx	5b319164-545d-5978-8077-941cc460bac1

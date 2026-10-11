@@ -1,0 +1,282 @@
+RAG-009 retrieval evaluation
+==============================================================================
+collection        : phd_rag_chunks_v1 (11469 points)
+embedding model   : BAAI/bge-m3 rev=5617a9f61b028005a4858fdac845db406aefb181 dim=1024 device=cuda
+reranker          : BAAI/bge-reranker-v2-m3 rev=953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e device=cuda batch=16 max_length=8192
+candidate_k       : 25   final_k: 10
+queries           : 36
+
+Gold-needle pre-flight (typo protection)
+------------------------------------------------------------------------------
+distinct gold needles : 26
+needles matching at least one document : 26
+needles matching no document : 0
+
+Metrics on queries with a gold document
+------------------------------------------------------------------------------
+metric          dense-only    dense+rerank
+Hit@5                0.857           0.857
+Hit@10               0.964           0.964
+MRR@10               0.843           0.871
+n_queries               28              28
+
+Note: document-level judgment (was a gold document in the top k), not passage-level.
+
+Per-query comparison
+------------------------------------------------------------------------------
+[evidence   ] virtual reality student engagement higher education                    gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: vr-engagement   
+[evidence   ] adaptive learning using artificial intelligence in e-learning literatu gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: adaptive-learning   
+[evidence   ] generative AI academic integrity and learning outcomes case study      gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: academic-integrity   
+[evidence   ] design science research methodology for maximum impact                 gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: dsr-methodology   
+[evidence   ] AI literacy definition teaching evaluation and ethical issues          gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: ai-literacy   
+[evidence   ] intelligent tutoring system pedagogical policy induction deep reinforc gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: intelligent-tutoring   
+[evidence   ] learning analytics to increase student success course signals          gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: learning-analytics   
+[evidence   ] discourses of artificial intelligence in higher education critical lit gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: key-concepts   
+[evidence   ] bibliometric study on the impact of artificial intelligence in higher  gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: bibliometrics   
+[evidence   ] artificial intelligence in higher education the state of the field     gold=yes dense_rank=   6 rerank_rank=   1 improved 6->1
+    category: ai-in-he   
+[evidence   ] formative assessment and self-regulated learning feedback principles   gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: assessment   
+[evidence   ] design principles and outcomes of peer assessment in higher education  gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: peer-assessment   
+[evidence   ] experiential learning in higher education learning styles and learning gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: experiential-learning   
+[evidence   ] immersive virtual reality for increasing presence and empathy          gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: immersive-vr   
+[evidence   ] haptic virtual reality immersive learning organic chemistry instructio gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: immersive-vr   
+[evidence   ] predictive learning analytics at scale guidelines for implementation i gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: learning-analytics   
+[evidence   ] ChatGPT and the end of traditional assessments in higher education     gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: generative-ai   
+[evidence   ] automating assessment and providing personalized feedback in e-learnin gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: personalization   
+[evidence   ] AI-enabled virtual reality systems for dental education                gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: vr-medical-education   
+[evidence   ] generative adversarial networks image synthesis                        gold=yes dense_rank=   5 rerank_rank=   8 worsened 5->8
+    category: technical-foundations   
+[evidence   ] artificial intelligence for virtual reality a review                   gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: technical-foundations   
+[evidence   ] self-evolving generative AI tutors for personalized proactive learning gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: intelligent-tutoring   
+[evidence   ] artificial intelligence governance in higher education                 gold=no  dense_rank=None rerank_rank=None exploratory
+    category: governance   required by the brief; no corpus document is clearly about AI governance
+[evidence   ] ethical use of artificial intelligence in universities                 gold=no  dense_rank=None rerank_rank=None exploratory
+    category: ethics   required by the brief; ethics appears inside other papers, not as a topic document
+[evidence   ] implementation barriers to adopting artificial intelligence in univers gold=no  dense_rank=None rerank_rank=None exploratory
+    category: barriers   
+[evidence   ] generative AI policy for university teaching and learning              gold=no  dense_rank=None rerank_rank=None exploratory
+    category: governance   
+[my_work    ] what have I written about the historical development of AI?            gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: my-work-history   own draft has no extracted title, so the gold needle is the filename
+[my_work    ] my paper about AI and VR tools for next generation higher education    gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: my-work-paper   
+[supervision] what did my supervisor say about methodology?                          gold=no  dense_rank=None rerank_rank=None exploratory
+    category: supervision-methodology   supervision documents are unstructured forms; inspected manually
+[guidance   ] what are the rules for referencing and citation style in my thesis?    gold=yes dense_rank=None rerank_rank=None unchanged
+    category: guidance-referencing   same document under a second phrasing; the first phrasing misses it (see report)
+[guidance   ] Harvard referencing style guidelines for my thesis                     gold=yes dense_rank=   7 rerank_rank=   7 unchanged
+    category: guidance-referencing   
+[general    ] virtual reality and artificial intelligence in higher education        gold=yes dense_rank=  10 rerank_rank=   8 improved 10->8
+    category: general-mode   unfiltered mode: checks role is preserved in results
+[evidence   ] personalized learning recommendation with knowledge tracing            gold=no  dense_rank=None rerank_rank=None exploratory
+    category: personalization   
+[evidence   ] student engagement and motivation in online higher education           gold=no  dense_rank=None rerank_rank=None exploratory
+    category: engagement   
+[evidence   ] research design framework for classifying virtual reality studies      gold=yes dense_rank=   1 rerank_rank=   1 unchanged
+    category: immersive-vr   the passage also exists in several physical copies of the same paper
+[supervision] supervisor feedback on research design and methodology                 gold=no  dense_rank=None rerank_rank=None exploratory
+    category: supervision-methodology   second wording for the same non-evidence mode
+
+rank movement on gold queries: improved=2 unchanged=25 worsened=1
+
+Reranking regressions (gold query where reranking pushed the gold document down)
+------------------------------------------------------------------------------
+query: generative adversarial networks image synthesis
+  mode=evidence dense_rank=5 rerank_rank=8
+  dense top 5:
+    1. dense=0.7155 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    2. dense=0.6922 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    3. dense=0.6911 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    4. dense=0.6805 Unpaired Image-to-Image Translation using Cycle-Consistent Adver
+    5. dense=0.6634 Generative Adversarial Nets
+  reranked top 5:
+    1. dense=0.6860 rerank=0.9994 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    2. dense=0.6612 rerank=0.9992 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    3. dense=0.6896 rerank=0.999 Generative Adversarial Networks (GANs) for Medical Image Synthes
+    4. dense=0.6457 rerank=0.9773 University of Groningen Optimized latent-code selection for expl
+    5. dense=0.6415 rerank=0.9718 . REVIEW . Artiﬁcial intelligence for virtual reality: a review
+query: what are the rules for referencing and citation style in my thesis?
+  mode=guidance dense_rank=None rerank_rank=None
+  dense top 5:
+    1. dense=0.6873 Academic Writing Guidelines
+    2. dense=0.6413 PREPARING FOR DISSERTATIONS AND PROJECTS
+    3. dense=0.6132 Writing a Dissertation
+    4. dense=0.6018 Writing a Dissertation
+    5. dense=0.6008 PREPARING FOR DISSERTATIONS AND PROJECTS
+  reranked top 5:
+    1. dense=0.6132 rerank=0.7791 Writing a Dissertation
+    2. dense=0.6873 rerank=0.5769 Academic Writing Guidelines
+    3. dense=0.6008 rerank=0.1908 PREPARING FOR DISSERTATIONS AND PROJECTS
+    4. dense=0.6018 rerank=0.1502 Writing a Dissertation
+    5. dense=0.6413 rerank=0.0884 PREPARING FOR DISSERTATIONS AND PROJECTS
+
+Rank churn (returned order, dense vs reranked)
+------------------------------------------------------------------------------
+  same_rank            51
+  moved                181
+  entered_top_k        120
+  dropped_out_of_top_k 120
+
+Evidence-mode leakage checks
+------------------------------------------------------------------------------
+query: my own draft arguments about AI and VR in higher education             results=8 non_evidence=0 references=0
+    mode=evidence
+query: the LATTICE framework for AI and VR                                    results=8 non_evidence=0 references=0
+    mode=evidence
+query: supervisor feedback and APR form guidance                              results=8 non_evidence=0 references=0
+    mode=evidence
+query: academic writing rules and plagiarism policy                           results=8 non_evidence=0 references=0
+    mode=evidence
+query: future chapters guidance policy for the thesis                         results=8 non_evidence=0 references=0
+    mode=evidence
+query: my summaries of the literature                                         results=8 non_evidence=0 references=0
+    mode=evidence
+
+total non-evidence results under EVIDENCE mode: 0
+
+Required example queries (§28)
+------------------------------------------------------------------------------
+query   : artificial intelligence governance in higher education
+mode    : evidence
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.7339 rerank=0.9916 [literature] ev=1 Personal/2023 p.9 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 202
+  2. dense=0.7400 rerank=0.9892 [literature] ev=1 Personal/2023 p.1 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 202
+  3. dense=0.7013 rerank=0.9857 [literature] ev=1 IOR PRESS/2023 p.16 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifici
+  4. dense=0.7057 rerank=0.9839 [literature] ev=1 Hengameh Karim/2023 p.7-8 The Impact of Artificial Intelligence on Higher Education in
+  5. dense=0.7126 rerank=0.9817 [literature] ev=1 Vikrant Vikram/2024 p.2-3 Assessment of Artificial Intelligence-based digital learning
+  6. dense=0.7204 rerank=0.9749 [literature] ev=1 Windows User/2023 p.7-9 The Impact of Artificial Intelligence On Higher Learning Ins
+  7. dense=0.7219 rerank=0.9723 [literature] ev=1 Hengameh Karim/2023 p.1 The Impact of Artificial Intelligence on Higher Education in
+  8. dense=0.7259 rerank=0.9713 [literature] ev=1 Mike Urmeneta/2023 p.1-2 Reflections on the Artificial Intelligence Transformation: R
+
+query   : virtual reality student engagement higher education
+mode    : evidence
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.7471 rerank=0.9995 [literature] ev=1 ssrn/None p.2-3 The Impact of Virtual Reality on Student Engagement in Highe
+  2. dense=0.7617 rerank=0.9993 [literature] ev=1 ssrn/None p.1-2 The Impact of Virtual Reality on Student Engagement in Highe
+  3. dense=0.7498 rerank=0.9981 [literature] ev=1 ssrn/None p.3-4 The Impact of Virtual Reality on Student Engagement in Highe
+  4. dense=0.6724 rerank=0.9928 [literature] ev=1 ?/2024 p.6-7 Information Technology Students' Perceptions Toward Using Vi
+  5. dense=0.6713 rerank=0.9868 [literature] ev=1 Muriel T. Zaat/2024 p.1-2 Exploring the Virtual Frontier: The Impact of Virtual Realit
+  6. dense=0.6537 rerank=0.9708 [literature] ev=1 Muriel T. Zaat/2024 p.1 Exploring the Virtual Frontier: The Impact of Virtual Realit
+  7. dense=0.6535 rerank=0.9671 [literature] ev=1 ?/2019 p.13-14 A systematic review of immersive virtual reality application
+  8. dense=0.6522 rerank=0.9624 [literature] ev=1 Muriel T. Zaat/2024 p.2 Exploring the Virtual Frontier: The Impact of Virtual Realit
+
+query   : adaptive learning higher education
+mode    : evidence
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.6704 rerank=0.9916 [literature] ev=1 Manuel Antonio/2023 p.3-4 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING M
+  2. dense=0.6768 rerank=0.991 [literature] ev=1 Manuel Antonio/2023 p.7-8 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING M
+  3. dense=0.6549 rerank=0.9903 [literature] ev=1 Manuel Antonio/2023 p.6-7 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING M
+  4. dense=0.6566 rerank=0.9857 [literature] ev=1 IOR PRESS/2023 p.3-4 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifici
+  5. dense=0.6476 rerank=0.9583 [literature] ev=1 Shanwen Zhang/2023 p.3-4 060624-28.张善文+An Adaptive Learning Method Based on Knowledge
+  6. dense=0.6458 rerank=0.9152 [literature] ev=1 Shanwen Zhang/2023 p.2-3 060624-28.张善文+An Adaptive Learning Method Based on Knowledge
+  7. dense=0.6510 rerank=0.8808 [literature] ev=1 Ilie Gligorea/2023 p.23 Adaptive Learning Using Artificial Intelligence in e-Learnin
+  8. dense=0.6604 rerank=0.8607 [literature] ev=1 Ilie Gligorea/2023 p.1-2 Adaptive Learning Using Artificial Intelligence in e-Learnin
+
+query   : generative AI academic integrity
+mode    : evidence
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.6778 rerank=0.9992 [literature] ev=1 Japheth Kodua /2024 p.1-2 Impact of Generative AI in Academic Integrity and Learning O
+  2. dense=0.6513 rerank=0.9979 [literature] ev=1 Japheth Kodua /2024 p.7-8 Impact of Generative AI in Academic Integrity and Learning O
+  3. dense=0.6866 rerank=0.9971 [literature] ev=1 Japheth Kodua /2024 p.13-15 Impact of Generative AI in Academic Integrity and Learning O
+  4. dense=0.6557 rerank=0.9841 [literature] ev=1 Mohammad AL-Sm/2022 p.16 ChatGPT and Beyond: The Generative AI Revolution in Educatio
+  5. dense=0.7151 rerank=0.9766 [literature] ev=1 Cecilia Ka Yuk/2024 p.176 Generative AI in Higher Education; The ChatGPT Effect
+  6. dense=0.6743 rerank=0.965 [literature] ev=1 Cecilia Ka Yuk/2024 p.124 Generative AI in Higher Education; The ChatGPT Effect
+  7. dense=0.6682 rerank=0.9271 [literature] ev=1 ?/2024 p.271 Turnitin_Plagiarism_AI_Similarity_Index.pdf
+  8. dense=0.6431 rerank=0.8541 [literature] ev=1 Balta/2023 p.2 Ethical Considerations in Using AI in Educational Research
+
+query   : design science research methodology
+mode    : evidence
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.6811 rerank=0.99 [literature] ev=1 degro/2013 p.15 Positioning and Presenting Design Science Research for Maxim
+  2. dense=0.6362 rerank=0.968 [literature] ev=1 degro/2013 p.1-3 Positioning and Presenting Design Science Research for Maxim
+  3. dense=0.6352 rerank=0.9421 [literature] ev=1 degro/2013 p.3 Positioning and Presenting Design Science Research for Maxim
+  4. dense=0.5937 rerank=0.8763 [literature] ev=1 Jaziar Radiant/2019 p.11-12 A systematic review of immersive virtual reality application
+  5. dense=0.5571 rerank=0.6017 [literature] ev=1 ?/2019 p.10-11 A systematic review of immersive virtual reality application
+  6. dense=0.5589 rerank=0.4223 [literature] ev=1 ?/2019 p.7-8 A systematic review of immersive virtual reality application
+  7. dense=0.5649 rerank=0.0594 [literature] ev=1 Xiuyu Lin/2024 p.9-10 Design strategies for VR science and education games from an
+  8. dense=0.5520 rerank=0.0468 [literature] ev=1 ?/2022 p.5-6 An evaluation of the use of Turnitin as a tool for electroni
+
+query   : what have I written about the historical development of AI?
+mode    : my_work
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.5938 rerank=0.8147 [my_work] ev=0 Konstantinos L/2025 p.? Historical-Development-24-02-2025.docx
+  2. dense=0.5148 rerank=0.5445 [my_work] ev=0 Konstantinos L/2024 p.? introduction-version-12-12-2024.docx
+  3. dense=0.6243 rerank=0.2647 [my_work] ev=0 Konstantinos L/2025 p.? Historical-Development-24-02-2025.docx
+  4. dense=0.5252 rerank=0.0168 [my_work] ev=0 Konstantinos L/2026 p.1-2 Intelligent Immersion: AI and VR Tools for Next-Generation H
+  5. dense=0.5374 rerank=0.0099 [my_work] ev=0 Konstantinos L/2026 p.4 Intelligent Immersion: AI and VR Tools for Next-Generation H
+  6. dense=0.5095 rerank=0.0079 [my_work] ev=0 Konstantinos L/2025 p.? Historical-Development-24-02-2025.docx
+  7. dense=0.5193 rerank=0.0076 [my_work] ev=0 Konstantinos L/2026 p.2-3 Intelligent Immersion: AI and VR Tools for Next-Generation H
+  8. dense=0.5293 rerank=0.0038 [my_work] ev=0 ?/2026 p.? second-paper-draft-final.docx
+
+query   : what did my supervisor say about methodology?
+mode    : supervision
+audit   : candidate_k=25 final_k=8 rerank=True
+  1. dense=0.4831 rerank=0.2963 [supervision] ev=0 Form/2026 p.? APR-Form-2026.docx
+  2. dense=0.4658 rerank=0.0882 [supervision] ev=0 Form/2026 p.? APR-Form-2026.docx
+  3. dense=0.4558 rerank=0.0068 [supervision] ev=0 Form/2026 p.? APR-Form-2026.docx
+  4. dense=0.4497 rerank=0.0062 [supervision] ev=0 Form/2026 p.? APR-Form-2025.docx
+  5. dense=0.4337 rerank=0.0044 [supervision] ev=0 Form/2026 p.? APR-Form-2025.docx
+  6. dense=0.4018 rerank=0.0037 [supervision] ev=0 Form/2026 p.? APR-Form-2025.docx
+
+Latency
+------------------------------------------------------------------------------
+warm-up: embedder=0.016s reranker=0.014s
+
+queries measured: 10  (candidate_k=25 final_k=8)
+stage        first query (s)   warm median (s)  warm max (s)
+embed                 0.0149            0.0093        0.0146
+search                0.1526            0.1478        0.2981
+rerank                0.2601            0.3688        0.7014
+total                 0.4410            0.5365        1.0487
+
+Per-query detail (reranked):
+   1. embed=0.0149s search=0.1526s rerank=0.2601s total=0.4410s  virtual reality student engagement higher education
+   2. embed=0.0146s search=0.2981s rerank=0.6468s total=0.9933s  adaptive learning using artificial intelligence in e-learnin
+   3. embed=0.0091s search=0.1478s rerank=0.2546s total=0.4262s  generative AI academic integrity and learning outcomes case 
+   4. embed=0.0090s search=0.2919s rerank=0.7014s total=1.0487s  design science research methodology for maximum impact
+   5. embed=0.0094s search=0.1466s rerank=0.3233s total=0.4954s  AI literacy definition teaching evaluation and ethical issue
+   6. embed=0.0093s search=0.1458s rerank=0.3690s total=0.5365s  intelligent tutoring system pedagogical policy induction dee
+   7. embed=0.0091s search=0.1459s rerank=0.3688s total=0.5397s  learning analytics to increase student success course signal
+   8. embed=0.0093s search=0.2931s rerank=0.4454s total=0.7807s  discourses of artificial intelligence in higher education cr
+   9. embed=0.0097s search=0.1464s rerank=0.2434s total=0.4089s  bibliometric study on the impact of artificial intelligence 
+  10. embed=0.0088s search=0.1517s rerank=0.2457s total=0.4149s  artificial intelligence in higher education the state of the
+
+dense-only total for one query (no rerank): 0.1670s
+
+Drop accounting across the evaluation set
+------------------------------------------------------------------------------
+  beyond_final_k           150
+  bibliography_like        112
+  document_limit           414
+  identical_text           153
+  overlapping_neighbour    14
+
+Duplicate-copy concentration in returned results
+------------------------------------------------------------------------------
+How many returned results share one document id, and how many distinct
+copies of one work (same title) can occupy the top list.
+  max_per_title=3 max_per_document=3 distinct_titles=4  what have I written about the historical development of 
+  max_per_title=3 max_per_document=3 distinct_titles=2  what did my supervisor say about methodology?
+  max_per_title=3 max_per_document=3 distinct_titles=5  what are the rules for referencing and citation style in
+  max_per_title=3 max_per_document=3 distinct_titles=5  virtual reality student engagement higher education
+  max_per_title=3 max_per_document=3 distinct_titles=2  supervisor feedback on research design and methodology

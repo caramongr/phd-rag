@@ -6,6 +6,23 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi",
     "pydantic>=2",
+    "requests",
+    # Runtime dependencies for the ingestion/parsing/OCR and metadata layers.
+    # Floors match the versions verified in the development environment; no
+    # package is pinned to a newer release than the one already in use.
+    "pymupdf>=1.28",
+    "python-docx>=1.2",
+    "pytesseract>=0.3.13",
+    "Pillow>=12.3",
+    # Runtime dependencies for the embedding/indexing layers (RAG-008). The floors
+    # are the versions present in the development environment; nothing is pinned to
+    # a newer release than the one in use.
+    "numpy>=2.5",
+    "torch>=2.14",
+    "transformers>=5.19",
+    "sentence-transformers>=6.1",
+    "huggingface-hub>=1.33",
+    "qdrant-client>=1.19",
 ]
 
 [tool.pytest.ini_options]

@@ -1,0 +1,71 @@
+RAG-008 indexing report
+=======================
+
+corpus root:                data
+collection:                 phd_rag_chunks_v1
+qdrant target:              local path .qdrant_data
+collection created:         False
+
+Embedding model
+---------------
+model:                      BAAI/bge-m3
+revision:                   5617a9f61b028005a4858fdac845db406aefb181
+identifier:                 BAAI/bge-m3|rev=5617a9f61b028005a4858fdac845db406aefb181|dim=1024|norm=1|lib=sentence-transformers6.1.0
+library:                    sentence-transformers 6.1.0
+device:                     cuda
+vector dimension:           1024
+distance:                   Cosine
+normalization:              l2 (unit-norm, cosine-ready)
+max input tokens:           8192
+
+Corpus and population
+---------------------
+documents embedded:         465
+documents visited:          465
+total RAG-007 chunks seen:  14786
+retrieval-eligible chunks:  11469
+excluded (ineligible):      3317
+  of which references:      3317
+chunks embedded:            11469
+points indexed:             11469
+skipped chunks:             0
+
+Timing
+------
+embedding seconds:          0.986
+embeddings/second:          11631.85
+chunks/second:              10.09
+real tokens/second:         n/a
+upload seconds:             69.992
+total seconds:              1136.784
+
+GPU / device
+------------
+device:                     cuda
+peak allocated VRAM:        2.12 GiB
+peak reserved VRAM:         2.13 GiB
+embedding batch size:       16
+
+Embedding cache
+---------------
+cache hits:                 11469
+cache misses:               0
+cache entries:              11469
+
+Qdrant
+------
+payload indexes:            corpus_role, evidence_eligible, content_type, year, document_id, file_hash
+points before:              11469
+points after:               11469
+inserted:                   0
+updated/upserted:           11469
+duplicate point ids:        0
+stale points:               0
+stale points deleted:       0
+
+Corpus identity
+---------------
+chunking version:           rag007-normalize-v1
+corpus fingerprint:         3b1f63cb00ebca341587ad7a7daaa060a1ca7d6cc17879b9c9cea615853637f3
+document hashes digest:     42edf2f8b939e8d89b1411c9febbe485e7f1dcb03a14afafb548c856913af899
+chunk ids digest:           74a200acb811a0f2961bf39f8bf97f9578a5e1f6993a6f035e98ab9bcbab4d86

@@ -71,4 +71,8 @@ class ContentType(StrEnum):
     REFERENCES = "references"
     CONCLUSION = "conclusion"
     SUMMARY_ENTRY = "summary_entry"
+    #: A reliably identified figure/table caption or other labelled exhibit text.
+    CAPTION = "caption"
+    #: Prose from an appendix section, kept distinct from the main body.
+    APPENDIX = "appendix"
     OTHER = "other"

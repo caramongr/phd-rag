@@ -1,0 +1,36 @@
+QUERY: what have I written about the historical development of AI?   mode=my_work  returned=5
+  1. dense=0.5938 rerank=0.8147 role=my_work ev=0 file=Historical-Development-24-02-2025.docx p.?
+     The mid-20th century marked the beginning of exploring and understanding AI and, eventually, its influence on education. Doroudi (2022) explores the historical interconnection between AI and education and why they mutually influence each other. The founders of AI were highly influenced by cognitive 
+  2. dense=0.5148 rerank=0.5445 role=my_work ev=0 file=introduction-version-12-12-2024.docx p.?
+     This literature review aims to thoroughly investigate existing research on integrating AI and VR in higher education. It highlights their transformative impacts, addresses the inherent challenges, and examines their future potential. Specifically, it examines how these technologies reshape higher ed
+  3. dense=0.6243 rerank=0.2647 role=my_work ev=0 file=Historical-Development-24-02-2025.docx p.?
+     3. Historical Development and Current Role of Artificial Intelligence in Higher Education
+  4. dense=0.5293 rerank=0.0884 role=my_work ev=0 file=introduction-version-12-12-2024.docx p.?
+     Radianti, J., Majchrzak, T. A., Fromm, J., and Wohlgenannt, I. (2020). A systematic review of immersive virtual reality applications for higher education: design elements, lessons learned, and research agenda. Computers & Education, 147, p.103778. Available at: https://doi.org/10.1016/j.compedu.2019
+  5. dense=0.5716 rerank=0.0400 role=my_work ev=0 file=Theoretical Foundations of AI and VR in Higher Education-12-12-2024.docx p.?
+     Ouyang, F., & Jiao, P. (2021). Artificial Intelligence in Education: The three paradigms. Computers and Education: Artificial Intelligence, 2, 100020. Available at: https://doi.org/10.1016/j.caeai.2021.100020 [Accessed 10 September 2024]. Piaget, J. (1952). The origins of intelligence in children. [
+
+QUERY: what did my supervisor say about methodology?   mode=supervision  returned=5
+  1. dense=0.4831 rerank=0.2963 role=supervision ev=0 file=APR-Form-2026.docx p.?
+     These two papers support the development of the literature review: the first focuses on AI and VR tools, while the second focuses on the algorithmic foundations of AI-VR integration in higher education. In parallel, I have continued refining the LATTICE Framework and the proposed AI-VR Integrated La
+  2. dense=0.4658 rerank=0.0882 role=supervision ev=0 file=APR-Form-2026.docx p.?
+     Note: In the email that you send to the DoS, along with this form you need to attach a file which maybe part of a chapter that you are currently writing or any other work that the you have written relevant to your PhD. The objective is to give your reviewer context within which to conduct the review
+  3. dense=0.4558 rerank=0.0068 role=supervision ev=0 file=APR-Form-2026.docx p.?
+     16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the past 12 months 17. Researcher development training undertaken
+  4. dense=0.4497 rerank=0.0062 role=supervision ev=0 file=APR-Form-2025.docx p.?
+     University Teaching – The University of Hong Kong, via Coursera 18. Activities undertaken to disseminate your research (e.g. seminars, conferences etc) | 18. Activities undertaken to disseminate your research (e.g. seminars, conferences etc) | 18. Activities undertaken to disseminate your research (
+  5. dense=0.4337 rerank=0.0044 role=supervision ev=0 file=APR-Form-2025.docx p.?
+     Note: In the email that you send to the DoS, along with this form you need to attach a file which maybe part of a chapter that you are currently writing or any other work that the you have written relevant to your PhD. The objective is to give your reviewer context within which to conduct the review
+
+QUERY: how should I structure my references and citations?   mode=guidance  returned=5
+  1. dense=0.6547 rerank=0.3410 role=rules ev=0 file=Writing-a-Dissertation.pdf p.16-17
+     Your thesis must contain either a bibliography or a bibliography and a reference list according to the expectations of your supervisor. Failing to cite your sources correctly could result in accusations of plagiarism and the failure of your dissertation. Consult our referencing section for further h
+  2. dense=0.6397 rerank=0.1603 role=rules ev=0 file=writing_guidelines.md p.?
+     These rules define the preferred writing style for the PhD, related papers, revisions, and other academic material. They should be treated as standing instructions for drafting and revision. - Use plain academic prose. - Keep most sentences short, but vary sentence length naturally. - Prefer clarity
+  3. dense=0.6378 rerank=0.1468 role=rules ev=0 file=Writing-a-Dissertation.pdf p.29-30
+     Make sure you are familiar with the research techniques described in the My Research Needs section. In addition tips on note-taking and bibliographic management are also useful. Use the Library’s academic databases as the place to start searching. As your literature review must be as comprehensive a
+  4. dense=0.6061 rerank=0.0717 role=rules ev=0 file=Reference-checklist (1).pdf p.1
+     A reference table for the most commonly used sources This is a table of what to include for the most common sources of information. You can use it to see at a glance what to include for your reference list, or for what information to record at the time when taking notes from a source. For more check
+  5. dense=0.5875 rerank=0.0677 role=rules ev=0 file=Writing-a-Dissertation.pdf p.2-6
+     This tutorial will provide an overview of the process required to undertake an extended piece of work such as doctoral thesis, research proposal, dissertation, project, extended essay etc. The term dissertation will be used to describe the work throughout the tutorial. Your dissertation supervisor w
+

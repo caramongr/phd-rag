@@ -1,0 +1,190 @@
+Offline metadata coverage
+  unique documents examined: 466
+  extraction errors:         0
+  by extension:
+    .docx: 18
+    .md: 3
+    .pdf: 444
+    .xlsx: 1
+  by corpus role:
+    future_chapters: 8
+    guidance: 1
+    literature: 442
+    my_work: 4
+    rules: 8
+    summaries: 1
+    supervision: 2
+  title available:           423
+  title missing:             43
+  DOI detected:              265
+  authors detected:          408
+  year detected:             458
+  venue detected:            0
+  publication type known:    71
+  publication type unknown:  395
+  metadata source counts (candidates):
+    PDF_METADATA: 803
+    DOCX_PROPERTIES: 35
+    DOCUMENT_TEXT: 1703
+    FILENAME: 222
+External enrichment sample (20 documents)
+  06-IJCE42022489_online.pdf [literature]
+    local title:   Generative Artificial Intelligence in Higher Education: Exploring Ways of Harnessing Pedagogical Practices with the Assistance of ChatGPT (PDF_METADATA)
+    local DOI:     10.47852/bonviewIJCE42022489
+    lookup:        DOI
+    match status:  EXACT
+    resolved:      title=Generative Artificial Intelligence in Higher Education: Exploring Ways of Harnessing Pedagogical Practices with the Assistance of ChatGPT year=2024 doi=10.47852/bonviewijce42022489
+    type/venue:    JOURNAL_ARTICLE / International Journal of Changes in Education
+    provenance:    title=CROSSREF/HIGH, authors=CROSSREF/HIGH, year=CROSSREF/HIGH, doi=CROSSREF/HIGH, venue=CROSSREF/HIGH, publication_type=CROSSREF/HIGH
+  +6089-.pdf [literature]
+    local title:   Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  AMBIGUOUS
+    resolved:      title=Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education year=2023 doi=—
+    type/venue:    — / —
+    provenance:    title=DOCUMENT_TEXT/MEDIUM, authors=DOCUMENT_TEXT/MEDIUM, year=DOCUMENT_TEXT/MEDIUM
+  111771-Article Text-230125-1-10-20220414.pdf [literature]
+    local title:   Aspects associated with health care professionals’ digital health competence development – a qualitative study (PDF_METADATA)
+    local DOI:     —
+    lookup:        title
+    match status:  STRONG
+    resolved:      title=Aspects associated with health care professionals’ digital health competence development – a qualitative study year=2022 doi=10.23996/fjhw.111771
+    type/venue:    JOURNAL_ARTICLE / Finnish Journal of eHealth and eWelfare
+    provenance:    title=CROSSREF/MEDIUM, authors=CROSSREF/MEDIUM, year=CROSSREF/MEDIUM, doi=CROSSREF/MEDIUM, venue=CROSSREF/MEDIUM, publication_type=CROSSREF/MEDIUM
+  2311.15198v1.pdf [literature]
+    local title:   ChatGPT and Beyond: The Generative AI Revolution in Education (PDF_METADATA)
+    local DOI:     —
+    lookup:        title
+    match status:  STRONG
+    resolved:      title=ChatGPT and Beyond: The Generative AI Revolution in Education year=2023 doi=10.48550/arxiv.2311.15198
+    type/venue:    PREPRINT / arXiv (Cornell University)
+    provenance:    title=OPENALEX/MEDIUM, authors=OPENALEX/MEDIUM, year=OPENALEX/MEDIUM, doi=OPENALEX/MEDIUM, venue=OPENALEX/MEDIUM, publication_type=OPENALEX/MEDIUM
+  8-AI_and_VR_Enabled_Modern_LMS_for_Student.pdf [literature]
+    local title:   — (—)
+    local DOI:     —
+    lookup:        —
+    match status:  NO_MATCH
+    resolved:      title=— year=2023 doi=—
+    type/venue:    — / —
+    provenance:    year=PDF_METADATA/LOW
+  1-s2.0-S2666920X21000205-main.pdf [literature]
+    local title:   Evaluation of an artificial intelligence literacy course for university students with diverse study backgrounds (PDF_METADATA)
+    local DOI:     10.1016/j.caeai.2021.100026
+    lookup:        DOI
+    match status:  EXACT
+    resolved:      title=Evaluation of an artificial intelligence literacy course for university students with diverse study backgrounds year=2021 doi=10.1016/j.caeai.2021.100026
+    type/venue:    JOURNAL_ARTICLE / Computers and Education: Artificial Intelligence
+    provenance:    title=CROSSREF/HIGH, authors=CROSSREF/HIGH, year=CROSSREF/HIGH, doi=CROSSREF/HIGH, venue=CROSSREF/HIGH, publication_type=CROSSREF/HIGH
+  1028-Article Text-5719-1-10-20230406.pdf [literature]
+    local title:   The Impact of Artificial Intelligence On Higher Learning Institutions (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  AMBIGUOUS
+    resolved:      title=The Impact of Artificial Intelligence On Higher Learning Institutions year=2023 doi=—
+    type/venue:    — / —
+    provenance:    title=DOCUMENT_TEXT/MEDIUM, authors=PDF_METADATA/MEDIUM, year=DOCUMENT_TEXT/MEDIUM
+  1777-Article Text-3547-1-10-20230831.pdf [literature]
+    local title:   Novel Mechanism of Action Drug Candidates for Tuberculosis (PDF_METADATA)
+    local DOI:     —
+    lookup:        title
+    match status:  NO_MATCH
+    resolved:      title=Novel Mechanism of Action Drug Candidates for Tuberculosis year=2023 doi=—
+    type/venue:    — / —
+    provenance:    title=PDF_METADATA/MEDIUM, year=DOCUMENT_TEXT/MEDIUM
+  2406.18900v1.pdf [literature]
+    local title:   The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  AMBIGUOUS
+    resolved:      title=The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges year=2024 doi=—
+    type/venue:    PREPRINT / —
+    provenance:    title=DOCUMENT_TEXT/MEDIUM, authors=DOCUMENT_TEXT/MEDIUM, year=DOCUMENT_TEXT/MEDIUM, publication_type=DOCUMENT_TEXT/LOW
+  EPRS_STU(2020)641530_EN.pdf [literature]
+    local title:   — (—)
+    local DOI:     —
+    lookup:        —
+    match status:  NO_MATCH
+    resolved:      title=— year=2020 doi=—
+    type/venue:    — / —
+    provenance:    authors=PDF_METADATA/MEDIUM, year=DOCUMENT_TEXT/MEDIUM
+  10-The_use_of_AI_in_education_Practicalitie.pdf [literature]
+    local title:   The use of AI in education: Practicalities and ethical considerations (DOCUMENT_TEXT)
+    local DOI:     10.14324/LRE.19.1.05
+    lookup:        DOI
+    match status:  EXACT
+    resolved:      title=The use of AI in education: Practicalities and ethical considerations year=2021 doi=10.14324/lre.19.1.05
+    type/venue:    JOURNAL_ARTICLE / London Review of Education
+    provenance:    title=CROSSREF/HIGH, authors=CROSSREF/HIGH, year=CROSSREF/HIGH, doi=CROSSREF/HIGH, venue=CROSSREF/HIGH, publication_type=CROSSREF/HIGH
+  AI_Teachers_Using_a_VR_MR_Environment_fo.pdf [literature]
+    local title:   AI TEACHERS USING A VR/MR ENVIRONMENT FOR GREATER STUDENT INTERACTION AND IMMERSION (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  AMBIGUOUS
+    resolved:      title=AI TEACHERS USING A VR/MR ENVIRONMENT FOR GREATER STUDENT INTERACTION AND IMMERSION year=2009 doi=—
+    type/venue:    — / —
+    provenance:    title=DOCUMENT_TEXT/MEDIUM, authors=DOCUMENT_TEXT/MEDIUM, year=DOCUMENT_TEXT/MEDIUM
+  17836-Article Text-21330-1-2-20210518.pdf [literature]
+    local title:   AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach (PDF_METADATA)
+    local DOI:     —
+    lookup:        title
+    match status:  STRONG
+    resolved:      title=AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach year=2021 doi=10.1609/aaai.v35i17.17836
+    type/venue:    JOURNAL_ARTICLE / Proceedings of the AAAI Conference on Artificial Intelligence
+    provenance:    title=CROSSREF/MEDIUM, authors=CROSSREF/MEDIUM, year=CROSSREF/MEDIUM, doi=CROSSREF/MEDIUM, venue=CROSSREF/MEDIUM, publication_type=CROSSREF/MEDIUM
+  2408.15686v1.pdf [literature]
+    local title:   Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  STRONG
+    resolved:      title=Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia year=2024 doi=10.48550/arxiv.2408.15686
+    type/venue:    PREPRINT / arXiv (Cornell University)
+    provenance:    title=OPENALEX/MEDIUM, authors=OPENALEX/MEDIUM, year=OPENALEX/MEDIUM, doi=OPENALEX/MEDIUM, venue=OPENALEX/MEDIUM, publication_type=OPENALEX/MEDIUM
+  Modern_Approach_to_Educational_Data_Mini.pdf [literature]
+    local title:   — (—)
+    local DOI:     —
+    lookup:        —
+    match status:  NO_MATCH
+    resolved:      title=— year=2022 doi=—
+    type/venue:    — / —
+    provenance:    authors=DOCUMENT_TEXT/MEDIUM, year=PDF_METADATA/LOW
+  1418-ET004.pdf [literature]
+    local title:   Impact of Artificial Intelligence in Special Need Education to Promote Inclusive Pedagogy (DOCUMENT_TEXT)
+    local DOI:     10.18178/ijiet.2020.10.7.1418
+    lookup:        DOI
+    match status:  EXACT
+    resolved:      title=Impact of Artificial Intelligence in Special Need Education to Promote Inclusive Pedagogy year=2020 doi=10.18178/ijiet.2020.10.7.1418
+    type/venue:    JOURNAL_ARTICLE / International Journal of Information and Education Technology
+    provenance:    title=CROSSREF/HIGH, authors=CROSSREF/HIGH, year=CROSSREF/HIGH, doi=CROSSREF/HIGH, venue=CROSSREF/HIGH, publication_type=CROSSREF/HIGH
+  ALEKS_McKeown (1).pdf [literature]
+    local title:   The Impact of ALEKS on Student Learning in First-Year University Mathematics for Economics (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  NO_MATCH
+    resolved:      title=The Impact of ALEKS on Student Learning in First-Year University Mathematics for Economics year=2023 doi=—
+    type/venue:    — / —
+    provenance:    title=DOCUMENT_TEXT/MEDIUM, year=PDF_METADATA/LOW
+  2021_UNESCO_AI-and-education-Guidande-for-policy-makers_EN.pdf [literature]
+    local title:   AI and education - Guidance for policymakers (PDF_METADATA)
+    local DOI:     —
+    lookup:        title
+    match status:  NO_MATCH
+    resolved:      title=AI and education - Guidance for policymakers year=2021 doi=—
+    type/venue:    — / —
+    provenance:    title=PDF_METADATA/MEDIUM, authors=DOCUMENT_TEXT/MEDIUM, year=PDF_METADATA/LOW
+  2504.03966v1.pdf [literature]
+    local title:   Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant (DOCUMENT_TEXT)
+    local DOI:     —
+    lookup:        title
+    match status:  STRONG
+    resolved:      title=Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant year=2025 doi=10.21203/rs.3.rs-6256444/v1
+    type/venue:    PREPRINT / —
+    provenance:    title=CROSSREF/MEDIUM, authors=CROSSREF/MEDIUM, year=CROSSREF/MEDIUM, doi=CROSSREF/MEDIUM, publication_type=CROSSREF/MEDIUM
+  Nanome-Privacy.pdf [literature]
+    local title:   — (—)
+    local DOI:     —
+    lookup:        —
+    match status:  NO_MATCH
+    resolved:      title=— year=— doi=—
+    type/venue:    — / —
+    provenance:    authors=DOCUMENT_TEXT/MEDIUM

@@ -1,0 +1,293 @@
+RAG-009 bibliography guard: corpus-wide scan
+====================================================================================================
+indexed chunks scanned : 11469
+known candidate set    : 142 chunks with >= 3 'Available at:'/doi.org markers (RAG-009 §20)
+rest of the corpus     : 11327
+
+Detection over the known 142 candidates
+----------------------------------------------------------------------------------------------------
+detected     : 133
+not detected : 9
+
+Reasons on the known candidates:
+  citation_year_dense_list         85
+  repeated_available_at_entries    33
+  doi_dense_entry_list             12
+  author_initials_entry_lines      2
+  numbered_entry_list              1
+
+Additional bibliography-like chunks found outside the known set: 140
+(these are the scanner's misses - reference lists without 'Available at:'/'doi.org' links)
+  dense_reference_markers          41
+  citation_year_dense_list         40
+  doi_dense_entry_list             29
+  numbered_entry_list              20
+  author_initials_entry_lines      6
+  labelled_reference_section       2
+  repeated_available_at_entries    2
+
+total detected corpus-wide: 273
+
+Detected chunks by corpus role and upstream content_type
+----------------------------------------------------------------------------------------------------
+  role literature       237
+  role my_work          23
+  role summaries        7
+  role future_chapters  4
+  role supervision      1
+  role rules            1
+  type body             245
+  type conclusion       17
+  type summary_entry    7
+  type table            3
+  type appendix         1
+
+Not-detected known candidates (manual review below)
+----------------------------------------------------------------------------------------------------
+  a2fc4086 role=literature type=body file=s10734-022-00937-2.pdf density=16.19 words=105 lines=4 doi=3 url=3 available_at=0 years=2 entry_lines=0 numbered=0 entry_years=0 heading=False markers=17 density=16.19
+      issues and perspectives. Teaching in Higher Education, 25(4), 351–365. https://doi.org/10.1080/13562 517.2020.1748811 Wilson, M. J., Diao, M. M., & Huang, L. (2015). ‘I’m not here to learn how to mark
+  6a849f22 role=future_chapters type=body file=Chapter 7.docx density=7.84 words=319 lines=9 doi=3 url=3 available_at=1 years=4 entry_lines=1 numbered=0 entry_years=0 heading=False markers=25 density=7.84
+      The chapter’s contribution is an account of how ethical concerns can shape LATTICE implementation through specific institutional decisions. It links educational design to the treatment of student info
+  21479d50 role=future_chapters type=body file=Chapter 7.docx density=7.25 words=276 lines=7 doi=3 url=3 available_at=0 years=3 entry_lines=2 numbered=0 entry_years=0 heading=False markers=20 density=7.25
+      The proposed governance approach gives LATTICE an institutional route from educational intent to accountable operation. It defines the use being approved and connects that use to evidence, responsible
+  c56508e3 role=summaries type=summary_entry file=summaries-27-09-2025.docx density=3.87 words=491 lines=40 doi=2 url=2 available_at=2 years=0 entry_lines=2 numbered=1 entry_years=0 heading=False markers=19 density=3.87
+      Smyrnaiou, Z., Liapakis, A.M., & Bougia, A., 2023. Ethical use of artificial intelligence and new technologies in Education 5.0. Journal of Artificial Intelligence, Machine Learning and Data Science, 
+  e75540d8 role=literature type=body file=Huang-s41598-023-35446-4.pdf density=3.67 words=490 lines=49 doi=3 url=3 available_at=0 years=3 entry_lines=0 numbered=1 entry_years=0 heading=False markers=18 density=3.67
+      Vol:.(1234567890) Scientific Reports | (2023) 13:8425 | https://doi.org/10.1038/s41598-023-35446-4 www.nature.com/scientificreports/ the right half of the face. It shows that the model lacked generali
+  b75cf464 role=summaries type=summary_entry file=summaries-27-09-2025.docx density=3.56 words=450 lines=41 doi=1 url=2 available_at=2 years=0 entry_lines=2 numbered=1 entry_years=0 heading=False markers=16 density=3.56
+      Stephen, C. & Kunnumpurath, B., 2024. Virtual Reality Tilt Brush for creativity: An experimental study among architecture students. Nanotechnology Perceptions, 20(S11), pp.690–706. Available at: http:
+  697fe7d2 role=summaries type=summary_entry file=summaries-27-09-2025.docx density=3.49 words=430 lines=41 doi=1 url=2 available_at=2 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=15 density=3.49
+      Domínguez Vázquez, B. C. & Díaz Palencia, J. L., 2024. A classroom experience for teaching and learning of high school geometry through virtual reality. Pedagogical Research, 9(3), em0210. Available a
+  f14292be role=summaries type=summary_entry file=summaries-27-09-2025.docx density=3.35 words=477 lines=45 doi=1 url=2 available_at=2 years=0 entry_lines=1 numbered=1 entry_years=0 heading=False markers=16 density=3.35
+      Bernhardt-Walther, K. & McKeown, R.J., 2023. The impact of ALEKS on student learning in first-year university mathematics for economics. York University, Department of Economics. [Online] Available at
+  10017efd role=summaries type=summary_entry file=summaries-27-09-2025.docx density=3.28 words=488 lines=26 doi=2 url=2 available_at=1 years=2 entry_lines=1 numbered=1 entry_years=0 heading=False markers=16 density=3.28
+      The review underscores the importance of aligning VR with established learning theories to enhance educational interventions. Future research should: Focus on developing affordable and accessible VR t
+
+Top 40 not-detected chunks by marker density (false-negative sweep, manual review)
+----------------------------------------------------------------------------------------------------
+  3a735da1 role=literature type=body file=2021_UNESCO_AI-and-education-Guidande-for-po density=30.00 words=85 lines=18 doi=0 url=15 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=30 density=30.00
+      77 See, for example: (Tencent Research Institute, 2017) 全球人工智 能人才白皮书 78 Courses designed to enable citizens to become familiar with how AI works can be found at https://www.elementsofai.com, https://okai.brown.edu and ht
+  f25ffdc3 role=literature type=body file=Examining_the_Benefits_and_Challenges_of_Usi density=20.35 words=452 lines=14 doi=0 url=0 available_at=0 years=68 entry_lines=1 numbered=0 entry_years=1 heading=False markers=92 density=20.35
+      Learning benefits Interaction Students interact more with peers to discuss ideas Beatty (2004), Bergtrom (2006), Caldwell (2007), Elliott (2003), Freeman et al. (2007), Kennedy et al. (2006), Sharma, Khachan, Chan, and O
+  43a890f1 role=literature type=body file=Examining_the_Benefits_and_Challenges_of_Usi density=12.91 words=519 lines=7 doi=0 url=0 available_at=0 years=36 entry_lines=0 numbered=3 entry_years=0 heading=False markers=67 density=12.91
+      3.1.3.3. Contingent teaching. One of the key benefits of using an ARS is that instruction can be modified based on student feedback gathered throughout a class (Brewer, 2004; Caldwell, 2007; Cutts, 2006; Draper & Brown, 
+  436ae7af role=literature type=body file=Schonborn-FULLTEXT01.pdf density=12.00 words=93 lines=12 doi=1 url=3 available_at=1 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=12 density=12.00
+      Exploring relationships between students’ interaction and learning with a haptic virtual biomolecular model Konrad J. Schönborn, Petter Bivall and Lena A. E. Tibell Linköping University Post Print N.B.: When citing this 
+  742eac32 role=literature type=body file=2021_UNESCO_AI-and-education-Guidande-for-po density=12.00 words=33 lines=5 doi=0 url=6 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=12 density=12.00
+      41 https://educationcommission.org 42 Watson Tutor: https://www.ibm.com/blogs/watson/2018/06/ using-ai-to-close-learning-gap/ 43 See https://theconversation.com/artificial-intelligence-can-nowemulate-human-behaviors-soon
+  ca2deb5b role=future_chapters type=body file=Chapter 7.docx density=11.85 words=405 lines=17 doi=0 url=0 available_at=12 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=48 density=11.85
+      A proposed LATTICE implementation should maintain a compliance record linked to the activity approved for use. It should include the processing purposes, organisational roles and relevant impact assessments. It should al
+  4080a414 role=literature type=table file=A_Review_of_the_Metaverse_in_Higher_Educ.pdf density=10.39 words=231 lines=14 doi=0 url=0 available_at=0 years=24 entry_lines=0 numbered=0 entry_years=0 heading=False markers=24 density=10.39
+      Citations frequencies | | | | Links strength frequencies | | | Source | Author/Year | Citation | Links | Source | Author/Year | Citation | Links [22] | Saint (2020) | 194 | 0 | [20] | Shao (2017) | 151 | 6 [23] | Yang (2
+  1b62f3a0 role=literature type=body file=madikld,+4773-final+proofread.pdf density=10.00 words=44 lines=4 doi=1 url=3 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=10 density=10.00
+      Article Progressio https://doi.org/10.25159/2663-5895/4773 https://upjournals.co.za/index.php/Progressio ISSN 2663-5895 (Online) Volume 41 | Number 1 | 2019/20 | #4773 | 13 pages © Unisa Press 2019 Connectivism as a Lear
+  63a2534c role=literature type=conclusion file=Mod-2.1-Huang-Influence-of-students-learning density=10.00 words=21 lines=2 doi=0 url=5 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=10 density=10.00
+      ORCID iDs Chiao Ling Huang https://orcid.org/0000-0001-9590-806X Yi Fang Luo https://orcid.org/0000-0002-2208-0932 Shu Ching Yang https://orcid.org/0000-0003-4105-1747 Chia Mei Lu https://orcid.org/0000-0001-9181-9828 An
+  db0da1db role=literature type=table file=Wu.pdf density=9.92 words=121 lines=37 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=10 entry_years=0 heading=False markers=12 density=9.92
+      VoteNet (Qi et al. 2019) H3DNet (Zhang et al. 2020) 3DETR (Misra, Girdhar, and Joulin 2021) GroupFree (Liu et al. 2021) Point-MAE (Pang et al. 2022) Point-M2AE (Zhang et al. 2022a) ACT (Dong et al. 2023) ULIP (Xue et al.
+  df4d4be1 role=literature type=table file=AILiteracyReviewASIST.pdf density=9.35 words=246 lines=34 doi=0 url=0 available_at=0 years=11 entry_lines=1 numbered=0 entry_years=0 heading=False markers=23 density=9.35
+      AI literacy | Definitions | f | Sample references | Sample studies Know & understand AI | Know the basic functions of AI and how to use AI applications in everyday life ethically. | 18 | Even though transparency in algor
+  9b5355d8 role=literature type=body file=AILiteracyReviewASIST.pdf density=9.14 words=350 lines=9 doi=0 url=0 available_at=0 years=14 entry_lines=0 numbered=0 entry_years=0 heading=False markers=32 density=9.14
+      Druga et al. (2019); Julie et al. (2020); Vazhayil et al. (2019). Evaluate & create AI Higher-order thinking skills (e.g., evaluate, appraise, predict, design) with AI applications. 12 Design & build experiences: Technol
+  4f1e2070 role=summaries type=summary_entry file=summaries-27-09-2025.docx density=9.00 words=99 lines=3 doi=1 url=1 available_at=1 years=1 entry_lines=1 numbered=0 entry_years=0 heading=False markers=9 density=9.00
+      Phan, H., Hasegawa, S., & Gu, W. (2023). Implementation of Automated Feedback System for Japanese Essays in Intermediate Education. IIAI Open Conference Publication Series, IIAI Letters on Informatics and Interdisciplina
+  c96e12d3 role=summaries type=summary_entry file=summaries-27-09-2025.docx density=9.00 words=89 lines=1 doi=1 url=1 available_at=1 years=0 entry_lines=1 numbered=0 entry_years=0 heading=False markers=9 density=9.00
+      Owan, V.J., Abang, K.B., Idika, D.O., Etta, E.O., & Bassey, B.A., 2023. Exploring the potential of artificial intelligence tools in educational measurement and assessment. EURASIA Journal of Mathematics, Science and Tech
+  ea854f58 role=literature type=body file=Turnitin_Plagiarism_AI_Similarity_Index.pdf density=8.71 words=459 lines=7 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=40 density=8.71
+      An analysis of the selected literature revealed distinct patterns concerning the current use of fMRI and EEG data in educational research. Among the 10 studies reviewed, six employed fMRI as their primary tool (citations
+  78d4f9a9 role=literature type=body file=Stauffert-frvir-01-582204.pdf density=8.69 words=495 lines=7 doi=0 url=0 available_at=0 years=20 entry_lines=0 numbered=0 entry_years=0 heading=False markers=43 density=8.69
+      Frontiers in Virtual Reality | www.frontiersin.org 5 Latency and Cybersickness. A Review The variability is usually reported by a mean value at least. Standard deviation and minimum/maximum values provide more insight. H
+  98a19cd3 role=literature type=body file=kovanovic-7543-Article Text-35849-2-10-20210 density=8.49 words=624 lines=5 doi=0 url=0 available_at=0 years=25 entry_lines=0 numbered=0 entry_years=0 heading=False markers=53 density=8.49
+      One of the prominent themes in this special section has been the focus on supporting teacher decision making. The study by van Leeuwen et al. (2021), as well as studies by Krumm et al. (2021) and Cloude et al. (2021), ex
+  1f7907a1 role=literature type=body file=-John_Biggs_and_Catherine_Tang-_Teaching_for density=8.47 words=177 lines=10 doi=0 url=4 available_at=0 years=2 entry_lines=2 numbered=0 entry_years=0 heading=False markers=15 density=8.47
+      mycoted.com/creativity/techniques/ (accessed 2 February 2011). The link to creativity on the Higher Education Academy website: http://www. heacademy.ac.uk/creativity.htm (accessed 2 February 2011). Mycoted has an extensi
+  0682964b role=literature type=body file=feduc-09-1410163.pdf density=8.35 words=455 lines=17 doi=0 url=0 available_at=0 years=22 entry_lines=0 numbered=0 entry_years=0 heading=False markers=38 density=8.35
+      Among the nine studies focusing on performance, seven reported positive effects, while two observed increased proficiency. Of the eight studies centered on engagement, five indicated positive effects, two documented incr
+  1a3b8993 role=literature type=body file=A-Bibliometric-Analysis-of-Artificial-Intell density=8.00 words=88 lines=10 doi=1 url=2 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=8 density=8.00
+      International Journal of Information System Modeling and Design Volume 16 • Issue 1 • January-December 2025 DOI: 10.4018/IJISMD.365913 This article published as an Open Access article distributed under the terms of the C
+  41f7a55e role=literature type=body file=671f1348-5c67-4863-b862-9864dbed253a.pdf density=8.00 words=91 lines=18 doi=1 url=2 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=8 density=8.00
+      Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy Vikrant Vikram Singh Symbiosis International (Deemed University) Nishant Kumar CHRIST (D
+  80f31b7a role=literature type=body file=xu-peerj-cs-3034.pdf density=8.00 words=23 lines=2 doi=2 url=0 available_at=0 years=1 entry_lines=0 numbered=0 entry_years=0 heading=False markers=8 density=8.00
+      Conference on Computer Graphics and Interactive Techniques. New York, USA: ACM, 371–378 DOI 10.1145/383259.383300. Xu et al. (2025), PeerJ Comput. Sci., DOI 10.7717/peerj-cs.3034
+  cd4d2f4e role=literature type=body file=-John_Biggs_and_Catherine_Tang-_Teaching_for density=8.00 words=39 lines=5 doi=0 url=3 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=8 density=8.00
+      attributes: http://wwwdocs.fce.unsw.edu.au/fce/EDU/part3.pdf (accessed 2 Feb - ruary 2011). Writing programme ILOs http://www.tuning.unideusto.org/tuningeu/index.php?option=com_frontpage& Itemid=1 http://www.altc.edu.au/
+  0ef0204f role=literature type=body file=Felszeghy-2024- Benefits and challenges of t density=7.98 words=238 lines=7 doi=0 url=9 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=19 density=7.98
+      41American Dental Education Association, Washington, District of Columbia, USA 42Faculty of Health & Life Sciences, Institute of Life Course and Medical Sciences, School of Dentistry, University of Liverpool, Liverpool, 
+  40bf0145 role=literature type=body file=Examining_the_Benefits_and_Challenges_of_Usi density=7.71 words=571 lines=15 doi=0 url=0 available_at=0 years=25 entry_lines=0 numbered=3 entry_years=0 heading=False markers=44 density=7.71
+      3.2.2.3. Developing questions. Writing good ARS questions can be a demanding task for instructors. Researchers agree that the most effective questions have the following characteristics: they address a specific learning 
+  01d34dc4 role=literature type=body file=A systematic review of immersive virtual rea density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  4256cc1b role=literature type=body file=9-A systematic review of immersive virtual r density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  769ce813 role=literature type=body file=Radianti -main.pdf density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  8d0f7f6c role=literature type=body file=ratiandi.pdf density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  8ffdf5b7 role=literature type=body file=radianti-main.pdf density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  fd9b2d72 role=literature type=body file=radianti-2020.pdf density=7.65 words=588 lines=7 doi=0 url=0 available_at=0 years=21 entry_lines=0 numbered=0 entry_years=0 heading=False markers=45 density=7.65
+      There is no single rule about what design elements are valid for specific learning contents. Basic interaction, in particular, was found in all, regardless of the learning contents being addressed. AlAwadhi et al. (2017)
+  a24280ec role=literature type=body file=hou.pdf density=7.39 words=379 lines=2 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=28 density=7.39
+      Related Work Crossmodal 3D Scene Generation. Generating 3D content through language enables users to realize their de- mands without modeling skills. Existing methods (Mohammad Khalid et al. 2022; Lee and Chang 2022; Poo
+  9b759f60 role=literature type=body file=shin-2025-2501.05757v3.pdf density=7.27 words=220 lines=2 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=16 density=7.27
+      RELATED WORK Neural Radiance Fields and Compact Representation Neural fields have emerged as a dominant representation for various continuous signals, including images (Dupont et al., 2021; Str¨umpler et al., 2022), sign
+  3680509f role=literature type=body file=ED656076.pdf density=7.26 words=372 lines=74 doi=1 url=12 available_at=0 years=0 entry_lines=1 numbered=0 entry_years=0 heading=False markers=27 density=7.26
+      that could be used to determine whether a model is generating fair predictions, and the choice of metric is critical since they can be at odds with each to focus on calibration bias because we thought the most important 
+  fb986e08 role=literature type=table file=Wu.pdf density=7.08 words=113 lines=23 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=9 entry_years=0 heading=False markers=8 density=7.08
+      Mink.Net (Choy, Gwak, and Savarese 2019) Mix3D (Nekrasov et al. 2021) LargeKernel3D (Chen et al. 2023) PointConvFormer (Wu, Fuxin, and Shan 2023) PointTransformer (Zhao et al. 2021) Stratified Trans. (Lai et al. 2022) Fa
+  e16cb8b1 role=literature type=body file=A-Bibliometric-Analysis-of-Artificial-Intell density=7.03 words=128 lines=10 doi=0 url=0 available_at=0 years=5 entry_lines=0 numbered=0 entry_years=0 heading=False markers=9 density=7.03
+      International Journal of Information System Modeling and Design Volume 16 • Issue 1 • January-December 2025 Table 5. Top 15 most frequently cited references in Higher Education International Learning Management Internati
+  4e190e69 role=literature type=body file=Alsufyani-Journal of Dental Education - 2023 density=7.00 words=91 lines=11 doi=1 url=2 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=7 density=7.00
+      A. Anterior nasal spine 14 (41.2) 12 (34.3) B. Incisive foramen** 15 (44.1) 21 (60.0) 1.743 0.187 C. Infraorbital canal 2 (5.9) 2 (5.7) D. Intermaxillary suture 3 (8.8) 0 (Continues) 19307837, 2023, 8, Downloaded from ht
+  9d379c6b role=literature type=body file=Alsufyani-Journal of Dental Education - 2023 density=7.00 words=90 lines=11 doi=1 url=2 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=7 density=7.00
+      A. Nasal septum** 34 (100) 33 (94.3) B. Mastoid process 0 1 (2.9) – 0.493 C. Floor of the middle cranial fossa 0 0 D. Fracture 0 1 (2.9) (Continues) 19307837, 2023, 8, Downloaded from https://onlinelibrary.wiley.com/doi/
+  c0aba3b4 role=literature type=body file=2022_HanShinKoShin_Immersivevirtualrealityfo density=7.00 words=67 lines=12 doi=1 url=2 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=7 density=7.00
+      This work was supported by the Incheon National University Research Grant in 2019 (#2019-0076). CONFLICT OF INTEREST The authors declare there is no potential conflict of interest. PEER REVIEW The peer review history for
+  784d657e role=literature type=body file=Euro J of Education - 2022 - Holmes - State  density=6.99 words=143 lines=11 doi=1 url=2 available_at=0 years=1 entry_lines=0 numbered=0 entry_years=0 heading=False markers=10 density=6.99
+      et al., 2019). No doubt these categories can be argued over, as can which category applies to which AIED tool, but they do provide a useful framing for facilitating discussion. In Table 1, we present an overview of the ­
+
+Most prose-like detected chunks (false-positive sweep, manual review)
+----------------------------------------------------------------------------------------------------
+  8fc4faaa role=literature type=body file=Wiredu1782024AJRCOS119977.pdf reason=doi_dense_entry_list long_ratio=1.00 words=250 lines=1 doi=8 url=5 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=39 density=15.60
+      education: scoping review. JMIR medical education.2023;9:e48785.DOI:10.2196/48 785 19. Sevnarayan K, Potter MA. Generative artificial intelligence in distance education: Transformations, challenges, and impact on academi
+  bbe5edfe role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries long_ratio=1.00 words=269 lines=4 doi=7 url=8 available_at=8 years=8 entry_lines=3 numbered=0 entry_years=0 heading=False markers=81 density=30.11
+      Adiguzel, T., Kaya, M.H., and Cansu, F.K. (2023). Revolutionizing education with AI: Exploring the transformative potential of ChatGPT. Contemporary Educational Technology, [Online] 15(3), p. ep429. Available at: https:/
+  45b20cd7 role=literature type=body file=kaissis2020.pdf reason=citation_year_dense_list long_ratio=1.00 words=277 lines=1 doi=1 url=3 available_at=0 years=10 entry_lines=1 numbered=0 entry_years=7 heading=False markers=21 density=7.58
+      Obermeyer, Z. & Mullainathan, S. Dissecting racial bias in an algorithm that guides health decisions for 70 million people. In Proc. Conf. Fairness, Accountability, and Transparency 89 (ACM, 2019). 20. Wang, S. J. et al.
+  7f0ff80e role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries long_ratio=1.00 words=326 lines=1 doi=5 url=8 available_at=8 years=9 entry_lines=1 numbered=0 entry_years=0 heading=False markers=77 density=23.62
+      Radianti, J., Majchrzak, T. A., Fromm, J., and Wohlgenannt, I. (2020). A systematic review of immersive virtual reality applications for higher education: design elements, lessons learned, and research agenda. Computers 
+  d48c5f7e role=literature type=body file=Kanwal,-18.pdf reason=doi_dense_entry_list long_ratio=1.00 words=333 lines=1 doi=10 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=43 density=12.91
+      analysis of photometric points on 2D facial images: A machine learning approach in orthodontics. Health Technol 2019;9:715-24. Doi:.10.1007/s12553-019-00313-8. 26. Sakowitz SM, Inglehart MR, Ramaswamy V, Edwards S, Shouk
+  8c1556bb role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list long_ratio=1.00 words=350 lines=1 doi=12 url=11 available_at=0 years=13 entry_lines=0 numbered=0 entry_years=0 heading=False markers=72 density=20.57
+      https://doi.org/10.1155/202 1/9922775 Erdogan, V. (2019). Integrating 4C skills of 21st century into 4 language skills in EFL classes. /nternational Journal of Education and Research, 7(11), 113-124. Fakhri Alamdari, E.,
+  1ee04df3 role=my_work type=body file=Theoretical Foundations of AI and VR in High reason=repeated_available_at_entries long_ratio=1.00 words=354 lines=4 doi=9 url=10 available_at=10 years=13 entry_lines=4 numbered=0 entry_years=0 heading=False markers=108 density=30.51
+      Ouyang, F., & Jiao, P. (2021). Artificial Intelligence in Education: The three paradigms. Computers and Education: Artificial Intelligence, 2, 100020. Available at: https://doi.org/10.1016/j.caeai.2021.100020 [Accessed 1
+  778d8086 role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list long_ratio=1.00 words=356 lines=1 doi=9 url=8 available_at=0 years=12 entry_lines=0 numbered=0 entry_years=0 heading=False markers=55 density=15.45
+      Iss. 1 2024 Areepattamannil, S., Khurma, O. A., Ali, N., Al Hakmamni, R., & Kadbey, H. (2023). Examining the relationship between science motivational beliefs and science achievement in Emirati early adolescents through 
+  d04e5c2b role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list long_ratio=1.00 words=356 lines=2 doi=12 url=10 available_at=0 years=12 entry_lines=0 numbered=0 entry_years=0 heading=False markers=69 density=19.38
+      Education Sciences, 9(4), 273. https://doi.org/10.3390/edu esci9040273 56 Sailer, M., & Homner, L. (2020). The gamification of learning: A meta-analysis. Educational Psychology Review, 32(1), 77-112. https://doi.org/10.1
+  769a982a role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list long_ratio=1.00 words=359 lines=1 doi=9 url=9 available_at=0 years=10 entry_lines=0 numbered=0 entry_years=0 heading=False markers=55 density=15.32
+      Iss. 1 2024 International Journal of Selection and Assessment, 30(1), 1-13. https://doi.org/10.1111/ijsa.12376 Magana, A. J., Hwang, J., Feng, S., Rebello, 8., Zu, T., & Kao, D. (2022). Emotional and cognitive effects of
+  b10b505e role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=1.00 words=389 lines=11 doi=8 url=6 available_at=6 years=11 entry_lines=9 numbered=0 entry_years=0 heading=False markers=77 density=19.79
+      Szegedy, C., Vanhoucke, V., Ioffe, S., Shlens, J. and Wojna, Z. (2016) ‘Rethinking the Inception architecture for computer vision’, in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 28
+  4ef00f4e role=literature type=body file=kaissis2020.pdf reason=citation_year_dense_list long_ratio=1.00 words=395 lines=1 doi=1 url=6 available_at=0 years=11 entry_lines=0 numbered=1 entry_years=8 heading=False markers=31 density=7.85
+      64. Garfinkel, S. L., Abowd, J. M. & Powazek, S. Issues encountered deploying differential privacy. In Proc. 2018 Workshop on Privacy in the Electronic Society 133–137 (ACM, 2018). 65. Goodfellow, I. J., Shlens, J. & Sze
+  fd876ec6 role=literature type=body file=kaissis2020.pdf reason=citation_year_dense_list long_ratio=1.00 words=398 lines=1 doi=2 url=8 available_at=0 years=15 entry_lines=0 numbered=1 entry_years=13 heading=False markers=42 density=10.55
+      33. Kurita, K., Michel, P. & Neubig, G. Weight poisoning attacks on pre-trained models. Preprint at https://arxiv.org/abs/2004.06660 (2020). 34. Al-Rubaie, M. & Chang, J. M. Privacy preserving machine learning: threats a
+  b1433bcc role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list long_ratio=1.00 words=404 lines=1 doi=7 url=6 available_at=0 years=9 entry_lines=0 numbered=0 entry_years=0 heading=False markers=42 density=10.40
+      By embracing the challenge of crafting gamified approaches that resonate deeply with each student, researchers can unravel novel ways to amplify engagement, learning, and satisfaction among a wide array of learners. Addi
+  63f33665 role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries long_ratio=1.00 words=407 lines=3 doi=9 url=10 available_at=10 years=10 entry_lines=3 numbered=0 entry_years=0 heading=False markers=104 density=25.55
+      Meron, Y. and Araci, Y.T. (2023). Artificial intelligence in design education: Evaluating ChatGPT as a virtual colleague for post-graduate course development. Cambridge University Press. Available at: https://doi.org/10.
+  caece671 role=literature type=body file=Kanwal,-18.pdf reason=doi_dense_entry_list long_ratio=1.00 words=436 lines=1 doi=9 url=0 available_at=0 years=0 entry_lines=0 numbered=1 entry_years=0 heading=False markers=43 density=9.86
+      9. Sytek L, Inglehart MR, Ramaswamy V, Aronovich S, Edwards S, Kim-Berman H. Comparisons of orthodontic residents' performance and attitudes using 2D, 3D, and virtual reality surgical simulation methods. J Dent Educ 2021
+  950bd47c role=literature type=body file=kaissis2020.pdf reason=labelled_reference_section long_ratio=1.00 words=443 lines=1 doi=0 url=1 available_at=0 years=18 entry_lines=0 numbered=0 entry_years=16 heading=True markers=37 density=8.35
+      References 1. Aerts, H. J. W. L. et al. Decoding tumour phenotype by noninvasive imaging using a quantitative radiomics approach. Nat. Commun. 5, 4006 (2014). 2. Lambin, P. et al. Radiomics: the bridge between medical im
+  4f85c89a role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.92 words=379 lines=12 doi=8 url=4 available_at=4 years=12 entry_lines=12 numbered=0 entry_years=0 heading=False markers=70 density=18.47
+      Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. (2020) ‘Federated learning: A survey on enabling technologies, protocols, and applications’, IEEE Access, 8, pp. 140699–140725. doi: 10.1109/ACCESS.2020.3013541. Anton
+  af319367 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.92 words=395 lines=12 doi=6 url=4 available_at=4 years=12 entry_lines=12 numbered=0 entry_years=0 heading=False markers=64 density=16.20
+      Cao, Z., Simon, T., Wei, S.-E. and Sheikh, Y. (2017) ‘Realtime multi-person 2D pose estimation using part affinity fields’, in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 729
+  5667b57c role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.91 words=340 lines=11 doi=9 url=4 available_at=4 years=11 entry_lines=11 numbered=0 entry_years=0 heading=False markers=73 density=21.47
+      Yeadon, W., Inyang, O., Mizouri, A., Peach, A. and Testrow, C. (2023) ‘The death of the short-form physics essay in the coming AI revolution’, Physics Education, 58(3), p. 035027. doi: 10.1088/1361-6552/acc5cf. Yuan, F. 
+  7b5f4024 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.91 words=366 lines=11 doi=8 url=6 available_at=6 years=11 entry_lines=10 numbered=0 entry_years=0 heading=False markers=78 density=21.31
+      Ramezani, M., Acharya, D., Gu, F. and Khoshelham, K. (2017) ‘Indoor positioning by visual-inertial odometry’, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, IV-2/W4, pp. 371–376. Ava
+  6327b017 role=literature type=body file=2504.03966v1.pdf reason=citation_year_dense_list long_ratio=0.90 words=400 lines=10 doi=9 url=9 available_at=0 years=10 entry_lines=0 numbered=0 entry_years=0 heading=False markers=55 density=13.75
+      Author Contributions: Conceptualization, K.M. and M.T.-S.; methodology, K.M.; software, K.M.; validation, K.M.; formal analysis, K.M.; investigation, K.M.; resources, K.M. and M.T.-S.; data curation, K.M.; writing—origin
+  d01ddfb9 role=literature type=body file=26962-59303-1-PB.pdf reason=doi_dense_entry_list long_ratio=0.90 words=412 lines=10 doi=7 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=39 density=9.47
+      4th International Workshop on Multilingual, 2013, doi: 10.1145/2505377.2509977. [23] D. Purmayanti, “The challenges of implementing digital literacy in teaching and learning activities for efl learners in Indonesia,” BAT
+  22090f87 role=literature type=body file=Renganayagalu-s10758-020-09489-9.pdf reason=citation_year_dense_list long_ratio=0.86 words=437 lines=14 doi=3 url=3 available_at=0 years=15 entry_lines=2 numbered=0 entry_years=0 heading=False markers=33 density=7.55
+      Chua, P. T., Crivella, R., Daly, B., Hu, N., Schaaf, R., & Ventura, D., et al. (2003). Training for physi- cal tasks in virtual environments: Tai Chi. In Paper presented at the IEEE Virtual Reality, 2003. Proceedings. Cl
+  0d9ca649 role=literature type=body file=Zawacki-Richter-s41239-019-0171-0 (2).pdf reason=citation_year_dense_list long_ratio=0.85 words=363 lines=13 doi=10 url=12 available_at=0 years=13 entry_lines=0 numbered=0 entry_years=0 heading=False markers=69 density=19.01
+      implications of artificial intelligence. Business Horizons, 62(1), 15–25. https://doi.org/10.1016/j.bushor.2018.08.004. Kardan, A. A., & Sadeghi, H. (2013). A decision support system for course offering in online higher 
+  cf430312 role=literature type=body file=s10734-022-00937-2.pdf reason=citation_year_dense_list long_ratio=0.85 words=383 lines=13 doi=8 url=10 available_at=0 years=16 entry_lines=1 numbered=0 entry_years=0 heading=False markers=61 density=15.93
+      Marachi, R., & Quill, L. (2020). The case of Canvas: Longitudinal datafication through learning manage- ment systems. Teaching in Higher Education, 25(4), 418–434. https://doi.org/10.1080/13562517.2020. 1739641 Marshall,
+  a2ee108c role=literature type=conclusion file=Using_the_Duolingo_Application_as_a_Vocabula reason=citation_year_dense_list long_ratio=0.83 words=361 lines=12 doi=10 url=10 available_at=0 years=11 entry_lines=2 numbered=0 entry_years=0 heading=False markers=61 density=16.90
+      (2020). A cost-effective redundant communication system for improving the reliability of a flood early warning system. Journal of Hydroinformatics, 22(4), 856–875.https://doi.org/10.2166/hydro.2020.216 MahmoumGonbadi, A.
+  4031726a role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.83 words=371 lines=12 doi=7 url=3 available_at=3 years=12 entry_lines=12 numbered=0 entry_years=0 heading=False markers=60 density=16.17
+      Lin, C.-H., Gao, J., Tang, L., Takikawa, T., Zeng, X., Huang, X., Kreis, K., Fidler, S., Liu, M.-Y. and Lin, T.-Y. (2023) ‘Magic3D: High-resolution text-to-3D content creation’, arXiv [Preprint], arXiv:2211.10440. Lin, K
+  2177c2e0 role=literature type=body file=Generative-ai-higher-education-book.pdf reason=citation_year_dense_list long_ratio=0.83 words=391 lines=12 doi=5 url=7 available_at=0 years=14 entry_lines=1 numbered=0 entry_years=0 heading=False markers=49 density=12.53
+      Eubanks, V. (2018). Automating inequality: How high-­tech tools profile, police, and punish the poor. St. Martin’s Press. Gilster, P. (1997). Digital literacy. Wiley Computer Publishing. Huitt, W. (2011). Bloom et al.’s 
+  990f77cc role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries long_ratio=0.83 words=392 lines=12 doi=6 url=4 available_at=4 years=12 entry_lines=12 numbered=0 entry_years=0 heading=False markers=63 density=16.07
+      Haarnoja, T., Zhou, A., Abbeel, P. and Levine, S. (2018) ‘Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor’, in Proceedings of the 35th International Conference on Machine
+
+Detected chunks, highest density first (manual review sample)
+----------------------------------------------------------------------------------------------------
+  86f3a9c6 role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries words=102 lines=1 doi=4 url=4 available_at=4 years=3 entry_lines=0 numbered=0 entry_years=0 heading=False markers=41 density=40.20
+      Available at: https://doi.org/10.29333/ejmste/13428. [Accessed 23 September 2024]. Makarenko, O. (2024). Embracing artificial intelligence in education: Shaping the learning path for future professionals. Multidisciplina
+  1ee04df3 role=my_work type=body file=Theoretical Foundations of AI and VR in High reason=repeated_available_at_entries words=354 lines=4 doi=9 url=10 available_at=10 years=13 entry_lines=4 numbered=0 entry_years=0 heading=False markers=108 density=30.51
+      Ouyang, F., & Jiao, P. (2021). Artificial Intelligence in Education: The three paradigms. Computers and Education: Artificial Intelligence, 2, 100020. Available at: https://doi.org/10.1016/j.caeai.2021.100020 [Accessed 1
+  bbe5edfe role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries words=269 lines=4 doi=7 url=8 available_at=8 years=8 entry_lines=3 numbered=0 entry_years=0 heading=False markers=81 density=30.11
+      Adiguzel, T., Kaya, M.H., and Cansu, F.K. (2023). Revolutionizing education with AI: Exploring the transformative potential of ChatGPT. Contemporary Educational Technology, [Online] 15(3), p. ep429. Available at: https:/
+  3063ca71 role=my_work type=body file=Historical-Development-24-02-2025.docx reason=repeated_available_at_entries words=372 lines=9 doi=11 url=12 available_at=12 years=0 entry_lines=8 numbered=0 entry_years=0 heading=True markers=104 density=27.96
+      Reference List Doroudi, S., 2022. The intertwined histories of artificial intelligence and education. International Journal of Artificial Intelligence in Education, 33, pp.885–928. Available at: https://doi.org/10.1007/s
+  f5aa4c6f role=literature type=body file=2021_UNESCO_AI-and-education-Guidande-for-po reason=repeated_available_at_entries words=268 lines=27 doi=0 url=30 available_at=2 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=71 density=26.49
+      52 https://elearningindustry.com/telepresence-in-education-futureelearning 53 https://www.softbankrobotics.com/emea/en/nao 54 https://www.softbankrobotics.com/emea/en/pepper 55 https://www.youtube.com/watch?v=E_iozVysl5g
+  94d23962 role=my_work type=body file=Theoretical Foundations of AI and VR in High reason=repeated_available_at_entries words=372 lines=8 doi=7 url=9 available_at=9 years=12 entry_lines=8 numbered=0 entry_years=0 heading=False markers=96 density=25.81
+      Csikszentmihalyi, M. (1990). Flow: The psychology of optimal experience. 1st ed. New York: Harper and Row. Predescu, S.-L., Caramihai, S.I., and Moisescu, M.A. (2023). Impact of VR application in an academic context. App
+  c0de9c95 role=literature type=body file=s40593-022-00313-2 (1).pdf reason=citation_year_dense_list words=164 lines=9 doi=6 url=7 available_at=0 years=8 entry_lines=0 numbered=1 entry_years=0 heading=False markers=42 density=25.61
+      https://doi.org/10.3102/0013189X016001022 Papert, S. (1987b). Microworlds: transforming education. In Artificial Intelligence and Education (Vol. 1, pp. 79–94). Papert, S. (1993). The children’s machine: Rethinking schoo
+  63f33665 role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries words=407 lines=3 doi=9 url=10 available_at=10 years=10 entry_lines=3 numbered=0 entry_years=0 heading=False markers=104 density=25.55
+      Meron, Y. and Araci, Y.T. (2023). Artificial intelligence in design education: Evaluating ChatGPT as a virtual colleague for post-graduate course development. Cambridge University Press. Available at: https://doi.org/10.
+  1e748944 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=362 lines=13 doi=11 url=6 available_at=6 years=13 entry_lines=13 numbered=0 entry_years=0 heading=False markers=92 density=25.41
+      Oubagine, R., Laaouina, L., Jeghal, A. and Tairi, H. (2026) ‘A unified AI architecture for self-regulated learning: Cognitive modeling, meta-learning, and continual adaptation’, Algorithms, 19(1), p. 26. doi: 10.3390/a19
+  90fe92ff role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=374 lines=12 doi=9 url=8 available_at=8 years=12 entry_lines=12 numbered=0 entry_years=0 heading=False markers=89 density=23.80
+      Kaplanyan, A.S., Sochenov, A., Leimkühler, T., Okunev, M., Goodall, T. and Rufo, G. (2019) ‘DeepFovea: Neural reconstruction for foveated rendering and video compression using learned statistics of natural videos’, ACM T
+  7f0ff80e role=my_work type=body file=introduction-version-12-12-2024.docx reason=repeated_available_at_entries words=326 lines=1 doi=5 url=8 available_at=8 years=9 entry_lines=1 numbered=0 entry_years=0 heading=False markers=77 density=23.62
+      Radianti, J., Majchrzak, T. A., Fromm, J., and Wohlgenannt, I. (2020). A systematic review of immersive virtual reality applications for higher education: design elements, lessons learned, and research agenda. Computers 
+  ae88fd9d role=literature type=body file=Zawacki-Richter-s41239-019-0171-0 (2).pdf reason=citation_year_dense_list words=336 lines=14 doi=11 url=14 available_at=0 years=15 entry_lines=4 numbered=0 entry_years=0 heading=False markers=79 density=23.51
+      Systems, 49(4), 498–506. https://doi.org/10.1016/j.dss.2010.06.003. Delen, D. (2011). Predicting student attrition with data mining methods. Journal of College Student Retention: Research, Theory and Practice, 13(1), 17–
+  7d52deee role=my_work type=body file=Historical-Development-24-02-2025.docx reason=repeated_available_at_entries words=351 lines=8 doi=6 url=11 available_at=11 years=1 entry_lines=6 numbered=0 entry_years=0 heading=False markers=80 density=22.79
+      Sallu, S., Raehang, R. & Qammaddin, Q., 2024. Exploration of artificial intelligence (AI) application in higher education: A research study in Kolaka, Southeast Sulawesi. Journal of Computer Networks, Architecture, and H
+  f62aa176 role=literature type=body file=+6089-.pdf reason=citation_year_dense_list words=311 lines=42 doi=9 url=14 available_at=0 years=15 entry_lines=14 numbered=0 entry_years=0 heading=False markers=70 density=22.51
+      Ramesh, D., & Sanampudi, S. K. (2022). An automated essay scoring systems: A systematic literature review. Artificial Intelligence Review, 55(3), 2495–2527. https://doi.org/10.1007/s10462- 021-10068-2 Renz, A., & Hilbig,
+  23cbf6ae role=literature type=body file=s40593-022-00313-2 (1).pdf reason=citation_year_dense_list words=338 lines=15 doi=11 url=12 available_at=0 years=18 entry_lines=4 numbered=0 entry_years=0 heading=False markers=76 density=22.49
+      Brown, J. S., Burton, R. R., & Bell, A. G. (1975b). Sophie: A step toward creating a reactive learn- ing environment. International Journal of Man­Machine Studies, 7(5), 675–696. https://doi.org/10. 1016/S0020­7373(75)80
+  5cb12e4a role=literature type=body file=s13244-023-01595-3 (1).pdf reason=citation_year_dense_list words=321 lines=22 doi=11 url=11 available_at=0 years=10 entry_lines=0 numbered=9 entry_years=0 heading=False markers=72 density=22.43
+      Radiology: Summary of the Joint European and North American Multisociety Statement. J Am Coll Radiol 16:1516–1521. https://doi.org/10.1016/j. jacr.2019.07.028 11. Wood M, Tenenholtz N, Geis J et al (2019) The need for a 
+  fd71fe3c role=literature type=body file=ncowie,+1487-ASCILITE+Conference+Full+287-29 reason=citation_year_dense_list words=348 lines=15 doi=10 url=11 available_at=1 years=17 entry_lines=0 numbered=0 entry_years=0 heading=False markers=78 density=22.41
+      Navigating the Terrain: Emerging Frontiers in Learning Spaces, Pedagogies, and Technologies Learning Environments: 1-14. https://doi.org/10.1080/10494820.2023.2253858 Carless, D. (2015). "Exploring learning-oriented asse
+  4282d1d7 role=my_work type=body file=Theoretical Foundations of AI and VR in High reason=repeated_available_at_entries words=69 lines=2 doi=2 url=2 available_at=2 years=2 entry_lines=2 numbered=0 entry_years=0 heading=False markers=22 density=22.00
+      Gligorea, I., Cioca, M., Oancea, R., Gorski, A.-T., Gorski, H., and Tudorache, P. (2023). Adaptive learning using artificial intelligence in e-learning: A literature review. Education Sciences, 13(12), p.1216. Available 
+  8740e691 role=literature type=body file=s40593-022-00313-2 (1).pdf reason=citation_year_dense_list words=344 lines=18 doi=10 url=12 available_at=0 years=18 entry_lines=4 numbered=2 entry_years=0 heading=False markers=74 density=21.51
+      International Journal of Artificial Intelligence in Education (2023) 33:885–928 Reif, F., & Simon, H. A. (1994). [E­mail correspondence between Frederick Reif and Herbert A. Simon]. Herbert Simon Collection (Box 22, Fold
+  5667b57c role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=340 lines=11 doi=9 url=4 available_at=4 years=11 entry_lines=11 numbered=0 entry_years=0 heading=False markers=73 density=21.47
+      Yeadon, W., Inyang, O., Mizouri, A., Peach, A. and Testrow, C. (2023) ‘The death of the short-form physics essay in the coming AI revolution’, Physics Education, 58(3), p. 035027. doi: 10.1088/1361-6552/acc5cf. Yuan, F. 
+  7b5f4024 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=366 lines=11 doi=8 url=6 available_at=6 years=11 entry_lines=10 numbered=0 entry_years=0 heading=False markers=78 density=21.31
+      Ramezani, M., Acharya, D., Gu, F. and Khoshelham, K. (2017) ‘Indoor positioning by visual-inertial odometry’, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, IV-2/W4, pp. 371–376. Ava
+  10c7b575 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=371 lines=13 doi=8 url=6 available_at=6 years=13 entry_lines=13 numbered=0 entry_years=0 heading=False markers=77 density=20.75
+      Schulman, J., Wolski, F., Dhariwal, P., Radford, A. and Klimov, O. (2017) ‘Proximal policy optimization algorithms’, arXiv. Available at: https://arxiv.org/abs/1707.06347. Schlichtkrull, M., Kipf, T.N., Bloem, P., van de
+  8c1556bb role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list words=350 lines=1 doi=12 url=11 available_at=0 years=13 entry_lines=0 numbered=0 entry_years=0 heading=False markers=72 density=20.57
+      https://doi.org/10.1155/202 1/9922775 Erdogan, V. (2019). Integrating 4C skills of 21st century into 4 language skills in EFL classes. /nternational Journal of Education and Research, 7(11), 113-124. Fakhri Alamdari, E.,
+  2a3b8e76 role=literature type=body file=s41239-023-00392-8.pdf reason=doi_dense_entry_list words=113 lines=5 doi=4 url=4 available_at=0 years=3 entry_lines=0 numbered=0 entry_years=0 heading=False markers=23 density=20.35
+      test system. Advances in Multimedia. https://doi.org/10.1155/2022/2156111 Zawacki-Richter, O., Marín, V. I., Bond, M., & Gouverneur, F. (2019). Systematic review of research on artificial intelligence applications in hig
+  fe1b45ef role=literature type=body file=2504.03966v1.pdf reason=citation_year_dense_list words=360 lines=13 doi=12 url=12 available_at=0 years=12 entry_lines=1 numbered=0 entry_years=0 heading=False markers=73 density=20.28
+      LLMs to bring evidence-based feedback into the classroom: AI-generated feedback increases secondary students’ text revision, motivation, and positive emotions. Computers and Education: Artificial Intelligence, 6, 100199.
+  76c6f07b role=literature type=body file=Bender1-2014-CGF-Position_Based_Survey (1).p reason=dense_reference_markers words=425 lines=39 doi=0 url=0 available_at=0 years=0 entry_lines=0 numbered=0 entry_years=0 heading=False markers=86 density=20.24
+      In the following we will introduce different constraint examples. For better readability we define pi,j = pi −p j. To give an example, let us consider the distance constraint function C(p1,p2) = |p1,2|−d. The derivatives
+  c424c7a7 role=literature type=conclusion file=Using_the_Duolingo_Application_as_a_Vocabula reason=doi_dense_entry_list words=214 lines=12 doi=7 url=7 available_at=0 years=7 entry_lines=0 numbered=0 entry_years=0 heading=False markers=43 density=20.09
+      efforts to discuss child sexual abuse prevention with their children. Children and Youth Services Review, 121, 105810.https://doi.org/10.1016/j.childyouth.2020.105810 Rovira-Sugranes, A., Razi, A., Afghah, F., & Chakares
+  3b05b51b role=literature type=body file=2504.03966v1.pdf reason=citation_year_dense_list words=366 lines=13 doi=12 url=12 available_at=0 years=13 entry_lines=2 numbered=0 entry_years=0 heading=False markers=73 density=19.95
+      Journal of Research on Technology in Education, 55, 1–6. https://doi.org/10.1080/15391523.2022.2154511 Jahns, E. (2024). Academic register anxiety? – How language ideologies influence university students’ oral participat
+  f8c5606f role=literature type=body file=Information_Technology_Students_Percepti.pdf reason=citation_year_dense_list words=361 lines=14 doi=12 url=11 available_at=0 years=13 entry_lines=0 numbered=0 entry_years=0 heading=False markers=72 density=19.94
+      mation technology. Education and Information Technologies, 23(6), 2633-2653. https://doi.org/10.1007/s10639-018-9734-2 [4] Alhalabi, W. (2016). Virtual reality systems enhance students’ achievements in engineering educat
+  71ca3ffd role=literature type=conclusion file=wang-et-al-2025-virtual-reality-and-educatio reason=citation_year_dense_list words=341 lines=12 doi=10 url=11 available_at=0 years=11 entry_lines=0 numbered=0 entry_years=0 heading=False markers=68 density=19.94
+      https://www.getty.edu/publications/resources/virtuallibrary/9781606060131.pdf Bareišytė, L., Slatman, S., Austin, J., Rosema, M., van Sintemaartensdijk, I., Watson, S., & Bode, C. (2024). Questionnaires for evaluating vi
+  5846b0e1 role=literature type=body file=Generative-ai-higher-education-book.pdf reason=citation_year_dense_list words=333 lines=13 doi=4 url=14 available_at=0 years=15 entry_lines=1 numbered=0 entry_years=0 heading=False markers=66 density=19.82
+      Mukherjee, S., Chee, F. Y., & Coulter, M. (2023, April 28). EU proposes new copyright rules for gen­ erative AI. Reuters. Retrieved October 13, 2023, from https://www.reuters.com/technology/eu-­ lawmakers-­committee-­rea
+  b10b505e role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=389 lines=11 doi=8 url=6 available_at=6 years=11 entry_lines=9 numbered=0 entry_years=0 heading=False markers=77 density=19.79
+      Szegedy, C., Vanhoucke, V., Ioffe, S., Shlens, J. and Wojna, Z. (2016) ‘Rethinking the Inception architecture for computer vision’, in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 28
+  b6ca5177 role=literature type=body file=2504.03966v1.pdf reason=citation_year_dense_list words=365 lines=12 doi=12 url=12 available_at=0 years=12 entry_lines=3 numbered=0 entry_years=0 heading=False markers=72 density=19.73
+      Learning Environments: Case Study. Electronic Journal of E-Learning, 22, 91–110. https://doi.org/10.34190/ejel.22.9.3639 Farrelly, T., & Baker, N. (2023). Generative Artificial Intelligence: Implications and Consideratio
+  94622f21 role=literature type=conclusion file=wang-et-al-2025-virtual-reality-and-educatio reason=citation_year_dense_list words=340 lines=13 doi=10 url=12 available_at=0 years=12 entry_lines=2 numbered=0 entry_years=0 heading=False markers=67 density=19.71
+      literature review. Computers & Education, 221, 105124. https://doi.org/10.1016/j.compedu.2024.105124 Kern, A. C., & Ellermeier, W. (2020). Audio in VR: Effects of a soundscape and movement on presence. Frontiers in Robot
+  0baff4d8 role=literature type=body file=s10734-022-00937-2.pdf reason=citation_year_dense_list words=245 lines=11 doi=8 url=7 available_at=0 years=10 entry_lines=2 numbered=0 entry_years=0 heading=False markers=48 density=19.59
+      knowledge about work and erodes professional judgement. Economy and Society, 49(3), 433–454. Jackson, D., & Tomlinson, M. (2020). Investigating the relationship between career planning, proactivity and employability perc
+  33423504 role=literature type=body file=Generative-ai-higher-education-book.pdf reason=citation_year_dense_list words=312 lines=16 doi=5 url=12 available_at=0 years=13 entry_lines=1 numbered=0 entry_years=0 heading=False markers=61 density=19.55
+      ligence to human health and human existence. BMJ Global Health, 8(5), 1–6. https://doi.org/ 10.1136/bmjgh-­2022-­010435 Ferrara, E. (2023). Fairness and bias in artificial intelligence: A brief survey of sources, impacts
+  d04e5c2b role=literature type=body file=View of Challenges with Gamification in High reason=citation_year_dense_list words=356 lines=2 doi=12 url=10 available_at=0 years=12 entry_lines=0 numbered=0 entry_years=0 heading=False markers=69 density=19.38
+      Education Sciences, 9(4), 273. https://doi.org/10.3390/edu esci9040273 56 Sailer, M., & Homner, L. (2020). The gamification of learning: A meta-analysis. Educational Psychology Review, 32(1), 77-112. https://doi.org/10.1
+  76045066 role=my_work type=body file=second-paper-draft-final.docx reason=repeated_available_at_entries words=349 lines=11 doi=6 url=5 available_at=5 years=11 entry_lines=8 numbered=0 entry_years=0 heading=False markers=67 density=19.20
+      Meng, X. and Yang, Y. (2025) ‘Self-evolving generative AI tutors: Reinforcement learning-augmented ITS for personalized, proactive, and context-aware student engagement’, Research Square [Preprint]. doi: 10.21203/rs.3.rs
+  afc4f031 role=literature type=body file=Haptic_experience_to_significantly_motivate_ reason=doi_dense_entry_list words=365 lines=8 doi=14 url=14 available_at=0 years=0 entry_lines=0 numbered=5 entry_years=0 heading=False markers=70 density=19.18
+      Received: 16 April 2024 / Accepted: 29 July 2024 References 1. Older J. Anatomy: a must for teaching the next generation. Surgeon. 2004;2(2):79–90. https://doi.org/10.1016/S1479-666X(04)80050-7. 2. Turney BW. Anatomy in 
+  ec68c575 role=literature type=body file=s40593-022-00313-2 (1).pdf reason=citation_year_dense_list words=183 lines=9 doi=4 url=7 available_at=0 years=8 entry_lines=3 numbered=0 entry_years=0 heading=False markers=35 density=19.13
+      (Tech. Rep.). Massachusetts Institute of Technology. https://oepi.mit.edu/files/2016/09/MIT- Online-Education-Policy-Initiative-April-2016.pdf Winne, P. H. (2021). Open learner models working in symbiosis with self-regul

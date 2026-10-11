@@ -1,0 +1,24 @@
+RAG-009 reranker / local Qdrant measurements
+==============================================================================
+collection        : phd_rag_chunks_v1 points=11469 dim=1024 distance=Cosine
+torch             : 2.14.1+cu130 cuda=13.0
+gpu               : NVIDIA GeForce RTX 5090
+reranker          : BAAI/bge-reranker-v2-m3 rev=953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e device=cuda max_length=8192 library=sentence-transformers6.1.0
+
+benchmark input   : 25 real query/passage pairs from 'artificial intelligence governance in higher education'
+pair word counts  : min=76 median=360 max=576
+truncated pairs   : 0 (max_length=8192)
+
+ batch  runs  median_s     pl/s  peak_alloc_GiB  peak_reserved_GiB
+     8     5    0.3194     78.3            4.60               4.82
+    16     5    0.2905     86.1            4.93               5.36
+    32     5    0.3781     66.1            5.30               6.11
+
+Qdrant local-mode search latency (same query vector, 20 runs each)
+------------------------------------------------------------------------------
+  no filter          median=   32.6 ms min=   26.7 ms max=   34.3 ms
+  EVIDENCE filter    median=  147.1 ms min=  145.5 ms max=  150.2 ms
+  GENERAL filter     median=  121.3 ms min=  119.9 ms max=  127.3 ms
+
+Filtered search with a year range (a filter Qdrant cannot index locally):
+  year 2020-2025     median=  167.9 ms (results=25)

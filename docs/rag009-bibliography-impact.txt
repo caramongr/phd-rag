@@ -1,0 +1,236 @@
+RAG-009 bibliography guard: effect on the required queries
+====================================================================================================
+collection: phd_rag_chunks_v1  guard default: exclude_bibliography=True
+
+### The MY_WORK query that exposed the problem
+
+--- historical development of AI [guard OFF] mode=my_work
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.5938 rerank=0.8147 biblio=no  p.? Historical-Development-24-02-2025.docx
+       The mid-20th century marked the beginning of exploring and understanding AI and, eventually, its influence on education. Doroudi (2022) explores the h
+    2. dense=0.5148 rerank=0.5445 biblio=no  p.? introduction-version-12-12-2024.docx
+       This literature review aims to thoroughly investigate existing research on integrating AI and VR in higher education. It highlights their transformati
+    3. dense=0.6243 rerank=0.2647 biblio=no  p.? Historical-Development-24-02-2025.docx
+       3. Historical Development and Current Role of Artificial Intelligence in Higher Education
+    4. dense=0.5293 rerank=0.0884 biblio=yes p.? introduction-version-12-12-2024.docx
+       Radianti, J., Majchrzak, T. A., Fromm, J., and Wohlgenannt, I. (2020). A systematic review of immersive virtual reality applications for higher educat
+    5. dense=0.5716 rerank=0.04 biblio=yes p.? Theoretical Foundations of AI and VR in Higher Education-1
+       Ouyang, F., & Jiao, P. (2021). Artificial Intelligence in Education: The three paradigms. Computers and Education: Artificial Intelligence, 2, 100020.
+    6. dense=0.5240 rerank=0.0341 biblio=yes p.? second-paper-draft-final.docx
+       Ramezani, M., Acharya, D., Gu, F. and Khoshelham, K. (2017) ‘Indoor positioning by visual-inertial odometry’, ISPRS Annals of the Photogrammetry, Remo
+    7. dense=0.5667 rerank=0.0308 biblio=yes p.? Historical-Development-24-02-2025.docx
+       Reference List Doroudi, S., 2022. The intertwined histories of artificial intelligence and education. International Journal of Artificial Intelligence
+    8. dense=0.5437 rerank=0.0216 biblio=yes p.? second-paper-draft-final.docx
+       Yeadon, W., Inyang, O., Mizouri, A., Peach, A. and Testrow, C. (2023) ‘The death of the short-form physics essay in the coming AI revolution’, Physics
+
+--- historical development of AI [guard ON] mode=my_work
+    returned=8 rounds=1 bibliography_dropped=17 retrieved=25
+    1. dense=0.5938 rerank=0.8147 biblio=no  p.? Historical-Development-24-02-2025.docx
+       The mid-20th century marked the beginning of exploring and understanding AI and, eventually, its influence on education. Doroudi (2022) explores the h
+    2. dense=0.5148 rerank=0.5445 biblio=no  p.? introduction-version-12-12-2024.docx
+       This literature review aims to thoroughly investigate existing research on integrating AI and VR in higher education. It highlights their transformati
+    3. dense=0.6243 rerank=0.2647 biblio=no  p.? Historical-Development-24-02-2025.docx
+       3. Historical Development and Current Role of Artificial Intelligence in Higher Education
+    4. dense=0.5252 rerank=0.0168 biblio=no  p.1-2 Intelligent Immersion: AI and VR Tools for Next-Generation
+       Throughout history, major information technologies have reshaped educational practice. The diffusion of print expanded access to written knowledge bey
+    5. dense=0.5374 rerank=0.0099 biblio=no  p.4 Intelligent Immersion: AI and VR Tools for Next-Generation
+       Furthermore, ethical and data privacy concerns are important topics in the literature. Smyrnaiou et al. (2023) highlight the importance of respecting 
+    6. dense=0.5095 rerank=0.0079 biblio=no  p.? Historical-Development-24-02-2025.docx
+       While AI is recognized as a disruptive force capable of transforming higher education and has the ability to deliver many significant benefits, there 
+    7. dense=0.5193 rerank=0.0076 biblio=no  p.2-3 Intelligent Immersion: AI and VR Tools for Next-Generation
+       AI is changing education by making learning more personal and flexible by using data to create tailored experiences for each student. Recent studies i
+    8. dense=0.5293 rerank=0.0038 biblio=no  p.? second-paper-draft-final.docx
+       AI is currently integrated into higher education's digital infrastructure and will continue to grow in significance. AI algorithms enable everything f
+
+### The five required EVIDENCE queries
+
+--- artificial intelligence governance in higher education [guard OFF] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.7339 rerank=0.9916 biblio=no  p.9 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2
+       Based on the results and discussion above, it can be concluded that innovation in utilizing artificial intelligence (AI) in education management in hi
+    2. dense=0.7400 rerank=0.9892 biblio=no  p.1 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2
+       Article Information: Received October 10, 2023 Revised October 19, 2023 Accepted December 1, 2023 | | _ ABSTRACT | | | Innovation in higher education 
+    3. dense=0.7013 rerank=0.9857 biblio=no  p.16 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifi
+       In prompt, policymakers have a critical role to play in shaping the policy landscape for AI integration in STEM higher education. By engaging with the
+    4. dense=0.7057 rerank=0.9839 biblio=no  p.7-8 The Impact of Artificial Intelligence on Higher Education 
+       Implementing AI in higher education requires careful consideration of policy and ethical guidelines to ensure responsible and equitable use (European 
+    5. dense=0.7126 rerank=0.9817 biblio=no  p.2-3 Assessment of Artificial Intelligence-based digital learni
+       The ethical and sustainable development of artificial intelligence depends on good governance. Governments, research institutions, and businesses in C
+    6. dense=0.7204 rerank=0.9749 biblio=no  p.7-9 The Impact of Artificial Intelligence On Higher Learning I
+       Vol 3 No 2, April 2023 Published by: Page 102 Based on the applications the authors have discussed above, it is clear that AI will significantly trans
+    7. dense=0.7219 rerank=0.9723 biblio=no  p.1 The Impact of Artificial Intelligence on Higher Education 
+       In the ever-evolving landscape of technology, artificial intelligence (AI) has emerged to challenge traditional paradigms and revolutionise various se
+    8. dense=0.7259 rerank=0.9713 biblio=no  p.1-2 Reflections on the Artificial Intelligence Transformation:
+       This article explores the potential impact of artificial intelligence (AI) and machine learning (ML) on higher education. It overviews current generat
+
+--- artificial intelligence governance in higher education [guard ON] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=6 retrieved=25
+    1. dense=0.7339 rerank=0.9916 biblio=no  p.9 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2
+       Based on the results and discussion above, it can be concluded that innovation in utilizing artificial intelligence (AI) in education management in hi
+    2. dense=0.7400 rerank=0.9892 biblio=no  p.1 AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2
+       Article Information: Received October 10, 2023 Revised October 19, 2023 Accepted December 1, 2023 | | _ ABSTRACT | | | Innovation in higher education 
+    3. dense=0.7013 rerank=0.9857 biblio=no  p.16 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifi
+       In prompt, policymakers have a critical role to play in shaping the policy landscape for AI integration in STEM higher education. By engaging with the
+    4. dense=0.7057 rerank=0.9839 biblio=no  p.7-8 The Impact of Artificial Intelligence on Higher Education 
+       Implementing AI in higher education requires careful consideration of policy and ethical guidelines to ensure responsible and equitable use (European 
+    5. dense=0.7126 rerank=0.9817 biblio=no  p.2-3 Assessment of Artificial Intelligence-based digital learni
+       The ethical and sustainable development of artificial intelligence depends on good governance. Governments, research institutions, and businesses in C
+    6. dense=0.7204 rerank=0.9749 biblio=no  p.7-9 The Impact of Artificial Intelligence On Higher Learning I
+       Vol 3 No 2, April 2023 Published by: Page 102 Based on the applications the authors have discussed above, it is clear that AI will significantly trans
+    7. dense=0.7219 rerank=0.9723 biblio=no  p.1 The Impact of Artificial Intelligence on Higher Education 
+       In the ever-evolving landscape of technology, artificial intelligence (AI) has emerged to challenge traditional paradigms and revolutionise various se
+    8. dense=0.7259 rerank=0.9713 biblio=no  p.1-2 Reflections on the Artificial Intelligence Transformation:
+       This article explores the potential impact of artificial intelligence (AI) and machine learning (ML) on higher education. It overviews current generat
+
+--- virtual reality student engagement higher education [guard OFF] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.7471 rerank=0.9995 biblio=no  p.2-3 The Impact of Virtual Reality on Student Engagement in Hig
+       Further supporting the value of VR in education, research by Merchant et al. (2014) found that VR contributes to increased learner engagement. Unlike 
+    2. dense=0.7617 rerank=0.9993 biblio=no  p.1-2 The Impact of Virtual Reality on Student Engagement in Hig
+       The Impact of Virtual Reality on Student Engagement in Higher Education Abstract This study explores the effects of virtual reality (VR) technology on
+    3. dense=0.7498 rerank=0.9981 biblio=no  p.3-4 The Impact of Virtual Reality on Student Engagement in Hig
+       Hypothesis H1: Students engaged in VR-based learning will exhibit higher levels of engagement compared to those in traditional learning environments. 
+    4. dense=0.6724 rerank=0.9928 biblio=no  p.6-7 Information Technology Students' Perceptions Toward Using 
+       University students' perceptions of virtual reality technology have been investigated in a range of research. For instance, Baxter and Hainey (2019) e
+    5. dense=0.6713 rerank=0.9868 biblio=no  p.1-2 Exploring the Virtual Frontier: The Impact of Virtual Real
+       reshape the ways in which students engage with complex concepts. VR has been historically under-utilized in education due to its high cost and limited
+    6. dense=0.6537 rerank=0.9708 biblio=no  p.1 Exploring the Virtual Frontier: The Impact of Virtual Real
+       Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai Muriel T. Zaatar1
+    7. dense=0.6535 rerank=0.9671 biblio=no  p.13-14 A systematic review of immersive virtual reality applicati
+       In the following section, the results of the systematic mapping study are described according to the research questions (see Table 2, p. 9). Of the 38
+    8. dense=0.6522 rerank=0.9624 biblio=no  p.2 Exploring the Virtual Frontier: The Impact of Virtual Real
+       The decision to partake in this research study was entirely voluntary, with each student expressing their willingness to engage in this innovative ped
+
+--- virtual reality student engagement higher education [guard ON] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=1 retrieved=25
+    1. dense=0.7471 rerank=0.9995 biblio=no  p.2-3 The Impact of Virtual Reality on Student Engagement in Hig
+       Further supporting the value of VR in education, research by Merchant et al. (2014) found that VR contributes to increased learner engagement. Unlike 
+    2. dense=0.7617 rerank=0.9993 biblio=no  p.1-2 The Impact of Virtual Reality on Student Engagement in Hig
+       The Impact of Virtual Reality on Student Engagement in Higher Education Abstract This study explores the effects of virtual reality (VR) technology on
+    3. dense=0.7498 rerank=0.9981 biblio=no  p.3-4 The Impact of Virtual Reality on Student Engagement in Hig
+       Hypothesis H1: Students engaged in VR-based learning will exhibit higher levels of engagement compared to those in traditional learning environments. 
+    4. dense=0.6724 rerank=0.9928 biblio=no  p.6-7 Information Technology Students' Perceptions Toward Using 
+       University students' perceptions of virtual reality technology have been investigated in a range of research. For instance, Baxter and Hainey (2019) e
+    5. dense=0.6713 rerank=0.9868 biblio=no  p.1-2 Exploring the Virtual Frontier: The Impact of Virtual Real
+       reshape the ways in which students engage with complex concepts. VR has been historically under-utilized in education due to its high cost and limited
+    6. dense=0.6537 rerank=0.9708 biblio=no  p.1 Exploring the Virtual Frontier: The Impact of Virtual Real
+       Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai Muriel T. Zaatar1
+    7. dense=0.6535 rerank=0.9671 biblio=no  p.13-14 A systematic review of immersive virtual reality applicati
+       In the following section, the results of the systematic mapping study are described according to the research questions (see Table 2, p. 9). Of the 38
+    8. dense=0.6522 rerank=0.9624 biblio=no  p.2 Exploring the Virtual Frontier: The Impact of Virtual Real
+       The decision to partake in this research study was entirely voluntary, with each student expressing their willingness to engage in this innovative ped
+
+--- adaptive learning higher education [guard OFF] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.6704 rerank=0.9916 biblio=no  p.3-4 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       Hybrid adaptive learning in higher secondary education is an innovative approach that seeks to provide a personalized and adaptive learning experience
+    2. dense=0.6768 rerank=0.991 biblio=no  p.7-8 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       effectively and adapt their teaching strategy to meet the needs of each student. It is also important to guarantee access to these technologies for al
+    3. dense=0.6549 rerank=0.9903 biblio=no  p.6-7 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       In conclusion, ICT, TAC and TEP are a valuable resource for the implementation of adaptive learning in upper secondary education. However, certain cha
+    4. dense=0.6566 rerank=0.9857 biblio=no  p.3-4 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifi
+       One of the key benefits of AI in STEM higher education is its ability to facilitate personalized and adaptive learning experiences. AI-powered learnin
+    5. dense=0.6476 rerank=0.9583 biblio=no  p.3-4 060624-28.张善文+An Adaptive Learning Method Based on Knowled
+       Through research in the field of adaptive teaching at home and abroad, we have deeply understood and learned from the adaptive teaching theories and t
+    6. dense=0.6458 rerank=0.9152 biblio=no  p.2-3 060624-28.张善文+An Adaptive Learning Method Based on Knowled
+       Use big data and cloud computing technology to flexibly obtain the computing and storage capacity of the education big data platform, build a knowledg
+    7. dense=0.6510 rerank=0.8808 biblio=no  p.23 Adaptive Learning Using Artificial Intelligence in e-Learn
+       The use of adaptive learning with AI or ML in e-learning holds immense potential for revolutionizing the educational landscape. This literature review
+    8. dense=0.6604 rerank=0.8607 biblio=no  p.1-2 Adaptive Learning Using Artificial Intelligence in e-Learn
+       Adaptive learning is an educational approach that utilizes technology to provide personalized learning experiences tailored to individual students’ ne
+
+--- adaptive learning higher education [guard ON] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.6704 rerank=0.9916 biblio=no  p.3-4 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       Hybrid adaptive learning in higher secondary education is an innovative approach that seeks to provide a personalized and adaptive learning experience
+    2. dense=0.6768 rerank=0.991 biblio=no  p.7-8 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       effectively and adapt their teaching strategy to meet the needs of each student. It is also important to guarantee access to these technologies for al
+    3. dense=0.6549 rerank=0.9903 biblio=no  p.6-7 A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING
+       In conclusion, ICT, TAC and TEP are a valuable resource for the implementation of adaptive learning in upper secondary education. However, certain cha
+    4. dense=0.6566 rerank=0.9857 biblio=no  p.3-4 MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artifi
+       One of the key benefits of AI in STEM higher education is its ability to facilitate personalized and adaptive learning experiences. AI-powered learnin
+    5. dense=0.6476 rerank=0.9583 biblio=no  p.3-4 060624-28.张善文+An Adaptive Learning Method Based on Knowled
+       Through research in the field of adaptive teaching at home and abroad, we have deeply understood and learned from the adaptive teaching theories and t
+    6. dense=0.6458 rerank=0.9152 biblio=no  p.2-3 060624-28.张善文+An Adaptive Learning Method Based on Knowled
+       Use big data and cloud computing technology to flexibly obtain the computing and storage capacity of the education big data platform, build a knowledg
+    7. dense=0.6510 rerank=0.8808 biblio=no  p.23 Adaptive Learning Using Artificial Intelligence in e-Learn
+       The use of adaptive learning with AI or ML in e-learning holds immense potential for revolutionizing the educational landscape. This literature review
+    8. dense=0.6604 rerank=0.8607 biblio=no  p.1-2 Adaptive Learning Using Artificial Intelligence in e-Learn
+       Adaptive learning is an educational approach that utilizes technology to provide personalized learning experiences tailored to individual students’ ne
+
+--- generative AI academic integrity [guard OFF] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=0 retrieved=25
+    1. dense=0.6778 rerank=0.9992 biblio=no  p.1-2 Impact of Generative AI in Academic Integrity and Learning
+       With the increasing use of Generative Artificial Intelligence (AI) tools like ChatGPT and Bard, universities face challenges in maintaining academic i
+    2. dense=0.6513 rerank=0.9979 biblio=no  p.7-8 Impact of Generative AI in Academic Integrity and Learning
+       1. Interviews: Conducted semi-structured interviews with students and faculty members to gather qualitative perspectives on the integration of Generat
+    3. dense=0.6866 rerank=0.9971 biblio=no  p.13-15 Impact of Generative AI in Academic Integrity and Learning
+       challenges in Generative AI (see Fig. 6). The majority of faculty, 56.7%, consider training on ethical AI usage as highly important. The next priority
+    4. dense=0.6557 rerank=0.9841 biblio=no  p.16 ChatGPT and Beyond: The Generative AI Revolution in Educat
+       Challenge Description Ensuring Accuracy and Reliability (Hallucination) Generative AI models can generate realistic but inaccurate content, potentiall
+    5. dense=0.7151 rerank=0.9766 biblio=no  p.176 Generative AI in Higher Education; The ChatGPT Effect
+       The potential of AI technologies to be used for academic misconduct necessitates a robust governance framework to address this concern. Developing and
+    6. dense=0.6743 rerank=0.965 biblio=no  p.124 Generative AI in Higher Education; The ChatGPT Effect
+       Understanding AI’s Role in Academia: Institutions should offer AI literacy workshops or courses that explicitly address the capabilities and limitatio
+    7. dense=0.6682 rerank=0.9271 biblio=no  p.271 Turnitin_Plagiarism_AI_Similarity_Index.pdf
+       AI-generated content is serious for academic integrity (Sullivan et al., 2023; Uzun, 2023). Recently, Turnitin introduced the AI similarity index. In 
+    8. dense=0.6431 rerank=0.8541 biblio=no  p.2 Ethical Considerations in Using AI in Educational Research
+       As AI continues to transform the landscape of educational research, it is incumbent upon authors, editors, and publishers to prioritize ethical consid
+
+--- generative AI academic integrity [guard ON] mode=evidence
+    returned=8 rounds=1 bibliography_dropped=7 retrieved=25
+    1. dense=0.6778 rerank=0.9992 biblio=no  p.1-2 Impact of Generative AI in Academic Integrity and Learning
+       With the increasing use of Generative Artificial Intelligence (AI) tools like ChatGPT and Bard, universities face challenges in maintaining academic i
+    2. dense=0.6513 rerank=0.9979 biblio=no  p.7-8 Impact of Generative AI in Academic Integrity and Learning
+       1. Interviews: Conducted semi-structured interviews with students and faculty members to gather qualitative perspectives on the integration of Generat
+    3. dense=0.6866 rerank=0.9971 biblio=no  p.13-15 Impact of Generative AI in Academic Integrity and Learning
+       challenges in Generative AI (see Fig. 6). The majority of faculty, 56.7%, consider training on ethical AI usage as highly important. The next priority
+    4. dense=0.6557 rerank=0.9841 biblio=no  p.16 ChatGPT and Beyond: The Generative AI Revolution in Educat
+       Challenge Description Ensuring Accuracy and Reliability (Hallucination) Generative AI models can generate realistic but inaccurate content, potentiall
+    5. dense=0.7151 rerank=0.9766 biblio=no  p.176 Generative AI in Higher Education; The ChatGPT Effect
+       The potential of AI technologies to be used for academic misconduct necessitates a robust governance framework to address this concern. Developing and
+    6. dense=0.6743 rerank=0.965 biblio=no  p.124 Generative AI in Higher Education; The ChatGPT Effect
+       Understanding AI’s Role in Academia: Institutions should offer AI literacy workshops or courses that explicitly address the capabilities and limitatio
+    7. dense=0.6682 rerank=0.9271 biblio=no  p.271 Turnitin_Plagiarism_AI_Similarity_Index.pdf
+       AI-generated content is serious for academic integrity (Sullivan et al., 2023; Uzun, 2023). Recently, Turnitin introduced the AI similarity index. In 
+    8. dense=0.6431 rerank=0.8541 biblio=no  p.2 Ethical Considerations in Using AI in Educational Research
+       As AI continues to transform the landscape of educational research, it is incumbent upon authors, editors, and publishers to prioritize ethical consid
+
+--- design science research methodology [guard OFF] mode=evidence
+    returned=8 rounds=2 bibliography_dropped=0 retrieved=50
+    1. dense=0.6811 rerank=0.99 biblio=no  p.15 Positioning and Presenting Design Science Research for Max
+       Table 3. Publication Schema for a Design Science Research Study | Section | Contents 1. Introduction | Problem definition, problem significance/motiva
+    2. dense=0.6362 rerank=0.968 biblio=no  p.1-3 Positioning and Presenting Design Science Research for Max
+       SEE PROFILE All content following this page was uploaded by Alan Hevner on 16 June 2015. The user has requested enhancement of the downloaded file. RE
+    3. dense=0.6352 rerank=0.9421 biblio=no  p.3 Positioning and Presenting Design Science Research for Max
+       The essay aims to help researchers (1) appreciate the levels of artifact abstraction that may be DSR contributions, (2) understand knowledge roles in 
+    4. dense=0.5937 rerank=0.8763 biblio=no  p.11-12 A systematic review of immersive virtual reality applicati
+       4.5.2. Research design framework We used existing research design categories without proposing new ones. Different authors have different ways of cate
+    5. dense=0.5571 rerank=0.6017 biblio=no  p.10-11 A systematic review of immersive virtual reality applicati
+       Before beginning the coding process, we developed a concept matrix, as suggested by Webster and Watson (2002), to allow us to identify the learning co
+    6. dense=0.5589 rerank=0.4223 biblio=no  p.7-8 A systematic review of immersive virtual reality applicati
+       In the following section, we describe our research design, which consists of the method, review process, and classification framework. Consensus about
+    7. dense=0.5649 rerank=0.0594 biblio=no  p.9-10 Design strategies for VR science and education games from 
+       5.2.2 Trial and error with the body In science education, “mistakes” are considered excellent learning materials. Using trial and error as a vehicle f
+    8. dense=0.5520 rerank=0.0468 biblio=no  p.5-6 An evaluation of the use of Turnitin as a tool for electro
+       Research methods describe tools used to collect data from a specific group of people to explain a hypothesis and get definite answers (Bhatia, 2018). 
+
+--- design science research methodology [guard ON] mode=evidence
+    returned=8 rounds=2 bibliography_dropped=0 retrieved=50
+    1. dense=0.6811 rerank=0.99 biblio=no  p.15 Positioning and Presenting Design Science Research for Max
+       Table 3. Publication Schema for a Design Science Research Study | Section | Contents 1. Introduction | Problem definition, problem significance/motiva
+    2. dense=0.6362 rerank=0.968 biblio=no  p.1-3 Positioning and Presenting Design Science Research for Max
+       SEE PROFILE All content following this page was uploaded by Alan Hevner on 16 June 2015. The user has requested enhancement of the downloaded file. RE
+    3. dense=0.6352 rerank=0.9421 biblio=no  p.3 Positioning and Presenting Design Science Research for Max
+       The essay aims to help researchers (1) appreciate the levels of artifact abstraction that may be DSR contributions, (2) understand knowledge roles in 
+    4. dense=0.5937 rerank=0.8763 biblio=no  p.11-12 A systematic review of immersive virtual reality applicati
+       4.5.2. Research design framework We used existing research design categories without proposing new ones. Different authors have different ways of cate
+    5. dense=0.5571 rerank=0.6017 biblio=no  p.10-11 A systematic review of immersive virtual reality applicati
+       Before beginning the coding process, we developed a concept matrix, as suggested by Webster and Watson (2002), to allow us to identify the learning co
+    6. dense=0.5589 rerank=0.4223 biblio=no  p.7-8 A systematic review of immersive virtual reality applicati
+       In the following section, we describe our research design, which consists of the method, review process, and classification framework. Consensus about
+    7. dense=0.5649 rerank=0.0594 biblio=no  p.9-10 Design strategies for VR science and education games from 
+       5.2.2 Trial and error with the body In science education, “mistakes” are considered excellent learning materials. Using trial and error as a vehicle f
+    8. dense=0.5520 rerank=0.0468 biblio=no  p.5-6 An evaluation of the use of Turnitin as a tool for electro
+       Research methods describe tools used to collect data from a specific group of people to explain a hypothesis and get definite answers (Bhatia, 2018). 
+

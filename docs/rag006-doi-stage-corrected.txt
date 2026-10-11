@@ -1,0 +1,80 @@
+RAG-006 Stage 1 - DOI-only corpus enrichment
+============================================
+unique documents examined:              466
+documents with local DOI:               250
+eligible for external DOI lookup:       250
+  skipped (corpus role not enrichable): 0
+  enrichable without a DOI:             193
+
+Crossref exact matches:                 249
+OpenAlex DOI fallback matches:          0
+EXACT accepted:                         246
+CONFLICT:                               3
+NO_MATCH:                               1
+title-based lookups performed:          0
+
+lookup/network failures:                0
+  network errors:                       0
+  HTTP errors (excluding 404):          0
+retries:                                0
+cached responses used:                  249
+cache misses:                           2
+cache entries now:                      277
+API requests made:                      2
+  api.crossref.org: 1
+  api.openalex.org: 1
+
+accepted records by external source:
+  CROSSREF: 246
+conflicts by external source:
+  CROSSREF: 3
+
+Metadata coverage (documents with the field populated):
+  field               before   after   delta
+  title                  421     431     +10
+  authors                391     422     +31
+  year                   458     458      +0
+  DOI                    250     250      +0
+  venue                    0     237    +237
+  publisher                0     246    +246
+  publication type        70     312    +242
+  URL                    250     250      +0
+  abstract                 0     168    +168
+
+CONFLICT (external DOI record withheld) - 3
+  Course_signals_at_Purdue_Using_learning_analytics_.pdf
+    DOI:             10.1145/2330601.2330666
+    local title:     Course signals at Purdue: Using learning analytics to increase student success
+    external title:  Course signals at Purdue
+    similarity:      0.4752
+    external source: CROSSREF
+  David-John-etra22-davidjohn.pdf
+    DOI:             10.1145/3517031
+    local title:     For Your Eyes Only: Privacy-preserving eye-tracking datasets
+    external title:  2022 Symposium on Eye Tracking Research and Applications
+    similarity:      0.4
+    external source: CROSSREF
+  ribiero-1602.04938v3.pdf
+    DOI:             10.1145/2939672.2939778
+    local title:     “Why Should I Trust You?” Explaining the Predictions of Any Classiﬁer
+    external title:  "Why Should I Trust You?"
+    similarity:      0.4944
+    external source: CROSSREF
+
+DOI-exact accepted WITHOUT a strong local title (no cross-check possible) - 10
+  1726-JASR202414(3)277-288Nigeria.pdf  (10.55493/5003.v14i3.5073)
+  3126-Article Text-14139-1-10-20240405.pdf  (10.46799/syntax-idea.v6i3.3126)
+  Personalised_Presentation_of_Mathematics.pdf  (10.5334/uproc.116)
+  jrspelt738003.pdf  (10.54850/jrspelt.7.38.003)
+  Ginkel_Ruiz_Mononen_Karaman_de_Keijzer_Sitthiworachart.pdf  (10.1111/jcal.12424)
+  Wang-3308558.3313562.pdf  (10.1145/3308558.3313562)
+  guan-2019-JMI-006-031411.pdf  (10.1117/1.JMI.6.3.031411)
+  shen-3746059.3747803.pdf  (10.1145/3746059.3747803)
+  whitton_langan_the.pdf  (10.1080/13562517.2018.1541885)
+  Maister_et_al_TICS_authors_version_Figures.pdf  (10.1016/j.tics.2014.11.001)
+
+DOI-bearing documents that remain unresolved - 4
+  Course_signals_at_Purdue_Using_learning_analytics_.pdf  (10.1145/2330601.2330666)  [CONFLICT]
+  Creative_Use_of_OpenAI_in_Education_Case.pdf  (10.3390/xxxxx)  [NO_MATCH]
+  David-John-etra22-davidjohn.pdf  (10.1145/3517031)  [CONFLICT]
+  ribiero-1602.04938v3.pdf  (10.1145/2939672.2939778)  [CONFLICT]

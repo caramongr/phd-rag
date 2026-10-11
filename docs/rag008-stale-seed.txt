@@ -1,0 +1,65 @@
+RAG-008 indexing report
+=======================
+
+corpus root:                data
+collection:                 phd_rag_chunks_stale_demo
+qdrant target:              local path .qdrant_data
+collection created:         True
+
+Embedding model
+---------------
+model:                      BAAI/bge-m3
+revision:                   5617a9f61b028005a4858fdac845db406aefb181
+identifier:                 BAAI/bge-m3|rev=5617a9f61b028005a4858fdac845db406aefb181|dim=1024|norm=1|lib=sentence-transformers6.1.0
+library:                    sentence-transformers 6.1.0
+device:                     cpu
+vector dimension:           1024
+distance:                   Cosine
+normalization:              l2 (unit-norm, cosine-ready)
+max input tokens:           8192
+
+Corpus and population
+---------------------
+documents embedded:         4
+documents visited:          4
+total RAG-007 chunks seen:  4
+retrieval-eligible chunks:  4
+excluded (ineligible):      0
+  of which references:      0
+chunks embedded:            4
+points indexed:             4
+skipped chunks:             0
+
+Timing
+------
+embedding seconds:          0.003
+embeddings/second:          1333.33
+chunks/second:              0.18
+upload seconds:             0.026
+total seconds:              21.984
+
+Embedding cache
+---------------
+cache hits:                 4
+cache misses:               0
+cache entries:              100
+
+Qdrant
+------
+payload indexes:            corpus_role, evidence_eligible, content_type, year, document_id, file_hash
+points before:              0
+points after:               4
+inserted:                   4
+updated/upserted:           0
+duplicate point ids:        0
+stale points:               0
+stale points deleted:       0
+
+Corpus identity
+---------------
+chunking version:           rag007-normalize-v1
+corpus fingerprint:         5f224877327b193ad9c5d2d9132790db83bf5c6787766b00703ab5acc99d153b
+document hashes digest:     ee1419af2cb401c1ef970676fb3ee6f717ea0974bd0ab61f8744ea91bc291327
+chunk ids digest:           d65047f05f55b36632bc7406ab4d0547b07962af7590101553c24836896d7d3d
+
+index manifest:             docs\rag008-stale-demo-manifest.json

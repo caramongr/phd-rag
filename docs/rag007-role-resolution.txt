@@ -1,0 +1,50 @@
+================================================================
+app.chunking.inspect --corpus data : data\my_work\current_paper\second-paper-draft-final.docx
+================================================================
+File: data\my_work\current_paper\second-paper-draft-final.docx
+Extension: .docx
+Corpus role: my_work
+Role resolution: my_work (conservative precedence: my_work preferred over literature; locations=2, roles=literature+my_work)
+  literature       data\literature\Second paper\second-paper-draft-final.docx
+  my_work          data\my_work\current_paper\second-paper-draft-final.docx
+Document id: d8919983-e93b-5ce4-ab53-7fb470c99f8f
+Pages: –
+
+Chunks: 53 (44694 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 2
+
+================================================================
+app.chunking.inspect --corpus data : data\literature\Second paper\second-paper-draft-final.docx
+================================================================
+File: data\literature\Second paper\second-paper-draft-final.docx
+Extension: .docx
+Corpus role: my_work
+Role resolution: my_work (conservative precedence: my_work preferred over literature; locations=2, roles=literature+my_work)
+  literature       data\literature\Second paper\second-paper-draft-final.docx
+  my_work          data\my_work\current_paper\second-paper-draft-final.docx
+Document id: d8919983-e93b-5ce4-ab53-7fb470c99f8f
+Pages: –
+
+Chunks: 53 (44694 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 2
+
+
+================================================================
+app.metadata.inspect --corpus data : the literature copy
+================================================================
+File: data\literature\Second paper\second-paper-draft-final.docx
+Corpus role: my_work
+Role resolution: my_work (conservative precedence: my_work preferred over literature; locations=2, roles=literature+my_work)
+  literature       data\literature\Second paper\second-paper-draft-final.docx
+  my_work          data\my_work\current_paper\second-paper-draft-final.docx
+  note: identical bytes in several roles are one logical document; the most conservative role (non-evidence) is used for all of its chunks
+
+Preferred metadata:
+Title: missing
+Authors: missing
+Year: 2026
+DOI: missing

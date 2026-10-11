@@ -1,0 +1,74 @@
+RAG-008 indexing report
+=======================
+
+corpus root:                data
+collection:                 phd_rag_chunks_v1
+qdrant target:              none (dry run)
+collection created:         False
+
+Embedding model
+---------------
+model:                      BAAI/bge-m3
+revision:                   5617a9f61b028005a4858fdac845db406aefb181
+identifier:                 BAAI/bge-m3|rev=5617a9f61b028005a4858fdac845db406aefb181|dim=1024|norm=1|lib=sentence-transformers6.1.0
+library:                    sentence-transformers 6.1.0
+device:                     cpu
+vector dimension:           1024
+distance:                   Cosine
+normalization:              l2 (unit-norm, cosine-ready)
+max input tokens:           8192
+
+Corpus and population
+---------------------
+documents embedded:         465
+documents visited:          465
+total RAG-007 chunks seen:  14786
+retrieval-eligible chunks:  11469
+excluded (ineligible):      3317
+  of which references:      3317
+chunks embedded:            0
+points indexed:             0
+skipped chunks:             0
+
+Timing
+------
+embedding seconds:          0.0
+embeddings/second:          0.0
+chunks/second:              0.0
+upload seconds:             0.0
+total seconds:              1076.037
+
+Embedding cache
+---------------
+cache hits:                 0
+cache misses:               0
+cache entries:              0
+
+Qdrant
+------
+payload indexes:            none
+points before:              0
+points after:               0
+inserted:                   0
+updated/upserted:           0
+duplicate point ids:        0
+stale points:               0
+stale points deleted:       0
+
+Corpus identity
+---------------
+chunking version:           rag007-normalize-v1
+corpus fingerprint:         3b1f63cb00ebca341587ad7a7daaa060a1ca7d6cc17879b9c9cea615853637f3
+document hashes digest:     42edf2f8b939e8d89b1411c9febbe485e7f1dcb03a14afafb548c856913af899
+chunk ids digest:           74a200acb811a0f2961bf39f8bf97f9578a5e1f6993a6f035e98ab9bcbab4d86
+
+BGE-M3 tokenizer measurement (measurement only)
+-----------------------------------------------
+chunks measured:            11469
+max BGE-M3 tokens:          2197
+median:                     731
+p95:                        986
+model max input tokens:     8192
+chunks above 1200:          63
+chunks above model limit:   0
+largest estimator count:    1200

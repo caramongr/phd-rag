@@ -1,0 +1,68 @@
+RAG-008 indexing report
+=======================
+
+corpus root:                data
+collection:                 phd_rag_chunks_stale_demo
+qdrant target:              local path .qdrant_data
+collection created:         False
+
+Embedding model
+---------------
+model:                      BAAI/bge-m3
+revision:                   5617a9f61b028005a4858fdac845db406aefb181
+identifier:                 BAAI/bge-m3|rev=5617a9f61b028005a4858fdac845db406aefb181|dim=1024|norm=1|lib=sentence-transformers6.1.0
+library:                    sentence-transformers 6.1.0
+device:                     cpu
+vector dimension:           1024
+distance:                   Cosine
+normalization:              l2 (unit-norm, cosine-ready)
+max input tokens:           8192
+
+Corpus and population
+---------------------
+documents embedded:         2
+documents visited:          2
+total RAG-007 chunks seen:  2
+retrieval-eligible chunks:  2
+excluded (ineligible):      0
+  of which references:      0
+chunks embedded:            2
+points indexed:             2
+skipped chunks:             0
+
+Timing
+------
+embedding seconds:          0.002
+embeddings/second:          1000.0
+chunks/second:              0.1
+upload seconds:             0.026
+total seconds:              19.938
+
+Embedding cache
+---------------
+cache hits:                 2
+cache misses:               0
+cache entries:              100
+
+Qdrant
+------
+payload indexes:            corpus_role, evidence_eligible, content_type, year, document_id, file_hash
+points before:              4
+points after:               4
+inserted:                   0
+updated/upserted:           2
+duplicate point ids:        0
+stale points:               2
+stale points deleted:       0
+  stale point ids (first 50):
+    5e540888-ca41-57e1-81eb-a9e40d770f0a
+    cde457db-155b-5f1a-a20c-30b14f08eede
+
+Corpus identity
+---------------
+chunking version:           rag007-normalize-v1
+corpus fingerprint:         ebc65163b910d41e9b89bca5d783e403bd5c1e8eaf25ce8a0ae3d7e77b540095
+document hashes digest:     c0f161af7c41106ace876d26aa8b2c8c319b378fa62c771b6859b748a9bb9d3f
+chunk ids digest:           93b348eb1ed4495d84b909303309a1dfe392f8d8926d94f12fb6bc28f3d9f6ba
+
+index manifest:             docs\rag008-stale-demo-manifest.json

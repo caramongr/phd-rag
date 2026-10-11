@@ -1,0 +1,111 @@
+RAG-007 chunking report
+======================
+
+Documents
+---------
+unique documents considered:      466
+documents successfully chunked:   465
+documents without any chunk:      0
+documents skipped:                1
+parsing errors:                   0
+chunking errors:                  0
+
+by extension:
+  .pdf   444
+  .docx  18
+  .xlsx  1
+  .md    3
+
+unsupported for chunking in RAG-007 (counted, not discarded):
+  .xlsx: 1
+
+Chunks
+------
+total chunks:                     14786
+retrieval-eligible chunks:        11469
+evidence-eligible chunks:         10456
+chunks ineligible for retrieval:  3317
+total tokens:                     10703684
+tokenizer:                        subword-estimator-v1
+
+Token counts
+------------
+min:    1
+median: 941
+mean:   723.9
+p95:    1135
+max:    1200
+
+Size distribution
+-----------------
+  <200 tokens        2639
+  200-699 tokens     3036
+  700-1000 tokens    2791
+  1001-1200 tokens   6320
+  1201-1500 tokens   0
+  >1500 tokens       0
+
+by content type:
+  abstract       178
+  appendix       50
+  body           9057
+  caption        4
+  conclusion     289
+  references     3317
+  summary_entry  648
+  table          1243
+
+by corpus role:
+  future_chapters  210
+  guidance         2
+  literature       13741
+  my_work          113
+  rules            62
+  summaries        648
+  supervision      10
+
+by text source:
+  n/a (DOCX/Markdown: no page-level text source)  961
+  native_pdf                                      13712
+  native_pdf+ocr                                  25
+  ocr                                             88
+
+Duplicate copies and corpus roles
+---------------------------------
+documents with more than one physical copy: 34
+documents whose copies imply >1 role:       2
+  alogirithms-8-enriched.xlsx  (e5683a86d824…)
+    location: literature (data\literature\Second paper\alogirithms-8-enriched.xlsx)
+    location: my_work (data\my_work\current_paper\alogirithms-8-enriched.xlsx)
+    effective role: literature -> my_work
+    evidence eligible: True -> False
+    reason: conservative precedence: my_work preferred over literature
+  second-paper-draft-final.docx  (fccd43a1833c…)
+    location: literature (data\literature\Second paper\second-paper-draft-final.docx)
+    location: my_work (data\my_work\current_paper\second-paper-draft-final.docx)
+    effective role: literature -> my_work
+    evidence eligible: True -> False
+    reason: conservative precedence: my_work preferred over literature
+
+Structure and provenance
+------------------------
+chunks crossing page boundaries:  6451
+max pages spanned by one chunk:   11
+chunks containing OCR text:       113
+chunks with mixed text sources:   25
+reference chunks:                 3317
+table chunks:                     1243
+duplicate table blocks removed:   4254
+running header/footer lines removed: 9891
+headings without content:         265
+skipped parsed items:             9409
+
+chunks above 1200 tokens: 0
+
+chunks above 1500 tokens (failures): 0
+
+Skipped documents
+-----------------
+  alogirithms-8-enriched.xlsx: unsupported for chunking in RAG-007
+
+No source file was modified: chunking reads parsed content only.

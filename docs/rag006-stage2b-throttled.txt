@@ -1,0 +1,1215 @@
+RAG-006 Stage 2B - corpus-wide title-based enrichment
+====================================================
+unique documents examined:             466
+eligible population (DOI-less + strong local title): 169
+title searches attempted:              169
+
+STRONG (merged):                       76
+AMBIGUOUS (nothing merged):            58
+NO_MATCH (nothing merged):             35
+API/network failures:                  17
+  network errors:                      0
+  HTTP errors (excluding 404):         17
+    HTTP 429: 17
+retries:                               34
+
+accepted matches by external source:
+  CROSSREF: 58
+  OPENALEX: 18
+
+DOI-bearing documents re-checked through the DOI route (unchanged):
+  EXACT accepted:                      246
+  CONFLICT (withheld):                 3
+  NO_MATCH:                            1
+
+cached responses used:                 606
+cache misses:                          18
+cache entries now:                     560
+API requests made:                     52
+  api.crossref.org: 1
+  api.openalex.org: 51
+source files modified:                 0
+
+Whole-corpus metadata coverage (documents with the field populated):
+  field                local  after DOI  after title
+  title                  421        431          431
+  authors                391        422          432
+  year                   458        458          460
+  DOI                    250        250          322
+  venue                    0        237          308
+  publisher                0        246          318
+  publication type        70        312          354
+  URL                    250        250          326
+  abstract                 0        168          206
+
+withheld matches by reason - 93
+  title similarity below minimum: 35
+  local year disagreement: 28
+  local author disagreement: 14
+  multiple external records: 12
+  title similarity below STRONG: 4
+
+  1028-Article Text-5719-1-10-20230406.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=0.9701492537313433
+  1777-Article Text-3547-1-10-20230831.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.384180790960452
+  2021_UNESCO_AI-and-education-Guidande-for-policy-makers_EN.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.672
+  AI_Teachers_Using_a_VR_MR_Environment_fo.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  ALEKS_McKeown (1).pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6741573033707865
+  Course_Signals_at_Purdue_Using_learning.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.4752475247524752
+  DEMOCRATISING_AI_final (2).pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.8333333333333334
+  Development of a Multivariate Poisson Hidden Markov Model for App.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5465116279069767
+  GNN_LS_A_Learning_Style_Prediction_in_On.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  General_Framework_of_Geometric_Simplific.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Generative-ai-higher-education-book.pdf  [AMBIGUOUS]  similarity_below_strong (title similarity below STRONG)  similarity=0.7764705882352941
+  Intelligent_tutoring_systems_D_Sleeman_a.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  KenHubbellRoundtableWhitePaper.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6741573033707865
+  REPROGRAMMING LEARNING.pdf  [AMBIGUOUS]  similarity_below_strong (title similarity below STRONG)  similarity=0.7547169811320755
+  Synthesis_on_AI_in_Education_How_can_AI.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.4835164835164835
+  TA-9-2024-0138_EN.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.9047619047619048
+  The_AI_Revolution_in_Education_Will_AI_R.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5298013245033113
+  aleks-case-study-chem-am-collins (1).pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.27835051546391754
+  eu-ethical guidelines on the use of artificial intelligence-NC0722649ENN.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5220883534136547
+  4-AI-Powered.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  Arrietaa-1910.10045v2.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Bujanca_FullFusbujanca-ion_A_Framework_for_Semantic_Reconstruction_of_Dynamic_Scenes_ICCVW_2019_paper.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5945945945945946
+  Cai-2206.02102v1.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  ED656076.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.84
+  Goodfellow-2014.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Hadfield-Menell-1606.03137v4.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.8333333333333334
+  Hu1-D19-1488.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  Hutter-978-3-030-05318-5.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Kwon-2025.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  LaValle-vrbook.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.75
+  Lin-2211.10440v2.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Lin-View of Design and Application of Intelligent Assisted Learning System for Higher Education Students.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.9583333333333334
+  Lowe-1706.02275v4.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Lundberg-1705.07874v2.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5
+  Manukonda-1820-Article Text-4650-5556-10-20240420.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6122448979591837
+  McHanan-1602.05629v4.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.59375
+  Mildenhall-2003.08934v2.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Pettit-corro.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Pottle-main.pdf  [AMBIGUOUS]  similarity_below_strong (title similarity below STRONG)  similarity=0.8888888888888888
+  Radford-2212.04356v1.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Rashid,.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.8372093023255814
+  Schlichtkrull.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  Schulman-Proximal-Policy-Optimization-Algorithms.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.624
+  Siminto-1c1e2c1794156134b1b186fd4824fc64072d.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.7326732673267327
+  Vaswani-1706.03762v7.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Welch-Motion_Tracking_No_Silver_Bullet_but_a_Respectable.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  Welch-kalman_intro.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Wojke-1703.07402v1.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5523012552301255
+  Zhou-ICRA2017.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Zhu-1703.10593v7.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  banse-2402.02230v1.pdf  [AMBIGUOUS]  similarity_below_strong (title similarity below STRONG)  similarity=0.7586206896551724
+  cao-1812.08008v2.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  deep-reinforcment-learnign-van-hasselt.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  dwork-11787006_1.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5666666666666667
+  dwork.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5666666666666667
+  fang-alpha.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  grill-2006.07733v3.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  he-1703.06870v3.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  kingma-1312.6114v11.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  lewis-2005.11401v4.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.7870967741935484
+  liu-1512.02325v5.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  ncowie,+1487-ASCILITE+Conference+Full+287-297.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5241379310344828
+  sellers.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.948905109489051
+  valverde-2510.14270v1.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5256410256410257
+  watkins-BF00992698.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5925925925925926
+  -John_Biggs_and_Catherine_Tang-_Teaching_for_Quali-BookFiorg-.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.8775510204081632
+  978-3-030-84044-0.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=0.84375
+  Discussion_on_the_Cultivation_of_College.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6923076923076923
+  Experiential_Learning_Experience_As_The_Source_Of_.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Flow_The_Psychology_of_Optimal_Experience.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Information-Sheet---experiential-learning.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.7924528301886793
+  Learning-Styles-and-Learning-Spaces....-Enhancing-Experiential-Learning-in-Higher-Education.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  Reflection--exemplar.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.42718446601941745
+  Situated Cognition and the culture of learning.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  The_Flipped_Classroom_Strategy_What_Is_I.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.7848101265822784
+  Using_the_Duolingo_Application_as_a_Vocabulary_Lea.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.44559585492227977
+  _02c35dd815e349ec9bdd95e990275f57_Information-sheet-_-Problem-based-learning.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.4931506849315068
+  _dadf187afa89208d9a2b982762429995_Course-outline-template.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=0.7567567567567568
+  groupwork-briefing.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.42424242424242425
+  kimble-2000-behaviorism-and-unity-in-psychology.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  transforming-assessment-and-feedback.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.41509433962264153
+  wise-assessment-briefing10.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.4117647058823529
+  wise-assessment-briefing11.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.4117647058823529
+  wise-assessment-briefing9.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.42424242424242425
+  202102L013.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6
+  5-Mechanical - A VIRTUAL INSTRUCTOR IN AN AI-DRIVEN VIRTUAL REALITY.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.5747126436781609
+  A_Review_of_the_Metaverse_in_Higher_Educ.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6972477064220184
+  IJRPR22809.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  games-2021-4-e13124.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  jmir-2019-1-e12959.pdf  [AMBIGUOUS]  local_year_disagreement (local year disagreement)  similarity=1.0
+  jmir-2023-1-e39989.pdf  [AMBIGUOUS]  multiple_external_records (multiple external records)  similarity=1.0
+  preprint-67412-accepted.pdf  [AMBIGUOUS]  local_author_disagreement (local author disagreement)  similarity=1.0
+  storyboard-for-vr.pdf  [NO_MATCH]  similarity_below_minimum (title similarity below minimum)  similarity=0.6909090909090909
+
+accepted identities (audit list) - 76
+1. +6089-.pdf  [literature]
+   local title:        'Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education'
+   local title source: DOCUMENT_TEXT
+   local year:         2023
+   local first author: Wayne Holmes
+   external provider:  CROSSREF
+   external title:     'Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Wayne Holmes
+   external DOI:       10.19173/irrodl.v24i2.6089
+   venue:              The International Review of Research in Open and Distributed Learning
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+2. 111771-Article Text-230125-1-10-20220414.pdf  [literature]
+   local title:        'Aspects associated with health care professionals’ digital health competence development – a qualitative study'
+   local title source: PDF_METADATA
+   local year:         2022
+   local first author: ilkkaw
+   external provider:  CROSSREF
+   external title:     'Aspects associated with health care professionals’ digital health competence development – a qualitative study'
+   similarity:         1.000
+   external year:      2022
+   external 1st author:Erika Jarva
+   external DOI:       10.23996/fjhw.111771
+   venue:              Finnish Journal of eHealth and eWelfare
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+3. 17836-Article Text-21330-1-2-20210518.pdf  [literature]
+   local title:        'AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach'
+   local title source: PDF_METADATA
+   local year:         2021
+   local first author: Seung Lee
+   external provider:  CROSSREF
+   external title:     'AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach'
+   similarity:         1.000
+   external year:      2021
+   external 1st author:Seung Lee
+   external DOI:       10.1609/aaai.v35i17.17836
+   venue:              Proceedings of the AAAI Conference on Artificial Intelligence
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+4. 2311.15198v1.pdf  [literature]
+   local title:        'ChatGPT and Beyond: The Generative AI Revolution in Education'
+   local title source: PDF_METADATA
+   local year:         2022
+   local first author: Mohammad AL-Smadi
+   external provider:  OPENALEX
+   external title:     'ChatGPT and Beyond: The Generative AI Revolution in Education'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Mohammad AL-Smadi
+   external DOI:       10.48550/arxiv.2311.15198
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+5. 2406.18900v1.pdf  [literature]
+   local title:        'The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Okan Bulut
+   external DOI:       10.59863/miql7785
+   venue:              Chinese/English Journal of Educational Measurement and Evaluation
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+6. 2408.15686v1.pdf  [literature]
+   local title:        "Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia"
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: EVANGELIA DASKALAKI
+   external provider:  OPENALEX
+   external title:     "Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia"
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Evangelia Daskalaki
+   external DOI:       10.48550/arxiv.2408.15686
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+7. 2504.03966v1.pdf  [literature]
+   local title:        'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: Kovan Mzwri
+   external provider:  CROSSREF
+   external title:     'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Kovan Mzwri
+   external DOI:       10.21203/rs.3.rs-6256444/v1
+   venue:              None
+   publication type:   PREPRINT
+   abstract present:   yes
+8. 2507.01597v1.pdf  [literature]
+   local title:        'T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning'
+   local title source: PDF_METADATA
+   local year:         None
+   local first author: Yuehang Si
+   external provider:  OPENALEX
+   external title:     'T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Yuehang Si
+   external DOI:       10.48550/arxiv.2507.01597
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+9. 2507.18139v1.pdf  [literature]
+   local title:        'Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Alberto Marchisio
+   external provider:  CROSSREF
+   external title:     'Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Alberto Marchisio
+   external DOI:       10.1109/iolts65288.2025.11116950
+   venue:              2025 IEEE 31st International Symposium on On-Line Testing and Robust System Design (IOLTS)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+10. 28_01_10125-73595.pdf  [literature]
+   local title:        'The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency'
+   local title source: PDF_METADATA
+   local year:         2024
+   local first author: Smith
+   external provider:  CROSSREF
+   external title:     'The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Bryan Smith
+   external DOI:       10.64152/10125/73595
+   venue:              Language Learning &amp; Technology
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+11. AILiteracyReviewASIST.pdf  [literature]
+   local title:        'AI Literacy: Definition, Teaching, Evaluation and Ethical Issues'
+   local title source: PDF_METADATA
+   local year:         2021
+   local first author: SIGCHI
+   external provider:  CROSSREF
+   external title:     '<scp>AI</scp> Literacy: Definition, Teaching, Evaluation and Ethical Issues'
+   similarity:         0.938
+   external year:      2021
+   external 1st author:Davy Tsz Kit Ng
+   external DOI:       10.1002/pra2.487
+   venue:              Proceedings of the Association for Information Science and Technology
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+12. Artificial_Intelligence_and_Teachers_New.pdf  [literature]
+   local title:        'Artificial Intelligence and Teachers’ New Ethical Obligations'
+   local title source: DOCUMENT_TEXT
+   local year:         2022
+   local first author: Catherine Adams
+   external provider:  CROSSREF
+   external title:     'Artificial Intelligence and Teachers’ New Ethical Obligations'
+   similarity:         1.000
+   external year:      2022
+   external 1st author:Catherine Adams
+   external DOI:       10.29173/irie483
+   venue:              The International Review of Information Ethics
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+13. BEJ+33+(3)+Kumar+-+Beyond+Reproach+(FINAL).pdf  [literature]
+   local title:        'Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Rahul Kumar
+   external provider:  CROSSREF
+   external title:     'Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Rahul Kumar
+   external DOI:       10.26522/brocked.v33i3.1173
+   venue:              Brock Education Journal
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+14. Intelligence_Augmentation_for_Educators.pdf  [literature]
+   local title:        'Intelligence Augmentation for Educators, Training Pro- fessionals, and Learners'
+   local title source: DOCUMENT_TEXT
+   local year:         2022
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Intelligence Augmentation for Educators, Training Professionals, and Learners'
+   similarity:         0.993
+   external year:      2021
+   external 1st author:Nkaepe Olaniyi
+   external DOI:       10.1007/978-3-030-77857-6_15
+   venue:              Lecture Notes in Computer Science
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+15. Plagiarism_detection_in_Programming_cour.pdf  [literature]
+   local title:        'Plagiarism detection in Programming coursework.'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Plagiarism detection in Programming coursework.'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Constantine Mukasa
+   external DOI:       10.18260/1-2--38399
+   venue:              2021 First-Year Engineering Experience Proceedings
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+16. View of Challenges with Gamification in Higher Education.pdf  [literature]
+   local title:        'View of Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers'
+   local title source: PDF_METADATA
+   local year:         2024
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers'
+   similarity:         0.967
+   external year:      2024
+   external 1st author:Kevin Fuchs
+   external DOI:       10.47852/bonviewijce32021604
+   venue:              International Journal of Changes in Education
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+17. ethical-considerations-in-using-ai-in-educational-research-14205.pdf  [literature]
+   local title:        'Ethical Considerations in Using AI in Educational Research'
+   local title source: PDF_METADATA
+   local year:         2023
+   local first author: Balta
+   external provider:  CROSSREF
+   external title:     'Ethical Considerations in Using AI in Educational Research'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Nuri Balta
+   external DOI:       10.51853/jorids/14205
+   venue:              Journal of Research in Didactical Sciences
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+18. ethical-use-of-artificial-intelligence-and-new-technologies-in-education-50 (1).pdf  [literature]
+   local title:        'Ethical Use of Artificial Intelligence and New Technologies in Education 5.0'
+   local title source: DOCUMENT_TEXT
+   local year:         2023
+   local first author: Zacharoula Smyrnaiou
+   external provider:  CROSSREF
+   external title:     'Ethical Use of Artificial Intelligence and New Technologies in Education 5.0'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Zacharoula Smyrnaiou
+   external DOI:       10.51219/jaimld/anastasios-liapakis/15
+   venue:              Journal of Artificial Intelligence, Machine Learning and Data Science
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+19. Achlioptas1-123460409.pdf  [literature]
+   local title:        'ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identiﬁcation in Real-World Scenes'
+   local title source: DOCUMENT_TEXT
+   local year:         2020
+   local first author: Panos Achlioptas
+   external provider:  CROSSREF
+   external title:     'ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identification in Real-World Scenes'
+   similarity:         1.000
+   external year:      2020
+   external 1st author:Panos Achlioptas
+   external DOI:       10.1007/978-3-030-58452-8_25
+   venue:              Lecture Notes in Computer Science
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+20. Ayulani-sriatmaja,+Bevina+16880-AAP.pdf  [literature]
+   local title:        'Tree-Based Ensemble Methods and Their Applications for Predicting Students’ Academic Performance'
+   local title source: DOCUMENT_TEXT
+   local year:         2023
+   local first author: LENOVO
+   external provider:  CROSSREF
+   external title:     'Tree-Based Ensemble Methods and Their Applications for Predicting Studentsâ€™ Academic Performance'
+   similarity:         0.979
+   external year:      2023
+   external 1st author:Indri Dayanah Ayulani
+   external DOI:       10.18517/ijaseit.13.3.16880
+   venue:              International Journal on Advanced Science, Engineering and Information Technology
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+21. Beliaev-33705-Article Text-37773-1-2-20250410.pdf  [literature]
+   local title:        'Inverse Reinforcement Learning by Estimating Expertise of Demonstrators'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Mark Beliaev
+   external provider:  CROSSREF
+   external title:     'Inverse Reinforcement Learning by Estimating Expertise of Demonstrators'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Mark Beliaev
+   external DOI:       10.1609/aaai.v39i15.33705
+   venue:              Proceedings of the AAAI Conference on Artificial Intelligence
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+22. Bender1-2014-CGF-Position_Based_Survey (1).pdf  [literature]
+   local title:        'A Survey on Position-Based Simulation Methods in Computer Graphics'
+   local title source: PDF_METADATA
+   local year:         2014
+   local first author: Jan Bender
+   external provider:  CROSSREF
+   external title:     'A Survey on Position‐Based Simulation Methods in Computer Graphics'
+   similarity:         1.000
+   external year:      2014
+   external 1st author:Jan Bender
+   external DOI:       10.1111/cgf.12346
+   venue:              Computer Graphics Forum
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+23. Bouzbib.pdf  [literature]
+   local title:        '”Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions'
+   local title source: DOCUMENT_TEXT
+   local year:         2021
+   local first author: Elodie Bouzbib
+   external provider:  CROSSREF
+   external title:     '“Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions'
+   similarity:         1.000
+   external year:      2021
+   external 1st author:Elodie Bouzbib
+   external DOI:       10.1145/3450522.3451323
+   venue:              32e Conférence Francophone sur l'Interaction Homme-Machine
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+24. Devlin.pdf  [literature]
+   local title:        'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding'
+   local title source: DOCUMENT_TEXT
+   local year:         2019
+   local first author: Jacob Devlin
+   external provider:  CROSSREF
+   external title:     'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding'
+   similarity:         1.000
+   external year:      2019
+   external 1st author:Jacob Devlin
+   external DOI:       10.18653/v1/n19-1423
+   venue:              Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+25. Du-2025.acl-long.1459.pdf  [literature]
+   local title:        'MAPoRL2: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning'
+   similarity:         0.995
+   external year:      2025
+   external 1st author:Chanwoo Park
+   external DOI:       10.18653/v1/2025.acl-long.1459
+   venue:              Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+26. Haarnoja-1801.01290v2.pdf  [literature]
+   local title:        'Soft Actor-Critic:  Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'
+   local title source: PDF_METADATA
+   local year:         2018
+   local first author: Tuomas Haarnoja
+   external provider:  OPENALEX
+   external title:     'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'
+   similarity:         1.000
+   external year:      2018
+   external 1st author:Tuomas Haarnoja
+   external DOI:       10.48550/arxiv.1801.01290
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+27. Han-DRP+CMLAI+2025-42-49.pdf  [literature]
+   local title:        'A Review on Background, Technology, Comparison, and Future Tendency of Video Generation'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: DRP
+   external provider:  CROSSREF
+   external title:     'A Review on Background, Technology, Comparison, and Future Tendency of Video Generation'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Zhiyu Han
+   external DOI:       10.54097/18313836
+   venue:              Highlights in Science, Engineering and Technology
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+28. Hong-2307.12981v1.pdf  [literature]
+   local title:        '3D-LLM: Injecting the 3D World into Large Language Models'
+   local title source: DOCUMENT_TEXT
+   local year:         2023
+   local first author: Yining Hong
+   external provider:  CROSSREF
+   external title:     '3D-LLM: Injecting the 3D World into Large Language Models'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Yining Hong
+   external DOI:       10.52202/075280-0900
+   venue:              Advances in Neural Information Processing Systems 36
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+29. Huang-1906.02650v1.pdf  [literature]
+   local title:        'VISUAL-INERTIAL NAVIGATION: A CONCISE REVIEW'
+   local title source: DOCUMENT_TEXT
+   local year:         2019
+   local first author: Guoquan (Paul) Huang
+   external provider:  CROSSREF
+   external title:     'Visual-Inertial Navigation: A Concise Review'
+   similarity:         1.000
+   external year:      2019
+   external 1st author:Guoquan Huang
+   external DOI:       10.1109/icra.2019.8793604
+   venue:              2019 International Conference on Robotics and Automation (ICRA)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+30. Innmann1-1603.08161v2.pdf  [literature]
+   local title:        'VolumeDeform: Real-time Volumetric Non-rigid Reconstruction'
+   local title source: DOCUMENT_TEXT
+   local year:         2016
+   local first author: Matthias Innmann
+   external provider:  CROSSREF
+   external title:     'VolumeDeform: Real-Time Volumetric Non-rigid Reconstruction'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Matthias Innmann
+   external DOI:       10.1007/978-3-319-46484-8_22
+   venue:              Lecture Notes in Computer Science
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+31. JIA-2021.naacl-main.164.pdf  [literature]
+   local title:        'Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data'
+   local title source: PDF_METADATA
+   local year:         2021
+   local first author: Chenghao Jia
+   external provider:  CROSSREF
+   external title:     'Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data'
+   similarity:         1.000
+   external year:      2021
+   external 1st author:Chenghao Jia
+   external DOI:       10.18653/v1/2021.naacl-main.164
+   venue:              Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+32. Leutenegger-p37.pdf  [literature]
+   local title:        'Keyframe-Based Visual-Inertial SLAM Using Nonlinear Optimization'
+   local title source: DOCUMENT_TEXT
+   local year:         2013
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization'
+   similarity:         1.000
+   external year:      2013
+   external 1st author:Stefan Leutenegger
+   external DOI:       10.15607/rss.2013.ix.037
+   venue:              Robotics: Science and Systems IX
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+33. Lin_Magic3D_High-Resolution_Text-to-3D_Content_Creation_CVPR_2023_paper.pdf  [literature]
+   local title:        'Magic3D: High-Resolution Text-to-3D Content Creation'
+   local title source: PDF_METADATA
+   local year:         2023
+   local first author: Chen-Hsuan Lin
+   external provider:  CROSSREF
+   external title:     'Magic3D: High-Resolution Text-to-3D Content Creation'
+   similarity:         1.000
+   external year:      2023
+   external 1st author:Chen-Hsuan Lin
+   external DOI:       10.1109/cvpr52729.2023.00037
+   venue:              2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+34. Liu-3748239.3748249.pdf  [literature]
+   local title:        'Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Lihui Liu
+   external provider:  CROSSREF
+   external title:     'Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Lihui Liu
+   external DOI:       10.1145/3748239.3748249
+   venue:              ACM SIGKDD Explorations Newsletter
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+35. Mayer.pdf  [literature]
+   local title:        'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation'
+   local title source: PDF_METADATA
+   local year:         2015
+   local first author: Nikolaus Mayer
+   external provider:  CROSSREF
+   external title:     'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Nikolaus Mayer
+   external DOI:       10.1109/cvpr.2016.438
+   venue:              2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+36. Mirhoseini-1706.04972v2.pdf  [literature]
+   local title:        'Device Placement Optimization with Reinforcement Learning'
+   local title source: PDF_METADATA
+   local year:         2017
+   local first author: Azalia Mirhoseini
+   external provider:  OPENALEX
+   external title:     'Device Placement Optimization with Reinforcement Learning'
+   similarity:         1.000
+   external year:      2017
+   external 1st author:Azalia Mirhoseini
+   external DOI:       10.48550/arxiv.1706.04972
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+37. Mnih-1602.01783v2.pdf  [literature]
+   local title:        'Asynchronous Methods for Deep Reinforcement Learning'
+   local title source: PDF_METADATA
+   local year:         2016
+   local first author: Volodymyr Mnih
+   external provider:  OPENALEX
+   external title:     'Asynchronous Methods for Deep Reinforcement Learning'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Volodymyr Mnih
+   external DOI:       10.48550/arxiv.1602.01783
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+38. Ocal-2407.20727v1.pdf  [literature]
+   local title:        'SceneTeller: Language-to-3D Scene Generation'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Ocal
+   external provider:  CROSSREF
+   external title:     'SceneTeller: Language-to-3D Scene Generation'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Başak Melis Öcal
+   external DOI:       10.1007/978-3-031-73013-9_21
+   venue:              Lecture Notes in Computer Science
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+39. Patki-SDV.pdf  [literature]
+   local title:        'The Synthetic data vault'
+   local title source: DOCUMENT_TEXT
+   local year:         2016
+   local first author: Neha Patki
+   external provider:  CROSSREF
+   external title:     'The Synthetic Data Vault'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Neha Patki
+   external DOI:       10.1109/dsaa.2016.49
+   venue:              2016 IEEE International Conference on Data Science and Advanced Analytics (DSAA)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+40. Piech-Deep-Knowledge-Tracing.pdf  [literature]
+   local title:        'Deep Knowledge Tracing'
+   local title source: DOCUMENT_TEXT
+   local year:         2015
+   local first author: None
+   external provider:  OPENALEX
+   external title:     'Deep Knowledge Tracing'
+   similarity:         1.000
+   external year:      2015
+   external 1st author:Chris Piech
+   external DOI:       10.48550/arxiv.1506.05908
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+41. Poole-2209.14988v1.pdf  [literature]
+   local title:        'DREAMFUSION: TEXT-TO-3D USING 2D DIFFUSION'
+   local title source: DOCUMENT_TEXT
+   local year:         2022
+   local first author: Ben Poole
+   external provider:  OPENALEX
+   external title:     'DreamFusion: Text-to-3D using 2D Diffusion'
+   similarity:         1.000
+   external year:      2022
+   external 1st author:Ben Poole
+   external DOI:       10.48550/arxiv.2209.14988
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+42. Russell-agapito-978-3-319-10584-0_38.pdf  [literature]
+   local title:        'LNCS 8695 - Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes'
+   local title source: PDF_METADATA
+   local year:         2014
+   local first author: Chris Russell
+   external provider:  CROSSREF
+   external title:     'Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes'
+   similarity:         0.921
+   external year:      2014
+   external 1st author:Chris Russell
+   external DOI:       10.1007/978-3-319-10584-0_38
+   venue:              Lecture Notes in Computer Science
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+43. Sanz-Leveraging-Deep-Reinforcement-Learning-Pedagogical.pdf  [literature]
+   local title:        'Leveraging Deep Reinforcement Learning for Pedagogical Policy Induction in an Intelligent Tutoring System'
+   local title source: DOCUMENT_TEXT
+   local year:         2019
+   local first author: Markel Sanz Ausin
+   external provider:  OPENALEX
+   external title:     'Leveraging Deep Reinforcement Learning for Pedagogical Policy Induction in an Intelligent Tutoring System.'
+   similarity:         1.000
+   external year:      2019
+   external 1st author:Markel Sanz Ausin
+   external DOI:       None
+   venue:              Educational Data Mining
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+44. Tsai-2019.pdf  [literature]
+   local title:        'Multimodal Transformer for Unaligned Multimodal Language Sequences'
+   local title source: PDF_METADATA
+   local year:         2019
+   local first author: Yao-Hung Hubert Tsai
+   external provider:  CROSSREF
+   external title:     'Multimodal Transformer for Unaligned Multimodal Language Sequences'
+   similarity:         1.000
+   external year:      2019
+   external 1st author:Yao-Hung Hubert Tsai
+   external DOI:       10.18653/v1/p19-1656
+   venue:              Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+45. Wan-Yun.2412.05560v1.pdf  [literature]
+   local title:        'Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Wenqing Wang
+   external provider:  CROSSREF
+   external title:     'Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Wenqing Wang
+   external DOI:       10.32388/ydank8
+   venue:              None
+   publication type:   PREPRINT
+   abstract present:   yes
+46. Wojna_1512.00567.pdf  [literature]
+   local title:        'Rethinking the Inception Architecture for Computer Vision'
+   local title source: DOCUMENT_TEXT
+   local year:         2015
+   local first author: Christian Szegedy
+   external provider:  CROSSREF
+   external title:     'Rethinking the Inception Architecture for Computer Vision'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Christian Szegedy
+   external DOI:       10.1109/cvpr.2016.308
+   venue:              2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+47. Wu.pdf  [literature]
+   local title:        'Language-Assisted 3D Scene Understanding'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Yanmin Wu
+   external provider:  CROSSREF
+   external title:     'Language-Assisted 3D Scene Understanding'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Yanmin Wu
+   external DOI:       10.1109/tmm.2025.3535305
+   venue:              IEEE Transactions on Multimedia
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+48. Xie-CMLAI+2024-39-47.pdf  [literature]
+   local title:        'Comparison of Latest 3D Content Generation Models with Minimal Input Images'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: DRP
+   external provider:  CROSSREF
+   external title:     'Comparison of Latest 3D Content Generation Models with Minimal Input Images'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Haoxuan Xie
+   external DOI:       10.54097/w5m3fx19
+   venue:              Highlights in Science, Engineering and Technology
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+49. Xu-NeurIPS-2019-modeling-tabular-data-using-conditional-gan-Paper.pdf  [literature]
+   local title:        'Modeling Tabular data using Conditional GAN'
+   local title source: PDF_METADATA
+   local year:         2019
+   local first author: Lei Xu
+   external provider:  OPENALEX
+   external title:     'Modeling Tabular data using Conditional GAN'
+   similarity:         1.000
+   external year:      2019
+   external 1st author:Lei Xu
+   external DOI:       10.48550/arxiv.1907.00503
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+50. ZHIDKIKH, -2025-2506.09178v1.pdf  [literature]
+   local title:        'Understanding Self-Regulated Learning Behavior Among High and Low Dropout Risk Students During CS1: Combining Trace Logs, Dropout Prediction and Self-Reports'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Denis Zhidkikh
+   external provider:  OPENALEX
+   external title:     'Understanding Self-Regulated Learning Behavior Among High and Low Dropout Risk Students During CS1: Combining Trace Logs, Dropout Prediction and Self-Reports'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Denis Zhidkikh
+   external DOI:       10.48550/arxiv.2506.09178
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+51. Zhang-Dynamic-Networks for.pdf  [literature]
+   local title:        'Dynamic Key-Value Memory Networks for Knowledge Tracing'
+   local title source: DOCUMENT_TEXT
+   local year:         2017
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'Dynamic Key-Value Memory Networks for Knowledge Tracing'
+   similarity:         1.000
+   external year:      2017
+   external 1st author:Jiani Zhang
+   external DOI:       10.1145/3038912.3052580
+   venue:              Proceedings of the 26th International Conference on World Wide Web
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+52. baron2021.pdf  [literature]
+   local title:        'Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields'
+   local title source: DOCUMENT_TEXT
+   local year:         2021
+   local first author: Jonathan T. Barron
+   external provider:  CROSSREF
+   external title:     'Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields'
+   similarity:         1.000
+   external year:      2021
+   external 1st author:Jonathan T. Barron
+   external DOI:       10.1109/iccv48922.2021.00580
+   venue:              2021 IEEE/CVF International Conference on Computer Vision (ICCV)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+53. baron2022.pdf  [literature]
+   local title:        'Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields'
+   local title source: DOCUMENT_TEXT
+   local year:         2022
+   local first author: Jonathan T. Barron
+   external provider:  CROSSREF
+   external title:     'Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields'
+   similarity:         1.000
+   external year:      2022
+   external 1st author:Jonathan T. Barron
+   external DOI:       10.1109/cvpr52688.2022.00539
+   venue:              2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+54. bordes-NIPS-2013-translating-embeddings-for-modeling-multi-relational-data-Paper.pdf  [literature]
+   local title:        'Translating Embeddings for Modeling Multi-relational Data'
+   local title source: PDF_METADATA
+   local year:         2013
+   local first author: Antoine Bordes
+   external provider:  OPENALEX
+   external title:     'Translating Embeddings for Modeling Multi-relational Data'
+   similarity:         1.000
+   external year:      2013
+   external 1st author:Antoine Bordes
+   external DOI:       None
+   venue:              None
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+55. chen-1606.00915v2.pdf  [literature]
+   local title:        'DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs'
+   local title source: DOCUMENT_TEXT
+   local year:         2017
+   local first author: chen
+   external provider:  CROSSREF
+   external title:     'DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs'
+   similarity:         1.000
+   external year:      2018
+   external 1st author:Liang-Chieh Chen
+   external DOI:       10.1109/tpami.2017.2699184
+   venue:              IEEE Transactions on Pattern Analysis and Machine Intelligence
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+56. chu-2212.02985v2 (1).pdf  [literature]
+   local title:        'Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Yun-Wei Chu
+   external provider:  CROSSREF
+   external title:     'Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Yun-Wei Chu
+   external DOI:       10.1109/tetc.2024.3407716
+   venue:              IEEE Transactions on Emerging Topics in Computing
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+57. fang.pdf  [literature]
+   local title:        'RMPE: Regional Multi-Person Pose Estimation'
+   local title source: DOCUMENT_TEXT
+   local year:         2018
+   local first author: None
+   external provider:  CROSSREF
+   external title:     'RMPE: Regional Multi-person Pose Estimation'
+   similarity:         1.000
+   external year:      2017
+   external 1st author:Hao-Shu Fang
+   external DOI:       10.1109/iccv.2017.256
+   venue:              2017 IEEE International Conference on Computer Vision (ICCV)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+58. hou-2501.10462v2.pdf  [literature]
+   local title:        'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Xiaolu Hou
+   external provider:  CROSSREF
+   external title:     'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Xiaolu Hou
+   external DOI:       10.1609/aaai.v39i4.32367
+   venue:              Proceedings of the AAAI Conference on Artificial Intelligence
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+59. hou.pdf  [literature]
+   local title:        'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Xiaolu Hou
+   external provider:  CROSSREF
+   external title:     'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Xiaolu Hou
+   external DOI:       10.1609/aaai.v39i4.32367
+   venue:              Proceedings of the AAAI Conference on Artificial Intelligence
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+60. huang-2025-2510.27318v1.pdf  [literature]
+   local title:        'SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical Endoscopic Reconstruction'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Wenfeng Huang
+   external provider:  OPENALEX
+   external title:     'SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical Endoscopic Reconstruction'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Wenfeng Huang
+   external DOI:       10.48550/arxiv.2510.27318
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+61. jordon-498_pate_gan_generating_synthetic_.pdf  [literature]
+   local title:        'PATE-GAN: GENERATING SYNTHETIC DATA WITH DIFFERENTIAL PRIVACY GUARANTEES'
+   local title source: DOCUMENT_TEXT
+   local year:         2019
+   local first author: None
+   external provider:  OPENALEX
+   external title:     'PATE-GAN: Generating Synthetic Data with Differential Privacy Guarantees'
+   similarity:         1.000
+   external year:      2018
+   external 1st author:James Jordon
+   external DOI:       None
+   venue:              International Conference on Learning Representations
+   publication type:   None
+   abstract present:   no
+62. newcombe2015dra.pdf  [literature]
+   local title:        'DynamicFusion: Reconstruction and Tracking of Non-rigid Scenes in Real-Time'
+   local title source: DOCUMENT_TEXT
+   local year:         2015
+   local first author: Richard A. Newcombe
+   external provider:  CROSSREF
+   external title:     'DynamicFusion: Reconstruction and tracking of non-rigid scenes in real-time'
+   similarity:         1.000
+   external year:      2015
+   external 1st author:Richard A. Newcombe
+   external DOI:       10.1109/cvpr.2015.7298631
+   venue:              2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+63. redmon-1506.02640v5.pdf  [literature]
+   local title:        'You Only Look Once: Uniﬁed, Real-Time Object Detection'
+   local title source: DOCUMENT_TEXT
+   local year:         2016
+   local first author: redmon
+   external provider:  CROSSREF
+   external title:     'You Only Look Once: Unified, Real-Time Object Detection'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Joseph Redmon
+   external DOI:       10.1109/cvpr.2016.91
+   venue:              2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+64. shin-2025-2501.05757v3.pdf  [literature]
+   local title:        'LOCALITY-AWARE GAUSSIAN COMPRESSION FOR FAST AND HIGH-QUALITY RENDERING'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: shin
+   external provider:  OPENALEX
+   external title:     'Locality-aware Gaussian Compression for Fast and High-quality Rendering'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Shin, Seungjoo
+   external DOI:       10.48550/arxiv.2501.05757
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+65. smithEJ982673.pdf  [literature]
+   local title:        'PREDICTIVE MODELING TO FORECAST STUDENT OUTCOMES AND DRIVE EFFECTIVE INTERVENTIONS IN ONLINE COMMUNITY COLLEGE COURSES'
+   local title source: DOCUMENT_TEXT
+   local year:         2012
+   local first author: RROGERS
+   external provider:  CROSSREF
+   external title:     'Predictive Modeling to Forecast Student Outcomes and Drive Effective Interventions in Online Community College Courses'
+   similarity:         1.000
+   external year:      2012
+   external 1st author:Vernon C. Smith
+   external DOI:       10.24059/olj.v16i3.275
+   venue:              Online Learning
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+66. thermal-2509.18929v1.pdf  [literature]
+   local title:        'Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom'
+   local title source: PDF_METADATA
+   local year:         2025
+   local first author: Muhammad Kaif Laghari
+   external provider:  OPENALEX
+   external title:     'Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Muhammad Kaif Laghari
+   external DOI:       10.48550/arxiv.2509.18929
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+67. wang-Dueling DQN-Wang-2016.pdf  [literature]
+   local title:        'Dueling Network Architectures for Deep Reinforcement Learning'
+   local title source: DOCUMENT_TEXT
+   local year:         2016
+   local first author: Ziyu Wang
+   external provider:  OPENALEX
+   external title:     'Dueling Network Architectures for Deep Reinforcement Learning'
+   similarity:         1.000
+   external year:      2015
+   external 1st author:Ziyu Wang
+   external DOI:       10.48550/arxiv.1511.06581
+   venue:              arXiv (Cornell University)
+   publication type:   PREPRINT
+   abstract present:   yes
+68. yang-2312.09067v2.pdf  [literature]
+   local title:        'HOLODECK: Language Guided Generation of 3D Embodied AI Environments'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Yue Yang
+   external provider:  CROSSREF
+   external title:     'Holodeck: Language Guided Generation of 3D Embodied AI Environments'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:Yue Yang
+   external DOI:       10.1109/cvpr52733.2024.01536
+   venue:              2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+69. 2193-1801-3-737.pdf  [literature]
+   local title:        'Intellectual style theories: different types of categorizations and their relevance for practitioners'
+   local title source: DOCUMENT_TEXT
+   local year:         2014
+   local first author: Tine Nielsen
+   external provider:  CROSSREF
+   external title:     'Intellectual style theories: different types of categorizations and their relevance for practitioners'
+   similarity:         1.000
+   external year:      2014
+   external 1st author:Tine Nielsen
+   external DOI:       10.1186/2193-1801-3-737
+   venue:              SpringerPlus
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+70. Constructive_Alignment36087.pdf  [literature]
+   local title:        'Constructive alignment in university teaching'
+   local title source: DOCUMENT_TEXT
+   local year:         2014
+   local first author: Peter Kandlbinder
+   external provider:  OPENALEX
+   external title:     'Constructive alignment in university teaching'
+   similarity:         1.000
+   external year:      2014
+   external 1st author:Peter Kandlbinder
+   external DOI:       None
+   venue:              None
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+71. EJ1072608.pdf  [literature]
+   local title:        'Teach Positive Networking for Life-long Impact'
+   local title source: PDF_METADATA
+   local year:         2010
+   local first author: Lon Addams
+   external provider:  CROSSREF
+   external title:     'Teaching Positive Networking For Life-long Impact'
+   similarity:         0.968
+   external year:      2010
+   external 1st author:Lon Addams
+   external DOI:       10.19030/cier.v3i4.195
+   venue:              Contemporary Issues in Education Research (CIER)
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   yes
+72. Support for assessment practice_ developing the Assessment Design.pdf  [literature]
+   local title:        'Support for assessment practice: developing the Assessment Design Decisions Framework'
+   local title source: PDF_METADATA
+   local year:         2016
+   local first author: Margaret Bearman
+   external provider:  CROSSREF
+   external title:     'Support for assessment practice: developing the Assessment Design Decisions Framework'
+   similarity:         1.000
+   external year:      2016
+   external 1st author:Margaret Bearman
+   external DOI:       10.1080/13562517.2016.1160217
+   venue:              Teaching in Higher Education
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+73. _cbebd8b56e2c84f3ba31404a84542b37_Lesson-plan-template.pdf  [literature]
+   local title:        'Lesson Plan'
+   local title source: DOCUMENT_TEXT
+   local year:         2017
+   local first author: Learning Outcomes
+   external provider:  CROSSREF
+   external title:     'Lesson Plan'
+   similarity:         1.000
+   external year:      2018
+   external 1st author:None
+   external DOI:       10.2307/j.ctt20mvcpx.48
+   venue:              American Spikenard
+   publication type:   BOOK_CHAPTER
+   abstract present:   no
+74. 53 (2).pdf  [literature]
+   local title:        'Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students'
+   local title source: DOCUMENT_TEXT
+   local year:         2024
+   local first author: Dayanne
+   external provider:  CROSSREF
+   external title:     'Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students'
+   similarity:         1.000
+   external year:      2024
+   external 1st author:None
+   external DOI:       10.62441/nano-ntp.v20is11.53
+   venue:              Nanotechnology Perceptions
+   publication type:   JOURNAL_ARTICLE
+   abstract present:   no
+75. ssrn-5016008.pdf  [literature]
+   local title:        'The Impact of Virtual Reality on Student Engagement in Higher Education'
+   local title source: PDF_METADATA
+   local year:         None
+   local first author: ssrn
+   external provider:  CROSSREF
+   external title:     'The Impact of Virtual Reality on Student Engagement in Higher Education'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Nandita Suhag
+   external DOI:       10.2139/ssrn.5016008
+   venue:              None
+   publication type:   PREPRINT
+   abstract present:   no
+76. vr-rag-2504.08256v2.pdf  [literature]
+   local title:        'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments'
+   local title source: DOCUMENT_TEXT
+   local year:         2025
+   local first author: Shiyi Ding
+   external provider:  CROSSREF
+   external title:     'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments'
+   similarity:         1.000
+   external year:      2025
+   external 1st author:Shiyi Ding
+   external DOI:       10.1109/vrw66409.2025.00034
+   venue:              2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)
+   publication type:   CONFERENCE_PAPER
+   abstract present:   no
+
+external DOI provenance: every DOI above was recorded as source
+CROSSREF/OPENALEX with confidence MEDIUM and evidence
+'strong title-based external match (<provider> title search); external DOI'.
+No DOI in this stage is represented as observed in the source document.

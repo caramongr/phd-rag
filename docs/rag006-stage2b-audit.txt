@@ -1,0 +1,836 @@
+RAG-006 Stage 2B - audit of every accepted STRONG title match
+=================================================================
+
+Source of the accepted identities: docs/rag006-stage2b.txt (component
+'title_search', 76 accepted STRONG matches). For each accepted identity the
+audit asked a second, independent question: does the document really denote
+that record?
+
+Method
+------
+1. Accepted DOI re-resolved at its registered agency (Crossref, then OpenAlex
+   for DataCite-style DOIs) and the agency's title compared with the
+   DOCUMENT'S OWN local title.
+2. Accepted DOI that is an arXiv DOI (10.48550/arxiv.<id>): the DOI's arXiv id
+   compared with the arXiv id observed in the document itself (extracted from
+   the document's own text, or present in its filename).
+3. Accepted record with no locally comparable identifier: the accepted title
+   compared with the local title, and an independent title search re-run to
+   confirm the record is reproducible.
+4. Cross-checks reported per row, for every row: year (tolerance +/-1) and the
+   first-author FAMILY name, i.e. exactly the secondary evidence the enricher
+   itself uses. 'unknown' means the evidence does not exist locally (missing
+   local year, or a local 'author' that is a single boilerplate token such as
+   DRP / ssrn / ilkkaw, which carries no family name) - not that it disagreed.
+
+No value in the corpus was changed by this audit.
+
+[01] +6089-.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.19173/irrodl.v24i2.6089
+     local title:    Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education
+     external title: Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Stakeholder Perspectives on the Ethics of AI in Distance-Based Higher Education': title similarity 1.000; the agency's first author 'Wayne Holmes'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family 'Holmes' vs 'Wayne Holmes' (agree)
+     classification: clearly correct
+
+[02] 111771-Article Text-230125-1-10-20220414.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.23996/fjhw.111771
+     local title:    Aspects associated with health care professionals’ digital health competence development – a qualitative study
+     external title: Aspects associated with health care professionals’ digital health competence development – a qualitative study
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Aspects associated with health care professionals’ digital health competence development – a qualitative study': title similarity 1.000; the agency's first author 'Erika Jarva'; year 2022
+     cross-check:    year 2022 vs 2022 (ok); first-author family None vs 'Erika Jarva' (unknown)
+     classification: clearly correct
+
+[03] 17836-Article Text-21330-1-2-20210518.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1609/aaai.v35i17.17836
+     local title:    AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach
+     external title: AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'AI-Infused Collaborative Inquiry in Upper Elementary School: A Game-Based Learning Approach': title similarity 1.000; the agency's first author 'Seung Lee'; year 2021
+     cross-check:    year 2021 vs 2021 (ok); first-author family 'Lee' vs 'Seung Lee' (agree)
+     classification: clearly correct
+
+[04] 2311.15198v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2311.15198
+     local title:    ChatGPT and Beyond: The Generative AI Revolution in Education
+     external title: ChatGPT and Beyond: The Generative AI Revolution in Education
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2311.15198: its arXiv id 2311.15198 is the document's own arXiv id (embedded text 2311.15198, filename 2311.15198)
+     cross-check:    year 2022 vs 2023 (ok); first-author family 'AL-Smadi' vs 'Mohammad AL-Smadi' (agree)
+     classification: clearly correct
+
+[05] 2406.18900v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.59863/miql7785
+     local title:    The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges
+     external title: The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'The Rise of Artificial Intelligence in Educational Measurement: Opportunities and Ethical Challenges': title similarity 1.000; the agency's first author 'Okan Bulut'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs 'Okan Bulut' (unknown)
+     classification: clearly correct
+
+[06] 2408.15686v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2408.15686
+     local title:    "Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia"
+     external title: "Navigating the Future of Education: Educators' Insights on AI Integration and Challenges in Greece, Hungary, Latvia, Ireland and Armenia"
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2408.15686: its arXiv id 2408.15686 is the document's own arXiv id (embedded text 2408.15686, filename 2408.15686)
+     cross-check:    year 2024 vs 2024 (ok); first-author family 'DASKALAKI' vs 'Evangelia Daskalaki' (agree)
+     classification: clearly correct
+
+[07] 2504.03966v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.21203/rs.3.rs-6256444/v1
+     local title:    Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant
+     external title: Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Bridging LMS and Generative AI: Dynamic Course Content Integration (DCCI) for Connecting LLMs to Course Content – The Ask ME Assistant': title similarity 1.000; the agency's first author 'Kovan Mzwri'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Mzwri' vs 'Kovan Mzwri' (agree)
+     classification: clearly correct
+
+[08] 2507.01597v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2507.01597
+     local title:    T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning
+     external title: T3DM: Test-Time Training-Guided Distribution Shift Modelling for Temporal Knowledge Graph Reasoning
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2507.01597: its arXiv id 2507.01597 is the document's own arXiv id (embedded text 2507.01597, filename 2507.01597)
+     cross-check:    year None vs 2025 (unknown); first-author family 'Si' vs 'Yuehang Si' (agree)
+     classification: clearly correct
+
+[09] 2507.18139v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/iolts65288.2025.11116950
+     local title:    Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions
+     external title: Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Neuromorphic Computing for Embodied Intelligence in Autonomous Systems: Current Trends, Challenges, and Future Directions': title similarity 1.000; the agency's first author 'Alberto Marchisio'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Marchisio' vs 'Alberto Marchisio' (agree)
+     classification: clearly correct
+
+[10] 28_01_10125-73595.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.64152/10125/73595
+     local title:    The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency
+     external title: The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'The effectiveness of Duolingo in developing receptive and productive language knowledge and proficiency': title similarity 1.000; the agency's first author 'Bryan Smith'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs 'Bryan Smith' (unknown)
+     classification: clearly correct
+
+[11] AILiteracyReviewASIST.pdf
+     accepted: CROSSREF title match, similarity 0.938
+     DOI: 10.1002/pra2.487
+     local title:    AI Literacy: Definition, Teaching, Evaluation and Ethical Issues
+     external title: <scp>AI</scp> Literacy: Definition, Teaching, Evaluation and Ethical Issues
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as '<scp>AI</scp> Literacy: Definition, Teaching, Evaluation and Ethical Issues': title similarity 0.938; the agency's first author 'Davy Tsz Kit Ng'; year 2021
+     cross-check:    year 2021 vs 2021 (ok); first-author family None vs 'Davy Tsz Kit Ng' (unknown)
+     classification: clearly correct
+
+[12] Artificial_Intelligence_and_Teachers_New.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.29173/irie483
+     local title:    Artificial Intelligence and Teachers’ New Ethical Obligations
+     external title: Artificial Intelligence and Teachers’ New Ethical Obligations
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Artificial Intelligence and Teachers’ New Ethical Obligations': title similarity 1.000; the agency's first author 'Catherine Adams'; year 2022
+     cross-check:    year 2022 vs 2022 (ok); first-author family 'Adams' vs 'Catherine Adams' (agree)
+     classification: clearly correct
+
+[13] BEJ+33+(3)+Kumar+-+Beyond+Reproach+(FINAL).pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.26522/brocked.v33i3.1173
+     local title:    Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education
+     external title: Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Beyond Reproach: Navigating Usage, Detection, and Future Pathways of AI in Education': title similarity 1.000; the agency's first author 'Rahul Kumar'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family 'Kumar' vs 'Rahul Kumar' (agree)
+     classification: clearly correct
+
+[14] Intelligence_Augmentation_for_Educators.pdf
+     accepted: CROSSREF title match, similarity 0.993
+     DOI: 10.1007/978-3-030-77857-6_15
+     local title:    Intelligence Augmentation for Educators, Training Pro- fessionals, and Learners
+     external title: Intelligence Augmentation for Educators, Training Professionals, and Learners
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Intelligence Augmentation for Educators, Training Professionals, and Learners': title similarity 0.993; the agency's first author 'Nkaepe Olaniyi'; year 2021
+     cross-check:    year 2022 vs 2021 (ok); first-author family None vs 'Nkaepe Olaniyi' (unknown)
+     classification: clearly correct
+
+[15] Plagiarism_detection_in_Programming_cour.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.18260/1-2--38399
+     local title:    Plagiarism detection in Programming coursework.
+     external title: Plagiarism detection in Programming coursework.
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Plagiarism detection in Programming coursework.': title similarity 1.000; the agency's first author 'Constantine Mukasa'; year 2024
+     cross-check:    year 2025 vs 2024 (ok); first-author family None vs 'Constantine Mukasa' (unknown)
+     classification: clearly correct
+
+[16] View of Challenges with Gamification in Higher Education.pdf
+     accepted: CROSSREF title match, similarity 0.967
+     DOI: 10.47852/bonviewijce32021604
+     local title:    View of Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers
+     external title: Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Challenges with Gamification in Higher Education: A Narrative Review with Implications for Educators and Policymakers': title similarity 0.967; the agency's first author 'Kevin Fuchs'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs 'Kevin Fuchs' (unknown)
+     classification: clearly correct
+
+[17] ethical-considerations-in-using-ai-in-educational-research-14205.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.51853/jorids/14205
+     local title:    Ethical Considerations in Using AI in Educational Research
+     external title: Ethical Considerations in Using AI in Educational Research
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Ethical Considerations in Using AI in Educational Research': title similarity 1.000; the agency's first author 'Nuri Balta'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family None vs 'Nuri Balta' (unknown)
+     classification: clearly correct
+
+[18] ethical-use-of-artificial-intelligence-and-new-technologies-in-education-50 (1).pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.51219/jaimld/anastasios-liapakis/15
+     local title:    Ethical Use of Artificial Intelligence and New Technologies in Education 5.0
+     external title: Ethical Use of Artificial Intelligence and New Technologies in Education 5.0
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Ethical Use of Artificial Intelligence and New Technologies in Education 5.0': title similarity 1.000; the agency's first author 'Zacharoula Smyrnaiou'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family 'Smyrnaiou' vs 'Zacharoula Smyrnaiou' (agree)
+     classification: clearly correct
+
+[19] Achlioptas1-123460409.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1007/978-3-030-58452-8_25
+     local title:    ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identiﬁcation in Real-World Scenes
+     external title: ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identification in Real-World Scenes
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'ReferIt3D: Neural Listeners for Fine-Grained 3D Object Identification in Real-World Scenes': title similarity 1.000; the agency's first author 'Panos Achlioptas'; year 2020
+     cross-check:    year 2020 vs 2020 (ok); first-author family 'Achlioptas' vs 'Panos Achlioptas' (agree)
+     classification: clearly correct
+
+[20] Ayulani-sriatmaja,+Bevina+16880-AAP.pdf
+     accepted: CROSSREF title match, similarity 0.979
+     DOI: 10.18517/ijaseit.13.3.16880
+     local title:    Tree-Based Ensemble Methods and Their Applications for Predicting Students’ Academic Performance
+     external title: Tree-Based Ensemble Methods and Their Applications for Predicting Studentsâ€™ Academic Performance
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Tree-Based Ensemble Methods and Their Applications for Predicting Studentsâ€™ Academic Performance': title similarity 0.979; the agency's first author 'Indri Dayanah Ayulani'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family None vs 'Indri Dayanah Ayulani' (unknown)
+     classification: clearly correct
+
+[21] Beliaev-33705-Article Text-37773-1-2-20250410.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1609/aaai.v39i15.33705
+     local title:    Inverse Reinforcement Learning by Estimating Expertise of Demonstrators
+     external title: Inverse Reinforcement Learning by Estimating Expertise of Demonstrators
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Inverse Reinforcement Learning by Estimating Expertise of Demonstrators': title similarity 1.000; the agency's first author 'Mark Beliaev'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Beliaev' vs 'Mark Beliaev' (agree)
+     classification: clearly correct
+
+[22] Bender1-2014-CGF-Position_Based_Survey (1).pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1111/cgf.12346
+     local title:    A Survey on Position-Based Simulation Methods in Computer Graphics
+     external title: A Survey on Position‐Based Simulation Methods in Computer Graphics
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'A Survey on Position‐Based Simulation Methods in Computer Graphics': title similarity 1.000; the agency's first author 'Jan Bender'; year 2014
+     cross-check:    year 2014 vs 2014 (ok); first-author family 'Bender' vs 'Jan Bender' (agree)
+     classification: clearly correct
+
+[23] Bouzbib.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1145/3450522.3451323
+     local title:    ”Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions
+     external title: “Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as '“Can I Touch This?”: Survey of Virtual Reality Interactions via Haptic Solutions': title similarity 1.000; the agency's first author 'Elodie Bouzbib'; year 2021
+     cross-check:    year 2021 vs 2021 (ok); first-author family 'Bouzbib' vs 'Elodie Bouzbib' (agree)
+     classification: clearly correct
+
+[24] Devlin.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.18653/v1/n19-1423
+     local title:    BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+     external title: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding': title similarity 1.000; the agency's first author 'Jacob Devlin'; year 2019
+     cross-check:    year 2019 vs 2019 (ok); first-author family 'Devlin' vs 'Jacob Devlin' (agree)
+     classification: clearly correct
+
+[25] Du-2025.acl-long.1459.pdf
+     accepted: CROSSREF title match, similarity 0.995
+     DOI: 10.18653/v1/2025.acl-long.1459
+     local title:    MAPoRL2: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+     external title: MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning': title similarity 0.995; the agency's first author 'Chanwoo Park'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family None vs 'Chanwoo Park' (unknown)
+     classification: clearly correct
+
+[26] Haarnoja-1801.01290v2.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1801.01290
+     local title:    Soft Actor-Critic:  Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
+     external title: Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.1801.01290: its arXiv id 1801.01290 is the document's own arXiv id (embedded text 1801.01290, filename 1801.01290)
+     cross-check:    year 2018 vs 2018 (ok); first-author family 'Haarnoja' vs 'Tuomas Haarnoja' (agree)
+     classification: clearly correct
+
+[27] Han-DRP+CMLAI+2025-42-49.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.54097/18313836
+     local title:    A Review on Background, Technology, Comparison, and Future Tendency of Video Generation
+     external title: A Review on Background, Technology, Comparison, and Future Tendency of Video Generation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'A Review on Background, Technology, Comparison, and Future Tendency of Video Generation': title similarity 1.000; the agency's first author 'Zhiyu Han'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family None vs 'Zhiyu Han' (unknown)
+     classification: clearly correct
+
+[28] Hong-2307.12981v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.52202/075280-0900
+     local title:    3D-LLM: Injecting the 3D World into Large Language Models
+     external title: 3D-LLM: Injecting the 3D World into Large Language Models
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as '3D-LLM: Injecting the 3D World into Large Language Models': title similarity 1.000; the agency's first author 'Yining Hong'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family 'Hong' vs 'Yining Hong' (agree)
+     classification: clearly correct
+
+[29] Huang-1906.02650v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/icra.2019.8793604
+     local title:    VISUAL-INERTIAL NAVIGATION: A CONCISE REVIEW
+     external title: Visual-Inertial Navigation: A Concise Review
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Visual-Inertial Navigation: A Concise Review': title similarity 1.000; the agency's first author 'Guoquan Huang'; year 2019
+     cross-check:    year 2019 vs 2019 (ok); first-author family 'Huang' vs 'Guoquan Huang' (agree)
+     classification: clearly correct
+
+[30] Innmann1-1603.08161v2.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1007/978-3-319-46484-8_22
+     local title:    VolumeDeform: Real-time Volumetric Non-rigid Reconstruction
+     external title: VolumeDeform: Real-Time Volumetric Non-rigid Reconstruction
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'VolumeDeform: Real-Time Volumetric Non-rigid Reconstruction': title similarity 1.000; the agency's first author 'Matthias Innmann'; year 2016
+     cross-check:    year 2016 vs 2016 (ok); first-author family 'Innmann' vs 'Matthias Innmann' (agree)
+     classification: clearly correct
+
+[31] JIA-2021.naacl-main.164.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.18653/v1/2021.naacl-main.164
+     local title:    Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data
+     external title: Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Heterogeneous Graph Neural Networks for Concept Prerequisite Relation Learning in Educational Data': title similarity 1.000; the agency's first author 'Chenghao Jia'; year 2021
+     cross-check:    year 2021 vs 2021 (ok); first-author family 'Jia' vs 'Chenghao Jia' (agree)
+     classification: clearly correct
+
+[32] Leutenegger-p37.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.15607/rss.2013.ix.037
+     local title:    Keyframe-Based Visual-Inertial SLAM Using Nonlinear Optimization
+     external title: Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization': title similarity 1.000; the agency's first author 'Stefan Leutenegger'; year 2013
+     cross-check:    year 2013 vs 2013 (ok); first-author family None vs 'Stefan Leutenegger' (unknown)
+     classification: clearly correct
+
+[33] Lin_Magic3D_High-Resolution_Text-to-3D_Content_Creation_CVPR_2023_paper.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr52729.2023.00037
+     local title:    Magic3D: High-Resolution Text-to-3D Content Creation
+     external title: Magic3D: High-Resolution Text-to-3D Content Creation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Magic3D: High-Resolution Text-to-3D Content Creation': title similarity 1.000; the agency's first author 'Chen-Hsuan Lin'; year 2023
+     cross-check:    year 2023 vs 2023 (ok); first-author family 'Lin' vs 'Chen-Hsuan Lin' (agree)
+     classification: clearly correct
+
+[34] Liu-3748239.3748249.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1145/3748239.3748249
+     local title:    Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective
+     external title: Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Neural-Symbolic Reasoning over Knowledge Graphs: A Survey from a Query Perspective': title similarity 1.000; the agency's first author 'Lihui Liu'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Liu' vs 'Lihui Liu' (agree)
+     classification: clearly correct
+
+[35] Mayer.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr.2016.438
+     local title:    A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation
+     external title: A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation': title similarity 1.000; the agency's first author 'Nikolaus Mayer'; year 2016
+     cross-check:    year 2015 vs 2016 (ok); first-author family 'Mayer' vs 'Nikolaus Mayer' (agree)
+     classification: clearly correct
+
+[36] Mirhoseini-1706.04972v2.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1706.04972
+     local title:    Device Placement Optimization with Reinforcement Learning
+     external title: Device Placement Optimization with Reinforcement Learning
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.1706.04972: its arXiv id 1706.04972 is the document's own arXiv id (embedded text 1706.04972, filename 1706.04972)
+     cross-check:    year 2017 vs 2017 (ok); first-author family 'Mirhoseini' vs 'Azalia Mirhoseini' (agree)
+     classification: clearly correct
+
+[37] Mnih-1602.01783v2.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1602.01783
+     local title:    Asynchronous Methods for Deep Reinforcement Learning
+     external title: Asynchronous Methods for Deep Reinforcement Learning
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.1602.01783: its arXiv id 1602.01783 is the document's own arXiv id (embedded text 1602.01783, filename 1602.01783)
+     cross-check:    year 2016 vs 2016 (ok); first-author family 'Mnih' vs 'Volodymyr Mnih' (agree)
+     classification: clearly correct
+
+[38] Ocal-2407.20727v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1007/978-3-031-73013-9_21
+     local title:    SceneTeller: Language-to-3D Scene Generation
+     external title: SceneTeller: Language-to-3D Scene Generation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'SceneTeller: Language-to-3D Scene Generation': title similarity 1.000; the agency's first author 'Başak Melis Öcal'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs 'Başak Melis Öcal' (unknown)
+     classification: clearly correct
+
+[39] Patki-SDV.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/dsaa.2016.49
+     local title:    The Synthetic data vault
+     external title: The Synthetic Data Vault
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'The Synthetic Data Vault': title similarity 1.000; the agency's first author 'Neha Patki'; year 2016
+     cross-check:    year 2016 vs 2016 (ok); first-author family 'Patki' vs 'Neha Patki' (agree)
+     classification: clearly correct
+
+[40] Piech-Deep-Knowledge-Tracing.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1506.05908
+     local title:    Deep Knowledge Tracing
+     external title: Deep Knowledge Tracing
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.1506.05908: its arXiv id 1506.05908 is the document's own arXiv id (embedded text 1506.05908, filename None)
+     cross-check:    year 2015 vs 2015 (ok); first-author family None vs 'Chris Piech' (unknown)
+     classification: clearly correct
+
+[41] Poole-2209.14988v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2209.14988
+     local title:    DREAMFUSION: TEXT-TO-3D USING 2D DIFFUSION
+     external title: DreamFusion: Text-to-3D using 2D Diffusion
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2209.14988: its arXiv id 2209.14988 is the document's own arXiv id (embedded text 2209.14988, filename 2209.14988)
+     cross-check:    year 2022 vs 2022 (ok); first-author family 'Poole' vs 'Ben Poole' (agree)
+     classification: clearly correct
+
+[42] Russell-agapito-978-3-319-10584-0_38.pdf
+     accepted: CROSSREF title match, similarity 0.921
+     DOI: 10.1007/978-3-319-10584-0_38
+     local title:    LNCS 8695 - Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes
+     external title: Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Video Pop-up: Monocular 3D Reconstruction of Dynamic Scenes': title similarity 0.921; the agency's first author 'Chris Russell'; year 2014
+     cross-check:    year 2014 vs 2014 (ok); first-author family 'Russell' vs 'Chris Russell' (agree)
+     classification: clearly correct
+
+[43] Sanz-Leveraging-Deep-Reinforcement-Learning-Pedagogical.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: None
+     local title:    Leveraging Deep Reinforcement Learning for Pedagogical Policy Induction in an Intelligent Tutoring System
+     external title: Leveraging Deep Reinforcement Learning for Pedagogical Policy Induction in an Intelligent Tutoring System.
+     verification:   field agreement (accepted record carries no DOI)
+     the accepted record carries no DOI; title similarity 1.000; record reproduced by an independent search with title similarity 1.000
+     cross-check:    year 2019 vs 2019 (ok); first-author family 'Ausin' vs 'Markel Sanz Ausin' (agree)
+     classification: clearly correct
+
+[44] Tsai-2019.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.18653/v1/p19-1656
+     local title:    Multimodal Transformer for Unaligned Multimodal Language Sequences
+     external title: Multimodal Transformer for Unaligned Multimodal Language Sequences
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Multimodal Transformer for Unaligned Multimodal Language Sequences': title similarity 1.000; the agency's first author 'Yao-Hung Hubert Tsai'; year 2019
+     cross-check:    year 2019 vs 2019 (ok); first-author family 'Tsai' vs 'Yao-Hung Hubert Tsai' (agree)
+     classification: clearly correct
+
+[45] Wan-Yun.2412.05560v1.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.32388/ydank8
+     local title:    Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation
+     external title: Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Text-to-3D Gaussian Splatting with Physics-Grounded Motion Generation': title similarity 1.000; the agency's first author 'Wenqing Wang'; year 2025
+     cross-check:    year 2024 vs 2025 (ok); first-author family 'Wang' vs 'Wenqing Wang' (agree)
+     classification: clearly correct
+
+[46] Wojna_1512.00567.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr.2016.308
+     local title:    Rethinking the Inception Architecture for Computer Vision
+     external title: Rethinking the Inception Architecture for Computer Vision
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Rethinking the Inception Architecture for Computer Vision': title similarity 1.000; the agency's first author 'Christian Szegedy'; year 2016
+     cross-check:    year 2015 vs 2016 (ok); first-author family 'Szegedy' vs 'Christian Szegedy' (agree)
+     classification: clearly correct
+
+[47] Wu.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/tmm.2025.3535305
+     local title:    Language-Assisted 3D Scene Understanding
+     external title: Language-Assisted 3D Scene Understanding
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Language-Assisted 3D Scene Understanding': title similarity 1.000; the agency's first author 'Yanmin Wu'; year 2025
+     cross-check:    year 2024 vs 2025 (ok); first-author family 'Wu' vs 'Yanmin Wu' (agree)
+     classification: clearly correct
+
+[48] Xie-CMLAI+2024-39-47.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.54097/w5m3fx19
+     local title:    Comparison of Latest 3D Content Generation Models with Minimal Input Images
+     external title: Comparison of Latest 3D Content Generation Models with Minimal Input Images
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Comparison of Latest 3D Content Generation Models with Minimal Input Images': title similarity 1.000; the agency's first author 'Haoxuan Xie'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs 'Haoxuan Xie' (unknown)
+     classification: clearly correct
+
+[49] Xu-NeurIPS-2019-modeling-tabular-data-using-conditional-gan-Paper.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1907.00503
+     local title:    Modeling Tabular data using Conditional GAN
+     external title: Modeling Tabular data using Conditional GAN
+     verification:   field agreement (arXiv DOI, no local arXiv id to compare)
+     arXiv DOI 10.48550/arxiv.1907.00503 (id 1907.00503); the document carries no matching arXiv id of its own, so identity rests on agreement: title similarity 1.000
+     cross-check:    year 2019 vs 2019 (ok); first-author family 'Xu' vs 'Lei Xu' (agree)
+     classification: clearly correct
+
+[50] ZHIDKIKH, -2025-2506.09178v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2506.09178
+     local title:    Understanding Self-Regulated Learning Behavior Among High and Low Dropout Risk Students During CS1: Combining Trace Logs, Dropout Prediction and Self-Reports
+     external title: Understanding Self-Regulated Learning Behavior Among High and Low Dropout Risk Students During CS1: Combining Trace Logs, Dropout Prediction and Self-Reports
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2506.09178: its arXiv id 2506.09178 is the document's own arXiv id (embedded text 2506.09178, filename 2506.09178)
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Zhidkikh' vs 'Denis Zhidkikh' (agree)
+     classification: clearly correct
+
+[51] Zhang-Dynamic-Networks for.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1145/3038912.3052580
+     local title:    Dynamic Key-Value Memory Networks for Knowledge Tracing
+     external title: Dynamic Key-Value Memory Networks for Knowledge Tracing
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Dynamic Key-Value Memory Networks for Knowledge Tracing': title similarity 1.000; the agency's first author 'Jiani Zhang'; year 2017
+     cross-check:    year 2017 vs 2017 (ok); first-author family None vs 'Jiani Zhang' (unknown)
+     classification: clearly correct
+
+[52] baron2021.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/iccv48922.2021.00580
+     local title:    Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields
+     external title: Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields': title similarity 1.000; the agency's first author 'Jonathan T. Barron'; year 2021
+     cross-check:    year 2021 vs 2021 (ok); first-author family 'Barron' vs 'Jonathan T. Barron' (agree)
+     classification: clearly correct
+
+[53] baron2022.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr52688.2022.00539
+     local title:    Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields
+     external title: Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields': title similarity 1.000; the agency's first author 'Jonathan T. Barron'; year 2022
+     cross-check:    year 2022 vs 2022 (ok); first-author family 'Barron' vs 'Jonathan T. Barron' (agree)
+     classification: clearly correct
+
+[54] bordes-NIPS-2013-translating-embeddings-for-modeling-multi-relational-data-Paper.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: None
+     local title:    Translating Embeddings for Modeling Multi-relational Data
+     external title: Translating Embeddings for Modeling Multi-relational Data
+     verification:   field agreement (accepted record carries no DOI)
+     the accepted record carries no DOI; title similarity 1.000; record reproduced by an independent search with title similarity 1.000
+     cross-check:    year 2013 vs 2013 (ok); first-author family 'Bordes' vs 'Antoine Bordes' (agree)
+     classification: clearly correct
+
+[55] chen-1606.00915v2.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/tpami.2017.2699184
+     local title:    DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs
+     external title: DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs': title similarity 1.000; the agency's first author 'Liang-Chieh Chen'; year 2018
+     cross-check:    year 2017 vs 2018 (ok); first-author family None vs 'Liang-Chieh Chen' (unknown)
+     classification: clearly correct
+
+[56] chu-2212.02985v2 (1).pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/tetc.2024.3407716
+     local title:    Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics
+     external title: Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Multi-Layer Personalized Federated Learning for Mitigating Biases in Student Predictive Analytics': title similarity 1.000; the agency's first author 'Yun-Wei Chu'; year 2025
+     cross-check:    year 2024 vs 2025 (ok); first-author family 'Chu' vs 'Yun-Wei Chu' (agree)
+     classification: clearly correct
+
+[57] fang.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/iccv.2017.256
+     local title:    RMPE: Regional Multi-Person Pose Estimation
+     external title: RMPE: Regional Multi-person Pose Estimation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'RMPE: Regional Multi-person Pose Estimation': title similarity 1.000; the agency's first author 'Hao-Shu Fang'; year 2017
+     cross-check:    year 2018 vs 2017 (ok); first-author family None vs 'Hao-Shu Fang' (unknown)
+     classification: clearly correct
+
+[58] hou-2501.10462v2.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1609/aaai.v39i4.32367
+     local title:    BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation
+     external title: BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation': title similarity 1.000; the agency's first author 'Xiaolu Hou'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Hou' vs 'Xiaolu Hou' (agree)
+     classification: clearly correct
+
+[59] hou.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1609/aaai.v39i4.32367
+     local title:    BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation
+     external title: BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'BloomScene: Lightweight Structured 3D Gaussian Splatting for Crossmodal Scene Generation': title similarity 1.000; the agency's first author 'Xiaolu Hou'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Hou' vs 'Xiaolu Hou' (agree)
+     classification: clearly correct
+
+[60] huang-2025-2510.27318v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2510.27318
+     local title:    SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical Endoscopic Reconstruction
+     external title: SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical Endoscopic Reconstruction
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2510.27318: its arXiv id 2510.27318 is the document's own arXiv id (embedded text 2510.27318, filename 2510.27318)
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Huang' vs 'Wenfeng Huang' (agree)
+     classification: clearly correct
+
+[61] jordon-498_pate_gan_generating_synthetic_.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: None
+     local title:    PATE-GAN: GENERATING SYNTHETIC DATA WITH DIFFERENTIAL PRIVACY GUARANTEES
+     external title: PATE-GAN: Generating Synthetic Data with Differential Privacy Guarantees
+     verification:   field agreement (accepted record carries no DOI)
+     the accepted record carries no DOI; title similarity 1.000; record reproduced by an independent search with title similarity 1.000
+     cross-check:    year 2019 vs 2018 (ok); first-author family None vs 'James Jordon' (unknown)
+     classification: clearly correct
+
+[62] newcombe2015dra.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr.2015.7298631
+     local title:    DynamicFusion: Reconstruction and Tracking of Non-rigid Scenes in Real-Time
+     external title: DynamicFusion: Reconstruction and tracking of non-rigid scenes in real-time
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'DynamicFusion: Reconstruction and tracking of non-rigid scenes in real-time': title similarity 1.000; the agency's first author 'Richard A. Newcombe'; year 2015
+     cross-check:    year 2015 vs 2015 (ok); first-author family 'Newcombe' vs 'Richard A. Newcombe' (agree)
+     classification: clearly correct
+
+[63] redmon-1506.02640v5.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr.2016.91
+     local title:    You Only Look Once: Uniﬁed, Real-Time Object Detection
+     external title: You Only Look Once: Unified, Real-Time Object Detection
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'You Only Look Once: Unified, Real-Time Object Detection': title similarity 1.000; the agency's first author 'Joseph Redmon'; year 2016
+     cross-check:    year 2016 vs 2016 (ok); first-author family None vs 'Joseph Redmon' (unknown)
+     classification: clearly correct
+
+[64] shin-2025-2501.05757v3.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2501.05757
+     local title:    LOCALITY-AWARE GAUSSIAN COMPRESSION FOR FAST AND HIGH-QUALITY RENDERING
+     external title: Locality-aware Gaussian Compression for Fast and High-quality Rendering
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2501.05757: its arXiv id 2501.05757 is the document's own arXiv id (embedded text 2501.05757, filename 2501.05757)
+     cross-check:    year 2025 vs 2025 (ok); first-author family None vs 'Shin, Seungjoo' (unknown)
+     classification: clearly correct
+
+[65] smithEJ982673.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.24059/olj.v16i3.275
+     local title:    PREDICTIVE MODELING TO FORECAST STUDENT OUTCOMES AND DRIVE EFFECTIVE INTERVENTIONS IN ONLINE COMMUNITY COLLEGE COURSES
+     external title: Predictive Modeling to Forecast Student Outcomes and Drive Effective Interventions in Online Community College Courses
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Predictive Modeling to Forecast Student Outcomes and Drive Effective Interventions in Online Community College Courses': title similarity 1.000; the agency's first author 'Vernon C. Smith'; year 2012
+     cross-check:    year 2012 vs 2012 (ok); first-author family None vs 'Vernon C. Smith' (unknown)
+     classification: clearly correct
+
+[66] thermal-2509.18929v1.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.2509.18929
+     local title:    Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom
+     external title: Native Mixed Reality Compositing on Meta Quest 3: A Quantitative Feasibility Study of ARM-Based SoCs and Thermal Headroom
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.2509.18929: its arXiv id 2509.18929 is the document's own arXiv id (embedded text 2509.18929, filename 2509.18929)
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Laghari' vs 'Muhammad Kaif Laghari' (agree)
+     classification: clearly correct
+
+[67] wang-Dueling DQN-Wang-2016.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: 10.48550/arxiv.1511.06581
+     local title:    Dueling Network Architectures for Deep Reinforcement Learning
+     external title: Dueling Network Architectures for Deep Reinforcement Learning
+     verification:   arXiv identifier equality
+     arXiv DOI 10.48550/arxiv.1511.06581: its arXiv id 1511.06581 is the document's own arXiv id (embedded text 1511.06581, filename None)
+     cross-check:    year 2016 vs 2015 (ok); first-author family 'Wang' vs 'Ziyu Wang' (agree)
+     classification: clearly correct
+
+[68] yang-2312.09067v2.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/cvpr52733.2024.01536
+     local title:    HOLODECK: Language Guided Generation of 3D Embodied AI Environments
+     external title: Holodeck: Language Guided Generation of 3D Embodied AI Environments
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Holodeck: Language Guided Generation of 3D Embodied AI Environments': title similarity 1.000; the agency's first author 'Yue Yang'; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family 'Yang' vs 'Yue Yang' (agree)
+     classification: clearly correct
+
+[69] 2193-1801-3-737.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1186/2193-1801-3-737
+     local title:    Intellectual style theories: different types of categorizations and their relevance for practitioners
+     external title: Intellectual style theories: different types of categorizations and their relevance for practitioners
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Intellectual style theories: different types of categorizations and their relevance for practitioners': title similarity 1.000; the agency's first author 'Tine Nielsen'; year 2014
+     cross-check:    year 2014 vs 2014 (ok); first-author family 'Nielsen' vs 'Tine Nielsen' (agree)
+     classification: clearly correct
+
+[70] Constructive_Alignment36087.pdf
+     accepted: OPENALEX title match, similarity 1.000
+     DOI: None
+     local title:    Constructive alignment in university teaching
+     external title: Constructive alignment in university teaching
+     verification:   field agreement (accepted record carries no DOI)
+     the accepted record carries no DOI; title similarity 1.000; record reproduced by an independent search with title similarity 1.000
+     cross-check:    year 2014 vs 2014 (ok); first-author family 'Kandlbinder' vs 'Peter Kandlbinder' (agree)
+     classification: clearly correct
+
+[71] EJ1072608.pdf
+     accepted: CROSSREF title match, similarity 0.968
+     DOI: 10.19030/cier.v3i4.195
+     local title:    Teach Positive Networking for Life-long Impact
+     external title: Teaching Positive Networking For Life-long Impact
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Teaching Positive Networking For Life-long Impact': title similarity 0.968; the agency's first author 'Lon Addams'; year 2010
+     cross-check:    year 2010 vs 2010 (ok); first-author family 'Addams' vs 'Lon Addams' (agree)
+     classification: clearly correct
+
+[72] Support for assessment practice_ developing the Assessment Design.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1080/13562517.2016.1160217
+     local title:    Support for assessment practice: developing the Assessment Design Decisions Framework
+     external title: Support for assessment practice: developing the Assessment Design Decisions Framework
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Support for assessment practice: developing the Assessment Design Decisions Framework': title similarity 1.000; the agency's first author 'Margaret Bearman'; year 2016
+     cross-check:    year 2016 vs 2016 (ok); first-author family 'Bearman' vs 'Margaret Bearman' (agree)
+     classification: clearly correct
+
+[73] _cbebd8b56e2c84f3ba31404a84542b37_Lesson-plan-template.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.2307/j.ctt20mvcpx.48
+     local title:    Lesson Plan
+     external title: Lesson Plan
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Lesson Plan': title similarity 1.000; the agency's first author None; year 2018
+     cross-check:    year 2017 vs 2018 (ok); first-author family 'Outcomes' vs None (unknown)
+     classification: clearly correct
+
+[74] 53 (2).pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.62441/nano-ntp.v20is11.53
+     local title:    Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students
+     external title: Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'Virtual Reality Tilt Brush For Creativity: An Experimental Study Among Architecture Students': title similarity 1.000; the agency's first author None; year 2024
+     cross-check:    year 2024 vs 2024 (ok); first-author family None vs None (unknown)
+     classification: clearly correct
+
+[75] ssrn-5016008.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.2139/ssrn.5016008
+     local title:    The Impact of Virtual Reality on Student Engagement in Higher Education
+     external title: The Impact of Virtual Reality on Student Engagement in Higher Education
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'The Impact of Virtual Reality on Student Engagement in Higher Education': title similarity 1.000; the agency's first author 'Nandita Suhag'; year 2025
+     cross-check:    year None vs 2025 (unknown); first-author family None vs 'Nandita Suhag' (unknown)
+     classification: clearly correct
+
+[76] vr-rag-2504.08256v2.pdf
+     accepted: CROSSREF title match, similarity 1.000
+     DOI: 10.1109/vrw66409.2025.00034
+     local title:    RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments
+     external title: RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments
+     verification:   Crossref re-resolution
+     re-resolved at Crossref as 'RAG-VR: Leveraging Retrieval-Augmented Generation for 3D Question Answering in VR Environments': title similarity 1.000; the agency's first author 'Shiyi Ding'; year 2025
+     cross-check:    year 2025 vs 2025 (ok); first-author family 'Ding' vs 'Shiyi Ding' (agree)
+     classification: clearly correct
+
+Summary
+-------
+accepted identities                                        76
+verified by Crossref re-resolution                         58
+verified by arXiv identifier equality                      13
+verified by field agreement (arXiv DOI, no local id)       1
+verified by field agreement (no DOI in the record)         4
+
+secondary evidence over all 76 accepted identities:
+  year compatibility (+/-1)                                ok 74, disagree 0, unknown 2
+  first-author family                                      agree 51, disagree 0, unknown 25
+
+clearly correct                                            76
+suspicious                                                 0
+false-positive accepted identities                         0
+
+Findings that are reported but were NOT changed:
+
+1. One work appears twice, correctly. hou-2501.10462v2.pdf (arXiv v2 preprint)
+   and hou.pdf (AAAI camera-ready) are two renderings of the same paper with
+   different SHA-256 values, so two logical documents both receive
+   10.1609/aaai.v39i4.32367. This is the intended behaviour, not a duplicate
+   identity: deduplication is by SHA-256 of the file, not by DOI.
+
+2. Two merged external values carry provider-side encoding artefacts:
+   - AILiteracyReviewASIST.pdf: the Crossref record's title contains JATS
+     markup ('<scp>AI</scp> Literacy: ...').
+   - Ayulani-sriatmaja,...pdf: the Crossref record's title contains a
+     double-encoded apostrophe (the UTF-8 bytes of U+2019 decoded as latin-1,
+     appearing as three non-ASCII characters in the merged title).
+   Both identities are correct; only the merged title TEXT is worse than the
+   local candidate. Recommended follow-up (not done in this run): strip
+   XML/JATS tags and repair double-encoded UTF-8 in external values before
+   merging.
+
+3. OpenAlex was rate-limited (HTTP 429) for 17 queries during the run, so 17
+   documents had no OpenAlex fallback result. Crossref is always consulted
+   first, so no identity depends on a throttled query; the STRONG count is a
+   lower bound (see RAG-006-report.md section 24.6).
+
+4. The 25 'unknown' first-author cross-checks are the documented local author
+   weakness, not a conflict: the local 'first author' is either absent or a
+   single boilerplate/brand token (DRP, ssrn, ilkkaw, SIGCHI, LENOVO, RROGERS)
+   that yields no family name, so the matcher correctly treats the author as
+   unusable and the identity rests on the title and the agency re-resolution.
+   No accepted identity has a usable local first-author family that disagrees
+   with the resolved record.
+
+Network requests made while rendering this artifact: 0 (cache hits 4, cache misses 0).

@@ -1,0 +1,32 @@
+
+
+
+Offline metadata coverage
+  unique documents examined: 466
+  extraction errors:         0
+  by extension:
+    .docx: 18
+    .md: 3
+    .pdf: 444
+    .xlsx: 1
+  by corpus role:
+    future_chapters: 8
+    guidance: 1
+    literature: 442
+    my_work: 4
+    rules: 8
+    summaries: 1
+    supervision: 2
+  title available:           421
+  title missing:             45
+  DOI detected:              250
+  authors detected:          391
+  year detected:             458
+  venue detected:            0
+  publication type known:    70
+  publication type unknown:  396
+  metadata source counts (candidates):
+    PDF_METADATA: 783
+    DOCX_PROPERTIES: 35
+    DOCUMENT_TEXT: 1618
+    FILENAME: 222

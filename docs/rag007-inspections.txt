@@ -1,0 +1,282 @@
+==============================================================================
+1 normal journal PDF
+==============================================================================
+File: data\literature\AI\+6089-.pdf
+Extension: .pdf
+Corpus role: literature
+Document id: 3d54eb3c-06d3-5455-9a5b-fbcec767b269
+Pages: 22
+
+Chunks: 27 (19489 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 12
+Running header/footer lines removed: 0
+Headings without content: 0
+
+Skipped items: 33 (duplicate_table_text=12, empty_after_normalization=21)
+
+  [  0]   124 tokens  pages       1-1  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: International Review of Research in Open and Distributed Learning Volume 24, Number 2 May – 2023 Stakeholder Perspectives on the Ethics of AI in Distance-Based …
+  [  1]   744 tokens  pages       1-2  type abstract     section Abstract
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Increasingly, Artificial Intelligence (AI) is having an impact on distance-based higher education, where it is revealing multiple ethical issues. However, to da…
+  [  2]  1002 tokens  pages       2-3  type body         section Introduction
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: To ground the following discussion, first, what exactly is meant by AI? There have been many attempts to define AI during its 60-year history; see Holmes et al.…
+  [  3]  1024 tokens  pages       3-4  type body         section Introduction
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: al., 2021; For a more detailed discussion of the state of the art of AIED see Holmes & Tuomi, 2022). Meanwhile, the distinctive characteristics of online-distan…
+  … 23 further chunks not shown
+
+==============================================================================
+2 two-column conference PDF (ACM ETRA)
+==============================================================================
+File: data\literature\Algorithms\David-John-etra22-davidjohn.pdf
+Extension: .pdf
+Corpus role: literature
+Document id: 74b55c71-da07-588d-8509-f363be881336
+Pages: 6
+
+Chunks: 20 (12167 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 15
+Running header/footer lines removed: 5
+Headings without content: 0
+
+Skipped items: 18 (duplicate_table_text=15, empty_after_normalization=3)
+
+  [  0]    55 tokens  pages       1-1  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Brendan David-John brendanjohn@ufl.edu University of Florida USA Kevin Butler butler@ufl.edu University of Florida USA Eakta Jain ejain@cise.ufl.edu University …
+  [  1]  1043 tokens  pages       1-1  type abstract     section ABSTRACT
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Eye-tracking is a critical source of information for understanding human behavior and developing future mixed-reality technology. Eye-tracking enables applicati…
+  [  2]  1106 tokens  pages       1-2  type body         section ABSTRACT
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Do people care? Surveys by Adams et al. [2018] and Steil et al. [2019] have established that both users and developers have privacy concerns over VR and eye-tra…
+  [  3]  1119 tokens  pages       2-2  type body         section ABSTRACT
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: We consider protecting eye-tracking datasets against re-identification attacks through alternative privacy guarantees. First, we explored 𝑘-anonymity to provide…
+  … 16 further chunks not shown
+
+==============================================================================
+3 systematic review PDF (Radianti)
+==============================================================================
+File: data\literature\Algorithms\Radianti -main.pdf
+Extension: .pdf
+Corpus role: literature
+Document id: 322353fe-d056-5cf9-b403-ec7d1fd79351
+Pages: 29
+
+Chunks: 51 (43792 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 0
+
+Skipped items: 29 (empty_after_normalization=29)
+
+  [  0]   807 tokens  pages       1-1  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Available online 9 December 2019 0360-1315/© 2019 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativ…
+  [  1]  1060 tokens  pages       1-2  type body         section 1. Introduction
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Digital devices are being increasingly adopted for learning and education purposes (Zawacki-Richter & Latchem, 2018). This can particularly be observed in the 1…
+  [  2]   837 tokens  pages       2-2  type body         section 1. Introduction
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Due to the increasing scholarly attention paid to VR technologies, there are already a few comprehensive overviews and systematic mappings of VR applications fo…
+  [  3]    63 tokens  pages       2-2  type body         section 2. Theoretical background
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: In this section, we draw the background of the two main topics combined in this paper: immersive VR and learning theories. Bringing these topics together allows…
+  … 47 further chunks not shown
+
+==============================================================================
+4 repository-download PDF (ResearchGate preprint)
+==============================================================================
+File: data\literature\VR\CHI20_WalkingVibe_preprint.pdf
+Extension: .pdf
+Corpus role: literature
+Document id: 48876a9d-8d56-570f-8b15-368ad6fbcd37
+Pages: 13
+
+Chunks: 19 (18359 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 0
+
+  [  0]   147 tokens  pages       1-1  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        merged sections: 22 PUBLICATIONS 451 CITATIONS | 54 PUBLICATIONS 755 CITATIONS
+        preview: See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/341697080 WalkingVibe: Reducing Virtual Reality Si…
+  [  1]  1129 tokens  pages       1-2  type body         section 82 PUBLICATIONS 1,829 CITATIONS
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: SEE PROFILE All content following this page was uploaded by Yi-Hao Peng on 01 June 2020. The user has requested enhancement of the downloaded file. WalkingVibe:…
+  [  2]  1006 tokens  pages       2-3  type body         section 82 PUBLICATIONS 1,829 CITATIONS
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Several approaches have been shown to reduce VR sickness by reducing the mismatch between the two sensory systems. Galvanic vestibular stimulation (GVS) uses el…
+  [  3]  1175 tokens  pages       3-4  type body         section 82 PUBLICATIONS 1,829 CITATIONS
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: • 1 tactile. PhantomLegs [42], which alternatingly taps the areas in front of both ears synchronized to footsteps (shown in Figure 3 (c)). Figure 2. WalkingVibe…
+  … 15 further chunks not shown
+
+==============================================================================
+5 long book PDF (Biggs & Tang)
+==============================================================================
+File: data\literature\Teaching\-John_Biggs_and_Catherine_Tang-_Teaching_for_Quali-BookFiorg-.pdf
+Extension: .pdf
+Corpus role: literature
+Document id: 74800e23-5e3a-5cf8-ae4a-12a5205b7a46
+Pages: 418
+
+Chunks: 409 (287774 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 34
+Running header/footer lines removed: 0
+Headings without content: 0
+
+Skipped items: 34 (duplicate_table_text=34)
+
+  [  0]  1011 tokens  pages       1-3  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Teaching for Quality Learning at University Fourth Edition John Biggs and Catherine Tang The Society for Research into Higher Education Teaching for Quality Lea…
+  [  1]   962 tokens  pages       4-7  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: Teaching for Quality Learning at University What the Student Does 4th edition John Biggs and Catherine Tang Open University Press McGraw-Hill Education McGraw-H…
+  [  2]  1020 tokens  pages      7-10  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: “The fact that this is a fourth edition speaks highly of the impact of the previous editions and of the value of the authors’ ideas and suggestions about teachi…
+  [  3]   280 tokens  pages     10-12  type body         section –
+        sources native_pdf         retrieval yes evidence yes role literature
+        preview: accounting of over 200 students 145 8.3 Dons struggle with stage fright 153 9.1 A case in environmental education 164 9.2 An example of teaching/learning activi…
+  … 405 further chunks not shown
+
+==============================================================================
+6 DOCX thesis chapter (future_chapters)
+==============================================================================
+File: data\future_chapters\Chapter_2_Theoretical_Foundations_Revised.docx
+Extension: .docx
+Corpus role: future_chapters
+Document id: 3884516c-c151-5554-8ab6-8a2df38be129
+Pages: –
+
+Chunks: 18 (12847 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 2
+
+Skipped items: 2 (heading_without_content=2)
+
+  [  0]   124 tokens  pages         –  type body         section Chapter 2 Theoretical Foundations of AI and VR in Higher Education > Contents
+        sources –                  retrieval yes evidence no  role future_chapters
+        preview: 2.1 Purpose and scope 2.2 How the theories are used 2.3 Practice, feedback and the limits of reinforcement 2.4 Knowledge construction and scaffolding 2.5 Situat…
+  [  1]   794 tokens  pages         –  type body         section Chapter 2 Theoretical Foundations of AI and VR in Higher Education > 2.1 Purpose and scope
+        sources –                  retrieval yes evidence no  role future_chapters
+        preview: Artificial intelligence (AI) and virtual reality (VR) can alter the conditions under which university students practise, receive feedback and encounter subject …
+  [  2]   449 tokens  pages         –  type body         section Chapter 2 Theoretical Foundations of AI and VR in Higher Education > 2.2 How the theories are used
+        sources –                  retrieval yes evidence no  role future_chapters
+        preview: The theoretical vocabulary of educational technology often places unlike ideas in a single list. Constructivism addresses how a learner develops or revises unde…
+  [  3]   351 tokens  pages         –  type table        section Chapter 2 Theoretical Foundations of AI and VR in Higher Education > 2.2 How the theories are used
+        sources –                  retrieval yes evidence no  role future_chapters
+        preview: Lens | Main question | Design contribution | Evidence and limit Practice and feedback | What action is practised, and what follows it? | Repeated tasks with spe…
+  … 14 further chunks not shown
+
+==============================================================================
+7 own-paper DOCX (my_work)
+==============================================================================
+File: data\my_work\thesis\introduction-version-12-12-2024.docx
+Extension: .docx
+Corpus role: my_work
+Document id: 909962ea-ee10-58dd-94da-d96663b9197e
+Pages: –
+
+Chunks: 10 (9349 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 0
+
+  [  0]  1004 tokens  pages         –  type body         section 1. Contextualization of AI and VR in Education
+        sources –                  retrieval yes evidence no  role my_work
+        preview: Higher education is experiencing a seismic transformation propelled by new technologies. From data analytics platforms and cloud computing to Extended Reality (…
+  [  1]   999 tokens  pages         –  type body         section 1. Contextualization of AI and VR in Education
+        sources –                  retrieval yes evidence no  role my_work
+        preview: Recent developments in AI, especially in Natural Language Processing, open prospects for better student engagement and more effective knowledge acquisition with…
+  [  2]  1035 tokens  pages         –  type body         section 1. Contextualization of AI and VR in Education
+        sources –                  retrieval yes evidence no  role my_work
+        preview: In addition, gamification—central to many VR applications—elevates the learning experience by embedding game-like elements that inspire students to engage more …
+  [  3]   982 tokens  pages         –  type body         section 2. Purpose and Scope
+        sources –                  retrieval yes evidence no  role my_work
+        preview: This literature review aims to thoroughly investigate existing research on integrating AI and VR in higher education. It highlights their transformative impacts…
+  … 6 further chunks not shown
+
+==============================================================================
+8 supervision DOCX
+==============================================================================
+File: data\supervision\APR-Form-2025.docx
+Extension: .docx
+Corpus role: supervision
+Document id: 7cf0989f-7cec-5701-a688-7e80ab8f6632
+Pages: –
+
+Chunks: 3 (3183 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 0
+
+  [  0]   848 tokens  pages         –  type table        section –
+        sources –                  retrieval yes evidence no  role supervision
+        preview: Research Student Annual Progress Review -old | Research Student Annual Progress Review -old | Research Student Annual Progress Review -old | Research Student An…
+  [  1]  1195 tokens  pages         –  type table        section –
+        sources –                  retrieval yes evidence no  role supervision
+        continues a split paragraph/table from the previous chunk
+        preview: Note: In the email that you send to the DoS, along with this form you need to attach a file which maybe part of a chapter that you are currently writing or any …
+  [  2]  1140 tokens  pages         –  type table        section –
+        sources –                  retrieval yes evidence no  role supervision
+        continues a split paragraph/table from the previous chunk
+        preview: University Teaching – The University of Hong Kong, via Coursera 18. Activities undertaken to disseminate your research (e.g. seminars, conferences etc) | 18. Ac…
+
+==============================================================================
+9 rules Markdown
+==============================================================================
+File: data\rules\phd_direction_and_supervisor_plan.md
+Extension: .md
+Corpus role: rules
+Document id: 23dafbf7-b7d8-521a-b5bd-8ae041ca035a
+Pages: –
+
+Chunks: 2 (1626 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 2
+
+Skipped items: 2 (heading_without_content=2)
+
+  [  0]   877 tokens  pages         –  type body         section PhD Direction and Supervisor Plan
+        sources –                  retrieval yes evidence no  role rules
+        merged sections: Purpose | Current research direction | Supervisory direction | Chapters 1 to 3 | Chapter 4 | Chapter 7
+        preview: This document records the current direction of the PhD after the change in supervision. It is a planning and orientation document. It is not a scholarly source …
+  [  1]   749 tokens  pages         –  type body         section PhD Direction and Supervisor Plan
+        sources –                  retrieval yes evidence no  role rules
+        merged sections: Chapter 8 | Chapter 9: Research methodology and study design | Second paper | Framework work | Working principle | Status of this document
+        preview: Governance should receive additional attention. Possible areas include: - institutional governance; - responsibility and accountability; - ethical use; - data g…
+
+==============================================================================
+10 guidance Markdown
+==============================================================================
+File: data\guidance\future_chapters_guidance_policy.md
+Extension: .md
+Corpus role: guidance
+Document id: 55609c43-3473-506e-8104-cccbd8bc0a5e
+Pages: –
+
+Chunks: 2 (1371 tokens, tokenizer subword-estimator-v1)
+Duplicate table blocks removed: 0
+Running header/footer lines removed: 0
+Headings without content: 1
+
+Skipped items: 1 (heading_without_content=1)
+
+  [  0]   953 tokens  pages         –  type body         section Future Chapters Guidance Policy
+        sources –                  retrieval yes evidence no  role guidance
+        merged sections: Purpose | Folder | What belongs here | What does not belong here | RAG interpretation | Important restrictions | How the RAG may use this material
+        preview: This policy defines how material stored in the `future_chapters` folder should be interpreted and used by the PhD RAG system. The folder contains planning mater…
+  [  1]   418 tokens  pages         –  type body         section Future Chapters Guidance Policy
+        sources –                  retrieval yes evidence no  role guidance
+        merged sections: Relationship to the author's own work | Relationship to supervision | Academic integrity principle | Core rule
+        preview: The purpose of this folder is to preserve useful ideas without mixing them with the author's own academic writing. A preferred workflow is: 1. retrieve the rele…

@@ -1,0 +1,22 @@
+warm-up: embedder=0.016s reranker=0.014s
+
+queries measured: 10  (candidate_k=25 final_k=8)
+stage        first query (s)   warm median (s)  warm max (s)
+embed                 0.0149            0.0093        0.0146
+search                0.1526            0.1478        0.2981
+rerank                0.2601            0.3688        0.7014
+total                 0.4410            0.5365        1.0487
+
+Per-query detail (reranked):
+   1. embed=0.0149s search=0.1526s rerank=0.2601s total=0.4410s  virtual reality student engagement higher education
+   2. embed=0.0146s search=0.2981s rerank=0.6468s total=0.9933s  adaptive learning using artificial intelligence in e-learnin
+   3. embed=0.0091s search=0.1478s rerank=0.2546s total=0.4262s  generative AI academic integrity and learning outcomes case 
+   4. embed=0.0090s search=0.2919s rerank=0.7014s total=1.0487s  design science research methodology for maximum impact
+   5. embed=0.0094s search=0.1466s rerank=0.3233s total=0.4954s  AI literacy definition teaching evaluation and ethical issue
+   6. embed=0.0093s search=0.1458s rerank=0.3690s total=0.5365s  intelligent tutoring system pedagogical policy induction dee
+   7. embed=0.0091s search=0.1459s rerank=0.3688s total=0.5397s  learning analytics to increase student success course signal
+   8. embed=0.0093s search=0.2931s rerank=0.4454s total=0.7807s  discourses of artificial intelligence in higher education cr
+   9. embed=0.0097s search=0.1464s rerank=0.2434s total=0.4089s  bibliometric study on the impact of artificial intelligence 
+  10. embed=0.0088s search=0.1517s rerank=0.2457s total=0.4149s  artificial intelligence in higher education the state of the
+
+dense-only total for one query (no rerank): 0.1670s

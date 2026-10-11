@@ -20,7 +20,15 @@ data/
 # Environment / secrets
 .env
 .env.*
+
+# Local metadata enrichment cache (RAG-006)
+.metadata_cache/
 *.local
+
+# Local embedding cache, index manifests and Qdrant store (RAG-008)
+.embedding_cache/
+.index_cache/
+.qdrant_data/
 
 # Editor and OS noise
 .vscode/
