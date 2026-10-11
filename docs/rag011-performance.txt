@@ -1,0 +1,29 @@
+====================================================================================================================
+RAG-011 performance: real qwen3.5:35b on the real corpus
+====================================================================================================================
+
+GPU: NVIDIA GeForce RTX 5090, 29197 MiB of 32607 MiB in use with the model resident (num_ctx=8192), idle utilisation 65%.
+The generation model stays resident between calls (keep_alive), so the figures below are steady state. The first call in a process also loads the RAG-009 embedder and reranker; that one-off cost is reported separately.
+
+  output length    answer words out tokens prompt tokens retrieval s context s generation s  total s  tokens/s
+  concise                   131        173          5538        0.47     0.000         1.38     1.86     214.6
+  normal                    274        350          5539        0.48     0.000         1.76     2.24     226.6
+  detailed                  606        808          5552        0.48     0.000         3.76     4.24     226.9
+
+DETAIL
+  concise: status=ok done=stop prompt_tokens=5538 estimated=7127 ratio=0.777 gpu_after=29197 MiB util=70%
+  normal: status=ok done=stop prompt_tokens=5539 estimated=7129 ratio=0.777 gpu_after=29197 MiB util=79%
+  detailed: status=ok done=stop prompt_tokens=5552 estimated=7147 ratio=0.777 gpu_after=29197 MiB util=77%
+
+  retrieval (warm, RAG-009 dense+rerank): ~0.47-0.48 s per question
+  context build (estimate, budget, render): under 1 ms (below timer resolution)
+  generation: 1.4 s / 1.8 s / 3.8 s for 173 / 350 / 808 output tokens, i.e. 215-227 tokens per second
+  first call in a fresh process: about 11.5 s to load the embedding and rerank models before the first retrieval completes
+
+TOKEN-ESTIMATE CALIBRATION
+  The context budget uses a deterministic estimate, max(chars/4, words*1.33) plus 32 tokens per block. Against Ollama's real prompt_eval_count the estimate is consistently about 29% high (measured ratio 0.777 in every run above), i.e. it over-estimates rather than under-estimates, which is the safe direction for a budget. The real prompt is about 5.5k tokens for an 8-chunk evidence context, so the 6000-token budget and the 8192-token window have headroom.
+
+WHAT DOMINATES
+  With a warm cache of models and a resident generation model, a normal answer costs about 2.2 s of which 1.8 s is generation. A detailed answer costs about 4.2 s. No optimisation was attempted: the numbers were measured first, and a 35B MoE model at ~227 tokens per second is already the practical limit here. Loading the models (about 11.5 s) dominates any single CLI invocation and is unavoidable in a one-shot process.
+
+  Video memory: 29.2 GiB of 32.6 GiB is in use while the model is resident with num_ctx=8192, leaving roughly 3.4 GiB. Raising num_ctx to 16384 would add about 2.5 GiB of KV cache and should still fit, but 8192 was kept because the measured evidence context is about 5.5k tokens.

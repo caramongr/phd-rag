@@ -29,6 +29,8 @@ data/
 .embedding_cache/
 .index_cache/
 .qdrant_data/
+# Local external discovery cache (RAG-010)
+.discovery_cache/
 
 # Editor and OS noise
 .vscode/

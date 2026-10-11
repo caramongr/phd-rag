@@ -1,0 +1,247 @@
+RAG-010 §34 recent-literature usefulness: raw search output
+==============================================================================
+QUERY: generative AI higher education   (year_min=2025)
+providers succeeded=('crossref',) failed=('openalex',); merged=20; already in corpus=0; new=20; conflicts=0
+
+ 1. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v4
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Generative AI (GenAI) has not broken higher education; it has exposed long-standing systemic fractures. This paper argues that traditional pedagogies, rooted in formalist epistemologies, are misaligned with the realities of a world mediated by thinking machines. Blending systems analysis with epistemological critique, it diagnoses higher education’s foundational incoherence and introduces two critical frameworks — epistemic laundering and epistemological vector space — to map and address this dissonance. Building on this foundation, the paper proposes Critical AI Literacy as a model that empha
+
+ 2. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v5
+    open access: None (None) | cited by 1 | local: NEW
+    abstract: Generative AI (GenAI) has not broken higher education; it has exposed long-standing systemic fractures. This paper argues that traditional pedagogies, rooted in formalist epistemologies, are misaligned with the realities of a world mediated by thinking machines. Blending systems analysis with epistemological critique, it diagnoses higher education’s foundational incoherence and introduces two critical frameworks — epistemic laundering and epistemological vector space — to map and address this dissonance. Building on this foundation, the paper proposes Critical AI Literacy as a model that empha
+
+ 3. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v6
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Generative AI has not broken higher education; it has revealed the fractures that were already there. This paper argues that traditional pedagogies (i.e., those anchored in formalist epistemologies) are structurally misaligned with the demands of a world saturated by thinking machines. Blending systems analysis with epistemological critique, the paper introduces three critical frameworks: epistemic laundering, the epistemological vector space, and the cognitive ecology (a multimodal model of reasoning that maps how symbolic, conceptual, and contextual cognition interact in real-world learning)
+
+ 4. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v7
+    open access: None (None) | cited by 1 | local: NEW
+    abstract: Generative AI has not broken higher education; it has revealed the fractures that were already there. This paper argues that traditional pedagogies (i.e., those anchored in formalist epistemologies) are structurally misaligned with the demands of a world saturated by thinking machines. Blending systems analysis with epistemological critique, the paper introduces three critical frameworks: epistemic laundering, the epistemological vector space, and the cognitive ecology (a multimodal model of reasoning that maps how symbolic, conceptual, and contextual cognition interact in real-world learning)
+
+ 5. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v1
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Generative AI (GenAI) has not broken higher education. It has revealed that much of it was already broken.This paper argues that the dominant educational paradigm, rooted in formalist models of cognition, no longer serves the needs of a world filled with thinking machines. Learning, long reduced to internal recall and reproduction, must be recalibrated as the capacity to act meaningfully, critically, and creatively with tools in real-world contexts. This is not technological determinism. It’s an attempt to reconcile epistemic insolvency accruing compounding interest.Blending epistemological in
+
+ 6. How Generative AI Fixes What Higher Education Broke
+    authors: Theodore J Kalaitzidis
+    2025 | Center for Open Science | type=preprint | doi=10.31235/osf.io/yh6rs_v2
+    open access: None (None) | cited by 1 | local: NEW
+    abstract: Generative AI (GenAI) has not broken higher education. It has revealed that much of it was already broken.This paper argues that the dominant educational paradigm, rooted in formalist models of cognition, no longer serves the needs of a world filled with thinking machines. Learning, long reduced to internal recall and reproduction, must be recalibrated as the capacity to act meaningfully, critically, and creatively with tools in real-world contexts. This is not technological determinism. It’s an attempt to reconcile epistemic insolvency accruing compounding interest.Blending epistemological in
+
+ 7. Identifying discourses of generative AI in higher education
+    authors: Chahna Gonsalves, Oguz A. Acar
+    2025 | Generative AI in Higher Education | type=book-chapter | doi=10.4337/9781035326020.00012
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+ 8. Merging Generative AI into Gamification
+    authors: Sierra Adare-Tasiwoopa Ápi
+    2026 | Gamifying AI in Higher Education | type=book-chapter | doi=10.4324/9781003623571-4
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+ 9. Charting a human-centered path for generative AI in higher education
+    authors: Soroush Sabbaghan
+    2025 | Navigating Generative AI in Higher Education | type=book-chapter | doi=10.4337/9781035337873.00019
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+10. Generative AI and AI Fluency
+    authors: Sierra Adare-Tasiwoopa Ápi
+    2026 | Gamifying AI in Higher Education | type=book-chapter | doi=10.4324/9781003623571-3
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+11. Using Generative AI in Higher Programming Education: An Empirical Evaluation
+    authors: Dennis Grewe, Raluca-Maria Vedislav, W. Scherz
+    2026 | Proceedings of the 18th International Conference on Computer Supported Education | type=conference-paper | doi=10.5220/0014726700004021
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+12. The rise of generative AI: Capabilities and potential for higher education
+    authors: Mohammad Keyhani, Safaneh Mohaghegh-Neyshabouri
+    2025 | Navigating Generative AI in Higher Education | type=book-chapter | doi=10.4337/9781035337873.00006
+    open access: None (None) | cited by 1 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+13. 105Intelligent Learning: Generative AI in Higher Education and Authentic Learning
+    authors: Ivy Shen
+    2025 | Artificial Intelligence in Higher Education | type=book-chapter | doi=10.1515/9783112206393-006
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+14. Generative AI in higher education: Transformative tools for research, teaching, and assessment
+    authors: Mohammadreza Farrokhnia, Saba Soleimani, Omid Noroozi
+    2025 | Navigating Generative AI in Higher Education | type=book-chapter | doi=10.4337/9781035337873.00007
+    open access: None (None) | cited by 5 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+15. Training in the Age of Generative AI
+    authors: Saida Ifiss
+    2026 | Advances in Computational Intelligence and Robotics | type=book-chapter | doi=10.4018/979-8-3373-9074-1.ch006
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: This chapter examines the determinants of generative artificial intelligence use by higher education teachers in Morocco utilizing a mixed methodological approach based on multiple linear regression, machine learning models (Random Forest, XGBoost, SVM), and partial least squares structural equations (PLS-SEM). Based on a survey of 252 teachers using a three-part questionnaire, the findings show three primary and converging levers to the adoption of these technologies: participation in continuing education, prior digital experience, and perceived institutional support. The AI models show high 
+
+16. Embedding ethical generative AI in higher education: Applying FAIRSPOT and TPACK-AI integrator frameworks
+    authors: Neil Davies Evans
+    2026 | GenAI in Higher Education | type=book-chapter | doi=10.1016/b978-0-443-36775-5.00023-0
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+17. Transforming Curriculum Development in Higher Education through Generative AI
+    authors: Khaleel Al-Said, Firas Tayseer Ayasrah, Rajanikanth Aluvalu, P. William
+    2026 | Generative AI and Sustainability in Higher Education | type=book-chapter | doi=10.1201/9781003610861-3
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+18. 25From Algorithms to Adaptation: How Generative AI Is Reshaping Personalized Learning in Higher Education
+    authors: Iván Claudio Suazo Galdames, Alain Manuel Chaple-Gil
+    2025 | Artificial Intelligence in Higher Education | type=book-chapter | doi=10.1515/9783112206393-003
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+19. Perceived AI literacy and learning-related outcomes among higher education students using generative AI
+    authors: Paula Abola
+    2026 | Journal of Learning Development in Higher Education | type=journal-article | doi=10.47408/jldhe.vi41.1931
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: This study examined how perceived AI literacy and GenAI-use frequency relate to learning confidence, learning behaviours, academic integrity perceptions, and perceived fairness in assessment among higher education students. A cross-sectional survey of 131 students assessed GenAI use, perceived AI literacy, and related learning variables. Descriptive statistics, Pearson correlations, MANOVA, and multiple regression analyses were conducted. GenAI use was common, with most students reporting moderate to frequent use. Perceived AI literacy significantly predicted confidence when using GenAI tools,
+
+20. 167Rethinking Inclusive Design in Higher Education: Integrating Generative AI and UDL Practices Through the UDL-AI-TPACK Model
+    authors: Rita Cersosimo
+    2025 | Artificial Intelligence in Higher Education | type=book-chapter | doi=10.1515/9783112206393-008
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+QUERY: AI governance universities   (year_min=2025)
+providers succeeded=('crossref',) failed=('openalex',); merged=20; already in corpus=0; new=20; conflicts=0
+
+ 1. AI Governance Framework Models
+    authors: Ariel Evans, Ajay Singh
+    2026 | AI Governance | type=book-chapter | doi=10.4324/9781003682530-12
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+ 2. Mapping generative AI governance readiness in Kurdistan Region universities
+    authors: Akam Aziz Abdulrahman, Sirwan Khalid Ahmed
+    2026 | Discover Education | type=journal-article | doi=10.1007/s44217-026-02242-x
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Generative artificial intelligence (GenAI) is reshaping higher education by challenging established ideas of plagiarism, authorship, academic integrity, assessment, disclosure, digital literacy, and institutional responsibility. Many universities already have plagiarism or academic-misconduct policies, but these policies may not be sufficient for guiding the educational use of tools such as ChatGPT and other GenAI systems. This study examines public-facing GenAI readiness across a 30-university audit sample in the Kurdistan Region of Iraq. Using website-based document analysis, it assesses pub
+
+ 3. Governing the Algorithm
+    authors: Satya Pavan Kumar Ratnakaram, Mohammad Taqi, Devi Manikeswari, Rizwan Khan
+    2026 | Advances in Computational Intelligence and Robotics | type=book-chapter | doi=10.4018/979-8-3373-8352-1.ch015
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: AI (Artificial Intelligence) has transformed adaptive learning by enhancing student engagement, automating assessments and customizing education. But a formal regulatory structure is essential because of the ethical restrictions of AI governance such as algorithmic bias, data privacy problems, transparency gaps, and accountability challenges. Algorithmic decision-making in education impacts basic rights and values such as privacy, justice, student autonomy, academic integrity, inclusivity and trust. Without governance frameworks to assure accountability, transparency, explainability and ethica
+
+ 4. The Future of AI Governance
+    authors: Ariel Evans, Ajay Singh
+    2026 | AI Governance | type=book-chapter | doi=10.4324/9781003682530-14
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+ 5. Governance, identity and freedom in Christian-inspired universities
+    authors: Alfonso Sánchez-Tabernero
+    2025 | Universities’ Purpose and Catholic Identity | type=book-chapter | doi=10.4324/9781003623205-11
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+ 6. AI, Governance, and Academic Trust: Rethinking Cybersecurity Transformation in Digital Universities
+    authors: Nur Aisyah Rahman, Farid Hakimi Osman, Daniel Lee
+    2025 | Journal of Technology Innovation and Society | type=journal-article | doi=10.63646/zdul4522
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: The digital transformation of universities has intensified cybersecurity dependence while exposing higher education institutions to new forms of operational, ethical, and governance risk. Although artificial intelligence offers increasingly capable mechanisms for anomaly detection, phishing defense, behavioral authentication, and automated response, adoption outcomes remain uneven across academic environments. This article rethinks cybersecurity transformation in digital universities through the combined lenses of AI capability, governance maturity, and academic trust. Rather than treating sec
+
+ 7. AI-Driven Curriculum Transformation and Faculty Development in Developing Universities
+    authors: Wael Hadi, Mohammad Nazmi AlShaikh-Hasan
+    2025 | Revolutionizing Urban Development and Governance With Emerging Technologies | type=book-chapter | doi=10.4018/979-8-3373-1375-7.ch010
+    open access: None (None) | cited by 14 | local: NEW
+    abstract: Higher education institutions in developing regions face constraints related to curriculum design and faculty readiness. Prior research identified gaps in aligning course content with evolving technological demands, which triggered the need for a reimagined learning framework. This chapter examines how purposeful integration of machine learning tools and data-driven methodologies can enhance teaching processes while addressing learner-centered outcomes. Findings from prior initiatives showed that faculty participation in continuous professional development contributed to sustainable program im
+
+ 8. An AI-Enabled Multi-Level Governance Framework for Consulting and Research Institutes in Saudi Public Universities
+    authors: Fahad Saleh Alaieri
+    2026 | Journal of Administrative and Economic Sciences | type=journal-article | doi=10.25259/jaes_13_2026
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: This study examines the governance of institutes of studies and consulting services in Saudi public universities, which operate as hybrid entities combining academic and contract-based consulting functions. Despite their strategic role, these institutes face governance challenges, including overlapping authorities, unclear roles, and inconsistent levels of transparency and accountability. The study adopts a qualitative analytical approach based on reviewing relevant literature and governance frameworks, including the Three Lines Model, the Committee of Sponsoring Organizations of the Treadway 
+
+ 9. AI-Enabled Digital Governance in Chinese Universities: Policy Evolution, Implementation Pathways, and Future Directions
+    authors: YaJie Zhang
+    2026 | Economics and Public Policy | type=journal-article | doi=10.63313/epp.9020
+    open access: None (None) | cited by 2 | local: NEW
+    abstract: Driven by the dual impetus of the Digital China strategy and the transformation of educational digitalization, Artificial Intelligence (AI) has emerged as a core enabling element for upgrading the governance system of Chinese universities. As a key carrier of the modernization of educational governance, the transformation of university digital governance is deeply aligned with national policy orientations and the inherent development needs of universities. This study focuses on the field of digital governance in Chinese universities, systematically sorting out the evolutionary context of digit
+
+10. China's AI Governance Architecture: From State Control to Operational AI Governance
+    authors: Alexandra Carvalho
+    2026 | Elsevier BV | type=preprint | doi=10.2139/ssrn.6656118
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: China has developed one of the world's most operationally sophisticated AI governance systems. Whilst much Western commentary frames China's approach primarily through censorship or industrial policy, this paper argues that China's regulatory architecture is better understood as a procedural governance infrastructure embedded across the AI lifecycle. Drawing on regulatory instruments, enforcement activity, judicial decisions, technical standards and policy developments through April 2026, this paper analyses China's layered governance model across algorithm regulation, generative AI, synthetic
+
+11. Privacy-Preserving Data Governance and AI Empowerment Platform for Universities Based on 6G Federated Learning
+    authors: Zhenxi Li
+    2026 | Proceedings of the 2026 International Conference on 6G: AI-Native Networks, Emerging Technologies, and Future Applications | type=conference-paper | doi=10.1145/3828511.3828515
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+12. Directing with AI: Corporate Governance, AI Governance, and the Board
+    authors: Troy Paredes
+    2026 | Elsevier BV | type=preprint | doi=10.2139/ssrn.6076166
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: This paper examines how boards of directors should understand and carry out their oversight and decision-making responsibilities in an era of rapidly advancing artificial intelligence (AI). Drawing on classic corporate governance insights from Sidney and John L. Weinberg, the paper frames AI not as a wholly novel governance challenge but as a contemporary test of enduring questions about how directors “go about directing” in complex, high-stakes environments. The paper provides a concise overview of AI’s transformative potential across business operations, markets, and society, while emphasizi
+
+13. Where universities place generative AI governance: A comparative document analysis of institutions in Korea, Japan, and China
+    authors: Gun Kim
+    2026 | Edelweiss Applied Science and Technology | type=journal-article | doi=10.55214/2576-8484.v10i9.13552
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: This study examines where universities place generative-AI governance and whether cross-national differences partly reflect differences in institutional document type rather than only substantive policy content. A sampling frame of 36 universities in Korea, Japan, and China was fixed before document retrieval. Official and verifiable instruments were coded for document genre, issuer level, governance mode, timing, and citation anchors. Thirteen records received full close reading, and structural variables were independently coded with adjudication. Thirty-one institutions had verified instrume
+
+14. AI Governance as Closure Governance Legitimacy, Institutional Force, and Regulatory Governance in AI-Mediated Workflows
+    authors: Samuel Lind
+    2026 | Elsevier BV | type=preprint | doi=10.2139/ssrn.6740998
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: AI governance has concentrated on model behaviour: accuracy, bias, explainability, and human oversight. This paper argues that the more consequential governance problem often sits one layer earlier. AI does not principally produce wrong outputs; it produces closure-shaped ones at unprecedented scale and at collapsed cost. The artefacts institutions coordinate through — reports, scores, summaries, recommendations, status changes — historically carried governance weight because they were expensive to produce. AI severs that link, decoupling the form of resolution from the processes that previous
+
+15. Testing the applicability of a governance checklist for high-risk AI-based learning outcome assessment in Italian universities under the EU AI act annex III
+    authors: Flavio Manganello, Alberto Nico, Martina Ragusa, Giannangelo Boccuzzi
+    2025 | Frontiers in Artificial Intelligence | type=journal-article | doi=10.3389/frai.2025.1718613
+    open access: None (None) | cited by 6 | local: NEW
+    abstract: Background The EU AI Act classifies AI-based learning outcome assessment as high-risk (Annex III, point 3b), yet sector-specific frameworks for institutional self-assessment remain underdeveloped. This creates accountability gaps affecting student rights and educational equity, as institutions lack systematic tools to demonstrate that algorithmic assessment systems produce valid and fair outcomes. Methods This exploratory study tests whether ALTAI’s trustworthy AI requirements can be operationalized for educational assessment governance through the XAI-ED Consequential Assessment Framework, wh
+
+16. Universities as Risk Organisations: Business Communication, AI, and the Governance of Future Workforce Skills
+    authors: Berrin Yanıkkaya
+    2026 | 6th Current Issues in Business and Economic Studies (CIBES) Conference – Abstract Book | type=conference-paper | doi=10.66414/mlabs.9682
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Universities occupy a contradictory position in the age of generative artificial intelligence: they are simultaneously the institutions charged with preparing graduates for an AI-transformed workforce and organisations whose communication about AI is oriented primarily toward managing reputational and regulatory risk. This paper traces that contradiction to a governance architecture in which institutional communication functions primarily as risk management, shaping which future workforce skills universities commit to developing and which they systematically neglect. Drawing on critical realis
+
+17. Artificial Intelligence Governance in Higher Education: A Comparative Study of Generative AI Strategies and Policy Frameworks in North American and Chinese Universities
+    authors: Chengyuan Liang, Yan Shvartzshnaider, Kean Birch
+    2026 | Elsevier BV | type=preprint | doi=10.2139/ssrn.6866863
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: Generative AI (GenAI) services are being embedded in university teaching, research, and administrative systems, raising a range of governance questions about service access, data use, and institutional responsibility – amongst other issues. To understand how GenAI services are being embedded, we analysed the policy and guidance frameworks of 101 top universities defined by the 2025 Times Higher Education World University Rankings in the US, Canada, mainland China, and Hong Kong to compare their approach to GenAI governance. We use this analysis to identify different university GenAI governance
+
+18. The role of universities in AI augmented anticipatory governance: Towards a maturity model proposition
+    authors: Mateus Panizzon, Raquel Janissek-Muniz
+    2026 | Futures | type=journal-article | doi=10.1016/j.futures.2025.103753
+    open access: None (None) | cited by 4 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+19. Why U.S. Universities have more influence in the global debate on AI Governance and Regulation and how German Universities can reclaim their seat at the table. A workshop report
+    authors: Kirsten Rulf
+    2025 | Künstliche Intelligenz in Forschung, Lehre und Hochschule | type=book-chapter | doi=10.3790/978-3-428-59325-5.2024.1452109
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)
+
+20. The Role of Universities in AI Augmented Anticipatory Governance: towards a Maturity Model proposition
+    authors: Mateus Panizzon, Raquel Janissek-Muniz
+    2025 | Elsevier BV | type=preprint | doi=10.2139/ssrn.5472636
+    open access: None (None) | cited by 0 | local: NEW
+    abstract: (no abstract supplied by the provider)

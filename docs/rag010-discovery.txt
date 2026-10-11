@@ -1,0 +1,364 @@
+RAG-010 real Internet validation
+==============================================================================
+local corpus documents: 465 (with DOI: 233, with title: 409)
+providers: ['crossref', 'openalex']
+polite pool identity configured: False
+crossref mailto configured: False
+openalex email configured: False
+openalex api key configured: False
+cache: {'path': 'F:\\phd-rag\\.discovery_cache\\cache.json', 'ttl_seconds': 86400.0, 'enabled': True, 'provider_request_version': 'rag010-v2', 'entries': 40}
+ranking weights: {'title_relevance': 0.55, 'abstract_relevance': 0.2, 'completeness': 0.15, 'recency': 0.1, 'recency_reference_year': 2026.0, 'recency_window': 12.0}
+
+§31 REQUIRED QUERIES
+------------------------------------------------------------------------------
+
+QUERY: artificial intelligence governance higher education
+total seconds: 6.53
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=1 misses=1
+  FAILURE openalex: rate_limited 429 retry_after=16741.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] Artificial Intelligence in Higher Education
+      year=2026 doi=10.4018/979-8-3373-8959-2.ch006 venue=Digitalizing Talent Management Strategy for Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Artificial intelligence and higher education
+      year=2026 doi=10.4324/9781003664161-1 venue=Artificial Intelligence and Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] Artificial intelligence in higher education
+      year=2026 doi=10.4324/9781003664161-2 venue=Artificial Intelligence and Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] The Impact of Artificial Intelligence on Higher Education:
+      year=2026 doi=10.2307/jj.37443281.5 venue=The Digitized Campus
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] Artificial intelligence and higher education in Türkiye
+      year=2025 doi=10.4337/9781035338764.00049 venue=Handbook of Artificial Intelligence in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] The use of artificial intelligence in higher education
+      year=2025 doi=10.4337/9781035338764.00013 venue=Handbook of Artificial Intelligence in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] Mapping artificial intelligence adoption, perceptions, and governance in Indian higher education: A scoping re
+      year=2026 doi=10.21203/rs.3.rs-10639862/v1 venue=Springer Science and Business Media LLC
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] Artificial Intelligence (Ai) Governance in Higher Education: A Meta-Analytic Systematic Review
+      year=2023 doi=10.2139/ssrn.4657675 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] The Artificial Intelligence(AI) Enabled Governance Framework for NIRF Ranking Improvement of Higher Education 
+      year=2026 doi=10.36227/techrxiv.177040566.62247469/v1 venue=Institute of Electrical and Electronics Engineers (IEEE)
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] Higher Education in the Age of Artificial Intelligence: Governance, Educational Values, and Visions of Future 
+      year=2026 doi=10.4995/head26.2026.21323 venue=12th International Conference on Higher Education Advances (HEAd’26)
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+QUERY: generative AI academic integrity higher education
+total seconds: 7.51
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=0 misses=2
+  FAILURE openalex: rate_limited 429 retry_after=16734.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] Generative AI and Academic Integrity in Higher Education
+      year=2026 doi=10.34104/bjah.02607820789 venue=British Journal of Arts and Humanities
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Generative AI and Academic Integrity in Higher Education: A Systematic Review and Research Agenda
+      year=2025 doi=10.3390/info16040296 venue=Information
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] Generative AI and academic integrity : pedagogical approaches to teaching AI ethics in higher education
+      year=2026 doi=10.58863/20.500.12424/4321409 venue=Reinventing academic integrity in the age of artificial intelligence
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] The Unequal Right to Refuse: Generative AI, Academic Integrity, and Scaffolded Scholarship in Higher Education
+      year=2026 doi=10.31235/osf.io/kngwf_v1 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] Information Integrity, Academic Integrity, and Generative AI
+      year=2023 doi=10.2139/ssrn.4601781 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] The Impact of Generative AI on Academic Integrity and Student Engagement in Higher Education: A Mixed-Methods 
+      year=2025 doi=10.21203/rs.3.rs-7205885/v1 venue=Springer Science and Business Media LLC
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] Purpose before policy: academic integrity, generative AI, and rhetorical stance
+      year=2026 doi=10.1007/s10734-026-01706-1 venue=Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] "Evaluating the Impact of Generative AI-driven Adaptive Assessment Frameworks on Critical Thinking and Academi
+      year=2026 doi=10.2139/ssrn.7552061 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] Evaluating the Impact of Generative AI-Driven Adaptive Assessment Frameworks on Critical Thinking and Academic
+      year=2026 doi=10.35542/osf.io/umr2h_v1 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] Academic Integrity and Generative AI Research for Higher Education: A Systematic Literature Review
+      year=2025 doi=10.22364/htqe.2025.25 venue=Human, Technologies and Quality of Education, 2025
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+QUERY: virtual reality higher education student engagement
+total seconds: 7.13
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=1 possible=0 new=19 conflicts=0
+cache hits=0 misses=2
+  FAILURE openalex: rate_limited 429 retry_after=16726.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] Impact of Virtual Reality on Higher Education
+      year=2025 doi=10.2174/9798898811297125060016 venue=Digital Transformation and Innovation in Higher Education: Faculty Dev
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Can virtual reality have a positive influence on student engagement?
+      year=2023 doi=10.20853/37-5-5815 venue=South African Journal of Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] An Immersive Virtual Reality System for Enhancing Student Engagement in Higher Education
+      year=2026 doi=10.1109/icsmile69273.2026.11519267 venue=2026 International Conference on Smart Multidomain Integrated Learning
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] The Impact of Virtual Reality on Student Engagement in Higher Education
+      year=2025 doi=10.2139/ssrn.5016008 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=ALREADY_IN_CORPUS new=False oa=None
+      local file: ssrn-5016008.pdf [literature]
+
+   5. [EXTERNAL_DISCOVERY] Investigating Affordances of Immersive Virtual Reality for Student Learning and Engagement in Science
+      year=2026 doi=10.4995/head26.2026.21733 venue=12th International Conference on Higher Education Advances (HEAd’26)
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] Virtual Reality Education
+      year=2020 doi=10.5040/9798216458234.ch-009 venue=Student-Focused Learning
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] Using Virtual Reality in College Student Mental Health Treatment
+      year=2020 doi=10.4018/978-1-7998-4960-5.ch012 venue=Advances in Higher Education and Professional Development
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] Student perceptions of virtual reality use in higher education
+      year=2019 doi=10.1108/jarhe-06-2018-0106 venue=Journal of Applied Research in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] Advancing student engagement in higher education
+      year=2023 doi=10.4324/9781003271789-1 venue=Advancing Student Engagement in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] The Impact of Virtual Reality Technology on Student Engagement and Learning Outcomes in Higher Education
+      year=2023 doi=10.59287/as-proceedings.46 venue=Proceeding Book of 2nd International Conference on Recent Academic Stu
+      providers=crossref confidence=0.60 local=NEW new=True oa=None
+
+
+QUERY: AI literacy higher education
+total seconds: 7.31
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=0 misses=2
+  FAILURE openalex: rate_limited 429 retry_after=16719.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] The AI Literacy Framework for Higher Education
+      year=2025 doi=10.1201/9781003510635-3 venue=Reimagining Literacy in the Age of AI
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Integrating AI Literacy into Higher Education
+      year=2024 doi=10.4324/9781003440178-16 venue=Artificial Intelligence Applications in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] The Complexity of Ethic Centered AI Literacy in Higher Education
+      year=2026 doi=10.2139/ssrn.6096746 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] From AI Literacy to AI Fluency: A Developmental Framework for Higher Education
+      year=2026 doi=10.2139/ssrn.7014818 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] AI Literacy
+      year=2024 doi=10.4324/9781003459026-2 venue=Generative AI in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] Rethinking Graduate AI Competence: A Holistic AI Literacy Model for Higher Education
+      year=2026 doi=10.35542/osf.io/ewprv_v1 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] The AI literacy heptagon: A structured approach to AI literacy in higher education
+      year=2026 doi=10.1016/j.caeai.2026.100540 venue=Computers and Education: Artificial Intelligence
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] Conceptualizing AI Literacy for Higher Education Learners and implications for Institutes
+      year=2026 doi=10.35542/osf.io/2qhg5_v1 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] Conceptualizing AI Literacy for Higher Education Learners and implications for Institutes
+      year=2026 doi=10.35542/osf.io/2qhg5_v3 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] Perceived AI literacy and learning-related outcomes among higher education students using generative AI
+      year=2026 doi=10.47408/jldhe.vi41.1931 venue=Journal of Learning Development in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+QUERY: design science research methodology education
+total seconds: 7.09
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=0 misses=2
+  FAILURE openalex: rate_limited 429 retry_after=16712.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] Design Science and Research Methodology
+      year=2020 doi=10.1201/9781003095217-2 venue=Science in Design
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Research Design - The New Perspective of Research Methodology
+      year=2017 doi=10.9734/bjesbs/2017/30274 venue=British Journal of Education, Society & Behavioural Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] Design-Based Research in Science Education: One Step Towards Methodology
+      year=2012 doi=10.5617/nordina.424 venue=Nordic Studies in Science Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] Diagrammatics: Design Intelligence System, Methodology, and Strategy in Design Research and Science
+      year=2024 doi=10.18848/2325-128x/cgp/v18i01/155-192 venue=The International Journal of Design Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] Evaluation of open-source learning management systems (LMS) using design science research methodology
+      year=2021 doi=10.33422/etconf.2021.03.81 venue=Proceedings of ‏The World Conference on Education and Teaching
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] Defining STEM education research
+      year=2022 doi=10.4324/9781003108122-4 venue=Perspectives in Contemporary STEM Education Research
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] Research Methodology
+      year=2007 doi=10.1007/978-1-4020-5115-9_14 venue=Science & Technology Education Library
+      providers=crossref confidence=0.60 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] Foundations of research methodology
+      year=2013 doi=10.1201/b14562-5 venue=Research Methodology
+      providers=crossref confidence=0.60 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] Research on Teaching of “Mechanical Design Methodology” on Account of Outcome-Based Education
+      year=2020 doi=10.2991/assehr.k.200801.027 venue=Proceedings of the 2020 International Conference on Social Science, Ec
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] Perspectives in Contemporary STEM Education Research
+      year=2022 doi=10.4324/9781003108122 venue=Routledge
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+
+§31b RECENT QUERIES (year_min=2025)
+------------------------------------------------------------------------------
+
+QUERY: generative AI higher education  (year_min=2025)
+total seconds: 6.27
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=1 misses=1
+  FAILURE openalex: rate_limited 429 retry_after=16706.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v4 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v5 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v6 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v7 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v1 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] How Generative AI Fixes What Higher Education Broke
+      year=2025 doi=10.31235/osf.io/yh6rs_v2 venue=Center for Open Science
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] Identifying discourses of generative AI in higher education
+      year=2025 doi=10.4337/9781035326020.00012 venue=Generative AI in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] Merging Generative AI into Gamification
+      year=2026 doi=10.4324/9781003623571-4 venue=Gamifying AI in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] Charting a human-centered path for generative AI in higher education
+      year=2025 doi=10.4337/9781035337873.00019 venue=Navigating Generative AI in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] Generative AI and AI Fluency
+      year=2026 doi=10.4324/9781003623571-3 venue=Gamifying AI in Higher Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+QUERY: AI governance universities  (year_min=2025)
+total seconds: 6.48
+providers requested=('crossref', 'openalex') succeeded=('crossref',) failed=('openalex',)
+provider records=20 merged=20 duplicates=0
+already in corpus=0 possible=0 new=20 conflicts=0
+cache hits=1 misses=1
+  FAILURE openalex: rate_limited 429 retry_after=16700.0 | provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the fre
+
+   1. [EXTERNAL_DISCOVERY] AI Governance Framework Models
+      year=2026 doi=10.4324/9781003682530-12 venue=AI Governance
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   2. [EXTERNAL_DISCOVERY] Mapping generative AI governance readiness in Kurdistan Region universities
+      year=2026 doi=10.1007/s44217-026-02242-x venue=Discover Education
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   3. [EXTERNAL_DISCOVERY] Governing the Algorithm
+      year=2026 doi=10.4018/979-8-3373-8352-1.ch015 venue=Advances in Computational Intelligence and Robotics
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   4. [EXTERNAL_DISCOVERY] The Future of AI Governance
+      year=2026 doi=10.4324/9781003682530-14 venue=AI Governance
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   5. [EXTERNAL_DISCOVERY] Governance, identity and freedom in Christian-inspired universities
+      year=2025 doi=10.4324/9781003623205-11 venue=Universities’ Purpose and Catholic Identity
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   6. [EXTERNAL_DISCOVERY] AI, Governance, and Academic Trust: Rethinking Cybersecurity Transformation in Digital Universities
+      year=2025 doi=10.63646/zdul4522 venue=Journal of Technology Innovation and Society
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   7. [EXTERNAL_DISCOVERY] AI-Driven Curriculum Transformation and Faculty Development in Developing Universities
+      year=2025 doi=10.4018/979-8-3373-1375-7.ch010 venue=Revolutionizing Urban Development and Governance With Emerging Technol
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   8. [EXTERNAL_DISCOVERY] An AI-Enabled Multi-Level Governance Framework for Consulting and Research Institutes in Saudi Public Universi
+      year=2026 doi=10.25259/jaes_13_2026 venue=Journal of Administrative and Economic Sciences
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+   9. [EXTERNAL_DISCOVERY] AI-Enabled Digital Governance in Chinese Universities: Policy Evolution, Implementation Pathways, and Future D
+      year=2026 doi=10.63313/epp.9020 venue=Economics and Public Policy
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+  10. [EXTERNAL_DISCOVERY] China's AI Governance Architecture: From State Control to Operational AI Governance
+      year=2026 doi=10.2139/ssrn.6656118 venue=Elsevier BV
+      providers=crossref confidence=0.70 local=NEW new=True oa=None
+
+
+
+§32/§33/§35 -> see docs/rag010-local-match-validation.txt

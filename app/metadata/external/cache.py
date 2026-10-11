@@ -56,6 +56,42 @@ class JsonCache:
         self.hits += 1
         return entry.get("value")
 
+    def stored_at(self, key: str) -> datetime | None:
+        """Return when ``key`` was stored, or ``None`` when unknown.
+
+        Additive helper for callers that need a TTL (RAG-010 discovery cache); the
+        entry timestamp was always written, it just was not readable before.
+        """
+        entry = self._entries.get(key)
+        if not isinstance(entry, dict):
+            return None
+        raw = entry.get("stored_at")
+        if not isinstance(raw, str):
+            return None
+        try:
+            parsed = datetime.fromisoformat(raw)
+        except ValueError:
+            return None
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed
+
+    def age_seconds(self, key: str, *, now: datetime | None = None) -> float | None:
+        """Age of a cached entry in seconds, or ``None`` when unknown."""
+        stored = self.stored_at(key)
+        if stored is None:
+            return None
+        reference = now or datetime.now(timezone.utc)
+        return (reference - stored).total_seconds()
+
+    def delete(self, key: str) -> bool:
+        """Remove ``key`` from the cache, returning whether it was present."""
+        if key in self._entries:
+            del self._entries[key]
+            self._flush()
+            return True
+        return False
+
     def set(self, key: str, value: Any) -> None:
         """Store ``value`` under ``key`` and flush the cache to disk."""
         self._entries[key] = {

@@ -66,6 +66,55 @@ DEFAULT_RETRIEVAL_MODE = "evidence"
 #: upstream (RAG-009 bibliography guard).
 DEFAULT_RETRIEVAL_EXCLUDE_BIBLIOGRAPHY = True
 
+# --- Discovery defaults (RAG-010) ---
+#: External academic discovery is opt-in per request and never required for local RAG.
+DEFAULT_DISCOVERY_ENABLED = True
+DEFAULT_DISCOVERY_CACHE_PATH = ".discovery_cache/cache.json"
+#: Searches move slowly; a day of caching avoids hammering the provider budgets.
+DEFAULT_DISCOVERY_CACHE_TTL = 86400.0
+DEFAULT_DISCOVERY_REQUEST_TIMEOUT = 15.0
+DEFAULT_DISCOVERY_MAX_RETRIES = 2
+DEFAULT_DISCOVERY_BACKOFF_BASE = 1.5
+#: Politely spaced requests; keeps the shared anonymous provider budgets alive.
+DEFAULT_DISCOVERY_MIN_REQUEST_INTERVAL = 1.0
+DEFAULT_DISCOVERY_PROVIDERS = ("crossref", "openalex")
+DEFAULT_DISCOVERY_MAX_RESULTS = 20
+#: Upper bound on a downloaded open-access PDF used for identity verification.
+DEFAULT_DISCOVERY_FULLTEXT_MAX_BYTES = 25 * 1024 * 1024
+DEFAULT_DISCOVERY_FULLTEXT_TIMEOUT = 30.0
+
+# --- Generation defaults (RAG-011) ---
+#: Local generation model served by Ollama (34.7B MoE, Q4_K_M).
+DEFAULT_GENERATION_MODEL = "qwen3.5:35b"
+DEFAULT_OLLAMA_BASE_URL = "http://127.0.0.1:11434"
+#: Low temperature keeps grounded answers close to the evidence and repeatable.
+DEFAULT_GENERATION_TEMPERATURE = 0.1
+DEFAULT_GENERATION_TOP_P = 0.9
+#: Context window requested from Ollama. The measured load at 8192 used 23.1 GiB of a
+#: 32 GiB RTX 5090, so there is room for the KV cache without evicting the model.
+DEFAULT_GENERATION_NUM_CTX = 8192
+#: A long academic answer; the evaluation measures concise/normal/detailed explicitly.
+DEFAULT_GENERATION_MAX_OUTPUT_TOKENS = 900
+#: Wall-clock ceiling for one generation. A 35B model on this GPU produces ~150 tok/s,
+#: so this is generous rather than tight.
+DEFAULT_GENERATION_TIMEOUT = 300.0
+#: Evidence context budget in estimated tokens. Kept below num_ctx minus the answer.
+DEFAULT_GENERATION_CONTEXT_TOKENS = 6000
+#: Tokens held back from the evidence when the caller asks for my_work/guidance context,
+#: so an explicit request is not starved by a large evidence set.
+DEFAULT_GENERATION_RESERVED_NON_EVIDENCE_TOKENS = 1500
+#: Characters per token used by the deterministic estimator (calibrated in the report).
+DEFAULT_GENERATION_CHARS_PER_TOKEN = 4.0
+#: Reasoning output is off: the answer must be the answer, not a thought process.
+DEFAULT_GENERATION_THINK = False
+#: Fixed sampling seed, so the same prompt gives the same answer on the same build.
+DEFAULT_GENERATION_SEED = 0
+#: Drop evidence below this rerank score before generation; None keeps everything
+#: (RAG-009 showed weak tail scores, so the recommendation is made from measurement).
+DEFAULT_GENERATION_MIN_RERANK_SCORE: float | None = None
+#: Ollama keeps the model resident between calls; this avoids a reload per question.
+DEFAULT_GENERATION_KEEP_ALIVE = "30m"
+
 
 class Settings(BaseModel):
     """Runtime configuration for the backend.
@@ -125,10 +174,59 @@ class Settings(BaseModel):
     retrieval_max_rounds: int = DEFAULT_RETRIEVAL_MAX_ROUNDS
     retrieval_exclude_bibliography: bool = DEFAULT_RETRIEVAL_EXCLUDE_BIBLIOGRAPHY
 
+    # Discovery (RAG-010)
+    discovery_enabled: bool = DEFAULT_DISCOVERY_ENABLED
+    discovery_cache_path: str = DEFAULT_DISCOVERY_CACHE_PATH
+    discovery_cache_ttl: float = DEFAULT_DISCOVERY_CACHE_TTL
+    discovery_cache_enabled: bool = True
+    discovery_request_timeout: float = DEFAULT_DISCOVERY_REQUEST_TIMEOUT
+    discovery_max_retries: int = DEFAULT_DISCOVERY_MAX_RETRIES
+    discovery_backoff_base: float = DEFAULT_DISCOVERY_BACKOFF_BASE
+    discovery_min_request_interval: float = DEFAULT_DISCOVERY_MIN_REQUEST_INTERVAL
+    discovery_providers: tuple[str, ...] = DEFAULT_DISCOVERY_PROVIDERS
+    discovery_max_results: int = DEFAULT_DISCOVERY_MAX_RESULTS
+    discovery_fulltext_max_bytes: int = DEFAULT_DISCOVERY_FULLTEXT_MAX_BYTES
+    discovery_fulltext_timeout: float = DEFAULT_DISCOVERY_FULLTEXT_TIMEOUT
+    #: Contact identities. Never hard-code an address: these are configured values,
+    #: reused for OpenAlex ``mailto`` and the polite Crossref user agent (RAG-010 §30).
+    openalex_email: str | None = None
+    openalex_api_key: str | None = None
+
+    # Generation (RAG-011)
+    generation_model: str = DEFAULT_GENERATION_MODEL
+    ollama_base_url: str = DEFAULT_OLLAMA_BASE_URL
+    generation_temperature: float = DEFAULT_GENERATION_TEMPERATURE
+    generation_top_p: float = DEFAULT_GENERATION_TOP_P
+    generation_num_ctx: int = DEFAULT_GENERATION_NUM_CTX
+    generation_max_output_tokens: int = DEFAULT_GENERATION_MAX_OUTPUT_TOKENS
+    generation_timeout: float = DEFAULT_GENERATION_TIMEOUT
+    generation_context_tokens: int = DEFAULT_GENERATION_CONTEXT_TOKENS
+    generation_reserved_non_evidence_tokens: int = DEFAULT_GENERATION_RESERVED_NON_EVIDENCE_TOKENS
+    generation_chars_per_token: float = DEFAULT_GENERATION_CHARS_PER_TOKEN
+    generation_think: bool = DEFAULT_GENERATION_THINK
+    generation_seed: int = DEFAULT_GENERATION_SEED
+    generation_min_rerank_score: float | None = DEFAULT_GENERATION_MIN_RERANK_SCORE
+    generation_keep_alive: str = DEFAULT_GENERATION_KEEP_ALIVE
+
 
 def _parse_bool(value: str) -> bool:
     """Interpret common truthy strings from the environment."""
     return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _parse_csv(value: str | None, default: tuple[str, ...]) -> tuple[str, ...]:
+    """Parse a comma-separated environment value into a tuple."""
+    if not value:
+        return default
+    items = tuple(item.strip() for item in value.split(",") if item.strip())
+    return items or default
+
+
+def _parse_optional_float(value: str | None) -> float | None:
+    """Parse an optional float; an empty or unset value means "no threshold"."""
+    if value is None or not value.strip():
+        return None
+    return float(value)
 
 
 def load_settings() -> Settings:
@@ -163,7 +261,11 @@ def load_settings() -> Settings:
                 str(DEFAULT_METADATA_MIN_REQUEST_INTERVAL),
             )
         ),
-        metadata_crossref_mailto=os.getenv("PHD_RAG_METADATA_CROSSREF_MAILTO") or None,
+        metadata_crossref_mailto=(
+            os.getenv("PHD_RAG_CROSSREF_MAILTO")
+            or os.getenv("PHD_RAG_METADATA_CROSSREF_MAILTO")
+            or None
+        ),
         embedding_model=os.getenv("PHD_RAG_EMBEDDING_MODEL", DEFAULT_EMBEDDING_MODEL),
         embedding_device=os.getenv("PHD_RAG_EMBEDDING_DEVICE") or None,
         embedding_batch_size=int(
@@ -218,6 +320,101 @@ def load_settings() -> Settings:
                 "true" if DEFAULT_RETRIEVAL_EXCLUDE_BIBLIOGRAPHY else "false",
             )
         ),
+        discovery_enabled=_parse_bool(os.getenv("PHD_RAG_DISCOVERY_ENABLED", "true")),
+        discovery_cache_path=os.getenv(
+            "PHD_RAG_DISCOVERY_CACHE_PATH", DEFAULT_DISCOVERY_CACHE_PATH
+        ),
+        discovery_cache_ttl=float(
+            os.getenv("PHD_RAG_DISCOVERY_CACHE_TTL", str(DEFAULT_DISCOVERY_CACHE_TTL))
+        ),
+        discovery_cache_enabled=_parse_bool(
+            os.getenv("PHD_RAG_DISCOVERY_CACHE_ENABLED", "true")
+        ),
+        discovery_request_timeout=float(
+            os.getenv(
+                "PHD_RAG_DISCOVERY_REQUEST_TIMEOUT", str(DEFAULT_DISCOVERY_REQUEST_TIMEOUT)
+            )
+        ),
+        discovery_max_retries=int(
+            os.getenv("PHD_RAG_DISCOVERY_MAX_RETRIES", str(DEFAULT_DISCOVERY_MAX_RETRIES))
+        ),
+        discovery_backoff_base=float(
+            os.getenv("PHD_RAG_DISCOVERY_BACKOFF_BASE", str(DEFAULT_DISCOVERY_BACKOFF_BASE))
+        ),
+        discovery_min_request_interval=float(
+            os.getenv(
+                "PHD_RAG_DISCOVERY_MIN_REQUEST_INTERVAL",
+                str(DEFAULT_DISCOVERY_MIN_REQUEST_INTERVAL),
+            )
+        ),
+        discovery_providers=_parse_csv(
+            os.getenv("PHD_RAG_DISCOVERY_PROVIDERS"), DEFAULT_DISCOVERY_PROVIDERS
+        ),
+        discovery_max_results=int(
+            os.getenv("PHD_RAG_DISCOVERY_MAX_RESULTS", str(DEFAULT_DISCOVERY_MAX_RESULTS))
+        ),
+        discovery_fulltext_max_bytes=int(
+            os.getenv(
+                "PHD_RAG_DISCOVERY_FULLTEXT_MAX_BYTES",
+                str(DEFAULT_DISCOVERY_FULLTEXT_MAX_BYTES),
+            )
+        ),
+        discovery_fulltext_timeout=float(
+            os.getenv(
+                "PHD_RAG_DISCOVERY_FULLTEXT_TIMEOUT", str(DEFAULT_DISCOVERY_FULLTEXT_TIMEOUT)
+            )
+        ),
+        openalex_email=(
+            os.getenv("PHD_RAG_OPENALEX_EMAIL")
+            or os.getenv("PHD_RAG_CROSSREF_MAILTO")
+            or os.getenv("PHD_RAG_METADATA_CROSSREF_MAILTO")
+            or None
+        ),
+        openalex_api_key=os.getenv("PHD_RAG_OPENALEX_API_KEY") or None,
+        generation_model=os.getenv("PHD_RAG_GENERATION_MODEL", DEFAULT_GENERATION_MODEL),
+        ollama_base_url=os.getenv("PHD_RAG_OLLAMA_BASE_URL", DEFAULT_OLLAMA_BASE_URL).rstrip("/"),
+        generation_temperature=float(
+            os.getenv("PHD_RAG_GENERATION_TEMPERATURE", str(DEFAULT_GENERATION_TEMPERATURE))
+        ),
+        generation_top_p=float(
+            os.getenv("PHD_RAG_GENERATION_TOP_P", str(DEFAULT_GENERATION_TOP_P))
+        ),
+        generation_num_ctx=int(
+            os.getenv("PHD_RAG_GENERATION_NUM_CTX", str(DEFAULT_GENERATION_NUM_CTX))
+        ),
+        generation_max_output_tokens=int(
+            os.getenv(
+                "PHD_RAG_GENERATION_MAX_OUTPUT_TOKENS",
+                str(DEFAULT_GENERATION_MAX_OUTPUT_TOKENS),
+            )
+        ),
+        generation_timeout=float(
+            os.getenv("PHD_RAG_GENERATION_TIMEOUT", str(DEFAULT_GENERATION_TIMEOUT))
+        ),
+        generation_context_tokens=int(
+            os.getenv(
+                "PHD_RAG_GENERATION_CONTEXT_TOKENS", str(DEFAULT_GENERATION_CONTEXT_TOKENS)
+            )
+        ),
+        generation_reserved_non_evidence_tokens=int(
+            os.getenv(
+                "PHD_RAG_GENERATION_RESERVED_NON_EVIDENCE_TOKENS",
+                str(DEFAULT_GENERATION_RESERVED_NON_EVIDENCE_TOKENS),
+            )
+        ),
+        generation_chars_per_token=float(
+            os.getenv(
+                "PHD_RAG_GENERATION_CHARS_PER_TOKEN", str(DEFAULT_GENERATION_CHARS_PER_TOKEN)
+            )
+        ),
+        generation_think=_parse_bool(
+            os.getenv("PHD_RAG_GENERATION_THINK", "true" if DEFAULT_GENERATION_THINK else "false")
+        ),
+        generation_seed=int(os.getenv("PHD_RAG_GENERATION_SEED", str(DEFAULT_GENERATION_SEED))),
+        generation_min_rerank_score=_parse_optional_float(
+            os.getenv("PHD_RAG_GENERATION_MIN_RERANK_SCORE")
+        ),
+        generation_keep_alive=os.getenv("PHD_RAG_GENERATION_KEEP_ALIVE", DEFAULT_GENERATION_KEEP_ALIVE),
     )
 
 

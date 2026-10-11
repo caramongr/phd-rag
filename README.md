@@ -6,7 +6,7 @@ PhD Academic RAG — backend for ingesting and parsing a personal academic corpu
 
 | Path | Contents |
 |------|----------|
-| `app/` | FastAPI backend: ingestion (scanning, hashing, folder/topic hints), parsing (PDF via PyMuPDF with a selective Tesseract OCR fallback, DOCX, Markdown), metadata (local academic-metadata extraction with provenance, plus controlled Crossref/OpenAlex enrichment), chunking (academic-aware normalization and structure-preserving chunks with page/section/OCR provenance), embedding (dense BGE-M3 vectors with a local cache), indexing (deterministic Qdrant points for the retrieval-eligible chunks) and retrieval (evidence-policy-filtered dense search plus a local BGE cross-encoder rerank; no generation) |
+| `app/` | FastAPI backend: ingestion (scanning, hashing, folder/topic hints), parsing (PDF via PyMuPDF with a selective Tesseract OCR fallback, DOCX, Markdown), metadata (local academic-metadata extraction with provenance, plus controlled Crossref/OpenAlex enrichment), chunking (academic-aware normalization and structure-preserving chunks with page/section/OCR provenance), embedding (dense BGE-M3 vectors with a local cache), indexing (deterministic Qdrant points for the retrieval-eligible chunks), retrieval (evidence-policy-filtered dense search plus a local BGE cross-encoder rerank), discovery (read-only external scholarly search, kept separate from trusted evidence) and generation (grounded answers from retrieved evidence through a local Ollama model, with source markers and a grounding audit) |
 | `tests/` | pytest suite (external metadata APIs, the OCR engine, the embedding model and Qdrant are all mocked or run in Qdrant's local mode, so the suite needs no network access, no GPU and no Tesseract) |
 | `RAG-00N.md` | Task briefs |
 | `RAG-00N-report.md` | End-of-task reports |
@@ -149,7 +149,63 @@ machine.
 
 # RAG-009: the evaluation set (Hit@5/Hit@10/MRR@10, leakage checks) and latency benchmark
 .\.venv\Scripts\python.exe -m app.retrieval.evaluate --out "docs\rag009-evaluation.txt" --latency-out "docs\rag009-latency.txt"
+
+# RAG-010: external scholarly discovery (Crossref + OpenAlex). Read-only: nothing is
+# downloaded into data/, embedded, or added to Qdrant. The default output groups the
+# results into ALREADY IN LOCAL CORPUS / NEW-VERIFIED / DISCOVERY ONLY / CONFLICTS.
+.\.venv\Scripts\python.exe -m app.discovery.search "AI governance in higher education"
+
+# RAG-010: recent work only, hiding what the corpus already has
+.\.venv\Scripts\python.exe -m app.discovery.search "generative AI academic integrity" --year-min 2025 --new-only
+
+# RAG-010: identity lookups, and optional open-access full-text verification
+.\.venv\Scripts\python.exe -m app.discovery.search --doi 10.1016/j.compedu.2019.103778
+.\.venv\Scripts\python.exe -m app.discovery.search --title "Artificial intelligence in higher education"
+.\.venv\Scripts\python.exe -m app.discovery.search --doi 10.1016/j.compedu.2019.103778 --verify-fulltext
+
+# RAG-010: local evidence plus external discovery for one query, as two separate
+# sections (never one fused ranking, never a generated answer)
+.\.venv\Scripts\python.exe -m app.discovery.research "AI governance in higher education" --local-k 8 --year-min 2025
+
+# RAG-011: answer a question from the retrieved evidence with the local Qwen model
+# (qwen3.5:35b through Ollama). Evidence mode by default; every claim sentence carries
+# an [S1] marker and the answer is audited afterwards.
+.\.venv\Scripts\python.exe -m app.generation.inspect "What is AI governance in higher education?"
+
+# RAG-011: show exactly what the model saw and the prompts that were used
+.\.venv\Scripts\python.exe -m app.generation.inspect "..." --show-context --show-prompt --show-audit
+
+# RAG-011: add the author's own drafts (or supervision guidance) as non-citable
+# continuity context - never as evidence - and control the answer length
+.\.venv\Scripts\python.exe -m app.generation.inspect "What have I written about AI history?" --include-my-work
+.\.venv\Scripts\python.exe -m app.generation.inspect "..." --include-my-work --include-guidance --length detailed
+
+# RAG-011: tighter context budget, an evidence score floor, machine-readable output
+.\.venv\Scripts\python.exe -m app.generation.inspect "..." --context-tokens 2000 --min-rerank-score 0.3
+.\.venv\Scripts\python.exe -m app.generation.inspect "..." --json
 ```
+
+Generation in RAG-011 (`app/generation/`) answers *only* from what RAG-009 retrieved,
+with a source marker on every claim sentence. `app/generation/ollama.py` is the single
+place that talks to Ollama; failures are typed (`model_not_found`, `timeout`,
+`empty_response`, ...) and there is no silent retry, so a degraded model shows up as
+`model_error` rather than as a plausible answer. The context is built from whole
+chunks only (never truncated mid-chunk) under a deterministic two-phase budget: the
+evidence is capped at `budget - 1500` when the caller explicitly asks for
+`my_work`/`guidance`, so an explicit request cannot be starved by a large evidence set,
+and if nothing citable fits the service refuses without calling the model at all.
+
+Grounding is checked after generation, never by fixing the text: `invalid_markers`
+(a cited id that was never supplied), `unmarked_claims` (a finding-shaped sentence with
+no marker), `non_evidence_citations` (a claim resting only on the author's own work or
+guidance), `external_finding_claims` (findings attributed to a metadata-only external
+record) and unfindable quotations. Any of the first, third or fourth makes the answer
+`grounding_warnings` instead of `ok`. Non-evidence material is labelled and stays
+non-citable: `my_work` and `guidance` blocks can be reported ("your draft states ...")
+but never cited as evidence about the world, and RAG-010 discovery records stay external
+(metadata-only records carry no abstract precisely so their findings cannot leak in).
+Source text is delimited and declared untrusted, because a document may contain
+instructions; the model must treat them as data.
 
 Retrieval in RAG-009 is two-stage and evidence-safe: a BGE-M3 dense search over
 `phd_rag_chunks_v1` returns candidates that are filtered **at the vector-search
@@ -169,6 +225,26 @@ it needs several agreeing bibliographic signals (repeated `Available at:`, DOIs,
 journal furniture, numbered entries, a `References` heading, very high marker density
 with reference furniture) and never fires on ordinary prose that cites sources, so it
 can be turned off with `--include-bibliography` for citation analysis.
+
+External discovery in RAG-010 (`app/discovery/`) is deliberately kept apart from that
+evidence path. It searches Crossref and OpenAlex over HTTP, normalizes each provider
+response into one `ExternalWork` record with field-level provenance, merges the same
+paper found twice, marks material conflicts instead of silently choosing a winner,
+compares every result against the local corpus and ranks deterministically (query
+relevance, abstract relevance, metadata completeness and a bounded recency nudge -
+never citation count). External records are **not evidence and are never imported**:
+no download into `data/`, no embeddings, no Qdrant writes, no promotion into
+`--mode evidence`. The combined command prints the trusted local chunks and the
+external discoveries as two separate sections and generates no prose answer. Every
+request is cached (TTL plus an explicit `--refresh`) and audited, provider failures are
+reported as provider failures rather than as "no results", and the optional
+`--verify-fulltext` fetch only follows public `http(s)` open-access URLs that were
+re-validated at every redirect hop, with a size cap and a content-type allowlist.
+
+Provider etiquette: no personal address is hard-coded. Set `PHD_RAG_CROSSREF_MAILTO`
+(and/or `PHD_RAG_OPENALEX_EMAIL`, `PHD_RAG_OPENALEX_API_KEY`) to identify this client
+to the APIs' polite pools; without a configured contact the tools say so instead of
+inventing one.
 
 Chunking targets roughly 700–1000 tokens per chunk with a hard maximum of 1200
 (1500 for an intact table), splits on academic structure rather than fixed

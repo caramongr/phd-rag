@@ -168,41 +168,25 @@ def build_filters(args: argparse.Namespace) -> RetrievalFilters:
 
 
 def build_service(args: argparse.Namespace) -> RetrievalService:
-    """Build the real service: RAG-008 embedder plus the RAG-009 reranker."""
-    from app.embedding.bge_m3 import BgeM3Embedder
-    from app.reranking.bge_reranker import BgeReranker
+    """Build the real service: RAG-008 embedder plus the RAG-009 reranker.
+
+    The wiring itself lives in :func:`app.retrieval.factory.build_retrieval_service`,
+    so the CLIs and the generation layer all construct the same service.
+    """
+    from app.retrieval.factory import build_retrieval_service
 
     settings = get_settings()
-    embedder = BgeM3Embedder(
-        model_name=settings.embedding_model,
-        device=args.device or settings.embedding_device,
-        local_files_only=settings.embedding_local_files_only,
-    )
-    reranker = None
-    if not args.no_rerank:
-        reranker = BgeReranker(
-            model_name=settings.reranker_model,
-            device=args.device or settings.reranker_device,
-            batch_size=settings.reranker_batch_size,
-            local_files_only=settings.embedding_local_files_only,
-        )
-    return RetrievalService(
-        embedder=embedder,
-        reranker=reranker,
-        collection=args.collection or settings.qdrant_collection,
-        qdrant_path=args.qdrant_path or (settings.qdrant_path or None),
-        qdrant_url=settings.qdrant_url,
-        qdrant_api_key=settings.qdrant_api_key,
-        candidate_k=args.candidate_k or settings.retrieval_candidate_k,
-        final_k=args.final_k or settings.retrieval_final_k,
-        max_chunks_per_document=(
-            args.max_per_document
-            if args.max_per_document is not None
-            else settings.retrieval_max_chunks_per_document
-        ),
+    return build_retrieval_service(
+        settings,
+        device=args.device,
+        rerank=not args.no_rerank,
+        collection=args.collection,
+        qdrant_path=args.qdrant_path,
+        candidate_k=args.candidate_k,
+        final_k=args.final_k,
+        max_chunks_per_document=args.max_per_document,
         suppress_duplicates=not args.no_dedup,
-        duplicate_overlap_threshold=settings.retrieval_duplicate_overlap,
-        max_candidate_rounds=args.max_rounds or settings.retrieval_max_rounds,
+        max_candidate_rounds=args.max_rounds,
         exclude_bibliography=(
             False if args.include_bibliography else settings.retrieval_exclude_bibliography
         ),

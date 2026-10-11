@@ -70,12 +70,37 @@ class RateLimiter:
 
 @dataclass
 class HttpResult:
-    """The outcome of one HTTP JSON request."""
+    """The outcome of one HTTP JSON request.
+
+    ``headers`` and ``text_snippet`` are populated for error responses so a caller can
+    report what the provider actually said (e.g. a rate-limit message and its
+    ``Retry-After``) instead of inventing a reason. Both are additive: existing
+    callers keep working unchanged.
+    """
 
     ok: bool
     status_code: int | None
     data: Any = None
     error: str | None = None
+    headers: dict[str, str] | None = None
+    text_snippet: str | None = None
+
+    @property
+    def retry_after(self) -> float | None:
+        """``Retry-After`` in seconds, when the provider sent one."""
+        if not self.headers:
+            return None
+        raw = None
+        for key, value in self.headers.items():
+            if key.lower() == "retry-after":
+                raw = value
+                break
+        if raw is None:
+            return None
+        try:
+            return float(raw)
+        except (TypeError, ValueError):
+            return None
 
 
 _RETRYABLE_STATUS = frozenset({429, 500, 502, 503, 504})
@@ -158,4 +183,30 @@ class HttpClient:
                 self.http_error_count += 1
                 key = str(status)
                 self.http_error_statuses[key] = self.http_error_statuses.get(key, 0) + 1
-            return HttpResult(False, status, None, f"HTTP {status}")
+            return HttpResult(
+                False,
+                status,
+                None,
+                f"HTTP {status}",
+                headers=_response_headers(response),
+                text_snippet=_response_text(response),
+            )
+
+
+def _response_headers(response: Any) -> dict[str, str] | None:
+    """Headers of a response object, when it exposes them as a mapping."""
+    headers = getattr(response, "headers", None)
+    if headers is None:
+        return None
+    try:
+        return {str(key): str(value) for key, value in dict(headers).items()}
+    except Exception:  # pragma: no cover - defensive: odd header containers
+        return None
+
+
+def _response_text(response: Any, limit: int = 400) -> str | None:
+    """A short snippet of a response body, for error reporting."""
+    text = getattr(response, "text", None)
+    if not isinstance(text, str) or not text.strip():
+        return None
+    return text.strip()[:limit]

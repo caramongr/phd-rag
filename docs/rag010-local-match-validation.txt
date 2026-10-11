@@ -1,0 +1,238 @@
+§33 KNOWN-PAPER TEST: five corpus papers with DOI metadata
+------------------------------------------------------------------------------
+
+local  : Exploring the potential of artificial intelligence tools in educational measurement and assessm
+         10.29333/ejmste/13428  (2023)  [Exploring_the_potential_of_artificial_in.pdf]
+DOI   -> records=1 local_match=ALREADY_IN_CORPUS status=EXTERNAL_METADATA_VERIFIED confidence=0.85
+TITLE -> records=1 local_match=ALREADY_IN_CORPUS
+         external title: Exploring the potential of artificial intelligence tools in educational measurement and assessment
+         FAILURE openalex: rate_limited 429
+         FAILURE openalex: rate_limited 429
+
+local  : A survey on surface reconstruction based on 3D Gaussian splatting
+         10.7717/peerj-cs.3034  (2025)  [xu-peerj-cs-3034.pdf]
+DOI   -> records=1 local_match=ALREADY_IN_CORPUS status=EXTERNAL_METADATA_VERIFIED confidence=0.85
+TITLE -> records=1 local_match=ALREADY_IN_CORPUS
+         external title: A survey on surface reconstruction based on 3D Gaussian splatting
+         FAILURE openalex: rate_limited 429
+         FAILURE openalex: rate_limited 429
+
+local  : Conversations between self and self as Sigmund Freud—A virtual body ownership paradigm for self
+         10.1038/srep13899  (2015)  [srep13899.pdf]
+DOI   -> records=1 local_match=ALREADY_IN_CORPUS status=EXTERNAL_METADATA_VERIFIED confidence=0.85
+TITLE -> records=1 local_match=ALREADY_IN_CORPUS
+         external title: Conversations between self and self as Sigmund Freud—A virtual body ownership paradigm for self counselling
+         FAILURE openalex: rate_limited 429
+         FAILURE openalex: rate_limited 429
+
+local  : Providing Individual Student Feedback at Scale for Mathematical Disciplines
+         10.1145/3491140.3528313  (2022)  [Providing_Individual_Student_Feedback_at.pdf]
+DOI   -> records=1 local_match=ALREADY_IN_CORPUS status=EXTERNAL_METADATA_VERIFIED confidence=0.85
+TITLE -> records=1 local_match=ALREADY_IN_CORPUS
+         external title: Providing Individual Student Feedback at Scale for Mathematical Disciplines
+         FAILURE openalex: rate_limited 429
+         FAILURE openalex: rate_limited 429
+
+local  : An Educational Virtual Reality Game from an Embodied Cognitive Perspective
+         10.54254/2753-7048/11/20230724  (2023)  [kong-An_Educational_Virtual_Reality_Game_from_an_Embodi.pdf]
+DOI   -> records=1 local_match=ALREADY_IN_CORPUS status=EXTERNAL_METADATA_VERIFIED confidence=0.85
+TITLE -> records=0 local_match=NO_RECORD
+         external title: An Educational Virtual Reality Game from an Embodied Cognitive Perspective -Take the Game “Poetry” as an Example
+         FAILURE openalex: rate_limited 429
+         FAILURE openalex: rate_limited 429
+
+DOI route  : 5/5 identified as ALREADY_IN_CORPUS
+TITLE route: 4/5 identified as ALREADY_IN_CORPUS
+
+
+§35 PERFORMANCE
+------------------------------------------------------------------------------
+{
+  "cold_total_seconds": 8.139,
+  "cold_provider_seconds": {
+    "crossref": 0.0008,
+    "openalex": 5.4078
+  },
+  "warm_total_seconds": 6.437,
+  "warm_cache_hit_seconds": {
+    "crossref": 0.0008
+  },
+  "merge_rank_seconds": 0.004231,
+  "local_compare_seconds": 1.027928,
+  "local_compare_per_record_ms": 51.396,
+  "records": 20,
+  "local_corpus_documents": 465,
+  "cache_hits": 0,
+  "cache_misses": 2
+}
+
+
+§32 LOCAL-VS-INTERNET TEST (real RAG-009 retrieval + live discovery)
+------------------------------------------------------------------------------
+query: artificial intelligence governance in higher education
+
+LOCAL CORPUS (RAG-009, mode=evidence, 8 chunks, 10.850s) - trusted evidence
+  1. AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal (2023) p.9 | role=literature evidence=True
+     Based on the results and discussion above, it can be concluded that innovation in utilizing artific…
+  2. AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal (2023) p.1 | role=literature evidence=True
+     Article Information: Received October 10, 2023 Revised October 19, 2023 Accepted December 1, 2023 |…
+  3. MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Educatio… | IOR PRESS (2023) p.16 | role=literature evidence=True
+     In prompt, policymakers have a critical role to play in shaping the policy landscape for AI integra…
+  4. The Impact of Artificial Intelligence on Higher Education in England | Hengameh Karimi (2023) p.7-8 | role=literature evidence=True
+     Implementing AI in higher education requires careful consideration of policy and ethical guidelines…
+  5. Assessment of Artificial Intelligence-based digital learning systems in higher education amid the p… | Vikrant Vikram Singh (2024) p.2-3 | role=literature evidence=True
+     The ethical and sustainable development of artificial intelligence depends on good governance. Gove…
+  6. The Impact of Artificial Intelligence On Higher Learning Institutions | Windows User (2023) p.7-9 | role=literature evidence=True
+     Vol 3 No 2, April 2023 Published by: Page 102 Based on the applications the authors have discussed…
+  7. The Impact of Artificial Intelligence on Higher Education in England | Hengameh Karimi (2023) p.1 | role=literature evidence=True
+     In the ever-evolving landscape of technology, artificial intelligence (AI) has emerged to challenge…
+  8. Reflections on the Artificial Intelligence Transformation: Responsible Use and the Role of Institut… | Mike Urmeneta (2023) p.1-2 | role=literature evidence=True
+     This article explores the potential impact of artificial intelligence (AI) and machine learning (ML…
+
+NEW EXTERNAL DISCOVERY (RAG-010) - not trusted evidence, not imported
+query        : artificial intelligence governance in higher education
+operation    : search
+providers    : requested=crossref, openalex succeeded=crossref failed=openalex
+counts       : provider_records=10 merged=10 duplicates_merged=0 new=10 local=0 possible=0 conflicts=0
+cache        : hits=0 misses=2 refresh=False
+timestamp    : 2026-10-11T19:14:48+00:00
+provider failure: openalex [rate_limited] HTTP 429 retry_after=17112s
+    provider rate limit reached (HTTP 429): {"error":"Rate limit exceeded","message":"Insufficient budget. This request has no API key, so it counts against the free daily budget shared by everyone on yo…
+
+NEW / VERIFIED METADATA (0)
+  (none)
+
+DISCOVERY ONLY (identity not verified) (10)
+  1. [EXTERNAL_DISCOVERY] Artificial Intelligence in Higher Education
+     authors      : Mohamed Amine Frikha
+     year / venue : 2026  |  Digitalizing Talent Management Strategy for Higher Education
+     doi          : 10.4018/979-8-3373-8959-2.ch006
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=LANDING_PAGE_ONLY
+     cited by     : 0 (context only, not a score)
+  2. [EXTERNAL_DISCOVERY] The Impact of Artificial Intelligence on Higher Education:
+     authors      : Melissa M. Carleton, Jeffrey Knight
+     year / venue : 2026  |  The Digitized Campus
+     doi          : 10.2307/jj.37443281.5
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=UNKNOWN
+     cited by     : 0 (context only, not a score)
+     missing      : abstract
+  3. [EXTERNAL_DISCOVERY] Artificial Intelligence (Ai) Governance in Higher Education: A Meta-Analytic Systematic Review
+     authors      : Asad Abbas, MEHUL MAHRISHI, Deepti Mishra
+     year / venue : 2023  |  Elsevier BV
+     doi          : 10.2139/ssrn.4657675
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=UNKNOWN
+     cited by     : 2 (context only, not a score)
+     missing      : abstract, venue
+  4. [EXTERNAL_DISCOVERY] The Artificial Intelligence(AI) Enabled Governance Framework for NIRF Ranking Improvement of Higher…
+     authors      : C.R.S. Kumar
+     year / venue : 2026  |  Institute of Electrical and Electronics Engineers (IEEE)
+     doi          : 10.36227/techrxiv.177040566.62247469/v1
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=LANDING_PAGE_ONLY
+     cited by     : 1 (context only, not a score)
+     missing      : venue
+  5. [EXTERNAL_DISCOVERY] Higher Education in the Age of Artificial Intelligence: Governance, Educational Values, and Visions…
+     authors      : Laura Márquez-Ramos
+     year / venue : 2026  |  12th International Conference on Higher Education Advances…
+     doi          : 10.4995/head26.2026.21323
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=LANDING_PAGE_ONLY
+     cited by     : 0 (context only, not a score)
+  6. [EXTERNAL_DISCOVERY] 3. The Impact of Artificial Intelligence on Higher Education: Opportunity, Risk, and Responsible Go…
+     authors      : Melissa M. Carleton, Jeffrey Knight
+     year / venue : 2026  |  The Digitized Campus
+     doi          : 10.1515/9798855807714-003
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=LANDING_PAGE_ONLY
+     cited by     : 0 (context only, not a score)
+     missing      : abstract
+  7. [EXTERNAL_DISCOVERY] Generative Artificial Intelligence in Higher Education: A Decision-Support Framework for Practical…
+     authors      : Ronaldo Nunes Pinheiro
+     year / venue : 2026  |  Journal of Applied Artificial Intelligence in Education
+     doi          : 10.66053/jaaie.v2i1.954
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=FULLTEXT_OPEN
+     cited by     : 0 (context only, not a score)
+     fulltext url : https://ejournal.abcollab.id/index.php/JAAIE/article/download/954/703
+  8. [EXTERNAL_DISCOVERY] AI at the crossroads: between the free play of forces, regulation, and control? Dispositives of Art…
+     authors      : Susanne Maria Weber, Marc-André Heidelmann
+     year / venue : 2025  |  Handbook of Artificial Intelligence in Higher Education
+     doi          : 10.4337/9781035338764.00026
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.70 fulltext=LANDING_PAGE_ONLY
+     cited by     : 1 (context only, not a score)
+     missing      : abstract
+  9. [EXTERNAL_DISCOVERY] Teaching the Machine, Learning the Law: Reimagining Indian Higher Education Governance in the Age o…
+     authors      : (not supplied)
+     year / venue : 2026  |  cineforum
+     doi          : 10.66669/cineforum.v66is2.1125
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.60 fulltext=UNKNOWN
+     cited by     : 0 (context only, not a score)
+     missing      : abstract, authors, venue
+  10. [EXTERNAL_DISCOVERY] (untitled)
+     authors      : (not supplied)
+     year / venue : 2018  |  Wellcome
+     doi          : 10.35802/213619
+     providers    : crossref
+     local        : not in local corpus (NEW)
+     verification : identity=0.45 fulltext=UNKNOWN
+     missing      : abstract, authors, title, venue
+
+CONFLICTS (providers disagree) (0)
+  (none)
+
+ALREADY IN LOCAL CORPUS (0)
+  (none)
+
+local chunks: 8  external records: 10  already-in-corpus external records: 0  separation check (external promoted to local evidence): OK - none
+
+==============================================================================
+?13/?18b FULL-TEXT VERIFICATION (live, opt-in --verify-fulltext, appended after
+the automated run above)
+==============================================================================
+Only a provider-declared open full text is fetched, and the fetch must carry the
+record's DOI or >= 80% of its title words before it counts as verified.
+
+FETCHED AND VERIFIED
+  10.1186/s41239-023-00434-1  "Students' perceptions of using ChatGPT in a physics
+      class as a virtual tutor"
+      url  : https://link.springer.com/content/pdf/10.1186/s41239-023-00434-1.pdf
+      sha256: 316d1664a4ef7647b487f97eae6a17224b148b200b823e00ef436c8f85247bcd
+      1926765 bytes, application/pdf, 2026-10-11T19:25:42+00:00
+      identity evidence: doi:10.1186/s41239-023-00434-1
+      status: EXTERNAL_FULLTEXT_VERIFIED
+
+  10.1007/s10734-026-01706-1 "Purpose before policy: academic integrity, generative
+      AI, and rhetorical stance"
+      url  : https://link.springer.com/content/pdf/10.1007/s10734-026-01706-1.pdf
+      sha256: 3757a0ce9490fb7f... (962294 bytes, application/pdf)
+      identity evidence: doi:10.1007/s10734-026-01706-1
+      status: EXTERNAL_FULLTEXT_VERIFIED
+
+FETCHED, REFUSED BY THE PUBLISHER (reported, not worked around)
+  10.3390/info16040296  https://www.mdpi.com/2078-2489/16/4/296/pdf -> HTTP 403
+      status stays EXTERNAL_METADATA_VERIFIED; nothing is claimed as verified.
+      (This is why the publisher's own content-type 'unspecified' + '/pdf' route is
+      now recognised as a PDF link: the record was previously reported as
+      LANDING_PAGE_ONLY with no URL at all.)
+
+NOT FETCHED (no open full text stated by the provider)
+  10.22364/htqe.2025.25 -> LANDING_PAGE_ONLY -> "provider did not state an open full
+      text; not fetched" (error=not_open_access)
+
+In every case the metadata record is unchanged: verification only *adds*
+fulltext_verified / fulltext_sha256 / fulltext_bytes / fulltext_content_type /
+fulltext_fetched_at / fulltext_source_url, and nothing is written to data/ or Qdrant.

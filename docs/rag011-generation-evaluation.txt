@@ -1,0 +1,892 @@
+====================================================================================================================
+RAG-011 generation evaluation: real qwen3.5:35b through Ollama
+====================================================================================================================
+
+MODEL AND CONFIGURATION
+  provider            : ollama 0.35.1 at http://127.0.0.1:11434
+  model               : qwen3.5:35b
+  model details       : family=qwen35moe parameters=34.7B quant=Q4_K_M context_length=262144 capabilities=['completion', 'vision', 'tools', 'thinking']
+  prompt version      : system_v2:6ca8b9ca+user_v2:5f9685ea
+  sampling            : temperature=0.1 top_p=0.9 num_ctx=8192 max_output_tokens=900 seed=0 think=False
+  context budget      : 6000 estimated tokens (estimator: max(chars/4.0, words*1.33) + 32 per block)
+  min rerank score    : None (not applied: no threshold is justified by the measured scores, see the report)
+  retrieval (RAG-009) : collection=phd_rag_chunks_v1 candidate_k=25 final_k=8 exclude_bibliography=True rerank=True thesaurus mode=evidence
+  warm-up cost        : 11.1 s (first call loads models)
+
+METHOD: every question below was answered by the real model over the real corpus. The retrieved sources, the context that was sent, the raw answer, the parsed markers, timing and token counts are recorded verbatim. Nothing was edited after generation; the answers appear exactly as the model produced them. Source text is shown as a short excerpt with its chunk id, so any claim can be checked against the corpus without reproducing whole copyrighted passages here.
+
+####################################################################################################################
+EVIDENCE QUESTION 1: What is AI governance in higher education?
+####################################################################################################################
+
+STATUS: ok
+MODEL: qwen3.5:35b | prompt_version=system_v2:6ca8b9ca+user_v2:5f9685ea | prompt_sha256=ab94165d9581f02d
+TIMING: retrieval 0.4792s + context 0.0003s + generation 1.6112s = 2.092s
+TOKENS: prompt 5269 (estimated 6463, ratio 0.815) | output 321 | 217.97 tok/s | done=stop
+CONTEXT: retrieved 8 blocks, included 8, excluded 0, ~4881/6000 tokens
+
+RETRIEVED SOURCES SUPPLIED TO THE MODEL
+  [S1] evidence citable=True chunk=0d436a0f-84cc-5811-a67e-1f94f7c39d4c
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 175-176 | section: 148 Developing an AI in Education Policy
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9480522274971008 dense=0.6833530469692191 | chars: 2616
+      excerpt:
+        students for a future where such technologies are prevalent. It includes the following key areas:
+
+        1 Rethinking assessments and examinations; 2 Developing students’ holistic competencies/generic skills; 3
+        Preparing students for the AI-­driven workplace; and 4 Encouraging a balanced approach to AI adoption
+
+        For the full research paper, please refer to Chan, C.K.Y. (2023) A Comprehensive AI Policy Education
+        Framework ...
+
+  [S2] evidence citable=True chunk=b95a5823-d334-5daa-a901-5ef91bf0408d
+      title   : Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy
+      author  : Vikrant Vikram Singh | year: 2024 | doi: 10.21203/rs.3.rs-3828524/v1 | pages: 2-3 | section: 1 Introduction
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9467335343360901 dense=0.684665331043494 | chars: 3799
+      excerpt:
+        The ethical and sustainable development of artificial intelligence depends on good governance. Governments,
+        research institutions, and businesses in China have released ethical standards and principles for AI and
+        started efforts to create AI governance technologies that are helpful to human society (Wu et al., 2020;
+        Rosli et al., 2022b). Although references to AI in the literature are frequently ambiguous and ...
+
+  [S3] evidence citable=True chunk=3197051d-3c9b-5141-8363-7052d371f7e5
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 178 | section: 1 Rethinking Assessments and Examinations
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9400367736816406 dense=0.6534772631483239 | chars: 1305
+      excerpt:
+        The successful integration of AI in academic settings counts on collaboration and com­ munication among all
+        stakeholders, including universities, teachers, students, staff, and external agents such as accreditation
+        and quality assurance bodies. Each group should actively participate in the development and execution of
+        AI-­related initiatives, working together to achieve the desired outcomes in university teaching ...
+
+  [S4] evidence citable=True chunk=9b9a6ef3-587a-56a9-b680-318927487cb4
+      title   : AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296
+      author  : Personal | year: 2023 | doi: None | pages: 9 | section: CONCLUSION
+      role    : literature | evidence_eligible: True | ocr: False | content_type: conclusion
+      scores  : rerank=0.9341954588890076 dense=0.6648442313312457 | chars: 1535
+      excerpt:
+        Based on the results and discussion above, it can be concluded that innovation in utilizing artificial
+        intelligence (AI) in education management in higher education has a significant impact in improving the
+        efficiency, effectiveness, and relevance of education. Through the integration of AI, universities can
+        optimize various aspects, from personalization of learning to administration. The use of AI enables a more
+        ...
+
+  [S5] evidence citable=True chunk=96646600-7083-5130-a54a-ec016c9b6e2e
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 176 | section: 1 Understanding, Identifying, and Preventing Academic Misconduct and Ethical Dilemmas
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9300728440284729 dense=0.6651532801699952 | chars: 2849
+      excerpt:
+        The potential of AI technologies to be used for academic misconduct necessitates a robust governance
+        framework to address this concern. Developing and enforcing poli­ cies on academic integrity and ethical AI
+        use are crucial in promoting and maintaining a culture of integrity within the academic community. By
+        addressing the governance of AI head-­on, senior management can create a more conducive environment for the
+        ...
+
+  [S6] evidence citable=True chunk=c40e3e45-6687-57e8-a5b2-d4dfd646a493
+      title   : MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review
+      author  : IOR PRESS | year: 2023 | doi: 10.54392/irjmt2351 | pages: 15-16 | section: 5.5 Policy Implications
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9169594049453735 dense=0.6562339703756006 | chars: 4074
+      excerpt:
+        The integration of AI in STEM higher education has policy implications at various levels. Policymakers
+        should actively engage with the educational community to develop policies and guidelines that promote
+        responsible and equitable AI integration [49]. This includes establishing data governance frameworks that
+        protect student privacy and ensure the ethical use of AI technologies (U.S. Department of Education, 2020)
+        ...
+
+  [S7] evidence citable=True chunk=6b8dded2-0564-5fc7-8891-f8772fd70f74
+      title   : MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review
+      author  : IOR PRESS | year: 2023 | doi: 10.54392/irjmt2351 | pages: 16 | section: 5.5 Policy Implications
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.8723556995391846 dense=0.6514273447048209 | chars: 843
+      excerpt:
+        In prompt, policymakers have a critical role to play in shaping the policy landscape for AI integration in
+        STEM higher education. By engaging with the educational community, developing data governance frameworks,
+        allocating funding, fostering collaborations, and staying informed about the evolving AI landscape,
+        policymakers can create a supportive environment that enables institutions to harness the potential of AI
+        ...
+
+  [S8] evidence citable=True chunk=84e9f7c6-92c2-5299-bf48-da625a695055
+      title   : The Impact of Artificial Intelligence on Higher Education in England
+      author  : Hengameh Karimi | year: 2023 | doi: 10.4236/ce.2023.1412154 | pages: 1 | section: Abstract
+      role    : literature | evidence_eligible: True | ocr: False | content_type: abstract
+      scores  : rerank=0.8412143588066101 dense=0.649321336985574 | chars: 1465
+      excerpt:
+        In the ever-evolving landscape of technology, artificial intelligence (AI) has emerged to challenge
+        traditional paradigms and revolutionise various sectors including higher education. It is now necessary to
+        investigate how AI integration in higher education institutions in England may affect instructional stra-
+        tegies, operational procedures, and student experiences. This article explores the implications of AI into
+        ...
+
+RAW MODEL ANSWER (verbatim)
+  AI governance in higher education refers to the responsibility of senior management to formulate policies,
+  establish ethical guidelines, and provide overall institutional direction for AI integration [S1]. This dimension
+  focuses on ensuring that institutions operate within legal and ethical boundaries while striving for academic
+  excellence and integrity [S1]. Senior management plays a crucial role in understanding, identifying, and
+  preventing academic misconduct and ethical dilemmas related to AI use [S1].
+
+  Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and
+  security [S5]. It involves establishing clear guidelines for the proper attribution of AI-generated content to
+  promote academic honesty and clarity [S5]. Governance also necessitates implementing measures to ensure equitable
+  access to AI technologies, thereby preventing the exacerbation of existing inequalities among students [S5].
+
+  The ethical and sustainable development of artificial intelligence depends on good governance, which includes
+  creating standards that are helpful to human society [S2]. Policymakers and institutions must develop data
+  governance frameworks that protect student privacy and safeguard sensitive data through clear rules on collection
+  and usage [S6]. Without sound ethical standards and principles, the smooth implementation of AI in this sensitive
+  sector is not possible [S2].
+
+  Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the
+  successful integration of AI [S3]. A robust governance framework allows senior management to create a conducive
+  environment for the ethical use of AI, mitigating risks associated with academic misconduct [S5]. Ultimately,
+  these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the academic
+  community [S5].
+
+PARSED SOURCE MARKERS
+  markers found        : ['S1', 'S5', 'S2', 'S6', 'S3']
+  marker counts        : {'S1': 3, 'S5': 5, 'S2': 2, 'S6': 1, 'S3': 1}
+  invalid markers      : []
+  used sources         : ['S1', 'S5', 'S2', 'S6', 'S3']
+  supplied but unused  : ['S4', 'S7', 'S8']
+  sentences            : 12 total, 12 with markers
+  unmarked claims      : []
+  unmarked statements  : []
+  non-evidence cites   : []
+  external findings    : []
+  quotations           : none
+  style warnings       : []
+
+####################################################################################################################
+EVIDENCE QUESTION 2: What evidence links virtual reality with student engagement in higher education?
+####################################################################################################################
+
+STATUS: ok
+MODEL: qwen3.5:35b | prompt_version=system_v2:6ca8b9ca+user_v2:5f9685ea | prompt_sha256=087221d22d46bf44
+TIMING: retrieval 0.4815s + context 0.0003s + generation 1.8245s = 2.307s
+TOKENS: prompt 5539 (estimated 7129, ratio 0.777) | output 365 | 214.75 tok/s | done=stop
+CONTEXT: retrieved 8 blocks, included 6, excluded 2, ~5668/6000 tokens
+CONTEXT DROPS:
+  - budget: Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai (chunk e8a477e0-70d7-5a0c-aa3d-2c737d0a5cff, ~882 tokens, rerank 0.8940708637237549)
+  - budget: Information Technology Students' Perceptions Toward Using Virtual Reality Technology for Educational Purposes (chunk 1ab969fe-6cec-5907-9cd8-a337bc38791e, ~894 tokens, rerank 0.8376257419586182)
+
+RETRIEVED SOURCES SUPPLIED TO THE MODEL
+  [S1] evidence citable=True chunk=f21f5993-8d94-5f1e-b737-11d12affa810
+      title   : The Impact of Virtual Reality on Student Engagement in Higher Education
+      author  : ssrn | year: None | doi: None | pages: 2-3 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9941331744194031 dense=0.7356827265627203 | chars: 4111
+      excerpt:
+        Further supporting the value of VR in education, research by Merchant et al. (2014) found that VR
+        contributes to increased learner engagement. Unlike traditional teaching methods, which often rely on
+        passive learning, VR provides interactive and experiential learning opportunities that require active
+        participation. Through VR, students can explore virtual worlds, perform simulations, and engage in scenarios
+        that ...
+
+  [S2] evidence citable=True chunk=310fbdde-aacd-59fc-97da-b8086c2c481b
+      title   : The Impact of Virtual Reality on Student Engagement in Higher Education
+      author  : ssrn | year: None | doi: None | pages: 1-2 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9931274652481079 dense=0.7447781911663182 | chars: 3883
+      excerpt:
+        The Impact of Virtual Reality on Student Engagement in Higher Education
+
+        Abstract This study explores the effects of virtual reality (VR) technology on student engagement within the
+        context of higher education. As technological tools become more deeply integrated into teaching and learning
+        practices, VR stands out for its potential to transform the educational experience by offering immersive,
+        interactive ...
+
+  [S3] evidence citable=True chunk=31899385-8f40-5746-8467-c40ba0bc3591
+      title   : The Impact of Virtual Reality on Student Engagement in Higher Education
+      author  : ssrn | year: None | doi: None | pages: 3-4 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9888056516647339 dense=0.7507236559666748 | chars: 3830
+      excerpt:
+        Hypothesis H1: Students engaged in VR-based learning will exhibit higher levels of engagement compared to
+        those in traditional learning environments.
+
+        This hypothesis posits that the immersive and interactive nature of virtual reality will lead to increased
+        student engagement, as VR offers a more dynamic and participatory learning experience than conventional
+        methods. It suggests that students using VR will be more ...
+
+  [S4] evidence citable=True chunk=99bf07fb-9571-5a69-a791-23f364084c8e
+      title   : Information Technology Students' Perceptions Toward Using Virtual Reality Technology for Educational Purposes
+      author  : None | year: 2024 | doi: 10.3991/ijim.v17i07.37211 | pages: 6-7 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9701882004737854 dense=0.6865335314614804 | chars: 3775
+      excerpt:
+        University students' perceptions of virtual reality technology have been investigated in a range of
+        research. For instance, Baxter and Hainey (2019) examined higher education students' perceptions of virtual
+        reality in their education in the United Kingdom. The research followed a mixed research design in which
+        data was collected using a questionnaire with closed-ended and open-ended questions. The number of ...
+
+  [S5] evidence citable=True chunk=f966ef1f-e727-5d16-979a-6a2129e78abf
+      title   : Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai
+      author  : Muriel T. Zaatar | year: 2024 | doi: 10.18178/ijiet.2024.14.5.2092 | pages: 1-2 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9553349614143372 dense=0.6804096430644864 | chars: 3937
+      excerpt:
+        reshape the ways in which students engage with complex concepts.
+
+        VR has been historically under-utilized in education due to its high cost and limited availability [4].
+        However, the rapid advancement of technology and reduced costs have made it possible to incorporate this
+        innovative instructional technology into classrooms [2, 5]. In higher education, VR has been most widely
+        utilized in medical courses for ...
+
+  [S6] evidence citable=True chunk=94e5ec32-6729-5472-b4dd-b56b8977c2d4
+      title   : ANALYSIS OF THE APPLICATION OF ARTIFICIAL INTELLIGENCE IN TECHNICAL AND TECHNOLOGICAL TRAINING IN UNIVERSITY EDUCATION María Luisa Pincay Cedeño1 Mariela Nuñez Figueroa2 Paul Marcelo Tacle Humanante3 Wildo Sucasaire Monroy4
+      author  : None | year: 2024 | doi: 10.24857/rgsa.v18n4-145 | pages: 8-9 | section: 4 CONCLUSION
+      role    : literature | evidence_eligible: True | ocr: False | content_type: conclusion
+      scores  : rerank=0.9107481837272644 dense=0.648538567110764 | chars: 2358
+      excerpt:
+        After reviewing the literature on virtual reality as a tool for training communication
+
+        skills among higher education students, the following conclusions can be highlighted:
+
+        First, the research provides solid evidence of the effectiveness of virtual reality in
+
+        developing communication skills in this demographic. The ability of virtual reality to simulate
+
+        social interaction scenarios and provide immediate feedback ...
+
+RAW MODEL ANSWER (verbatim)
+  Research indicates that virtual reality (VR) contributes to increased learner engagement by providing interactive
+  and experiential learning opportunities that require active participation [S1]. Unlike traditional teaching
+  methods which often rely on passive learning, VR allows students to explore virtual worlds, perform simulations,
+  and engage in scenarios that encourage critical thinking and decision-making [S1]. A study comparing VR-based
+  learning environments to traditional classroom settings found a clear and statistically significant increase in
+  student engagement levels among those using VR [S2]. This increase is attributed to the immersive nature of the
+  technology, which fosters deeper involvement, higher motivation, and improved retention of knowledge [S3].
+
+  Qualitative data from students further supports these findings by highlighting themes such as increased
+  motivation, enjoyment, and a heightened sense of presence within the learning material [S3]. Students reported
+  feeling more motivated to participate due to the dynamic nature of VR sessions, which they found more enjoyable
+  than traditional classroom activities [S3]. Other research confirms that immersive VR significantly outperforms
+  desktop VR in terms of student motivation and sense of presence [S5]. Additionally, a meta-analysis of randomized
+  controlled studies on anatomy education found that VR improved student interest in the subject matter [S5].
+
+  Despite these positive links to engagement, several challenges affect the widespread adoption of VR in higher
+  education. The high cost of equipment and software, along with ongoing maintenance expenses, presents a
+  significant financial barrier for many institutions [S1]. Accessibility issues also arise, as not all students
+  have equal access to the necessary technology due to financial constraints or lack of infrastructure [S1].
+  Furthermore, successful implementation requires instructors to possess specific technical skills and pedagogical
+  training, which is often lacking [S1]. Other studies identify potential health risks and difficulties in adapting
+  to the technology as additional obstacles reported by students and faculty [S4].
+
+PARSED SOURCE MARKERS
+  markers found        : ['S1', 'S2', 'S3', 'S5', 'S4']
+  marker counts        : {'S1': 5, 'S2': 1, 'S3': 3, 'S5': 2, 'S4': 1}
+  invalid markers      : []
+  used sources         : ['S1', 'S2', 'S3', 'S5', 'S4']
+  supplied but unused  : ['S6']
+  sentences            : 13 total, 12 with markers
+  unmarked claims      : []
+  unmarked statements  : ['Despite these positive links to engagement, several challenges affect the widespread adoption of VR in higher education.']
+  non-evidence cites   : []
+  external findings    : []
+  quotations           : none
+  style warnings       : []
+WARNINGS
+  - evidence excluded by the context budget (budget): Exploring the Virtual Frontier: The Impact of Virtual Reality
+  - on Undergraduate Biology Education at the American University in Dubai
+  - evidence excluded by the context budget (budget): Information Technology Students' Perceptions Toward Using
+  - Virtual Reality Technology for Educational Purposes
+  - unmarked_statement: Despite these positive links to engagement, several challenges affect the widespread
+  - adoption of VR in higher education.
+
+####################################################################################################################
+EVIDENCE QUESTION 3: How is generative AI affecting academic integrity?
+####################################################################################################################
+
+STATUS: ok
+MODEL: qwen3.5:35b | prompt_version=system_v2:6ca8b9ca+user_v2:5f9685ea | prompt_sha256=80f7a40a86a711d9
+TIMING: retrieval 0.4462s + context 0.0003s + generation 1.4807s = 1.928s
+TOKENS: prompt 6171 (estimated 7415, ratio 0.832) | output 289 | 217.66 tok/s | done=stop
+CONTEXT: retrieved 8 blocks, included 8, excluded 0, ~5833/6000 tokens
+
+RETRIEVED SOURCES SUPPLIED TO THE MODEL
+  [S1] evidence citable=True chunk=ad57e51b-641e-5f80-a4c5-a0e8883d78d8
+      title   : Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the Upper East Region
+      author  : Japheth Kodua Wiredu a | year: 2024 | doi: 10.9734/ajrcos/2024/v17i7491 | pages: 1-2 | section: ABSTRACT
+      role    : literature | evidence_eligible: True | ocr: False | content_type: abstract
+      scores  : rerank=0.9996744394302368 dense=0.7274346281581205 | chars: 3597
+      excerpt:
+        With the increasing use of Generative Artificial Intelligence (AI) tools like ChatGPT and Bard, universities
+        face challenges in maintaining academic integrity. This research investigates the impact of these tools on
+        learning outcomes (factual knowledge, comprehension, critical thinking) in selected universities of Ghana's
+        Upper East Region during the 2023-2024 academic year. The study specifically analyzes changes ...
+
+  [S2] evidence citable=True chunk=dcc945d8-3fba-504f-8f9a-1a732a1b9256
+      title   : Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the Upper East Region
+      author  : Japheth Kodua Wiredu a | year: 2024 | doi: 10.9734/ajrcos/2024/v17i7491 | pages: 15-16 | section: ABSTRACT
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9983945488929749 dense=0.6995766663748582 | chars: 3792
+      excerpt:
+        1. Positive Impact on Learning and Performance: A majority of participants (64.7%) believe GenAI positively
+        affects academic performance. Students who frequently use these tools show an average GPA increase of 0.3
+        points. This positive correlation is further supported by a correlation coefficient of 0.45. (It's important
+        to note that correlation doesn't imply causation.) Briefly explaining how GenAI improves ...
+
+  [S3] evidence citable=True chunk=f031110f-6dfc-5f1e-a5ac-df3a1a526ba3
+      title   : Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the Upper East Region
+      author  : Japheth Kodua Wiredu a | year: 2024 | doi: 10.9734/ajrcos/2024/v17i7491 | pages: 13-15 | section: ABSTRACT
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9977898597717285 dense=0.7110915103790455 | chars: 3698
+      excerpt:
+        challenges in Generative AI (see Fig. 6). The majority of faculty, 56.7%, consider training on ethical AI
+        usage as highly important. The next priority, at 24.7%, is developing clear guidelines, followed by
+        fostering a culture of academic integrity, noted by 18.7%. These varying priorities illustrate the diverse
+        strategies employed by universities in managing the impact of Generative AI on academic practices. Fig. 7
+        ...
+
+  [S4] evidence citable=True chunk=96646600-7083-5130-a54a-ec016c9b6e2e
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 176 | section: 1 Understanding, Identifying, and Preventing Academic Misconduct and Ethical Dilemmas
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9888191819190979 dense=0.7075475706721736 | chars: 2849
+      excerpt:
+        The potential of AI technologies to be used for academic misconduct necessitates a robust governance
+        framework to address this concern. Developing and enforcing poli­ cies on academic integrity and ethical AI
+        use are crucial in promoting and maintaining a culture of integrity within the academic community. By
+        addressing the governance of AI head-­on, senior management can create a more conducive environment for the
+        ...
+
+  [S5] evidence citable=True chunk=e14fc117-42c4-55a3-9bce-24b2af450372
+      title   : ChatGPT and Beyond: The Generative AI Revolution in Education
+      author  : Mohammad AL-Smadi | year: 2022 | doi: None | pages: 16 | section: 5. Summary
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9883719086647034 dense=0.6756254776612427 | chars: 2496
+      excerpt:
+        Challenge Description Ensuring Accuracy and Reliability (Hallucination)
+
+        Generative AI models can generate realistic but inaccurate content, potentially causing the spread of
+        misinformation (Farrokhnia et al., 2023; Stojanov, 2023; Eysenbach et al., 2023; Tsai et al., 2023).
+        Mechanisms are needed to ensure accuracy and reliability of generated content, especially in sensitive and
+        educational contexts (Yan, 2023) ...
+
+  [S6] evidence citable=True chunk=61e52b94-f3be-51e8-8740-8f468ede9839
+      title   : A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education
+      author  : Ming Li | year: 2024 | doi: 10.4018/IJISMD.365913 | pages: 15 | section: RESULTS
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9875002503395081 dense=0.6699213343859973 | chars: 735
+      excerpt:
+        Additionally, designing AI-driven educational systems poses significant challenges, including concerns about
+        academic integrity, plagiarism, and ethical accountability. The rapid adoption of generative AI tools like
+        ChatGPT raises questions about the authenticity of student submissions and the risk of over-reliance on AI-
+        generated content. Fecher et al. (2023) highlight the need for proactive regulation and quality ...
+
+  [S7] evidence citable=True chunk=a22db4fd-4151-5e10-abaa-e29f1947b477
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 82 | section: 54 Strengths and Weaknesses in Embracing ChatGPT in Curriculum Design
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9869099259376526 dense=0.6753366247857775 | chars: 1905
+      excerpt:
+        Furthermore, although the extensive knowledge base of ChatGPT is commendable, there is a genuine risk of
+        information overload. The sheer volume of content it can generate has the potential to distract students
+        from focusing on core curriculum topics, leading them down endless tangents of information. This becomes
+        particularly problematic if students are weak in information literacy and prioritise intriguing, yet ...
+
+  [S8] evidence citable=True chunk=a1d4360a-19df-5cf4-90f7-ef7467a6901f
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 124 | section: 96 Redesigning Assessment in the AI Era
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9854995012283325 dense=0.691809298977493 | chars: 3222
+      excerpt:
+        Understanding AI’s Role in Academia: Institutions should offer AI literacy workshops or
+
+        courses that explicitly address the capabilities and limitations of AI in academic study and research. By
+        understanding what AI can and cannot do, students are better equipped to use it as a tool rather than a
+        crutch. Showcasing case studies on both positive and negative applications of AI in academic contexts can
+        help students ...
+
+RAW MODEL ANSWER (verbatim)
+  Generative AI tools present significant challenges to academic integrity by enabling potential cheating and
+  plagiarism through the generation of essays and assignments [S5]. The ease with which students can obtain detailed
+  answers from these systems risks blurring the boundaries between independent research and reliance on AI-generated
+  content [S7]. Consequently, 75% of students in a study of Ghanaian universities cited academic integrity as a
+  primary concern when using Generative AI for content generation and research assistance [S1].
+
+  To address these risks, scholars emphasize the necessity of developing clear ethical guidelines and implementing
+  advanced plagiarism detection systems capable of identifying AI-generated text [S2]. Institutions are urged to
+  establish specific policies that define misuse, such as flagging the use of AI to generate essay content as
+  dishonest while allowing its use for data analysis with proper attribution [S8]. Furthermore, there is a strong
+  call for robust governance frameworks that ensure transparency and accountability to maintain a culture of
+  integrity within the academic community [S4].
+
+  Educators also highlight the need for AI literacy programs to help students understand the capabilities and
+  limitations of these tools, thereby promoting responsible use [S2]. A majority of faculty members consider
+  training on ethical AI usage as highly important, with many advocating for assignments that foster critical
+  thinking to mitigate overreliance [S3]. Despite the potential for enhanced learning efficiency, the literature
+  suggests that without balanced strategies and regulatory frameworks, the risks to academic honesty remain
+  substantial [S6].
+
+PARSED SOURCE MARKERS
+  markers found        : ['S5', 'S7', 'S1', 'S2', 'S8', 'S4', 'S3', 'S6']
+  marker counts        : {'S5': 1, 'S7': 1, 'S1': 1, 'S2': 2, 'S8': 1, 'S4': 1, 'S3': 1, 'S6': 1}
+  invalid markers      : []
+  used sources         : ['S5', 'S7', 'S1', 'S2', 'S8', 'S4', 'S3', 'S6']
+  supplied but unused  : []
+  sentences            : 9 total, 9 with markers
+  unmarked claims      : []
+  unmarked statements  : []
+  non-evidence cites   : []
+  external findings    : []
+  quotations           : none
+  style warnings       : []
+
+####################################################################################################################
+EVIDENCE QUESTION 4: What evidence supports adaptive learning in higher education?
+####################################################################################################################
+
+STATUS: ok
+MODEL: qwen3.5:35b | prompt_version=system_v2:6ca8b9ca+user_v2:5f9685ea | prompt_sha256=04cfc2d4b529867a
+TIMING: retrieval 0.5021s + context 0.0003s + generation 1.3318s = 1.835s
+TOKENS: prompt 5571 (estimated 6821, ratio 0.817) | output 270 | 223.62 tok/s | done=stop
+CONTEXT: retrieved 8 blocks, included 6, excluded 2, ~5350/6000 tokens
+CONTEXT DROPS:
+  - budget: 060624-28.张善文+An Adaptive Learning Method Based on Knowledge Graph.docx (chunk 0d3385a0-c4ea-510b-b232-fcee23bc6470, ~866 tokens, rerank 0.4815981686115265)
+  - budget: Adaptive Learning Using Artiﬁcial Intelligence in e-Learning: A Literature Review (chunk 38b73f38-27c5-5803-8497-0ca6fd9af3c7, ~957 tokens, rerank 0.3079511821269989)
+
+RETRIEVED SOURCES SUPPLIED TO THE MODEL
+  [S1] evidence citable=True chunk=0e95273e-8081-568d-978f-c4a2400c9c04
+      title   : A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCATION
+      author  : Manuel Antonio Rodríguez Magaña | year: 2023 | doi: 10.22533/at.ed.5583332308092 | pages: 5-6 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7865409851074219 dense=0.6259760670319643 | chars: 3883
+      excerpt:
+        To adapt teaching methodologies to the learning style of students, it is important to use a variety of
+        techniques and resources, such as the presentation of verbal information, the use of graphics and images,
+        and the implementation of practical activities. Furthermore, it is important to encourage student
+        participation and provide them with feedback to improve their learning process.
+
+        Learning styles are categories ...
+
+  [S2] evidence citable=True chunk=d9542bfb-dc9b-5c5a-816b-5ff771cc1bbc
+      title   : A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCATION
+      author  : Manuel Antonio Rodríguez Magaña | year: 2023 | doi: 10.22533/at.ed.5583332308092 | pages: 3-4 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7702247500419617 dense=0.6279141886273945 | chars: 3763
+      excerpt:
+        Hybrid adaptive learning in higher secondary education is an innovative approach that seeks to provide a
+        personalized and adaptive learning experience for each student. This approach is based on collecting data
+        from students about their progress and performance, and using learning styles (Visual, Auditory,
+        Kinesthetic, among others) to provide personalized and adaptive learning content.
+
+        Hybrid adaptive learning has ...
+
+  [S3] evidence citable=True chunk=187b6f5d-5a50-56a9-a4bb-62a263256f01
+      title   : Evaluation of an adaptive tutorial supporting the teaching of mathematics
+      author  : Heather Richelle Weltman | year: 2018 | doi: 10.1080/03043797.2018.1513993 | pages: 13 | section: 4. Discussion
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.731601357460022 dense=0.6251558398156054 | chars: 3807
+      excerpt:
+        This paper extends the understanding in regards to the effective inclusion of an adaptive tutorial to
+        support teaching and learning in a mathematics higher education blended learning environment.
+
+        Previous studies indicated that ATs had been integrated into courses as mandatory learning resources, with
+        results suggesting that ATs made a noteworthy difference to students’ learning (Prusty and Russell 2011;
+        Velan et ...
+
+  [S4] evidence citable=True chunk=6dd9400d-5457-51eb-b480-995e7774b6b2
+      title   : A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCATION
+      author  : Manuel Antonio Rodríguez Magaña | year: 2023 | doi: 10.22533/at.ed.5583332308092 | pages: 6-7 | section: None
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7300237417221069 dense=0.6214501152167016 | chars: 3680
+      excerpt:
+        In conclusion, ICT, TAC and TEP are a valuable resource for the implementation of adaptive learning in upper
+        secondary education. However, certain challenges must be addressed to ensure its effectiveness and success
+        in adaptive learning.
+
+        TEACHER The role of the teacher in adaptive learning in higher secondary education is essential to ensure
+        that students achieve their learning objectives. Teachers have the ...
+
+  [S5] evidence citable=True chunk=895645b6-d3df-55c8-9cf1-da6e5499dc31
+      title   : MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review
+      author  : IOR PRESS | year: 2023 | doi: 10.54392/irjmt2351 | pages: 3-4 | section: 3.1 Personalized and Adaptive Learning
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.6182068586349487 dense=0.6358281864203965 | chars: 3710
+      excerpt:
+        One of the key benefits of AI in STEM higher education is its ability to facilitate personalized and
+        adaptive learning experiences. AI-powered learning systems can analyze vast amounts of data on student
+        performance, preferences, and learning styles to deliver tailored content and recommendations. By adapting
+        the pace, depth, and focus of instruction to individual students, AI can optimize learning outcomes and help
+        ...
+
+  [S6] evidence citable=True chunk=e18c52a5-1624-53ff-88df-612d7b7cd3ac
+      title   : 060624-28.张善文+An Adaptive Learning Method Based on Knowledge Graph.docx
+      author  : Shanwen Zhang | year: 2023 | doi: 10.25236/FER.2023.060624 | pages: 3-4 | section: 3. Summary
+      role    : literature | evidence_eligible: True | ocr: False | content_type: abstract
+      scores  : rerank=0.4932040572166443 dense=0.6512712200334321 | chars: 1784
+      excerpt:
+        Through research in the field of adaptive teaching at home and abroad, we have deeply understood and learned
+        from the adaptive teaching theories and technologies of western developed countries represented by the
+        United States, fully digested and absorbed the pedagogical theories, psychological theories and informatics
+        theories and technologies involved, and then based on the characteristics and needs of college ...
+
+RAW MODEL ANSWER (verbatim)
+  Several studies suggest that adaptive learning can improve student outcomes in higher education by personalizing
+  instruction based on individual needs and learning styles [S1,S2]. Research indicates that adaptive tutorials in
+  mathematics higher education environments have led to significant improvements in subject knowledge confidence,
+  with 98% of students reporting increased understanding [S3]. Furthermore, data from these studies show that
+  students who voluntarily used adaptive tutorials achieved higher median scores and a greater proportion of full
+  marks compared to those who did not use them [S3].
+
+  The integration of artificial intelligence in STEM higher education is also cited as a key benefit for
+  facilitating personalized learning experiences [S5]. AI systems are described as capable of analyzing vast amounts
+  of data on student performance and preferences to deliver tailored content, which helps optimize learning outcomes
+  [S5]. These systems can identify common misconceptions across groups of learners, allowing instructors to adjust
+  their teaching strategies and curriculum design accordingly [S5].
+
+  However, the literature also highlights specific challenges associated with implementing these technologies in
+  higher secondary and higher education contexts [S2,S4]. Reported obstacles include a lack of technology training
+  for teachers, the costs involved, and the need for accurate and timely feedback mechanisms [S2]. Additionally,
+  ensuring the accuracy of algorithms, addressing data biases, and protecting student privacy are noted as critical
+  ethical considerations for successful integration [S5].
+
+PARSED SOURCE MARKERS
+  markers found        : ['S1', 'S2', 'S3', 'S5', 'S4']
+  marker counts        : {'S1': 1, 'S2': 3, 'S3': 2, 'S5': 4, 'S4': 1}
+  invalid markers      : []
+  used sources         : ['S1', 'S2', 'S3', 'S5', 'S4']
+  supplied but unused  : ['S6']
+  sentences            : 9 total, 9 with markers
+  unmarked claims      : []
+  unmarked statements  : []
+  non-evidence cites   : []
+  external findings    : []
+  quotations           : none
+  style warnings       : []
+WARNINGS
+  - evidence excluded by the context budget (budget): 060624-28.张善文+An Adaptive Learning Method Based on Knowledge
+  - Graph.docx
+  - evidence excluded by the context budget (budget): Adaptive Learning Using Artiﬁcial Intelligence in e-Learning:
+  - A Literature Review
+
+####################################################################################################################
+EVIDENCE QUESTION 5: What is Design Science Research Methodology and how is it used?
+####################################################################################################################
+
+STATUS: ok
+MODEL: qwen3.5:35b | prompt_version=system_v2:6ca8b9ca+user_v2:5f9685ea | prompt_sha256=769f5f72ecf2f8c5
+TIMING: retrieval 1.1344s + context 0.0003s + generation 1.5929s = 2.73s
+TOKENS: prompt 6486 (estimated 7420, ratio 0.874) | output 331 | 224.91 tok/s | done=stop
+CONTEXT: retrieved 8 blocks, included 6, excluded 2, ~5928/6000 tokens
+CONTEXT DROPS:
+  - budget: A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda (chunk 83b09285-1e4b-5099-9d57-8542c151d914, ~1040 tokens, rerank 0.027707885950803757)
+  - budget: Design strategies for VR science and education games from an embodied cognition perspective: a literature-based meta-analysis (chunk 0332c375-9f18-557f-be7a-b05668a14e56, ~1043 tokens, rerank 0.005303433630615473)
+
+RETRIEVED SOURCES SUPPLIED TO THE MODEL
+  [S1] evidence citable=True chunk=dfc4ff10-443d-53e2-b18f-fdc1b55c0ada
+      title   : Positioning and Presenting Design Science Research for Maximum Impact
+      author  : degro | year: 2013 | doi: 10.25300/MISQ/2013/37.2.01 | pages: 1-3 | section: 262 PUBLICATIONS 32,287 CITATIONS
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.9022586345672607 dense=0.6462619421649631 | chars: 4158
+      excerpt:
+        SEE PROFILE
+
+        All content following this page was uploaded by Alan Hevner on 16 June 2015.
+
+        The user has requested enhancement of the downloaded file.
+
+        RESEARCH ESSAY
+
+        POSITIONING AND PRESENTING DESIGN SCIENCE
+
+        RESEARCH FOR MAXIMUM IMPACT1
+
+        Shirley Gregor School of Accounting & Business Information Systems, College of Business and Economics, The
+        Australian
+
+        National University, Canberra ACT 0200 AUSTRALIA ...
+
+  [S2] evidence citable=True chunk=24bb3690-a0c0-5b0f-a95e-c047a529df73
+      title   : Positioning and Presenting Design Science Research for Maximum Impact
+      author  : degro | year: 2013 | doi: 10.25300/MISQ/2013/37.2.01 | pages: 3 | section: 262 PUBLICATIONS 32,287 CITATIONS
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.8590788841247559 dense=0.6292838934103676 | chars: 3778
+      excerpt:
+        The essay aims to help researchers (1) appreciate the levels of artifact abstraction that may be DSR
+        contributions, (2) understand knowledge roles in DSR and so identify appropriate ways of consuming and
+        producing knowledge when they are preparing journal articles or other scholarly works, (3) understand and
+        position the knowledge contributions of their research projects, and (4) structure a DSR article so that ...
+
+  [S3] evidence citable=True chunk=a07dd477-55f0-53e2-8ca8-555bac21c9ae
+      title   : Positioning and Presenting Design Science Research for Maximum Impact
+      author  : degro | year: 2013 | doi: 10.25300/MISQ/2013/37.2.01 | pages: 14 | section: Background
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7576431035995483 dense=0.6165781773365628 | chars: 3898
+      excerpt:
+        quadrants in Figure 3. There were no papers that matched the “Routine Design” quadrant. As might be
+        predicted, there were also no papers that fell into the “Invention” quadrant— pure invention is valuable but
+        unfortunately rare. A surprising finding was that 10 of the 13 surveyed papers fell into the “Improvement”
+        quadrant while only 3 were in the “Exaptation” quadrant. We believe this finding to be unusual based on ...
+
+  [S4] evidence citable=True chunk=ce933356-6d8f-5e0c-be80-8ac8a940e877
+      title   : A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda
+      author  : radianti | year: 2019 | doi: 10.1016/j.compedu.2019.103778 | pages: 11-12 | section: 4.5. Classification framework for analysis
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.10833796858787537 dense=0.5888366178523055 | chars: 3556
+      excerpt:
+        4.5.2. Research design framework We used existing research design categories without proposing new ones.
+        Different authors have different ways of categorizing research designs, depending on the research
+        perspective being used. Kumar (2019), for instance, divides research based on the study results’
+        applications, the objective of the study, and the mode of enquiry used. According to Kumar (2019), research
+        can either ...
+
+  [S5] evidence citable=True chunk=0a54666b-2fa4-59f3-a7fb-0d41ec8850e8
+      title   : A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda
+      author  : radianti | year: 2019 | doi: 10.1016/j.compedu.2019.103778 | pages: 10-11 | section: 4.5. Classification framework for analysis
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.05978528410196304 dense=0.5331503611467543 | chars: 3868
+      excerpt:
+        Before beginning the coding process, we developed a concept matrix, as suggested by Webster and Watson
+        (2002), to allow us to identify the learning contents, application domains, and VR design elements in
+        relation to VR-based education. The analysis followed five steps, as can be seen in Fig. 2. A slight overlap
+        with the third stage of the manual filtering papers exists, as manual filtering and coding were performed
+        ...
+
+  [S6] evidence citable=True chunk=f0429c1c-3a8d-5e26-b4f2-dee1b8655ac0
+      title   : An evaluation of the use of Turnitin as a tool for electronic submission, marking, and feedback in higher education in South Africa: Students’ perspective
+      author  : None | year: 2022 | doi: 10.33422/etconf.v1i1.32 | pages: 5-6 | section: 3. Methodology
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.010970953851938248 dense=0.5451691902570973 | chars: 3680
+      excerpt:
+        Research methods describe tools used to collect data from a specific group of people to explain a hypothesis
+        and get definite answers (Bhatia, 2018). The researcher made use of quantitative data analysis which
+        involved collecting numerical data for the study, making it suitable to draw conclusions from data samples
+        and reach a hypothesis (Bhatia, 2018). Since quantitative analysis involves numerical data, the ...
+
+RAW MODEL ANSWER (verbatim)
+  Design Science Research (DSR) is described as an important and legitimate paradigm within Information Systems that
+  involves the construction of socio-technical artifacts such as decision support systems, modeling tools, and
+  governance strategies [S1]. The paradigm has faced challenges regarding its full potential impact due to gaps in
+  understanding and applying DSR concepts, leading to ongoing confusion about its central ideas and goals [S1].
+  Within the field, DSR is sometimes referred to by alternative labels including "systemeering," a "constructive"
+  approach, or an "engineering approach" [S2].
+
+  The methodology emphasizes that contributing to knowledge is the foremost criterion for publication, requiring
+  researchers to address whether contributions are true, new, and interesting [S2]. A key aspect of DSR is the
+  development of artifacts where the design itself is a crucial element for revealing new knowledge that would not
+  be attainable otherwise [S5]. Researchers are encouraged to position their work within specific quadrants of a
+  knowledge contribution framework, such as "Improvement" or "Exaptation," to clarify how their research advances
+  the problem and solution domains [S3].
+
+  To communicate these contributions effectively, scholars propose a publication schema that substitutes the
+  description of the DSR artifact for a traditional results section found in behavioral science papers [S3]. This
+  schema suggests that the introduction should specify the purpose and scope of the artifact, identify the class of
+  problems it addresses, and clearly state the relevance to real-world practice [S3]. The literature notes that
+  while guidance exists on presenting DSR, there is often insufficient advice on how to establish contributions to
+  generalized knowledge compared to behavioral science templates [S3].
+
+PARSED SOURCE MARKERS
+  markers found        : ['S1', 'S2', 'S5', 'S3']
+  marker counts        : {'S1': 2, 'S2': 2, 'S5': 1, 'S3': 4}
+  invalid markers      : []
+  used sources         : ['S1', 'S2', 'S5', 'S3']
+  supplied but unused  : ['S4', 'S6']
+  sentences            : 9 total, 9 with markers
+  unmarked claims      : []
+  unmarked statements  : []
+  non-evidence cites   : []
+  external findings    : []
+  quotations           : 'systemeering,' -> source ['S2'] found=True page=3; 'constructive' -> source ['S2'] found=True page=3; 'engineering approach' -> source ['S2'] found=True page=3
+  style warnings       : []
+WARNINGS
+  - evidence excluded by the context budget (budget): A systematic review of immersive virtual reality applications
+  - for higher education: Design elements, lessons learned, and research agenda
+  - evidence excluded by the context budget (budget): Design strategies for VR science and education games from an
+  - embodied cognition perspective: a literature-based meta-analysis
+
+####################################################################################################################
+MY_WORK QUESTION (evidence_plus_my_work mode): What have I already written about the historical development of AI?
+####################################################################################################################
+
+STATUS: ok
+TIMING: 2.332s | TOKENS: prompt 5895 output 341
+CONTEXT: retrieved 11, included 7 (5 evidence + 2 my_work), excluded 4, ~5281/6000 tokens
+BUDGET SPLIT (re-verified deterministically with the model replaced by a stub): 1500 tokens were reserved for non-evidence material, so the evidence phase was capped at 4500; the evidence blocks used 4298 and the two my_work blocks used 983.
+SUPPLIED SOURCES
+  [S1] evidence citable=True chunk=b746fb86-becb-5cc7-a1ea-85c9000f1219
+      title   : A Brief History of Artificial Intelligence: On the Past, Present, and Future of Artificial Intelligence
+      author  : Michael Haenlein | year: 2019 | doi: 10.1177/0008125619864925 | pages: 3-4 | section: 98 PUBLICATIONS 31,477 CITATIONS
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.8203837275505066 dense=0.5961056550481885 | chars: 4121
+      excerpt:
+        The Past: Four Seasons of AI
+
+        AI Spring: The Birth of AI
+
+        Although it is difficult to pinpoint, the roots of AI can probably be traced back to the 1940s, specifically
+        1942, when the American Science Fiction writer Isaac Asimov published his short story Runaround. The plot of
+        Runaround—a story about a robot developed by the engineers Gregory Powell and Mike Donavan—evolves around
+        the Three Laws of Robotics: (1) a ...
+
+  [S2] evidence citable=True chunk=a5c05f90-4b29-5ce1-ac87-3c7de1ffc33d
+      title   : Generative AI in Higher Education; The ChatGPT Effect
+      author  : Cecilia Ka Yuk Chan | year: 2024 | doi: None | pages: 195 | section: 168 Technology Behind GenAI
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7629358768463135 dense=0.596771643029496 | chars: 3767
+      excerpt:
+        particulars, emphasising those aspects that remain pertinent today, all while employing contemporary
+        terminology.
+
+        The history of AI research can be understood as an evolving interplay of several distinct approaches or
+        “camps”. These different approaches often reflected the diverse intellectual backgrounds of AI’s founding
+        figures and were influenced by the available technology, pre­ vailing scientific paradigms ...
+
+  [S3] evidence citable=True chunk=f0764ff7-6ff2-5f69-989d-7bf0fd5cbc02
+      title   : The Intertwined Histories of Artificial Intelligence and Education
+      author  : Shayan Doroudi | year: 2022 | doi: 10.1007/s40593-022-00313-2 | pages: 2 | section: 1 3
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.7107588648796082 dense=0.6077245974820042 | chars: 3995
+      excerpt:
+        goal of the discipline is understanding intelligent processes independent of their particular physical
+        realization. (Goldstein & Papert, 1977, pp. 84–85)
+
+        Over the past few decades, there have been numerous advances in applying artificial intelligence (AI) to
+        educational problems. As such, when people think of the intersection of artificial intelligence and
+        education, what likely comes to mind are the applications ...
+
+  [S4] evidence citable=True chunk=2ca81499-c781-5244-9150-5e1677f942d9
+      title   : Research on Improving Education Quality and Efficiency through Artificial Intelligence and Big Data Analysis
+      author  : Junting Nie | year: 2023 | doi: 10.23977/jaip.2023.060806 | pages: 2 | section: 2.1 Basic concepts and development process of artificial intelligence
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.6108839511871338 dense=0.6289026949985839 | chars: 1214
+      excerpt:
+        Artificial intelligence (AI) refers to the technology that enables machines to reason, learn, make
+        decisions, and solve problems like humans by simulating human intelligent behavior and thinking processes.
+        It covers many sub fields, such as machine learning, natural language processing, computer vision, and so
+        on. The development of artificial intelligence originated in the 1950s and has undergone multiple stages of
+        ...
+
+  [S5] evidence citable=True chunk=bf4e0fe0-b4f8-5482-97cc-8c2a467cbee6
+      title   : The Intertwined Histories of Artificial Intelligence and Education
+      author  : Shayan Doroudi | year: 2022 | doi: 10.1007/s40593-022-00313-2 | pages: 3-4 | section: 1 3
+      role    : literature | evidence_eligible: True | ocr: False | content_type: body
+      scores  : rerank=0.6036183834075928 dense=0.6376972136576623 | chars: 3445
+      excerpt:
+        International Journal of Artificial Intelligence in Education (2023) 33:885–928
+
+        elsewhere in the world. An exploration of whether researchers in other countries in the early days of AI
+        were also exploring the mutual interplay between AI and education would be an interesting area of further
+        research.
+
+        Although glimpses of this story are told in the histories of individual fields, to my knowledge, the
+        intertwined ...
+
+  [S6] my_work citable=False chunk=d821c610-ed2c-514e-bc0c-27ff4abcd06e
+      title   : None
+      author  : Konstantinos Liakopoulos | year: 2025 | doi: None | pages: None | section: 3.1 Historical Development
+      role    : my_work | evidence_eligible: False | ocr: False | content_type: body
+      scores  : rerank=0.7562997341156006 dense=0.5935017298857801 | chars: 3582
+      excerpt:
+        The mid-20th century marked the beginning of exploring and understanding AI and, eventually, its influence
+        on education. Doroudi (2022) explores the historical interconnection between AI and education and why they
+        mutually influence each other. The founders of AI were highly influenced by cognitive science, according to
+        the author, which played a very important role in the development of theories and practices ...
+
+  [S7] my_work citable=False chunk=2d174e01-74d0-51d2-80d2-2a9d51d6c93d
+      title   : None
+      author  : Konstantinos Liakopoulos | year: 2025 | doi: None | pages: None | section: None
+      role    : my_work | evidence_eligible: False | ocr: False | content_type: body
+      scores  : rerank=0.07847650349140167 dense=0.6497693956233882 | chars: 89
+      excerpt:
+        3. Historical Development and Current Role of Artificial Intelligence in Higher Education
+
+RAW MODEL ANSWER (verbatim)
+  In your draft section 3.1, you outline a four-phase model for the historical development of AI, noting that these
+  phases are based on key technology changes and shifts in teaching methods [S6]. You identify the initial stage in
+  the 1950s as a period where foundational advancements in computer science and cognition were made to model human
+  thinking and problem-solving [S6]. Your text states that early AI research focused on laying the foundations of
+  understanding human intelligence rather than creating practical educational tools, with systems in this era being
+  mainly rule-based [S6].
+
+  You further describe the advancement of computational power from the 1980s to the 1990s as a driver for the surge
+  in AI research that gave birth to Intelligent Tutoring Systems (ITS) [S6]. According to your writing, this period
+  saw Sleeman and Brown emphasize the interdisciplinary nature of ITS systems, which should incorporate insights
+  from cognitive science, psychology, and computer science [S6]. You also note that the following decade marked a
+  shift toward machine learning, leading researchers to explore its potential in education [S6].
+
+  Your draft continues by stating that the dawn of big data and internet proliferation at the turn of the 21st
+  century allowed AI systems to access vast volumes of educational data [S6]. You attribute the catalysis of ITS
+  development during this time to the transformation of the Web into Web 2.0, which enabled collaboration and social
+  interaction capabilities [S6]. Finally, you record that the last decade has witnessed growing interest in applying
+  AI within higher education, driven by breakthroughs in natural language algorithms and generative AI applications
+  like ChatGPT [S6].
+
+MARKERS: ['S6'] | invalid [] | unmarked claims 0 | non-evidence citations 0 | allowed own-work reports 9
+The own-work reports are the intended use of my_work context: every sentence that cites only the author's draft is framed as a report about that draft ('your draft states ...'), which is why the checker records them as reports rather than as citations of non-evidence material. No sentence presents the draft as evidence about the world.
+
+####################################################################################################################
+INSUFFICIENT-EVIDENCE QUESTIONS (§27)
+####################################################################################################################
+
+THIN QUESTION 1: What did the 2024 OECD report conclude about quantum computing in primary schools?
+STATUS: insufficient_evidence
+CONTEXT: 6 blocks, ~5630 tokens | TOKENS: prompt 6127 output 131
+RAW MODEL ANSWER (verbatim)
+  The retrieved evidence does not provide enough support to answer this confidently because none of the supplied
+  sources discuss quantum computing in primary schools. The available literature focuses on artificial intelligence
+  and virtual reality technologies rather than quantum computing [S1,S2,S3,S4,S5,S6]. Specifically, the 2024 OECD
+  report cited in the sources addresses equity and inclusion regarding AI-powered education tools and digital
+  resource disparities [S1]. It also outlines general guidance for policymakers on AI integration but contains no
+  findings on quantum computing applications in primary education [S4]. Consequently, there is no information within
+  the provided text to describe conclusions about quantum computing in this context.
+
+MARKERS: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'] | invalid [] | unmarked claims 0 | non-evidence citations 0
+
+THIN QUESTION 2: How many universities in Bolivia adopted an AI ethics policy in 2025?
+STATUS: insufficient_evidence
+CONTEXT: 6 blocks, ~5460 tokens | TOKENS: prompt 6072 output 101
+RAW MODEL ANSWER (verbatim)
+  The retrieved evidence does not provide enough support to answer this confidently. The available sources discuss
+  AI ethics policies in various countries such as China, the United States, and the European Union, but do not
+  mention Bolivia [S6]. Furthermore, the literature covers developments up to 2024 and does not contain data
+  regarding university adoption rates for the year 2025 [S1,S3,S5]. No specific statistics or case studies
+  concerning Bolivian universities are present in the provided texts.
+
+MARKERS: ['S6', 'S1', 'S3', 'S5'] | invalid [] | unmarked claims 0 | non-evidence citations 0
+
+THIN QUESTION 3: What does the corpus say about the feeding habits of Antarctic krill?
+STATUS: insufficient_evidence
+CONTEXT: 6 blocks, ~5413 tokens | TOKENS: prompt 6376 output 114
+RAW MODEL ANSWER (verbatim)
+  The provided sources do not contain information regarding the feeding habits of Antarctic krill. The retrieved
+  evidence discusses benchmarks for machine reasoning such as ARC and OpenBookQA [S1,S2], describes university
+  course structures in veterinary science and photography [S3], analyzes preschool daily plans including science
+  activities [S4], reports on cognitive load and behavior change in VR studies involving fruit and vegetable
+  consumption [S5], and compares the factual accuracy of various chatbots on literature and art topics [S6].
+  Consequently, the retrieved evidence does not provide enough support to answer this confidently.
+
+MARKERS: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'] | invalid [] | unmarked claims 0 | non-evidence citations 0
+
+THIN QUESTION 4: Which specific dataset did the authors of the 2019 study use, and how many records did it contain?
+STATUS: insufficient_evidence
+CONTEXT: 6 blocks, ~5193 tokens | TOKENS: prompt 7407 output 196
+RAW MODEL ANSWER (verbatim)
+  The provided sources do not contain information about a specific study from 2019 that details its dataset and
+  record count in the manner requested. Source S2 mentions the LLFF dataset from 2019, noting it includes
+  approximately 20 to 62 images per scene, but does not provide a total record count for the entire study [S2].
+  Source S5 references a 2019 study by Hofmann et al., but describes its focus on neural topics rather than listing
+  specific dataset sizes [S5]. While other sources discuss datasets from different years, such as ASSISTments2009
+  with 325,637 records in 2017 or xAPI-Edu-Data with 480 students in 2025, none match the criteria for a 2019 study
+  [S1,S6]. Consequently, the retrieved evidence does not provide enough support to answer this confidently.
+
+MARKERS: ['S2', 'S5', 'S1', 'S6'] | invalid [] | unmarked claims 0 | non-evidence citations 0
+
+THIN QUESTION 5: What is the exact wording of the European Commission's 2026 directive on AI in doctoral supervision?
+STATUS: insufficient_evidence
+CONTEXT: 6 blocks, ~5781 tokens | TOKENS: prompt 6193 output 139
+RAW MODEL ANSWER (verbatim)
+  The retrieved evidence does not contain any mention of a European Commission directive on AI in doctoral
+  supervision scheduled for 2026. The available documents discuss the general "Artificial Intelligence Act" and its
+  risk-based classification framework rather than specific directives for doctoral supervision [S2,S4]. While one
+  source notes that the AI HLEG produced guidelines for educators in 2022, it does not reference a 2026 directive
+  regarding doctoral training [S5]. The texts focus on broader regulatory frameworks for high-risk systems and
+  general ethical guidelines rather than sector-specific rules for supervision [S1,S3]. Consequently, the sources do
+  not provide enough support to answer this question confidently.
+
+MARKERS: ['S2', 'S4', 'S5', 'S1', 'S3'] | invalid [] | unmarked claims 0 | non-evidence citations 0
