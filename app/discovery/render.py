@@ -133,6 +133,18 @@ def format_audit(audit: DiscoveryAudit, *, verbose: bool = True) -> str:
     return "\n".join(lines)
 
 
+def group_records(
+    records: Iterable[ExternalWork],
+) -> tuple[list[ExternalWork], list[ExternalWork], list[ExternalWork], list[ExternalWork]]:
+    """Public wrapper for :func:`_group`: already-have / verified-new / discovery-only /
+    conflicts.
+
+    RAG-013's RESEARCH mode needs the same four-way split, and one implementation of a
+    grouping rule is better than two that agree until one of them is changed.
+    """
+    return _group(records)
+
+
 def _group(records: Iterable[ExternalWork]) -> tuple[list[ExternalWork], list[ExternalWork], list[ExternalWork], list[ExternalWork]]:
     """Split records into already-have / verified-new / discovery-only / conflicts."""
     already: list[ExternalWork] = []

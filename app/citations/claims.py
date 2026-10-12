@@ -165,8 +165,17 @@ def content_terms(text: str) -> frozenset[str]:
     names, which the citation rule above may not catch on its own. The same rules apply to
     the claim and to the source text, so the comparison stays symmetric.
     """
+    return frozenset(canonical for canonical, _ in content_tokens(text))
+
+
+def content_tokens(text: str) -> tuple[tuple[str, str], ...]:
+    """``(canonical term, surface token)`` for every content word of ``text``.
+
+    Comparisons use the canonical form; a report shows the surface token, so a reader sees
+    ``analysis`` rather than the stem ``analysi``.
+    """
     subject = _CITATION_RE.sub(" ", text or "")
-    terms: set[str] = set()
+    tokens: list[tuple[str, str]] = []
     for match in _WORD_RE.finditer(subject):
         token = match.group(0)
         lowered = token.casefold().replace("-", "")
@@ -176,8 +185,8 @@ def content_terms(text: str) -> frozenset[str]:
             continue
         if token[:1].isupper() and not _is_sentence_initial(subject, match.start()):
             continue
-        terms.add(term(lowered))
-    return frozenset(terms)
+        tokens.append((term(lowered), lowered))
+    return tuple(tokens)
 
 
 def _is_sentence_initial(text: str, index: int) -> bool:

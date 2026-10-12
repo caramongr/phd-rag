@@ -1,0 +1,231 @@
+====================================================================================================================
+RAG-014 UI validation: the five modes through the real interface, in a real browser
+====================================================================================================================
+
+METHOD
+  The interface was started with one command and driven in the integrated browser, against
+  the real pipeline: the real corpus index (phd_rag_chunks_v1, 11,469 points), the real local
+  model (qwen3.5:35b through Ollama 0.35.1) and the real external providers (Crossref,
+  OpenAlex). Every finding below comes from the rendered page (the DOM a person sees), not
+  from the API alone; the API-level evidence is in docs/rag013-mode-validation.txt.
+
+  command : python -m app.web --port 8014          (default port is 8000)
+  url     : http://127.0.0.1:8014/
+  browser : Chromium through the editor's browser integration; screenshots in
+            docs/rag014-screenshots/
+
+  What each run was checked against: §6 (Evidence/Writing output), §7 (Consistency findings),
+  §8 (Supervisor labels), §9 (Research separation), §12 (copy), §15 (status), §16 (friendly
+  errors), §17 (escaping).
+
+--------------------------------------------------------------------------------------------------------------------
+1. STATUS AREA (§15)
+--------------------------------------------------------------------------------------------------------------------
+
+  At page load, before any run (a temporary Qdrant client is opened, counted and closed):
+
+    Ollama 0.35.1 · qwen3.5:35b · phd_rag_chunks_v1 · 11,469 points
+
+  After a run in the same process (the pipeline's own client is reused):
+
+    Ollama 0.35.1 · qwen3.5:35b · phd_rag_chunks_v1 · 11,469 points
+
+  /api/status after the run:
+    available=true, reused_client=true, busy=false, points=11469, error=null
+  /api/status latency: 0.02 s. No model is loaded to answer it (asserted by
+  tests/test_web_status.py::test_status_endpoint_does_not_build_the_pipeline, which checks
+  the service factory was never called).
+
+--------------------------------------------------------------------------------------------------------------------
+2. EVIDENCE — "What is AI governance in higher education?"
+--------------------------------------------------------------------------------------------------------------------
+
+  Rendered: title "Validated answer"
+            meta   "mode: evidence · status: ok · 12.1129s · 12 claims (12 supported) · 8 local sources"
+            sections: Warnings (1) + References (3) + EVIDENCE (may support scholarly claims)
+                      + Claim by claim (12)
+
+  Answer (first sentence, as rendered):
+    "AI governance in higher education refers to the responsibility of senior management to
+     formulate policies, establish ethical guidelines, and provide overall institutional
+     direction for AI integration (Chan, 2024)."
+    ... 12 Harvard in-text citations, no [Sx] marker anywhere in the validated answer. The
+    RAG-011 answer with its markers is preserved inside the collapsed panel
+    "Original generated answer (before validation)".
+
+  References (3, deduplicated, one entry per work):
+    1. Chan, C.K.Y. (2024) 'Generative AI in Higher Education; The ChatGPT Effect', pp. 175-176.
+       [metadata_warning: missing_doi]
+    2. PRESS, I. (2023) 'MULTIDISCIPLINARY TECHNOVATION ...', pp. 15-16. doi:10.54392/irjmt2351
+    3. Singh, V.V. (2024) 'Assessment of AI-based digital learning systems ...', pp. 2-3.
+       doi:10.21203/rs.3.rs-3828524/v1
+
+  Warnings (1): reference_metadata_warning (missing_doi).
+
+  Sources panel (§6): 8 cards, every one badged "evidence (role=evidence)", 0 non-citable.
+  Each card shows title, author, year, pages, section, DOI where present, corpus role,
+  evidence yes/no, OCR flag when set, and a text preview. Expanding the first card (§11):
+
+    chunk id 0d436a0f-84cc-5811-a67e-1f94f7c39d4c | document id 03978b38-e55f-54c6-9845-bd7cf847e959
+    file Generative-ai-higher-education-book.pdf | corpus role literature | evidence eligible true
+    role in this mode evidence | retrieval mode evidence | content type body
+    dense score 0.6833530469692191 | rerank score 0.9480522274971008 | pages 175-176
+    section 148 Developing an AI in Education Policy
+
+  Validation panel: claims 12, supported 12, withheld 0, markers replaced 12, references 3,
+  plus 12 claim cards with verdict, method, confidence, citation and per-source coverage.
+
+  Verdict: §6 and §12 met. Screenshot: docs/rag014-screenshots/01-evidence.png
+
+--------------------------------------------------------------------------------------------------------------------
+3. WRITING — "Write a short PhD paragraph on AI governance in higher education."
+--------------------------------------------------------------------------------------------------------------------
+
+  Rendered: title "Validated draft"
+            meta   "mode: writing · status: ok · 2.516s · 9 claims (9 supported) · 8 local sources"
+            sections: Warnings (8) + References (2) + EVIDENCE (may support scholarly claims)
+                      + CONTEXT ONLY (never cited) + RULES / GUIDANCE (instructions only)
+                      + Claim by claim (9)
+
+  Answer: 9 cited sentences, "(Chan, 2024)" and "(Singh, 2024)".
+
+  Sources panel: 8 cards — 6 "evidence (role=evidence)" and 2 "not evidence"
+  (one role=context_only, the draft; one role=instructions_only, the rules). The citation map
+  contains no non-citable source id.
+
+  Notice (rendered above the result, level warning):
+    "Some evidence did not fit the context budget — the most relevant sources were used; the
+     ones listed in the warnings were dropped because the model's context is finite."
+    Technical details (collapsed): the eight warnings, including
+    "your draft and the rules entered the context as non-citable material; they are never cited".
+
+  Verdict: §3 met — literature is evidence, the draft and the rules are context and are never
+  cited. Screenshot: docs/rag014-screenshots/02-writing.png
+
+--------------------------------------------------------------------------------------------------------------------
+4. CONSISTENCY — "Compare my treatment of AI governance with the literature."
+--------------------------------------------------------------------------------------------------------------------
+
+  Rendered: title "Consistency findings"
+            meta   "mode: consistency · status: ok · 1.3752s · 15 local sources"
+            groups: Terminology (2) + Unsupported claims (12) + Style (5) = 19 finding cards
+            references: 0     validation panel: "This mode does not validate citations."
+
+  Each finding card shows its description, the draft excerpt, the literature excerpt where
+  relevant, the method, and the chunks it rests on. The unsupported-claims group carries the
+  required caveat, rendered above the cards:
+    "'Unsupported' here means no match was found in the retrieved literature — it is not a
+     statement that the claim is false. Widen the retrieval before rewriting anything."
+
+  Source roles in the sources panel: 6 "evidence (role=evidence)" and 9 "not evidence"
+  (subject / your own work / rules). The draft is the subject of the comparison, never
+  evidence, and nothing is rewritten for the author.
+
+  Verdict: §7 met. Screenshot: docs/rag014-screenshots/03-consistency.png
+
+--------------------------------------------------------------------------------------------------------------------
+5. SUPERVISOR — "What guidance do I have about methodology?"
+--------------------------------------------------------------------------------------------------------------------
+
+  Rendered: title "Supervision and guidance (not evidence)"
+            meta   "mode: supervisor · status: ok · 0.6301s · 12 local sources"
+            section "SUPERVISION / GUIDANCE (labelled, never cited)"
+            banner  "Supervision, guidance and rules material. This is your own scaffolding: it
+                     is not scholarly evidence, it is never cited, and it cannot support a claim
+                     about the literature."
+
+  12 excerpt cards, each labelled with its corpus role — the labels seen on the cards:
+    [supervision], [future_chapters], [guidance], [rules]
+  Each card shows the file, the section, the pages when present and the excerpt; every card is
+  badged "not evidence (role=guidance_only)". Evidence badges on the page: 0. References: 0.
+  Warnings: 1 ("supervision and guidance material ... is never cited").
+
+  Verdict: §8 met. Screenshot: docs/rag014-screenshots/04-supervisor.png
+
+--------------------------------------------------------------------------------------------------------------------
+6. RESEARCH — "Find recent papers about AI governance in universities."
+--------------------------------------------------------------------------------------------------------------------
+
+  Rendered: title "Local and external results"
+            meta   "mode: research · status: ok · 1.0847s · 6 local sources · 20 external records"
+
+  All five sections are rendered, in the mode's own order, and the empty ones say so instead
+  of disappearing (§9) — three of them were empty in this run and each shows "(none)":
+
+    LOCAL EVIDENCE          ranked chunks from your corpus (RAG-009)          — 6 cards
+    NEW EXTERNAL PAPERS     not in your corpus; metadata only, never evidence — (none)
+    ALREADY IN CORPUS       the corpus already has these works                — (none)
+    POSSIBLE MATCHES        identity not verified, or the providers disagree  — 20 cards
+    CONFLICTS               the providers contradict each other               — (none)
+
+  External card (example, first record): title "Mapping generative AI governance readiness in
+  Kurdistan Region universities", authors "Akam Aziz Abdulrahman, Sirwan Khalid Ahmed",
+  year 2026, venue "Discover Education", publisher "Springer Science and Business Media LLC",
+  doi:10.1007/s44217-026-02242-x, providers "crossref", status "EXTERNAL_DISCOVERY",
+  "open access unknown", "full text: FULLTEXT_OPEN", abstract preview, and the provenance
+  panel (local match kind, local document is evidence, identity confidence, relevance score,
+  usable as evidence = false, fulltext verified).
+
+  Prominence (§9): 20 cards badged "NOT IN LOCAL CORPUS" (0 "ALREADY IN CORPUS") and 20 badged
+  "metadata only — never evidence". Local cards are badged "evidence (role=evidence)". No
+  external record is marked usable as evidence, and nothing is generated or cited.
+
+  Verdict: §9 met. Screenshot: docs/rag014-screenshots/05-research.png
+
+--------------------------------------------------------------------------------------------------------------------
+7. THE CONTROLS (§10, §12, §16, §17)
+--------------------------------------------------------------------------------------------------------------------
+
+  Main screen       mode selector (5 modes) + description, large input box, Run, Clear,
+                    loading indicator with the mode name, answer panel. All present and used
+                    for every run above.
+  Advanced options  collapsed by default; opening it shows exactly: answer length,
+                    candidate_k, final_k, rerank, year_min, year_max, "open the audit panel".
+                    Options that do not apply to the selected mode are hidden.
+                    Proof that they reach the pipeline: with candidate_k=8 the audit panel
+                    showed "candidate_k": 8 in audits.retrieval.local (default is 25).
+  Copy buttons      "Copy answer + references" reported "copied" (clipboard write on
+                    localhost). Formatting is preserved because the text is copied verbatim.
+  Empty input       submitting only spaces produced a warning notice ("Type a question or
+                    paste some text first ...") and no request.
+  Escaping          a query of <img src=x onerror="window.__xss=1"><script>window.__xss=2
+                    </script> ai governance was rendered as visible text: window.__xss stayed
+                    undefined, and the page contained 0 injected img or script elements.
+  Error shapes      (live HTTP against the running server)
+                    backwards year range  → 422 {"kind":"invalid_request",
+                                               "detail":"options: Value error, year_min must
+                                                         not be later than year_max"}
+                    empty query           → 422 "query: Value error, the query is empty"
+                    unknown mode          → 422 "mode: Input should be 'evidence', 'writing',
+                                                          'consistency', 'supervisor' or 'research'"
+                    unknown option        → 422 "options.temperature: Extra inputs are not permitted"
+                    Every failure leaves the API as JSON with a readable title and detail; the
+                    served page and the API were both reachable while /health answered.
+
+  Failures that cannot be produced without breaking the machine are covered by tests instead
+  (tests/test_web_api.py, tests/test_web_status.py): a missing Ollama model, an unreachable
+  Ollama, a locked Qdrant store, a provider outage, no results, insufficient evidence and a
+  generation timeout each produce their own friendly notice with the technical detail kept in
+  the collapsed debug panel.
+
+--------------------------------------------------------------------------------------------------------------------
+8. SUMMARY
+--------------------------------------------------------------------------------------------------------------------
+
+  mode        status  s      local  external  references  warnings  non-citable cited   §     verdict
+  evidence    ok      12.11  8      0         3           1         0                  §2/6  met
+  writing     ok      2.52   8      0         2           8         0                  §3/6  met
+  consistency ok      1.38   15     0         0           0         0                  §4/7  met
+  supervisor  ok      0.63   12     0         0           1         0                  §5/8  met
+  research    ok      1.08   6      20        0           0         0                  §6/9  met
+
+  Every mode ran end to end in the browser, produced its own output shape, kept non-citable
+  material non-citable, never cited an external record, and rendered nothing as markup.
+  All 1,054 tests pass; the UI starts with one command.
+
+OPERATIONAL NOTE
+  A local Qdrant store can be held by one client per process, so the UI and a CLI run cannot
+  both open the same index directory at the same time. This was observed while validating:
+  with the UI server running, a CLI test that opens the store failed on the lock and passed
+  again as soon as the server stopped. Start the UI when you want the UI, and use the CLI when
+  you want the CLI (or point one of them at a Qdrant server).

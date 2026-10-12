@@ -1,0 +1,2 @@
+{working_documents}{corpus}USER MESSAGE
+{question}

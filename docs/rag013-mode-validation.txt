@@ -1,0 +1,631 @@
+====================================================================================================================
+RAG-013 mode validation: five modes, real corpus, real model, real discovery
+====================================================================================================================
+METHOD
+  Every mode below was run through the real pipeline in one process:
+    EVIDENCE / WRITING : RAG-009 retrieval -> RAG-011 generation -> RAG-012 validation
+    CONSISTENCY        : RAG-009 retrieval (my_work + literature + rules) -> deterministic
+                         comparison (no model is asked to judge the author's text)
+    SUPERVISOR         : RAG-009 retrieval (supervision + guidance) -> labelled excerpts
+    RESEARCH           : RAG-009 local retrieval + RAG-010 discovery, kept separate
+  The retrieval path is RAG-009 in every mode (bibliography guard active), the local
+  model is qwen3.5:35b through Ollama, and external records come from Crossref /
+  OpenAlex through RAG-010's cache and provider etiquette.
+
+====================================================================================================================
+EVIDENCE: What is AI governance in higher education?
+====================================================================================================================
+REQUIREMENT (§12): Must produce a validated Harvard-cited answer.
+
+RESULT SUMMARY
+  mode             : evidence
+  status           : ok
+  query            : What is AI governance in higher education?
+  retrieval        : evidence
+  generation       : yes (ok)
+  citation check   : yes
+  output style     : validated_answer
+  local sources    : 8 (8 evidence, 0 non-citable)
+  external records : 0
+  warnings         : 1
+  seconds          : 13.2764
+  claims           : 12 (supported 12, partial 0, unsupported 0, uncertain 0, withheld 0)
+  citations        : 12 written, 3 references, 1 with metadata warnings
+  quotations/num.  : 0 quoted (0 not found), 0 figures (0 absent)
+
+SAFETY
+  non-citable local sources cited        : 0 []
+  external records used as evidence      : 0
+  local blocks outside the declared roles: 0
+  withheld claims                        : 0
+  citations carry a chunk id             : 5/5
+  internal markers left in the answer    : 0
+
+VALIDATED ANSWER
+AI governance in higher education refers to the responsibility of senior management to formulate policies, establish ethical guidelines, and provide overall institutional direction for AI integration (Chan, 2024). This dimension focuses on ensuring that institutions operate within legal and ethical boundaries while striving for academic excellence and integrity (Chan, 2024). Senior management plays a crucial role in understanding, identifying, and preventing academic misconduct and ethical dilemmas related to AI use (Chan, 2024).
+
+Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and security (Chan, 2024). It involves establishing clear guidelines for the proper attribution of AI-generated content to promote academic honesty and clarity (Chan, 2024). Governance also necessitates implementing measures to ensure equitable access to AI technologies, thereby preventing the exacerbation of existing inequalities among students (Chan, 2024).
+
+The ethical and sustainable development of artificial intelligence depends on good governance, which includes creating standards that are helpful to human society (Singh, 2024). Policymakers and institutions must develop data governance frameworks that protect student privacy and safeguard sensitive data through clear rules on collection and usage (PRESS, 2023). Without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible (Singh, 2024).
+
+Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the successful integration of AI (Chan, 2024). A robust governance framework allows senior management to create a conducive environment for the ethical use of AI, mitigating risks associated with academic misconduct (Chan, 2024). Ultimately, these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the academic community (Chan, 2024).
+
+ORIGINAL GENERATED ANSWER
+AI governance in higher education refers to the responsibility of senior management to formulate policies, establish ethical guidelines, and provide overall institutional direction for AI integration [S1]. This dimension focuses on ensuring that institutions operate within legal and ethical boundaries while striving for academic excellence and integrity [S1]. Senior management plays a crucial role in understanding, identifying, and preventing academic misconduct and ethical dilemmas related to AI use [S1].
+
+Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and security [S5]. It involves establishing clear guidelines for the proper attribution of AI-generated content to promote academic honesty and clarity [S5]. Governance also necessitates implementing measures to ensure equitable access to AI technologies, thereby preventing the exacerbation of existing inequalities among students [S5].
+
+The ethical and sustainable development of artificial intelligence depends on good governance, which includes creating standards that are helpful to human society [S2]. Policymakers and institutions must develop data governance frameworks that protect student privacy and safeguard sensitive data through clear rules on collection and usage [S6]. Without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible [S2].
+
+Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the successful integration of AI [S3]. A robust governance framework allows senior management to create a conducive environment for the ethical use of AI, mitigating risks associated with academic misconduct [S5]. Ultimately, these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the academic community [S5].
+
+REFERENCES
+  1. Chan, C.K.Y. (2024) 'Generative AI in Higher Education; The ChatGPT Effect', pp. 175-176. [metadata_warning: missing_doi]
+  2. PRESS, I. (2023) 'MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review', pp. 15-16. doi:10.54392/irjmt2351
+  3. Singh, V.V. (2024) 'Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy', pp. 2-3. doi:10.21203/rs.3.rs-3828524/v1
+
+CLAIM VALIDATION
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       AI governance in higher education refers to the responsibility of senior management to formulate policies, establish eth
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (59% best sentence)
+       - [S1] SUPPORTED single=0.5882 union=0.8824
+       [S1] -> (Chan, 2024)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       This dimension focuses on ensuring that institutions operate within legal and ethical boundaries while striving for acad
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.8333 union=0.9167
+       [S1] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S1
+       Senior management plays a crucial role in understanding, identifying, and preventing academic misconduct and ethical dil
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.7857
+       [S1] -> (Chan, 2024)
+    4. claim              SUPPORTED           method=lexical_single_sentence confidence=0.768 sources=S5
+       Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and security
+       reason: the cited evidence contains 73% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=0.7273
+       [S5] -> (Chan, 2024)
+    5. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       It involves establishing clear guidelines for the proper attribution of AI-generated content to promote academic honesty
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=1.0
+       [S5] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S5
+       Governance also necessitates implementing measures to ensure equitable access to AI technologies, thereby preventing the
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S5] SUPPORTED single=0.3571 union=0.7857
+       [S5] -> (Chan, 2024)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S2
+       The ethical and sustainable development of artificial intelligence depends on good governance, which includes creating s
+       reason: the cited evidence contains 100% of the claim's content terms; its content is spread over the cited passages (57% best sentence)
+       - [S2] SUPPORTED single=0.5714 union=1.0
+       [S2] -> (Singh, 2024)
+    8. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S6
+       Policymakers and institutions must develop data governance frameworks that protect student privacy and safeguard sensiti
+       reason: the cited evidence contains 93% of the claim's content terms; a single cited sentence carries it
+       - [S6] SUPPORTED single=0.6 union=0.9333
+       [S6] -> (PRESS, 2023)
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S2
+       Without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S2] SUPPORTED single=1.0 union=1.0
+       [S2] -> (Singh, 2024)
+   10. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S3
+       Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the succes
+       reason: the cited evidence contains 90% of the claim's content terms; a single cited sentence carries it
+       - [S3] SUPPORTED single=0.9 union=0.9
+       [S3] -> (Chan, 2024)
+   11. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       A robust governance framework allows senior management to create a conducive environment for the ethical use of AI, miti
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6875 union=0.9375
+       [S5] -> (Chan, 2024)
+   12. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Ultimately, these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the acade
+       reason: the cited evidence contains 91% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.8182 union=0.9091
+       [S5] -> (Chan, 2024)
+
+SOURCES AND ROLES
+SOURCES
+  EVIDENCE (may support scholarly claims)
+    - 0d436a0f-84cc-5811-a67e-1f94f7c39d4c | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.175-176 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - b95a5823-d334-5daa-a901-5ef91bf0408d | Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pa | Vikrant Vikram Singh | 2024 | p.2-3 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 3197051d-3c9b-5141-8363-7052d371f7e5 | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.178 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 9b9a6ef3-587a-56a9-b680-318927487cb4 | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.9 (role=literature, evidence=True, used_as=evidence, via=evidence, type=conclusion)
+    - 96646600-7083-5130-a54a-ec016c9b6e2e | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.176 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - c40e3e45-6687-57e8-a5b2-d4dfd646a493 | MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education | IOR PRESS | 2023 | p.15-16 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 6b8dded2-0564-5fc7-8891-f8772fd70f74 | MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education | IOR PRESS | 2023 | p.16 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 84e9f7c6-92c2-5299-bf48-da625a695055 | The Impact of Artificial Intelligence on Higher Education in England | Hengameh Karimi | 2023 | p.1 (role=literature, evidence=True, used_as=evidence, via=evidence, type=abstract)
+
+WARNINGS
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+
+====================================================================================================================
+WRITING: Write a short PhD paragraph on AI governance in higher education.
+====================================================================================================================
+REQUIREMENT (§12): Must use literature as evidence, my_work/rules only as context.
+
+RESULT SUMMARY
+  mode             : writing
+  status           : ok
+  query            : Write a short PhD paragraph on AI governance in higher education.
+  retrieval        : evidence
+  generation       : yes (ok)
+  citation check   : yes
+  output style     : validated_answer
+  local sources    : 8 (6 evidence, 2 non-citable)
+  external records : 0
+  warnings         : 8
+  seconds          : 2.4793
+  claims           : 9 (supported 9, partial 0, unsupported 0, uncertain 0, withheld 0)
+  citations        : 9 written, 2 references, 1 with metadata warnings
+  quotations/num.  : 0 quoted (0 not found), 0 figures (0 absent)
+
+SAFETY
+  non-citable local sources cited        : 0 []
+  external records used as evidence      : 0
+  local blocks outside the declared roles: 0
+  withheld claims                        : 0
+  citations carry a chunk id             : 4/4
+  internal markers left in the answer    : 0
+
+VALIDATED ANSWER
+AI governance in higher education is framed as a critical dimension requiring senior management to establish ethical guidelines and institutional direction for AI integration (Chan, 2024). This governance role involves understanding, identifying, and preventing academic misconduct while addressing data privacy, transparency, accountability, and security concerns (Chan, 2024). Effective governance frameworks are considered essential for promoting a culture of integrity and mitigating risks associated with the misuse of AI technologies in academic settings (Chan, 2024).
+
+Specific governance actions include establishing clear guidelines for attributing AI-generated content to foster transparency and honesty among students and staff (Chan, 2024). Ensuring equitable access to AI resources is also identified as a crucial governance measure to prevent the exacerbation of existing inequalities among students (Chan, 2024). The literature suggests that without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible (Singh, 2024).
+
+Successful AI policy formulation relies on collaboration among all stakeholders, including universities, teachers, students, and external quality assurance bodies (Chan, 2024). This collaborative approach aims to harmonize pedagogical, governance, and operational dimensions to ensure ethical integration aligned with broader educational goals (Chan, 2024). However, the evidence indicates that issues such as instructors' employability and the moral ramifications of AI often receive insufficient attention despite its expanding use (Singh, 2024).
+
+ORIGINAL GENERATED ANSWER
+AI governance in higher education is framed as a critical dimension requiring senior management to establish ethical guidelines and institutional direction for AI integration [S1]. This governance role involves understanding, identifying, and preventing academic misconduct while addressing data privacy, transparency, accountability, and security concerns [S1,S2]. Effective governance frameworks are considered essential for promoting a culture of integrity and mitigating risks associated with the misuse of AI technologies in academic settings [S2].
+
+Specific governance actions include establishing clear guidelines for attributing AI-generated content to foster transparency and honesty among students and staff [S2]. Ensuring equitable access to AI resources is also identified as a crucial governance measure to prevent the exacerbation of existing inequalities among students [S2]. The literature suggests that without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible [S4].
+
+Successful AI policy formulation relies on collaboration among all stakeholders, including universities, teachers, students, and external quality assurance bodies [S5]. This collaborative approach aims to harmonize pedagogical, governance, and operational dimensions to ensure ethical integration aligned with broader educational goals [S5]. However, the evidence indicates that issues such as instructors' employability and the moral ramifications of AI often receive insufficient attention despite its expanding use [S4].
+
+REFERENCES
+  1. Chan, C.K.Y. (2024) 'Generative AI in Higher Education; The ChatGPT Effect', pp. 175-176. [metadata_warning: missing_doi]
+  2. Singh, V.V. (2024) 'Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy', pp. 2-3. doi:10.21203/rs.3.rs-3828524/v1
+
+CLAIM VALIDATION
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_single_sentence confidence=0.77 sources=S1
+       AI governance in higher education is framed as a critical dimension requiring senior management to establish ethical gui
+       reason: the cited evidence contains 73% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6 union=0.7333
+       [S1] -> (Chan, 2024)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1,S2
+       This governance role involves understanding, identifying, and preventing academic misconduct while addressing data priva
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6667 union=0.9333
+       - [S2] SUPPORTED single=0.4 union=0.7333
+       [S1,S2] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.75 sources=S2
+       Effective governance frameworks are considered essential for promoting a culture of integrity and mitigating risks assoc
+       reason: the cited evidence contains 67% of the claim's content terms; its content is spread over the cited passages (27% best sentence)
+       - [S2] SUPPORTED single=0.2667 union=0.6667
+       [S2] -> (Chan, 2024)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.764 sources=S2
+       Specific governance actions include establishing clear guidelines for attributing AI-generated content to foster transpa
+       reason: the cited evidence contains 71% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S2] SUPPORTED single=0.3571 union=0.7143
+       [S2] -> (Chan, 2024)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.781 sources=S2
+       Ensuring equitable access to AI resources is also identified as a crucial governance measure to prevent the exacerbation
+       reason: the cited evidence contains 77% of the claim's content terms; its content is spread over the cited passages (46% best sentence)
+       - [S2] SUPPORTED single=0.4615 union=0.7692
+       [S2] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S4
+       The literature suggests that without sound ethical standards and principles, the smooth implementation of AI in this sen
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S4] SUPPORTED single=0.8182 union=1.0
+       [S4] -> (Singh, 2024)
+    7. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Successful AI policy formulation relies on collaboration among all stakeholders, including universities, teachers, stude
+       reason: the cited evidence contains 86% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7857 union=0.8571
+       [S5] -> (Chan, 2024)
+    8. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.79 sources=S5
+       This collaborative approach aims to harmonize pedagogical, governance, and operational dimensions to ensure ethical inte
+       reason: the cited evidence contains 80% of the claim's content terms; its content is spread over the cited passages (47% best sentence)
+       - [S5] SUPPORTED single=0.4667 union=0.8
+       [S5] -> (Chan, 2024)
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.764 sources=S4
+       However, the evidence indicates that issues such as instructors' employability and the moral ramifications of AI often r
+       reason: the cited evidence contains 71% of the claim's content terms; a single cited sentence carries it
+       - [S4] SUPPORTED single=0.7143 union=0.7143
+       [S4] -> (Singh, 2024)
+
+SOURCES AND ROLES
+SOURCES
+  EVIDENCE (may support scholarly claims)
+    - 0d436a0f-84cc-5811-a67e-1f94f7c39d4c | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.175-176 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 96646600-7083-5130-a54a-ec016c9b6e2e | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.176 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 9b9a6ef3-587a-56a9-b680-318927487cb4 | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.9 (role=literature, evidence=True, used_as=evidence, via=evidence, type=conclusion)
+    - b95a5823-d334-5daa-a901-5ef91bf0408d | Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pa | Vikrant Vikram Singh | 2024 | p.2-3 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 3197051d-3c9b-5141-8363-7052d371f7e5 | Generative AI in Higher Education; The ChatGPT Effect | Cecilia Ka Yuk Chan | 2024 | p.178 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 988d1e7d-c3a4-51ca-ad96-d21dc1d74ef8 | (untitled) | Economics of Information Technology | 2024 | p.1-2 (role=literature, evidence=True, used_as=evidence, via=evidence, type=abstract)
+  CONTEXT ONLY (never cited)
+    - 4414dc36-6cd8-576c-8e7a-9068bc54946c | (untitled) | unknown | 2026 (role=my_work, evidence=False, used_as=context_only, via=my_work)
+  RULES / GUIDANCE (instructions only)
+    - 44cd307b-87eb-52ee-87cc-9cca82cdba89 | Chapter 3 Historical Development and Current Role of Artificial Intelligence in Higher Education | python-docx | 2013 (role=future_chapters, evidence=False, used_as=instructions_only, via=guidance, type=conclusion)
+
+WARNINGS
+  - evidence excluded by the context budget (budget): AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296
+  - evidence excluded by the context budget (budget): Discourses of artificial intelligence in higher education: a critical literature review
+  - evidence excluded by the context budget (budget): Intelligent Immersion: AI and VR Tools for Next-Generation Higher Education
+  - evidence excluded by the context budget (budget): da749089-7c89-5209-889e-dc2a205a2b90
+  - evidence excluded by the context budget (budget): Chapter 3 Historical Development and Current Role of Artificial Intelligence in Higher Education
+  - evidence excluded by the context budget (budget): 95a1962a-a72d-5400-a102-1ba5a6c5842a
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+  - your draft and the rules entered the context as non-citable material; they are never cited
+
+====================================================================================================================
+CONSISTENCY: Compare my existing treatment of AI governance with the literature.
+====================================================================================================================
+REQUIREMENT (§12): Must identify differences without treating the user's own work as evidence.
+
+RESULT SUMMARY
+  mode             : consistency
+  status           : ok
+  query            : Compare my existing treatment of AI governance with the literature.
+  retrieval        : my_work
+  generation       : no (not run)
+  citation check   : no
+  output style     : structured_comparison
+  local sources    : 15 (6 evidence, 9 non-citable)
+  external records : 0
+  warnings         : 0
+  seconds          : 1.1487
+  findings         : {'style': 5, 'terminology': 2, 'unsupported_claim': 12}
+
+SAFETY
+  non-citable local sources cited        : 0 []
+  external records used as evidence      : 0
+  local blocks outside the declared roles: 0
+  withheld claims                        : 0
+  citations carry a chunk id             : 0/0
+
+COMPARISON REPORT
+CONSISTENCY COMPARISON (deterministic: lexical overlap, figures and the writing preferences; no model was used)
+query: Compare my existing treatment of AI governance with the literature.
+input: 6 chunk(s) of your own work, 6 literature chunk(s), 3 rules/guidance chunk(s)
+
+TERMINOLOGY (2)
+  1. your draft uses 8 term(s) that the retrieved literature does not: tools, educational, privacy, importance, educators, governance, used, analysis
+     terms repeated in your work but absent from the retrieved literature; check whether they are your own coinage, an established term spelled differently, or a gap in the retrieval
+     method    : content_term_frequency
+  2. the retrieved literature uses 8 term(s) your draft does not: tutoring, insight, first, second, concrete, social, zawackirichter, systematic
+     terms repeated in the literature but absent from your work; check whether the literature's own vocabulary should appear in your text
+     method    : content_term_frequency
+
+UNSUPPORTED_CLAIM (12)
+  1. no retrieved literature passage covers this sentence of your draft (best overlap 9%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : Smyrnaiou et al. (2023) highlight the importance of respecting human autonomy, preventing harm, ensuring fairness, and providing explicability.
+     your chunk: abaa40af-ddf9-5166-ba7b-0b775625be2b
+     method    : content_term_containment
+  2. no retrieved literature passage covers this sentence of your draft (best overlap 20%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : Finally, a common theme in literature is the impact of professional development and AI on the professorial role and career.
+     your chunk: abaa40af-ddf9-5166-ba7b-0b775625be2b
+     method    : content_term_containment
+  3. no retrieved literature passage covers this sentence of your draft (best overlap 8%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : Professional development is essential for successful adoption, as faculty may not only lack knowledge but also fear for their job security.
+     your chunk: abaa40af-ddf9-5166-ba7b-0b775625be2b
+     method    : content_term_containment
+  4. no retrieved literature passage covers this sentence of your draft (best overlap 15%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : Professional development initiatives must focus on equipping educators with the necessary competencies to effectively integrate these technologies into their teaching practices (S.
+     your chunk: abaa40af-ddf9-5166-ba7b-0b775625be2b
+     method    : content_term_containment
+  5. no retrieved literature passage covers this sentence of your draft (best overlap 7%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : These themes define the organising principles of the tool audit presented in Appendix A and motivate the comparative criteria used in Sections 4–6, with broader implications discussed in Sections 7 and 8.
+     your chunk: abaa40af-ddf9-5166-ba7b-0b775625be2b
+     method    : content_term_containment
+  6. no retrieved literature passage covers this sentence of your draft (best overlap 25%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : This paper mapped 67 AI, VR, and hybrid AI-VR tools relevant to higher education as documented in Appendix A, and synthesised trends that shape their adoption.
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  7. no retrieved literature passage covers this sentence of your draft (best overlap 7%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : These trends include licensing and cost barriers, technical complexity, hardware dependency, and differences in integration capability across tools (Section 6).
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  8. no retrieved literature passage covers this sentence of your draft (best overlap 6%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : The analysis indicates a landscape dominated by proprietary, subscription-based platforms, alongside meaningful variation in technical complexity, hardware dependency, and integration capability.
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  9. no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : Across categories, evidence for learning benefits is uneven and is more frequently reported in domain-specific contexts, such as health simulation (Section 5), than in broad cross-disciplinary deployments.
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  10. no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : This uneven evidence base reinforces the need to separate technical capability and engagement claims from demonstrated learning outcomes when planning adoption (Section 6).
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  11. no retrieved literature passage covers this sentence of your draft (best overlap 6%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong
+     your text : These findings support a cautious, evidence-led approach to adoption and contribute to ongoing discussions associated with Education 5.0, where technological capability must be matched with pedagogical purpose and institutional readiness.
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+  12. no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+     checked against 6 retrieved literature chunk(s) and 75 of their sentences; this means no match was found in what was retrieved, not that the claim is wrong (showing 12 of 85 findings of this kind)
+     your text : They also highlight the need to address ethical governance and implementation constraints discussed in Sections 7 and 8.
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : content_term_containment
+
+STYLE (5)
+  1. your draft uses an em dash, which the writing preferences rule out
+     preference: 'no em dash'
+     your text : ...ng supporting information can be downloaded at: https:// www.mdpi.com/article/10.3390/aieduc2020013/s1: Supplementary S1—Complete dataset of 67 AI, VR, and hybrid educational tools (Supplementary_S1_AI-VR_Tools_Dataset.xlsx). Funding: This r...
+     your chunk: 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+     method    : character_check
+  2. 2 sentence(s) longer than 35 words in your draft (longest 42 words)
+     preference: 'short varied sentences'
+     your text : This analysis clearly illustrate their transformative potential in education and uncover the reasons for their limitations AI was conceived in 1956 by Marvin Minsky and John McCarthy in the Research Project on Artificial Intelligence (DSRPAI) at Dartmouth College (Haenlein and Kaplan, 2019).
+     your chunk: 703ca13b-a546-58e0-8dc0-38fc9ae3ade4
+     method    : sentence_length_check
+  3. 1 sentence(s) longer than 35 words in your draft (longest 37 words)
+     preference: 'short varied sentences'
+     your text : As the quantitative analysis in Chapter 6 showed, a substantial part of the corpus falls into the medium- and high-requirement range, which means that advanced immersive and adaptive systems may be harder to adopt in resource-constrained institutions.
+     your chunk: 1d9f0319-19ee-57ce-b7d9-17f1594ec987
+     method    : sentence_length_check
+  4. 5 sentence(s) longer than 35 words in your draft (longest 59 words)
+     preference: 'short varied sentences'
+     your text : Rather than replacing educational theory, these systems provide new technical means through which cognitive, affective, and embodied dimensions of learning may be addressed in closer combination, a view that is also consistent with research on immersive virtual reality in higher education and its ...
+     your chunk: 6a6eb679-e3c1-5b19-a215-a19c02060751
+     method    : sentence_length_check
+  5. 1 sentence(s) longer than 35 words in your draft (longest 37 words)
+     preference: 'short varied sentences'
+     your text : These highly costly expenses include buying advanced hardware and software, staff training, and curriculum updates, not to mention many other requirements that are far beyond the budgets of underfunded institutions and even quite costly for well-funded ones.
+     your chunk: 53bcf033-97b0-51ca-9806-69bcd92cdf83
+     method    : sentence_length_check
+
+FINDINGS
+FINDINGS
+  [terminology] your draft uses 8 term(s) that the retrieved literature does not: tools, educational, privacy, importance, edu
+  [terminology] the retrieved literature uses 8 term(s) your draft does not: tutoring, insight, first, second, concrete, socia
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 9%)
+      your text  : Smyrnaiou et al. (2023) highlight the importance of respecting human autonomy, preventing harm, ensuring fairn
+      your chunk : abaa40af-ddf9-5166-ba7b-0b775625be2b
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 20%)
+      your text  : Finally, a common theme in literature is the impact of professional development and AI on the professorial rol
+      your chunk : abaa40af-ddf9-5166-ba7b-0b775625be2b
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 8%)
+      your text  : Professional development is essential for successful adoption, as faculty may not only lack knowledge but also
+      your chunk : abaa40af-ddf9-5166-ba7b-0b775625be2b
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 15%)
+      your text  : Professional development initiatives must focus on equipping educators with the necessary competencies to effe
+      your chunk : abaa40af-ddf9-5166-ba7b-0b775625be2b
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 7%)
+      your text  : These themes define the organising principles of the tool audit presented in Appendix A and motivate the compa
+      your chunk : abaa40af-ddf9-5166-ba7b-0b775625be2b
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 25%)
+      your text  : This paper mapped 67 AI, VR, and hybrid AI-VR tools relevant to higher education as documented in Appendix A, 
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 7%)
+      your text  : These trends include licensing and cost barriers, technical complexity, hardware dependency, and differences i
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 6%)
+      your text  : The analysis indicates a landscape dominated by proprietary, subscription-based platforms, alongside meaningfu
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+      your text  : Across categories, evidence for learning benefits is uneven and is more frequently reported in domain-specific
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+      your text  : This uneven evidence base reinforces the need to separate technical capability and engagement claims from demo
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 6%)
+      your text  : These findings support a cautious, evidence-led approach to adoption and contribute to ongoing discussions ass
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [unsupported claim] no retrieved literature passage covers this sentence of your draft (best overlap 12%)
+      your text  : They also highlight the need to address ethical governance and implementation constraints discussed in Section
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [style] your draft uses an em dash, which the writing preferences rule out
+      your text  : ...ng supporting information can be downloaded at: https:// www.mdpi.com/article/10.3390/aieduc2020013/s1: Sup
+      your chunk : 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6
+  [style] 2 sentence(s) longer than 35 words in your draft (longest 42 words)
+      your text  : This analysis clearly illustrate their transformative potential in education and uncover the reasons for their
+      your chunk : 703ca13b-a546-58e0-8dc0-38fc9ae3ade4
+  [style] 1 sentence(s) longer than 35 words in your draft (longest 37 words)
+      your text  : As the quantitative analysis in Chapter 6 showed, a substantial part of the corpus falls into the medium- and 
+      your chunk : 1d9f0319-19ee-57ce-b7d9-17f1594ec987
+  [style] 5 sentence(s) longer than 35 words in your draft (longest 59 words)
+      your text  : Rather than replacing educational theory, these systems provide new technical means through which cognitive, a
+      your chunk : 6a6eb679-e3c1-5b19-a215-a19c02060751
+  [style] 1 sentence(s) longer than 35 words in your draft (longest 37 words)
+      your text  : These highly costly expenses include buying advanced hardware and software, staff training, and curriculum upd
+      your chunk : 53bcf033-97b0-51ca-9806-69bcd92cdf83
+
+SOURCES AND ROLES
+SOURCES
+  EVIDENCE (may support scholarly claims)
+    - b4ff4f5b-821d-599f-a81d-4dafacb5c5df | Discourses of artificial intelligence in higher education: a critical literature review | Margaret Bearman | 2022 | p.13 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - c4aa0a78-d6ee-539e-80ee-bcb48afc9d34 | Artificial Intelligence in Higher Education: A Bibliometric Study on its Impact in the Scientific Li | Francisco-Javier Hinojo-Lucena | 2019 | p.7-8 (role=literature, evidence=True, used_as=evidence, via=evidence, type=conclusion)
+    - 2ccfa754-c153-5e80-8f10-c0fc04fea868 | Discourses of artificial intelligence in higher education: a critical literature review | Margaret Bearman | 2022 | p.12-13 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 0f177850-15a0-5f7e-8f50-e2542ae6c57e | Discourses of artificial intelligence in higher education: a critical literature review | Margaret Bearman | 2022 | p.8-9 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - c0dddd9d-5bc2-57d7-b564-f438a4bfd942 | Book Reviews | ARTIFICIAL INTELLIGENCE | 1985 | p.5 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - d8690ac3-d090-5775-8321-745da7e631db | Democratising AI | White Paper | 2020 | p.2 (role=literature, evidence=True, used_as=evidence, via=evidence, type=table)
+  YOUR OWN WORK (subject of the comparison)
+    - abaa40af-ddf9-5166-ba7b-0b775625be2b | Intelligent Immersion: AI and VR Tools for Next-Generation Higher Education | Konstantinos Liakopoulos | 2026 | p.4 (role=my_work, evidence=False, used_as=subject, via=my_work)
+    - 0d7fa3d6-d8d0-569b-bdd9-d2d09be0dae6 | Intelligent Immersion: AI and VR Tools for Next-Generation Higher Education | Konstantinos Liakopoulos | 2026 | p.17-18 (role=my_work, evidence=False, used_as=subject, via=my_work, type=conclusion)
+    - 703ca13b-a546-58e0-8dc0-38fc9ae3ade4 | (untitled) | Konstantinos Liakopoulos | 2024 | p.? (role=my_work, evidence=False, used_as=subject, via=my_work)
+    - 1d9f0319-19ee-57ce-b7d9-17f1594ec987 | (untitled) | unknown | 2026 | p.? (role=my_work, evidence=False, used_as=subject, via=my_work)
+    - 6a6eb679-e3c1-5b19-a215-a19c02060751 | (untitled) | unknown | 2026 | p.? (role=my_work, evidence=False, used_as=subject, via=my_work)
+    - 53bcf033-97b0-51ca-9806-69bcd92cdf83 | (untitled) | Konstantinos Liakopoulos | 2025 | p.? (role=my_work, evidence=False, used_as=subject, via=my_work)
+  RULES / GUIDANCE (instructions only)
+    - cbef1c4e-2638-585f-8af3-c48a0a84235f | Chapter 1 Introduction to AI and VR Implementation in Higher Education | python-docx | 2013 | p.? (role=future_chapters, evidence=False, used_as=instructions_only, via=guidance)
+    - 0de1b799-3789-5cd0-9292-77d84bd94bae | Chapter 1 Introduction to AI and VR Implementation in Higher Education | python-docx | 2013 | p.? (role=future_chapters, evidence=False, used_as=instructions_only, via=guidance)
+    - ce5f31ef-b518-5e49-a40e-5bd0377819c1 | Chapter 3 Historical Development and Current Role of Artificial Intelligence in Higher Education | python-docx | 2013 | p.? (role=future_chapters, evidence=False, used_as=instructions_only, via=guidance)
+
+WARNINGS
+  (none)
+
+====================================================================================================================
+SUPERVISOR: What guidance do I have about methodology?
+====================================================================================================================
+REQUIREMENT (§12): Must clearly label supervision/guidance material.
+
+RESULT SUMMARY
+  mode             : supervisor
+  status           : ok
+  query            : What guidance do I have about methodology?
+  retrieval        : supervision
+  generation       : no (not run)
+  citation check   : no
+  output style     : labelled_excerpts
+  local sources    : 12 (0 evidence, 12 non-citable)
+  external records : 0
+  warnings         : 1
+  seconds          : 0.6321
+
+SAFETY
+  non-citable local sources cited        : 0 []
+  external records used as evidence      : 0
+  local blocks outside the declared roles: 0
+  withheld claims                        : 0
+  citations carry a chunk id             : 0/0
+
+LABELLED EXCERPTS
+SUPERVISION AND GUIDANCE MATERIAL (not scholarly evidence, never cited)
+query: What guidance do I have about methodology?
+
+1. [supervision] (untitled) | pages ?
+   These two papers support the development of the literature review: the first focuses on AI and VR tools, while the second focuses on the algorithmic foundations of AI-VR integration in higher education. In parallel, I have continued refinin
+2. [supervision] (untitled) | pages ?
+   16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the past 12 months | 16. Progress with your thesis (post R2) in the p
+3. [supervision] (untitled) | pages ?
+   University Teaching – The University of Hong Kong, via Coursera 18. Activities undertaken to disseminate your research (e.g. seminars, conferences etc) | 18. Activities undertaken to disseminate your research (e.g. seminars, conferences etc
+4. [supervision] (untitled) | pages ?
+   Note: In the email that you send to the DoS, along with this form you need to attach a file which maybe part of a chapter that you are currently writing or any other work that the you have written relevant to your PhD. The objective is to g
+5. [supervision] (untitled) | pages ?
+   Note: In the email that you send to the DoS, along with this form you need to attach a file which maybe part of a chapter that you are currently writing or any other work that the you have written relevant to your PhD. The objective is to g
+6. [supervision] (untitled) | pages ?
+   Research Student Annual Progress Review -old | Research Student Annual Progress Review -old | Research Student Annual Progress Review -old | Research Student Annual Progress Review -old Key: Student completes all sections that are Green and
+7. [future_chapters] Chapter 9 Research methodology and study design | section 9.3.1 Proposed methodological questions | pages ?
+   The methodology is organised around a proposed overarching question: how can a framework support the responsible design and implementation of integrated AI and VR in higher education? This wording provides a working focus for Chapter 9. It 
+8. [guidance] Future Chapters Guidance Policy | section Future Chapters Guidance Policy | pages ?
+   This policy defines how material stored in the `future_chapters` folder should be interpreted and used by the PhD RAG system. The folder contains planning material only. It may include proposed revisions, chapter outlines, alternative struc
+9. [future_chapters] Chapter 9 Research methodology and study design | section 9.8 Expert evaluation and scenario walkthroughs | pages ?
+   Expert evaluation will use a consistent review pack containing the framework definition, principles, architecture and selected implementation guidance. Reviewers will also receive the research scope and evaluation questions. The material wi
+10. [rules] PhD Direction and Supervisor Plan | section PhD Direction and Supervisor Plan | pages ?
+   Governance should receive additional attention. Possible areas include: - institutional governance; - responsibility and accountability; - ethical use; - data governance and privacy; - procurement and platform dependence; - accessibility an
+11. [rules] Writing a Dissertation | section 4. Final Check | pages 33-38
+   Review what you have written, ask yourself the following questions and amend as appropriate: • Have you included sufficient evidence to support your views? Does the argument flow in a logical manner through the main points? • Do you relate 
+12. [future_chapters] Chapter 9 Research methodology and study design | section 9.12 Research quality and researcher reflexivity | pages ?
+   Research quality will first be addressed through alignment. The questions, artefacts, instruments and conclusions must concern the same objects. The traceability record will help examine this alignment. A finding about interface navigation 
+
+SOURCES AND ROLES
+SOURCES
+  SUPERVISION / GUIDANCE (labelled, never cited)
+    - 4761d6ff-0e14-5a69-87f8-bde014ea28a5 | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - b69f13db-c7d1-5e7d-8bfe-81da2df70eb7 | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - 86a39d5e-e8e3-5bf1-ab1d-adcd6cbf963c | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - 30a91fe2-1fd7-5903-b87f-c74a72efbcda | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - e84943f8-1297-5e0f-94db-3b692a518093 | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - 28329738-886f-5c1a-8d9f-ed01effd1e6f | (untitled) | Form | 2026 | p.? (role=supervision, evidence=False, used_as=guidance_only, via=supervision, type=table)
+    - 6fe26b60-7fa2-5cfe-99b3-da13c7487d82 | Chapter 9 Research methodology and study design | Konstantinos Liakopoulos | 2013 | p.? (role=future_chapters, evidence=False, used_as=guidance_only, via=guidance)
+    - e4d5aff1-e0cf-5808-b427-85fd0b443e94 | Future Chapters Guidance Policy | unknown | unknown | p.? (role=guidance, evidence=False, used_as=guidance_only, via=guidance)
+    - 6880d74c-fc51-56d3-8e53-9683d109ddda | Chapter 9 Research methodology and study design | Konstantinos Liakopoulos | 2013 | p.? (role=future_chapters, evidence=False, used_as=guidance_only, via=guidance)
+    - 4e9f9e04-0df0-5a4b-8c42-6a5729ac8543 | PhD Direction and Supervisor Plan | unknown | unknown | p.? (role=rules, evidence=False, used_as=guidance_only, via=guidance)
+    - 862d771e-af0d-5c86-93fc-fb522e42373d | Writing a Dissertation | Graeme Prescott | 2017 | p.33-38 (role=rules, evidence=False, used_as=guidance_only, via=guidance)
+    - a7f36a2e-0be9-59ee-b5f6-47f1aa29d68a | Chapter 9 Research methodology and study design | Konstantinos Liakopoulos | 2013 | p.? (role=future_chapters, evidence=False, used_as=guidance_only, via=guidance)
+
+WARNINGS
+  - supervision and guidance material is the author's own scaffolding: it is not scholarly evidence, it is never cited, and it cannot support a claim about the literature
+
+====================================================================================================================
+RESEARCH: Find recent papers on AI governance in universities.
+====================================================================================================================
+REQUIREMENT (§12): Must show local and external results separately.
+
+RESULT SUMMARY
+  mode             : research
+  status           : ok
+  query            : Find recent papers on AI governance in universities.
+  retrieval        : evidence
+  generation       : no (not run)
+  citation check   : no
+  output style     : separated_results
+  local sources    : 6 (6 evidence, 0 non-citable)
+  external records : 20
+  warnings         : 0
+  seconds          : 2.9446
+
+SAFETY
+  non-citable local sources cited        : 0 []
+  external records used as evidence      : 0
+  local blocks outside the declared roles: 0
+  withheld claims                        : 0
+  citations carry a chunk id             : 0/0
+
+SEPARATED RESULTS
+SOURCES
+  LOCAL EVIDENCE
+    - 9b9a6ef3-587a-56a9-b680-318927487cb4 | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.9 (role=literature, evidence=True, used_as=evidence, via=evidence, type=conclusion)
+    - 988d1e7d-c3a4-51ca-ad96-d21dc1d74ef8 | (untitled) | Economics of Information Technology | 2024 | p.1-2 (role=literature, evidence=True, used_as=evidence, via=evidence, type=abstract)
+    - 68c47770-a4df-5684-a1c1-8f537d7e1a21 | Frontiers of Intelligent Education: Artificial Intelligence Reshaping the New Landscape of Chinese H | Mingzhi Dai | 2024 | p.4 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 02499bd3-8254-53f4-8cdf-4058c51f20ee | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.1 (role=literature, evidence=True, used_as=evidence, via=evidence, type=table)
+    - e68c6650-2b46-5da3-be6e-78b7f613ed36 | (untitled) | Economics of Information Technology | 2024 | p.4 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 59e168d5-8497-5df9-8a27-999cf0d16d51 | A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education | Ming Li | 2024 | p.7 (role=literature, evidence=True, used_as=evidence, via=evidence)
+EXTERNAL RECORDS (Internet metadata; never evidence, never cited)
+  NEW EXTERNAL PAPERS (0)
+    not in your corpus; metadata only, never evidence
+    (none)
+  ALREADY IN CORPUS (0)
+    the corpus already has these works
+    (none)
+  POSSIBLE MATCHES (20)
+    identity not verified, or the providers disagree
+    - Mapping generative AI governance readiness in Kurdistan Region universities | Akam Aziz Abdulrahman, Sirwan Khalid Ahmed | 2026 | doi:10.1007/s44217-026-02242-x | providers=crossref | status=EXTERNAL_DISCOVERY
+    - Practice-Dependent Governance of AI | Elsa Kugelberg, Henrik D. Kugelberg | 2026 | doi:10.1007/s10551-026-06377-7 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Trust, trustworthiness and AI governance | Christian Lahusen, Martino Maggetti | 2024 | doi:10.1038/s41598-024-71761-0 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - ​Recent policy developments on AI in the labour market | OECD | 2026 | doi:10.1787/c0ffced7-en | providers=crossref | status=EXTERNAL_DISCOVERY
+    - AI-Driven Curriculum Transformation and Faculty Development in Developing Universities | Wael Hadi, Mohammad Nazmi AlShaikh-Hasan | 2025 | doi:10.4018/979-8-3373-1375-7.ch010 | providers=crossref | status=EXTERNAL_DISCOVERY
+    - AI as Governance | Henry John Farrell | 2025 | doi:10.1146/annurev-polisci-040723-013245 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Good AI for the Present of Humanity Democratizing AI Governance | Nicholas Corrêa, Nythamar Fernandes de Oliveira | 2021 | doi:10.47289/aiej20210716-2 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - The Global Governance of AI | Kinfe Yilma | 2025 | doi:10.4324/9781003607366 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - AI and Global Governance: Modalities, Rationales, Tensions | Michael Veale, Kira Matus | 2023 | doi:10.1146/annurev-lawsocsci-020223-040749 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - OECD Working Papers on Public Governance | OECD | 2010 | doi:10.1787/19934351 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance | Nicholas Kluge Corrêa, Camila Galvão | 2023 | doi:10.1016/j.patter.2023.100857 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Generative AI experimentation in government | OECD | 2026 | doi:10.1787/42815683-en | providers=crossref | status=EXTERNAL_DISCOVERY
+    - AI Governance in Higher Education: Legal Implications for University Autonomy | Mohammed Abdulbari | 2026 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Social impact and governance of AI and neurotechnologies | Kenji Doya, Arisa Ema | 2022 | doi:10.1016/j.neunet.2022.05.012 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Recent Technical Papers on Corporate Governance | Dennis Wright Michaud, Kate A. Magaram | 2006 | doi:10.2139/ssrn.895520 | providers=crossref | status=EXTERNAL_DISCOVERY
+    - Toward AI Governance: Identifying Best Practices and Potential Barriers and Outcomes | Emmanouil Papagiannidis, Ida Merete Enholm | 2022 | doi:10.1007/s10796-022-10251-y | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Strategy as governance: the governance of AI in Africa | K. Yilma, K. Wodajo | 2026 | providers=openalex | status=EXTERNAL_DISCOVERY
+    - Privacy-Preserving Data Governance and AI Empowerment Platform for Universities Based on 6G Federated Learning | Zhenxi Li | 2026 | doi:10.1145/3828511.3828515 | providers=crossref | status=EXTERNAL_DISCOVERY
+    - The Early Impacts of AI on Employment Among Recent College Graduates | Robert Fairlie, Jane Wu | 2026 | doi:10.65864/b7z61mhr8d | providers=crossref | status=EXTERNAL_DISCOVERY
+    - Fragmentation and the Future: Investigating Architectures for International AI Governance | Peter Cihon, Matthijs M. Maas | 2020 | doi:10.1111/1758-5899.12890 | providers=openalex | status=EXTERNAL_DISCOVERY
+
+SOURCES AND ROLES
+SOURCES
+  LOCAL EVIDENCE
+    - 9b9a6ef3-587a-56a9-b680-318927487cb4 | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.9 (role=literature, evidence=True, used_as=evidence, via=evidence, type=conclusion)
+    - 988d1e7d-c3a4-51ca-ad96-d21dc1d74ef8 | (untitled) | Economics of Information Technology | 2024 | p.1-2 (role=literature, evidence=True, used_as=evidence, via=evidence, type=abstract)
+    - 68c47770-a4df-5684-a1c1-8f537d7e1a21 | Frontiers of Intelligent Education: Artificial Intelligence Reshaping the New Landscape of Chinese H | Mingzhi Dai | 2024 | p.4 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 02499bd3-8254-53f4-8cdf-4058c51f20ee | AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296 | Personal | 2023 | p.1 (role=literature, evidence=True, used_as=evidence, via=evidence, type=table)
+    - e68c6650-2b46-5da3-be6e-78b7f613ed36 | (untitled) | Economics of Information Technology | 2024 | p.4 (role=literature, evidence=True, used_as=evidence, via=evidence)
+    - 59e168d5-8497-5df9-8a27-999cf0d16d51 | A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education | Ming Li | 2024 | p.7 (role=literature, evidence=True, used_as=evidence, via=evidence)
+
+WARNINGS
+  (none)
+
+====================================================================================================================
+SUMMARY
+====================================================================================================================
+  evidence   status=ok                   local=8   external=0   cited=yes withheld=0  seconds=13.2764
+  writing    status=ok                   local=8   external=0   cited=yes withheld=0  seconds=2.4793
+  consistency status=ok                   local=15  external=0   cited=no  withheld=0  seconds=1.1487
+  supervisor status=ok                   local=12  external=0   cited=no  withheld=0  seconds=0.6321
+  research   status=ok                   local=6   external=20  cited=no  withheld=0  seconds=2.9446
+  total wall clock: 20.5s

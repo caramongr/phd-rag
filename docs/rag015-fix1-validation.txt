@@ -1,0 +1,206 @@
+RAG-015 FIX1 - token repeat failure: evidence transcript
+=========================================================
+
+What the failure was
+--------------------
+The simple chat, with corpus consultation enabled, returned:
+
+    {"error":"prediction aborted, token repeat limit reached"}
+
+The request was captured byte-for-byte with a recording proxy in front of Ollama (a temporary
+F:/phd-rag/.rag015_fix1_dump/, removed after the fix), so the options below are what the
+application actually sent, not what it intended to send.
+
+Pre-fix chat request (reproduced the failure)
+---------------------------------------------
+POST /api/chat  ->  HTTP 500 in 1.1 s
+{"model": "qwen3.5:35b", "think": false, "keep_alive": "30m", "stream": false, "tools": [],
+ "options": {"temperature": 0.1, "top_p": 0.9, "num_ctx": 262144, "num_predict": 8192, "seed": 0},
+ "messages": [["system", 2246], ["user", 20934]]}
+response: ERROR: prediction aborted, token repeat limit reached
+
+The reference RAG-011 evidence call, same moment, same server
+-------------------------------------------------------------
+POST /api/chat  ->  HTTP 500 in 59.9 s
+{"model": "qwen3.5:35b", "think": false, "keep_alive": "30m", "stream": false, "tools": [],
+ "options": {"temperature": 0.1, "top_p": 0.9, "num_ctx": 8192, "num_predict": 900, "seed": 0},
+ "messages": [["system", 3130], ["user", 22717]]}
+response: ERROR: prediction aborted, token repeat limit reached
+
+Isolation (same server and model; a fresh model load before every request)
+-------------------------------------------------------------------------
+streamed to Ollama                 prompt        result
+/api/chat, the chat prompt         4800 tokens   aborted; content = 101 x "0"
+/api/chat, one-line system prompt    20 tokens   OK; "A quick brown fox leaps over a lazy dog."
+/api/chat, one-line system prompt   110 tokens   aborted; content = 101 x "0"
+/api/chat, one-line system prompt   380 tokens   aborted; content = 101 x "0"
+/api/chat, no system message        380 tokens   aborted; content = 101 x "0"
+/api/generate raw=true (no template)380 tokens   aborted; content = 101 x "0"
+/api/chat, think=true              4800 tokens   aborted
+/api/chat, temperature 0.7         4800 tokens   aborted
+/api/chat, num_ctx 8192            4800 tokens   aborted
+qwen3.8:27b, 1800 tokens                          OK; real summary
+qwen3-coder:30b, 1800 tokens                      OK; real summary
+
+So: not the chat prompt, not the corpus text, not think, not the sampler settings, not the
+num_ctx value, not Ollama's chat template - the qwen3.5:35b runner was emitting a constant
+token and Ollama's own repeat guard aborted on it. Two other models answered the same long
+prompt on the same server at the same time.
+
+The Ollama server log around the failing loads (llama-server, Ollama 0.35.1)
+----------------------------------------------------------------------------
+slot launch_slot_: sampler params:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+        dry_multiplier = 0.000, top_k = 20, top_p = 0.900, temp = 0.100
+slot   operator(): new prompt, n_ctx_slot = 262144, n_keep = 4, task.n_tokens = 4802
+slot print_timing: n_gen =    100, tg =  20.63 t/s, tg_3s = 20.83 t/s
+[GIN] 500 | 59.9095616s | POST "/api/chat"
+srv load_model: prompt cache is enabled, size limit: 8192 MiB
+srv load_model: context checkpoints enabled, max = 32, min spacing = 8192
+
+Some loads of the same model file initialised "speculative decoding context initialized" and
+"the context supports bounded partial sequence removal"; most did not ("the context does not
+support partial sequence removal", no speculative context). The engine path for this model was
+inconsistent between loads, and every healthy answer of the session came from the earlier
+server process (started before 21:34).
+
+Recovery
+--------
+Unloading and reloading the model did not help (every reload produced a fresh but still
+degenerate runner); unloading every model did not help; freeing VRAM (killing an orphaned
+llama-server holding 19 GB on GPU0 and 17 GB on GPU1) did not help. Restarting the Ollama
+*server process* fixed it immediately. The model blob is unchanged (written 2026-10-06), so no
+model file changed.
+
+Post-fix chat request (identical prompt, after the server restart and the FIX1 change)
+--------------------------------------------------------------------------------------
+POST /api/chat  ->  HTTP 200 in 1.9 s
+{"model": "qwen3.5:35b", "think": false, "keep_alive": "30m", "stream": false, "tools": [],
+ "options": {"temperature": 0.1, "top_p": 0.9, "num_ctx": 262144, "num_predict": 4096, "seed": 0},
+ "messages": [["system", 2246], ["user", 20934]]}
+response: content 2041 chars, done_reason "stop", prompt_eval_count 4802, eval_count 365
+
+
+Three-turn validation against real Ollama with qwen3.5:35b
+==========================================================
+
+new_chat: {'status': 201, 'id': '913a1e5434694583ac0dfbe705a7ca04'}
+
+A_status: 200
+
+A_seconds: 14.9
+
+A_failure: None
+
+A_retried: False
+
+A_answer_chars: 2041
+
+A_answer: Based on the documents provided for your thesis, LATTICE is a proposed socio-technical framework designed for integrating artificial intelligence (AI) and virtual reality (VR) into higher education. It is structured as a principle-led system with five logical layers and three distinct levels of operation. The framework operates on three levels: principles, layers, and implementations. The principl
+
+A_context: {'num_ctx': 262144, 'corpus_requested': True, 'corpus_invoked': True, 'corpus_sources': 6, 'history_messages_included': 0, 'generation_retries': 0, 'retry_reason': '', 'prompt_tokens': 4802, 'generated_tokens': 365}
+
+B_status: 200
+
+B_seconds: 3.6
+
+B_failure: None
+
+B_retried: False
+
+B_answer_chars: 3121
+
+B_answer: The documents you provided outline several sets of principles relevant to your work on LATTICE and AI ethics. These can be grouped into general AI governance frameworks, specific ethical imperatives, and the principles that form the core of your own proposed framework. **General AI Governance Principles** Scholarship in your corpus identifies a consensus around five key principles often cited in g
+
+B_context: {'num_ctx': 262144, 'corpus_requested': True, 'corpus_invoked': True, 'corpus_sources': 6, 'history_messages_included': 2, 'generation_retries': 0, 'retry_reason': '', 'prompt_tokens': 5194, 'generated_tokens': 607}
+
+C_status: 200
+
+C_seconds: 0.6
+
+C_failure: None
+
+C_retried: False
+
+C_answer_chars: 496
+
+C_answer: 1. The LATTICE framework prioritizes pedagogical primacy by ensuring that learning objectives drive the design rather than the technology itself. 2. Teacher agency is central to the system, requiring that instructors retain full control over activity specifications and the ability to intervene in AI-mediated processes. 3. The architecture relies on layered interoperability, allowing technical comp
+
+C_context: {'num_ctx': 262144, 'corpus_requested': False, 'corpus_invoked': False, 'corpus_sources': 0, 'history_messages_included': 4, 'generation_retries': 0, 'retry_reason': '', 'prompt_tokens': 1543, 'generated_tokens': 89}
+
+stored_status: 200
+
+stored_1: {'role': 'user', 'chars': 41, 'head': 'hi, can you please tell me about lattice?', 'num_ctx': None, 'retries': None}
+
+stored_2: {'role': 'assistant', 'chars': 2041, 'head': 'Based on the documents provided for your thesis, LATTICE is a proposed socio-technical fra', 'num_ctx': 262144, 'retries': 0}
+
+stored_3: {'role': 'user', 'chars': 29, 'head': 'What are the main principles?', 'num_ctx': None, 'retries': None}
+
+stored_4: {'role': 'assistant', 'chars': 3121, 'head': 'The documents you provided outline several sets of principles relevant to your work on LAT', 'num_ctx': 262144, 'retries': 0}
+
+stored_5: {'role': 'user', 'chars': 32, 'head': 'Give me three observations only.', 'num_ctx': None, 'retries': None}
+
+stored_6: {'role': 'assistant', 'chars': 496, 'head': '1. The LATTICE framework prioritizes pedagogical primacy by ensuring that learning objecti', 'num_ctx': 262144, 'retries': 0}
+
+stored_roles: ['user', 'assistant', 'user', 'assistant', 'user', 'assistant']
+
+one_user_message_per_turn: True
+
+
+Retry behaviour, live (a chat whose last turn had failed before the fix)
+------------------------------------------------------------------------
+before: [('user', 'hi, can you please tell me about lattice?'), ('user', 'hi, can you please tell me about lattice?'), ('user', 'hi')]
+
+retry status: 200 seconds: 1.1
+
+retried: False failure: None
+
+assistant chars: 712
+
+assistant head: Hello. I am ready to assist with your project on the machine. Regarding your question about "lattice," I do not have specific details in the current working documents or corpus material you have provided so far. The term could refer to a crystal latt
+
+after: [('user', 'hi, can you please tell me about lattice?'), ('user', 'hi, can you please tell me about lattice?'), ('user', 'hi'), ('assistant', 'Hello. I am ready to assist with your project on t')]
+
+roles: ['user', 'user', 'user', 'assistant']
+
+retry again (already answered): 409 {"error": {"kind": "nothing_to_retry", "title": "There is no unanswered message", "detail": "The last message in this chat already has an answer, so there is no
+
+
+
+Retry behaviour through the real UI (driven in a browser, one failure at a time)
+--------------------------------------------------------------------------------
+The proxy in front of Ollama was stopped so a turn would fail for a transport reason, then
+started again to retry it. This also shows that a transport failure is *not* auto-retried.
+
+1. Send while Ollama is unreachable
+   conversation: user turn added, no assistant turn
+   notice      : "The model could not answer"
+                 "Ollama said: could not reach the model server at http://127.0.0.1:11500:
+                  ConnectionError: ... [WinError 10061] No connection could be made ..."
+                 "Your message is saved; retrying answers that same message - it is never
+                  sent twice."
+   action      : [Retry this turn] button
+   stored      : one user message (the failed turn) - not two
+
+2. Reload the page with that unanswered turn stored
+   notice      : "This message has no answer yet"
+                 "The last turn did not produce an answer. Retry answers this same message;
+                  it is never sent twice."
+   action      : [Retry this turn] button
+   (the message is not re-typed and not re-sent: the button is the only affordance offered)
+
+3. Press Retry (proxy back up)
+   result      : HTTP 200, assistant answer written for the *existing* user turn
+   stored      : user, assistant, user, assistant - one user message per turn
+   context     : num_ctx 262144 on every assistant turn, generation_retries 0
+   notice      : cleared
+
+4. Press Retry again on an answered turn
+   result      : 409 {"error": {"kind": "nothing_to_retry",
+                                "title": "There is no unanswered message"}}
+
+Two UI defects found by driving the real interface and fixed in the same change:
+  * a notice without an action button rendered the text "null" (a null child passed to
+    replaceChildren), and
+  * opening a chat cleared the "no answer yet" notice immediately after rendering it, so the
+    Retry affordance only appeared on the failed turn, not on a reopened chat.

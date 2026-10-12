@@ -40,7 +40,8 @@ class PromptTemplate:
         return f"{self.name}:{self.sha256[:8]}"
 
 
-def _load(name: str, directory: Path | None = None) -> PromptTemplate:
+def load_template(name: str, directory: Path | None = None) -> PromptTemplate:
+    """Load one template by stem from ``directory`` (or the default prompt directory)."""
     path = (directory or PROMPT_DIR) / f"{name}.txt"
     if not path.is_file():
         raise PromptError(f"prompt template not found: {path}")
@@ -57,13 +58,13 @@ def _load(name: str, directory: Path | None = None) -> PromptTemplate:
 @lru_cache(maxsize=8)
 def system_template(directory: str | None = None) -> PromptTemplate:
     """The system prompt (grounding rules, untrusted-content rules, style)."""
-    return _load(SYSTEM_TEMPLATE, Path(directory) if directory else None)
+    return load_template(SYSTEM_TEMPLATE, Path(directory) if directory else None)
 
 
 @lru_cache(maxsize=8)
 def user_template(directory: str | None = None) -> PromptTemplate:
     """The user prompt (context, question, output requirements)."""
-    return _load(USER_TEMPLATE, Path(directory) if directory else None)
+    return load_template(USER_TEMPLATE, Path(directory) if directory else None)
 
 
 def prompt_version(directory: str | None = None) -> str:

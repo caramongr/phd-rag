@@ -231,9 +231,9 @@ class OllamaClient:
                 self._version = str(payload.get("version") or "") or None
         return self._version
 
-    def available_models(self) -> tuple[str, ...]:
+    def available_models(self, *, timeout: float | None = None) -> tuple[str, ...]:
         """Model names the server currently has."""
-        payload = self._get_json("/api/tags", timeout=30.0)
+        payload = self._get_json("/api/tags", timeout=timeout or 30.0)
         if not isinstance(payload, dict):
             return ()
         names = [
@@ -389,6 +389,23 @@ class OllamaClient:
                 endpoint=endpoint,
             )
         return result
+
+    def unload(self) -> bool:
+        """Ask Ollama to drop this model, so the next call starts a fresh runner.
+
+        Used by the simple chat's one-retry recovery (RAG-015 FIX1): when Ollama's runner has
+        ended up emitting one token forever, only a fresh runner produces sane output, and
+        ``keep_alive: 0`` is the documented way to ask for that. Best effort: a failure here
+        is reported, never raised, because the retry itself is still worth attempting.
+        """
+        try:
+            status, _data, _text = self._post(
+                "/api/generate", {"model": self._model, "keep_alive": 0, "stream": False}
+            )
+        except Exception:
+            return False
+        self._details = None
+        return status == 200
 
     def _failure_from_exception(self, exc: Exception, endpoint: str) -> ModelFailure:
         """Classify a transport exception without losing its message."""

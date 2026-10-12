@@ -82,6 +82,35 @@ on a machine without CUDA fails instead of quietly running on the CPU. The defau
 device is "CUDA when available, else CPU", so a plain run uses the GPU on this
 machine.
 
+## Web interface
+
+One command starts the local interface — a FastAPI backend serving a static HTML/CSS/JS page,
+with no build step and no framework:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.web
+# PhD RAG local interface
+#   open: http://127.0.0.1:8000/
+#   model: qwen3.5:35b
+#   stop: Ctrl+C
+```
+
+Then open <http://127.0.0.1:8000/>: choose a mode, type a question or paste a paragraph of
+your thesis, and read the answer. Sources (with the role each block was allowed to play, its
+scores, chunk id and provenance), validation details, external discoveries, warnings and the
+raw audit are all expandable, and `--host 0.0.0.0` is required to leave the machine (the
+default is `127.0.0.1`, and the banner says so when it is changed). `python -m app.web --help`
+lists the two other options (`--port`, `--model`).
+
+The interface is a renderer over the mode service: `POST /api/mode` runs one mode through
+RAG-013 and returns its `ModeResult` (plus a transport-only `notice` with a friendly message
+when a run needs explaining), `GET /api/modes` serves the mode copy the selector shows, and
+`GET /api/status` reports Ollama and index availability without loading a model.
+
+For day-to-day use there is a manual with screenshots: [docs/manual.md](docs/manual.md) — what
+each mode is for, how to read a result, the advanced options, everyday recipes and a
+troubleshooting table. Keyboard shortcuts: `Ctrl+Enter` runs, `Esc` clears.
+
 ## CLI
 
 ```powershell
@@ -199,7 +228,34 @@ machine.
 # RAG-012: escalate only the claims the deterministic checks cannot decide to the local
 # BGE-M3 model, or tighten the support band for a stricter run
 .\.venv\Scripts\python.exe -m app.citations.inspect "..." --semantic --support-coverage 0.7
+
+# RAG-013: the five academic working modes. A mode is an orchestration preset over the
+# pipeline above: EVIDENCE and WRITING retrieve, generate and validate; CONSISTENCY,
+# SUPERVISOR and RESEARCH never call the model at all.
+.\.venv\Scripts\python.exe -m app.modes.inspect evidence "What is AI governance in higher education?"
+.\.venv\Scripts\python.exe -m app.modes.inspect writing "Write a short PhD paragraph on AI governance in higher education."
+.\.venv\Scripts\python.exe -m app.modes.inspect consistency "Compare my existing treatment of AI governance with the literature."
+.\.venv\Scripts\python.exe -m app.modes.inspect supervisor "What guidance do I have about methodology?"
+.\.venv\Scripts\python.exe -m app.modes.inspect research "Find recent papers on AI governance in universities."
+
+# RAG-013: sources with the role each block was allowed to play, the full audit trail
+# (preset, policy note, claim verdicts in the generating modes), and machine-readable output
+.\.venv\Scripts\python.exe -m app.modes.inspect evidence "..." --show-sources --show-audit
+.\.venv\Scripts\python.exe -m app.modes.inspect research "..." --json
 ```
+
+The web interface in RAG-014 (`app/web/`) is a renderer over that service, not a second
+pipeline: it owns one `ModeService` for the process (built on the first request, used one run
+at a time, closed on shutdown), exposes it as two JSON endpoints, and renders the result in
+static HTML/CSS/JavaScript. Every value a document, a model or a provider supplies is written
+with `textContent`, so markup inside a source is displayed as text; the page contains no
+server-side templating at all. Nothing about a mode is decided in the frontend — the mode
+list, the sections, the findings, the labels and the verdicts all come from the `ModeResult`,
+so the UI and the CLI cannot disagree. Failures arrive as JSON with a readable message
+(`invalid_request` for a rejected request, `internal_error` for anything unexpected) and a
+`notice` that explains, in one sentence, what a person should do about a missing model, an
+unreachable Ollama, a locked index, a provider outage, no results, insufficient evidence or a
+withheld claim — with the technical detail kept in a collapsed debug panel.
 
 Generation in RAG-011 (`app/generation/`) answers *only* from what RAG-009 retrieved,
 with a source marker on every claim sentence. `app/generation/ollama.py` is the single
@@ -253,6 +309,26 @@ deduplicated entry per *work* — DOI first, then normalized title, then documen
 per chunk, so eight chunks of one paper produce one bibliography entry. Nothing is
 invented: no volume, issue, publisher, page range, URL or DOI that the metadata does not
 carry, and any gap is reported as a `metadata_warning` on the entry.
+
+The five academic working modes in RAG-013 (`app/modes/`) are orchestration presets over
+that pipeline, not a new pipeline. Each mode is one frozen `ModeConfig` — retrieval mode,
+generation mode, context flags, output style and a `context_policy` mapping every corpus
+role to the role it may play — and `ModeService.run_mode` calls the existing services and
+nothing else. The safety rules are data: an undeclared corpus role resolves to
+`INSTRUCTIONS_ONLY`, a `ModeSource` counts as evidence only when its role is `EVIDENCE`
+**and** the corpus marked it `evidence_eligible`, and every external record is typed
+`usable_as_evidence=False`. EVIDENCE retrieves evidence only and ends in a validated
+Harvard-cited answer; WRITING adds the author's own draft and the project rules as
+non-citable context, which RAG-012 then refuses to cite; CONSISTENCY compares the draft
+with the literature and the rules using a deterministic engine (terminology, duplication,
+unsupported claims, numeric discrepancies, style) and never asks the model, because a model
+asked to judge the author's text would invent findings; SUPERVISOR labels supervision and
+guidance excerpts, cites nothing and generates nothing; RESEARCH runs RAG-010 discovery
+beside local retrieval and keeps local evidence, new external papers, works already in the
+corpus and possible matches in four separate sections. The common `ModeResult` is the same
+shape for every mode, and the policy that produced a run travels inside it
+(`audits["policy_note"]`), so a saved result can be checked without the documentation. CLI
+exit codes: `1` model error, `3` at least one unsupported claim was withheld.
 
 Retrieval in RAG-009 is two-stage and evidence-safe: a BGE-M3 dense search over
 `phd_rag_chunks_v1` returns candidates that are filtered **at the vector-search

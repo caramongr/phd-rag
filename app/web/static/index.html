@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PhD RAG — chat</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>PhD RAG</h1>
+      <div id="status" class="status" aria-live="polite">
+        <span class="status-line">checking the local models…</span>
+      </div>
+      <button type="button" id="advanced-toggle" class="ghost" aria-pressed="false">
+        Advanced
+      </button>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Saved chats">
+        <button type="button" id="new-chat" class="primary block">+ New chat</button>
+        <nav id="chat-list" class="chat-list" aria-label="Chat history"></nav>
+        <p class="sidebar-note">
+          Conversations and their attachments are stored on this machine only.
+        </p>
+      </aside>
+
+      <main class="content" id="chat-view">
+        <section class="chat-head">
+          <h2 id="chat-title">New chat</h2>
+          <div class="chat-actions">
+            <button type="button" id="rename-chat">Rename</button>
+            <button type="button" id="delete-chat">Delete</button>
+          </div>
+        </section>
+
+        <section id="attachments" class="attachments" aria-label="Attached files"></section>
+
+        <section id="conversation" class="conversation" aria-live="polite">
+          <p class="empty-state">
+            Ask anything, or attach a PDF, DOCX, TXT or Markdown file to work on it with the
+            model.
+          </p>
+        </section>
+
+        <form id="composer" class="composer">
+          <label id="attach" class="attach" for="attach-input">
+            <span>Attach</span>
+            <input id="attach-input" type="file" accept=".pdf,.docx,.txt,.md" multiple hidden />
+          </label>
+          <textarea
+            id="composer-input"
+            name="message"
+            rows="3"
+            spellcheck="true"
+            placeholder="Type your message. Ctrl+Enter sends it."
+          ></textarea>
+          <button type="submit" id="send" class="primary">Send</button>
+          <label class="corpus-toggle">
+            <input id="consult-corpus" type="checkbox" />
+            <span>Consult the PhD corpus for this message</span>
+          </label>
+          <p id="chat-hint" class="hint"></p>
+        </form>
+
+        <section id="chat-notice" class="notice" hidden aria-live="polite"></section>
+
+        <details id="context-panel" class="panel-section">
+          <summary>Context and debug</summary>
+          <div id="context">
+            <p class="hint">
+              How the context window was spent on the last answer. Everything here comes from
+              the server.
+            </p>
+          </div>
+        </details>
+      </main>
+
+      <main class="content" id="advanced-view" hidden>
+        <section class="panel">
+          <div class="result-head">
+            <h2>Advanced — the academic modes</h2>
+            <p class="meta">
+              The RAG-009 to RAG-014 pipeline, unchanged: retrieval, the five modes, citation
+              validation and external discovery.
+            </p>
+          </div>
+        </section>
+
+        <form id="run-form" class="panel">
+          <div class="field">
+            <label for="mode">Mode</label>
+            <select id="mode" name="mode"></select>
+            <p id="mode-description" class="mode-description"></p>
+          </div>
+
+          <div class="field">
+            <label for="query">Question, paragraph or section of your thesis</label>
+            <textarea
+              id="query"
+              name="query"
+              rows="10"
+              spellcheck="true"
+              placeholder="Ask a research question, paste a paragraph, or paste a section of your thesis …"
+            ></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="run" class="primary">Run</button>
+            <button type="button" id="clear">Clear</button>
+            <span id="loading" class="loading" hidden>
+              <span class="spinner" aria-hidden="true"></span>
+              <span id="loading-text">working…</span>
+            </span>
+          </div>
+
+          <details id="advanced" class="advanced">
+            <summary>Advanced options</summary>
+            <div class="advanced-grid">
+              <label class="adv" for="opt-length">
+                <span>Answer length</span>
+                <select id="opt-length"></select>
+              </label>
+              <label class="adv" for="opt-candidate-k">
+                <span>Candidates to search (candidate_k)</span>
+                <input id="opt-candidate-k" type="number" min="1" max="200" placeholder="default" />
+              </label>
+              <label class="adv" for="opt-final-k">
+                <span>Chunks to consider (final_k)</span>
+                <input id="opt-final-k" type="number" min="1" max="50" placeholder="default" />
+              </label>
+              <label class="adv" for="opt-rerank">
+                <span>Rerank with the cross-encoder</span>
+                <input id="opt-rerank" type="checkbox" checked />
+              </label>
+              <label class="adv" for="opt-year-min">
+                <span>Earliest year (Research)</span>
+                <input id="opt-year-min" type="number" min="1500" max="3000" placeholder="any" />
+              </label>
+              <label class="adv" for="opt-year-max">
+                <span>Latest year (Research)</span>
+                <input id="opt-year-max" type="number" min="1500" max="3000" placeholder="any" />
+              </label>
+              <label class="adv" for="opt-show-audit">
+                <span>Open the audit panel after a run</span>
+                <input id="opt-show-audit" type="checkbox" />
+              </label>
+            </div>
+            <p class="hint">
+              Only the controls that change an answer are here. Everything else (the model,
+              the context budget, the providers) comes from the project configuration.
+            </p>
+          </details>
+        </form>
+
+        <section id="notice" class="notice" hidden aria-live="polite"></section>
+
+        <section id="result" class="panel" hidden>
+          <div class="result-head">
+            <h2 id="result-title">Answer</h2>
+            <p id="result-meta" class="meta"></p>
+          </div>
+
+          <div class="copy-row" id="copy-row">
+            <button type="button" data-copy="answer">Copy answer</button>
+            <button type="button" data-copy="answer-references">Copy answer + references</button>
+            <button type="button" data-copy="references">Copy references</button>
+            <span id="copy-status" class="copy-status" aria-live="polite"></span>
+          </div>
+
+          <div id="body"></div>
+          <div id="warnings"></div>
+          <div id="references"></div>
+
+          <details id="sources-panel" class="panel-section">
+            <summary>Sources</summary>
+            <div id="sources"></div>
+          </details>
+
+          <details id="external-panel" class="panel-section">
+            <summary>External discoveries (metadata only, never evidence)</summary>
+            <div id="external"></div>
+          </details>
+
+          <details id="validation-panel" class="panel-section">
+            <summary>Validation details</summary>
+            <div id="validation"></div>
+          </details>
+
+          <details id="audit-panel" class="panel-section">
+            <summary>Audit and debug (raw result)</summary>
+            <pre id="audit" class="audit"></pre>
+          </details>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <span
+        >Local interface. Literature supports claims; your own work, supervision material
+        and guidance never do, and Internet records are metadata only.</span
+      >
+    </footer>
+
+    <script src="/app.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>

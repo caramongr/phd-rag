@@ -5,6 +5,9 @@ description = "PhD Academic RAG backend"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi",
+    # The web UI (RAG-014) is served by uvicorn; the floor is the version verified in
+    # the development environment.
+    "uvicorn>=0.54",
     "pydantic>=2",
     "requests",
     # Runtime dependencies for the ingestion/parsing/OCR and metadata layers.

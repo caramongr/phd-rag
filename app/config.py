@@ -115,6 +115,50 @@ DEFAULT_GENERATION_MIN_RERANK_SCORE: float | None = None
 #: Ollama keeps the model resident between calls; this avoids a reload per question.
 DEFAULT_GENERATION_KEEP_ALIVE = "30m"
 
+# --- Simple chat defaults (RAG-015) ---
+#: The simple-chat path is *not* the RAG-011 evidence path. Evidence generation asks for
+#: 8192 tokens because a top-8 chunk package is small; a working conversation with attached
+#: documents needs the model's real window. The workstation serves qwen3.5:35b with a
+#: 262144-token context, so that is what a simple-chat request asks Ollama for.
+DEFAULT_CHAT_NUM_CTX = 262144
+#: Input budget for one simple-chat request. Deliberately below the window: the answer
+#: (``DEFAULT_CHAT_MAX_OUTPUT_TOKENS``) and a safety margin must still fit, and a request
+#: that tries to fill all 262144 tokens on every turn wastes prefill for no benefit.
+DEFAULT_CHAT_CONTEXT_TOKENS = 236_544
+#: Room kept for the answer inside the window. 4096 is a long answer for conversation (the
+#: RAG-011 evidence path allows 900); asking for 8192 made the model run far past the point
+#: where an answer had ended, which is where a degenerate continuation becomes more likely.
+DEFAULT_CHAT_MAX_OUTPUT_TOKENS = 4096
+#: Safety margin subtracted from the window when validating the input budget, so the
+#: configured budgets can never add up to more than Ollama was asked to allocate.
+DEFAULT_CHAT_CONTEXT_MARGIN_TOKENS = 4096
+#: One automatic retry when Ollama aborts a prediction with its own repeat guard
+#: ("prediction aborted, token repeat limit reached", RAG-015 FIX1). Ollama's runner can end
+#: up in a state where it emits one token forever; a fresh runner is the only recovery, and
+#: an ordinary conversation deserves one second chance before the error reaches the user.
+DEFAULT_CHAT_RETRY_ON_REPEAT_ABORT = True
+#: Shares of the input budget offered, in the documented priority order, to conversation
+#: history, attached working documents and (only when requested) corpus material. They are
+#: caps applied in order, not reservations: unclaimed budget stays available to the next
+#: priority, and any remainder is handed back to truncated attachments.
+DEFAULT_CHAT_HISTORY_SHARE = 0.25
+DEFAULT_CHAT_ATTACHMENT_SHARE = 0.60
+DEFAULT_CHAT_CORPUS_SHARE = 0.25
+#: The largest single message the simple-chat path accepts. The RAG-014 mode API stops at
+#: 20 000 characters because a mode query is a paragraph; a chat message is not (the user
+#: may paste a chapter). This is a transport-sanity bound, not a context bound.
+DEFAULT_CHAT_MAX_MESSAGE_CHARS = 2_000_000
+#: Attachments. Extensions are fixed here so the UI, the API and the tests agree.
+DEFAULT_CHAT_ALLOWED_EXTENSIONS = (".pdf", ".docx", ".txt", ".md")
+DEFAULT_CHAT_MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024
+DEFAULT_CHAT_MAX_ATTACHMENTS_PER_CHAT = 20
+#: Local storage. Deliberately outside ``data/literature`` and ``data/my_work``: a chat
+#: attachment is a temporary working document, never corpus material.
+DEFAULT_CHAT_DB_PATH = "data/chat/chat.sqlite3"
+DEFAULT_CHAT_ATTACHMENT_DIR = "data/chat/attachments"
+#: Characters of the first user message used as an automatic chat title.
+DEFAULT_CHAT_TITLE_CHARS = 60
+
 
 class Settings(BaseModel):
     """Runtime configuration for the backend.
@@ -207,6 +251,23 @@ class Settings(BaseModel):
     generation_seed: int = DEFAULT_GENERATION_SEED
     generation_min_rerank_score: float | None = DEFAULT_GENERATION_MIN_RERANK_SCORE
     generation_keep_alive: str = DEFAULT_GENERATION_KEEP_ALIVE
+
+    # Simple chat (RAG-015)
+    chat_num_ctx: int = DEFAULT_CHAT_NUM_CTX
+    chat_context_tokens: int = DEFAULT_CHAT_CONTEXT_TOKENS
+    chat_max_output_tokens: int = DEFAULT_CHAT_MAX_OUTPUT_TOKENS
+    chat_context_margin_tokens: int = DEFAULT_CHAT_CONTEXT_MARGIN_TOKENS
+    chat_retry_on_repeat_abort: bool = DEFAULT_CHAT_RETRY_ON_REPEAT_ABORT
+    chat_history_share: float = DEFAULT_CHAT_HISTORY_SHARE
+    chat_attachment_share: float = DEFAULT_CHAT_ATTACHMENT_SHARE
+    chat_corpus_share: float = DEFAULT_CHAT_CORPUS_SHARE
+    chat_max_message_chars: int = DEFAULT_CHAT_MAX_MESSAGE_CHARS
+    chat_allowed_extensions: tuple[str, ...] = DEFAULT_CHAT_ALLOWED_EXTENSIONS
+    chat_max_attachment_bytes: int = DEFAULT_CHAT_MAX_ATTACHMENT_BYTES
+    chat_max_attachments_per_chat: int = DEFAULT_CHAT_MAX_ATTACHMENTS_PER_CHAT
+    chat_db_path: str = DEFAULT_CHAT_DB_PATH
+    chat_attachment_dir: str = DEFAULT_CHAT_ATTACHMENT_DIR
+    chat_title_chars: int = DEFAULT_CHAT_TITLE_CHARS
 
 
 def _parse_bool(value: str) -> bool:
@@ -415,6 +476,55 @@ def load_settings() -> Settings:
             os.getenv("PHD_RAG_GENERATION_MIN_RERANK_SCORE")
         ),
         generation_keep_alive=os.getenv("PHD_RAG_GENERATION_KEEP_ALIVE", DEFAULT_GENERATION_KEEP_ALIVE),
+        chat_num_ctx=int(os.getenv("PHD_RAG_CHAT_NUM_CTX", str(DEFAULT_CHAT_NUM_CTX))),
+        chat_context_tokens=int(
+            os.getenv("PHD_RAG_CHAT_CONTEXT_TOKENS", str(DEFAULT_CHAT_CONTEXT_TOKENS))
+        ),
+        chat_max_output_tokens=int(
+            os.getenv("PHD_RAG_CHAT_MAX_OUTPUT_TOKENS", str(DEFAULT_CHAT_MAX_OUTPUT_TOKENS))
+        ),
+        chat_context_margin_tokens=int(
+            os.getenv(
+                "PHD_RAG_CHAT_CONTEXT_MARGIN_TOKENS", str(DEFAULT_CHAT_CONTEXT_MARGIN_TOKENS)
+            )
+        ),
+        chat_retry_on_repeat_abort=_parse_bool(
+            os.getenv(
+                "PHD_RAG_CHAT_RETRY_ON_REPEAT_ABORT",
+                "true" if DEFAULT_CHAT_RETRY_ON_REPEAT_ABORT else "false",
+            )
+        ),
+        chat_history_share=float(
+            os.getenv("PHD_RAG_CHAT_HISTORY_SHARE", str(DEFAULT_CHAT_HISTORY_SHARE))
+        ),
+        chat_attachment_share=float(
+            os.getenv("PHD_RAG_CHAT_ATTACHMENT_SHARE", str(DEFAULT_CHAT_ATTACHMENT_SHARE))
+        ),
+        chat_corpus_share=float(
+            os.getenv("PHD_RAG_CHAT_CORPUS_SHARE", str(DEFAULT_CHAT_CORPUS_SHARE))
+        ),
+        chat_max_message_chars=int(
+            os.getenv("PHD_RAG_CHAT_MAX_MESSAGE_CHARS", str(DEFAULT_CHAT_MAX_MESSAGE_CHARS))
+        ),
+        chat_allowed_extensions=_parse_csv(
+            os.getenv("PHD_RAG_CHAT_ALLOWED_EXTENSIONS"), DEFAULT_CHAT_ALLOWED_EXTENSIONS
+        ),
+        chat_max_attachment_bytes=int(
+            os.getenv(
+                "PHD_RAG_CHAT_MAX_ATTACHMENT_BYTES", str(DEFAULT_CHAT_MAX_ATTACHMENT_BYTES)
+            )
+        ),
+        chat_max_attachments_per_chat=int(
+            os.getenv(
+                "PHD_RAG_CHAT_MAX_ATTACHMENTS_PER_CHAT",
+                str(DEFAULT_CHAT_MAX_ATTACHMENTS_PER_CHAT),
+            )
+        ),
+        chat_db_path=os.getenv("PHD_RAG_CHAT_DB_PATH", DEFAULT_CHAT_DB_PATH),
+        chat_attachment_dir=os.getenv(
+            "PHD_RAG_CHAT_ATTACHMENT_DIR", DEFAULT_CHAT_ATTACHMENT_DIR
+        ),
+        chat_title_chars=int(os.getenv("PHD_RAG_CHAT_TITLE_CHARS", str(DEFAULT_CHAT_TITLE_CHARS))),
     )
 
 

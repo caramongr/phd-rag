@@ -1,0 +1,72 @@
+RAG-015 validation transcript
+=============================
+
+Commands
+--------
+1. python -m app.web --port 8015
+2. python <session>/e2e_chat.py phase1      # real qwen3.5:35b, full window, DOCX attachment
+3. restart the server (new process, same storage)
+4. python <session>/e2e_chat.py phase2      # reload after restart + Advanced availability
+5. python <session>/e2e_advanced.py         # real /api/mode evidence + chat corpus bridge
+6. DELETE /api/chats/{id}                   # removal removes the conversation and its files
+
+Phase 1 - simple chat with a real attached DOCX
+-----------------------------------------------
+
+page_status: 200
+page_has_chat_shell: True
+page_has_advanced: True
+page_loads_chat_js: True
+chat_info_status: 200
+chat_info: {'model': 'qwen3.5:35b', 'num_ctx': 262144, 'context_tokens': 236544, 'max_output_tokens': 8192, 'accepted_formats': ['.pdf', '.docx', '.txt', '.md']}
+new_chat: {'status': 201, 'id': '6c5f6d1019bf4066a35bf6da9c3d96b8', 'title': 'New chat'}
+attachment: {'status': 201, 'filename': 'chapter-three.docx', 'extension': '.docx', 'text_status': 'parsed', 'char_count': 283, 'token_estimate': 103}
+answer_status: 200
+answer_seconds: 12.2
+answer_chars: 90
+answer_excerpt: Paragraph two argues that governance mechanisms shape the adoption of AI in organisations.
+answer_prompt_tokens: 631
+answer_generated_tokens: 15
+answer_context: {'num_ctx': 262144, 'input_budget_tokens': 236544, 'output_headroom_tokens': 8192, 'history_tokens': 0, 'attachment_tokens': 71, 'total_tokens': 692}
+answer_attachments_usage: [{'attachment_id': 'a46797d10a8241a1a6d28a3b246bce15', 'filename': 'chapter-three.docx', 'tokens': 71, 'included_chars': 283, 'total_chars': 283, 'truncated': False}]
+followup_status: 200
+followup_history_included: 2
+followup_attachment_tokens: 71
+followup_excerpt: First, the paragraph functions as a concise claim statement rather than an argumentative development, asserting a causal relationship between governance mechanisms and AI adoption without providing supporting evidence or examples. Second, it relies on broad generalizations by using the plural "gover
+
+Phase 2 - after a server restart
+--------------------------------
+
+reload_list_status: 200
+reload_list: [{'id': '6c5f6d1019bf4066a35bf6da9c3d96b8', 'title': 'Read the attached chapter. In one sentence, what does�', 'messages': 4, 'files': 1}]
+reload_chat_status: 200
+reload_messages: [('user', 'Read the attached chapter. In one sentence, what does paragr'), ('assistant', 'Paragraph two argues that governance mechanisms shape the ad'), ('user', 'Do not rewrite anything yet. Give me three observations abou'), ('assistant', 'First, the paragraph functions as a concise claim statement ')]
+reload_attachments: [('chapter-three.docx', 'parsed', 283)]
+reload_last_report_num_ctx: 262144
+third_status: 200
+third_history_included: 4
+third_attachment_tokens: 71
+third_excerpt: Paragraph three mentions the research questions.
+advanced_modes_status: 200
+advanced_modes: ['evidence', 'writing', 'consistency', 'supervisor', 'research']
+status_endpoint: {'status': 200, 'keys': ['embedding_model', 'generation_model', 'index', 'locality', 'ollama', 'reranker_model']}
+
+Phase 3 - Advanced (RAG-009/011/012/013/014) and the chat's corpus bridge
+-------------------------------------------------------------------------
+
+advanced_mode_status: 200
+advanced_mode_seconds: 2.4
+advanced_mode_result: {'mode': 'evidence', 'status': 'ok', 'local_sources': 7, 'source_keys': ['chunk_id', 'content_type', 'corpus_role', 'dense_score', 'document_id', 'doi', 'evidence_eligible', 'excerpt', 'filename', 'first_author', 'ocr_involved', 'pages', 'rerank_score', 'retrieval_mode', 'role', 'section_title', 'source_id', 'title', 'year'], 'citation_map': 6, 'references': 6, 'validation': None, 'sections': 1, 'warnings': ['evidence excluded by the context budget (budget): 054712e7-fea3-561e-ba24-2df6c71482b5', 'reference_metadata_warning: title:aiandeducationguidanceforpolicymakers (missing_author, missing_doi)']}
+advanced_mode_answer: AI governance is described as a robust framework necessary to address the potential for academic misconduct and ethical dilemmas arising from AI technologies (Chan, 2024). It involves developing and enforcing policies on academic integrity and the ethical use of AI to promote a culture of integrity 
+chat_corpus_status: 200
+chat_corpus_seconds: 7.9
+chat_corpus_context: {'corpus_requested': True, 'corpus_invoked': True, 'corpus_sources': 6, 'corpus_tokens': 4803, 'attachment_tokens': 71, 'history_tokens': 312, 'num_ctx': 262144, 'prompt_tokens': 5190}
+chat_corpus_answer: The literature identifies AI governance as a necessary condition for the ethical, sustainable, and effective adoption of artificial intelligence in higher education and other sectors. Scholars argue that without sound ethical standards and principles, smooth implementation is not possible, particularly given AI's significant implications for learning, teaching authority, and student outcomes (Sing
+
+Cleanup
+-------
+
+delete: 200 {"deleted":true,"id":"6c5f6d1019bf4066a35bf6da9c3d96b8"}
+remaining chats: 0
+data/chat tree: attachments/ (empty), chat.sqlite3
+
