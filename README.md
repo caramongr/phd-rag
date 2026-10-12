@@ -183,6 +183,22 @@ machine.
 # RAG-011: tighter context budget, an evidence score floor, machine-readable output
 .\.venv\Scripts\python.exe -m app.generation.inspect "..." --context-tokens 2000 --min-rerank-score 0.3
 .\.venv\Scripts\python.exe -m app.generation.inspect "..." --json
+
+# RAG-012: validate every claim against the source it cites and convert the internal
+# [Sx] markers into Harvard in-text citations plus a deduplicated reference list.
+# Unsupported claims are withheld from the validated answer; partial and uncertain
+# claims keep their citation with a visible annotation.
+.\.venv\Scripts\python.exe -m app.citations.inspect "What is AI governance in higher education?"
+
+# RAG-012: the claim-by-claim audit, the source map, warnings only, the untouched
+# RAG-011 answer, and machine-readable output
+.\.venv\Scripts\python.exe -m app.citations.inspect "..." --show-claims --show-source-map
+.\.venv\Scripts\python.exe -m app.citations.inspect "..." --show-warnings --show-original
+.\.venv\Scripts\python.exe -m app.citations.inspect "..." --json
+
+# RAG-012: escalate only the claims the deterministic checks cannot decide to the local
+# BGE-M3 model, or tighten the support band for a stricter run
+.\.venv\Scripts\python.exe -m app.citations.inspect "..." --semantic --support-coverage 0.7
 ```
 
 Generation in RAG-011 (`app/generation/`) answers *only* from what RAG-009 retrieved,
@@ -206,6 +222,37 @@ but never cited as evidence about the world, and RAG-010 discovery records stay 
 (metadata-only records carry no abstract precisely so their findings cannot leak in).
 Source text is delimited and declared untrusted, because a document may contain
 instructions; the model must treat them as data.
+
+Citation validation in RAG-012 (`app/citations/`) answers the question RAG-011 left open:
+does the cited source actually contain the claim? No model is regenerated and no text is
+rewritten by a language model. The deterministic checks run first and are never
+overridden — the cited id exists, the chunk is evidence-eligible and not a reference
+list, its text is present, every direct quotation occurs verbatim in the cited source, and
+every numeral (percentage, p-value, sample size, range, year, count) must appear in the
+cited evidence or be directly derivable from it. Only then does the support layer decide,
+from how much of the claim the evidence contains and whether quantified findings from
+different passages were merged into one sentence (the RAG-011 failure mode). Verdicts are
+`SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED` or `UNCERTAIN`, each recorded with its
+method, confidence and reason, and `UNCERTAIN` is never silently upgraded. Claims resting
+on scanned text or a table are flagged `elevated_validation_risk` and checked against
+stricter thresholds rather than rejected. An optional local BGE-M3 layer can be enabled
+for the claims the deterministic checks cannot decide, and it can never turn partial
+support into full support.
+
+The stage is a *policy*, applied consistently and visible in the output: an unsupported
+claim is withheld (replaced by `[claim withheld: the cited source does not support it]`
+and listed in the warnings), a partial or uncertain claim keeps its citation with a
+visible `[partially supported]` / `[unverified]` annotation, a report about the author's
+own draft keeps its wording and gets a provenance note instead of a citation, and the
+RAG-011 answer is preserved unchanged in `original_answer`. Harvard output is built only
+from metadata that is present: `(Smith, 2024)`, `(Smith and Jones, 2024)`,
+`(Smith et al., 2024)`, with `n.d.` for a missing year and a quoted short title for a
+missing (or unusable) author, each fallback recorded per citation. Markers of one
+sentence are ordered alphabetically by author then year, and references are one
+deduplicated entry per *work* — DOI first, then normalized title, then document — never
+per chunk, so eight chunks of one paper produce one bibliography entry. Nothing is
+invented: no volume, issue, publisher, page range, URL or DOI that the metadata does not
+carry, and any gap is reported as a `metadata_warning` on the entry.
 
 Retrieval in RAG-009 is two-stage and evidence-safe: a BGE-M3 dense search over
 `phd_rag_chunks_v1` returns candidates that are filtered **at the vector-search

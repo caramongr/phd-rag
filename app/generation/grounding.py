@@ -366,6 +366,16 @@ def _mentions_insufficient_evidence(sentence: str) -> bool:
     return any(phrase in lowered for phrase in INSUFFICIENT_MARKERS)
 
 
+def sentence_is_trivial(sentence: str) -> bool:
+    """Public wrapper for :func:`_is_trivial`, reused by RAG-012 claim extraction."""
+    return _is_trivial(sentence)
+
+
+def sentence_has_claim_signal(sentence: str) -> bool:
+    """Public wrapper for :func:`_has_claim_signal`, reused by RAG-012."""
+    return _has_claim_signal(sentence)
+
+
 def find_quotations(answer: str, context: ContextPackage) -> tuple[QuotationEvidence, ...]:
     """Locate each quotation in the cited source text, when it can be located."""
     quotations: list[QuotationEvidence] = []

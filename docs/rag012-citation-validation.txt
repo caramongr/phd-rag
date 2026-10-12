@@ -1,0 +1,1249 @@
+====================================================================================================================
+RAG-012 claim validation
+====================================================================================================================
+METHOD
+  input           : the RAG-011 GenerationResponse (answer, source_map,
+                    context with the exact source text, generation audit).
+                    Nothing is regenerated in validation: original_answer is
+                    preserved verbatim and validated_answer is rebuilt from it
+                    by exact substitution of the [Sx] markers.
+  deterministic   : marker exists | cited chunk is evidence-eligible | source
+                    text present | chunk is not a reference list | quotations are
+                    verbatim in the cited source | every numeral is present in
+                    the cited evidence or derivable | metadata checks.
+  support bands   : SUPPORTED when the cited evidence contains >=60% of the
+                    claim's content terms and no quantified-unit merging is
+                    detected; PARTIALLY_SUPPORTED when only 35-60% is present or
+                    when two separately-sourced findings are joined in one
+                    sentence; UNCERTAIN below 35%; UNSUPPORTED when a
+                    deterministic check fails or nothing overlaps.
+  policy          : unsupported claims are withheld from validated_answer and
+                    listed in the warnings; partial and uncertain claims keep
+                    their citation plus a visible annotation.
+  semantic layer  : optional (Part C), used only for claims the deterministic
+                    checks cannot decide, and recorded per claim.
+
+====================================================================================================================
+QUESTION 1: What is AI governance in higher education?
+====================================================================================================================
+  mode             : evidence_only
+  model            : qwen3.5:35b (0.35.1)
+  prompt version   : system_v2:6ca8b9ca+user_v2:5f9685ea
+  prompt tokens    : 5269 (estimated 6463)
+  output tokens    : 321
+  latency          : retrieval 10.86s + generation 1.53s
+  context          : 8 blocks, ~4881 tokens
+  markers produced : ['S1', 'S5', 'S2', 'S6', 'S3']
+
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 12 (sentences checked: 12)
+  supported        : 12
+  partially sup.   : 0
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 0
+  markers replaced : 12 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (1 with metadata warnings)
+  validation time  : 0.0348s
+
+INTEGRITY
+  internal markers left in validated_answer : 0 []
+  citations mapped to a real source          : 5/5 []
+  citations without a chunk id               : 0
+  non-evidence source cited as scholarship   : 0
+  withheld sentences equal unsupported count : True
+  markers in original answer                 : 5 distinct
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       AI governance in higher education refers to the responsibility of senior management to formulate policies, establish eth
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (59% best sentence)
+       - [S1] SUPPORTED single=0.5882 union=0.8824
+       [S1] -> (Chan, 2024)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       This dimension focuses on ensuring that institutions operate within legal and ethical boundaries while striving for acad
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.8333 union=0.9167
+       [S1] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S1
+       Senior management plays a crucial role in understanding, identifying, and preventing academic misconduct and ethical dil
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.7857
+       [S1] -> (Chan, 2024)
+    4. claim              SUPPORTED           method=lexical_single_sentence confidence=0.768 sources=S5
+       Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and security
+       reason: the cited evidence contains 73% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=0.7273
+       [S5] -> (Chan, 2024)
+    5. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       It involves establishing clear guidelines for the proper attribution of AI-generated content to promote academic honesty
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=1.0
+       [S5] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S5
+       Governance also necessitates implementing measures to ensure equitable access to AI technologies, thereby preventing the
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S5] SUPPORTED single=0.3571 union=0.7857
+       [S5] -> (Chan, 2024)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S2
+       The ethical and sustainable development of artificial intelligence depends on good governance, which includes creating s
+       reason: the cited evidence contains 100% of the claim's content terms; its content is spread over the cited passages (57% best sentence)
+       - [S2] SUPPORTED single=0.5714 union=1.0
+       [S2] -> (Singh, 2024)
+    8. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S6
+       Policymakers and institutions must develop data governance frameworks that protect student privacy and safeguard sensiti
+       reason: the cited evidence contains 93% of the claim's content terms; a single cited sentence carries it
+       - [S6] SUPPORTED single=0.6 union=0.9333
+       [S6] -> (PRESS, 2023)
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S2
+       Without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S2] SUPPORTED single=1.0 union=1.0
+       [S2] -> (Singh, 2024)
+   10. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S3
+       Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the succes
+       reason: the cited evidence contains 90% of the claim's content terms; a single cited sentence carries it
+       - [S3] SUPPORTED single=0.9 union=0.9
+       [S3] -> (Chan, 2024)
+   11. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       A robust governance framework allows senior management to create a conducive environment for the ethical use of AI, miti
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6875 union=0.9375
+       [S5] -> (Chan, 2024)
+   12. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Ultimately, these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the acade
+       reason: the cited evidence contains 91% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.8182 union=0.9091
+       [S5] -> (Chan, 2024)
+
+WARNINGS
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+
+SOURCE MAP
+SOURCE MAP
+  [S1] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=175-176 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=0d436a0f-84cc-5811-a67e-1f94f7c39d4c doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+  [S2] Assessment of Artificial Intelligence-based digital learning systems in higher education a
+       author=Vikrant Vikram Singh year=2024 pages=2-3 doi=10.21203/rs.3.rs-3828524/v1
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=b95a5823-d334-5daa-a901-5ef91bf0408d doc=64e3adf5-01f2-5846-a8d6-657c8a1e7574
+       citation=(Singh, 2024) reference=doi:10.21203/rs.3.rs-3828524/v1
+  [S3] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=178 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=3197051d-3c9b-5141-8363-7052d371f7e5 doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+  [S4] AL-FIKRAH: Jurnal Manajemen Pendidikan, 11(2) - December 2023 284-296
+       author=Personal year=2023 pages=9 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=conclusion
+       chunk=9b9a6ef3-587a-56a9-b680-318927487cb4 doc=64fced39-0364-5654-b57e-c70021683c93
+       citation=(none: this source received no citation)
+  [S5] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=176 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=96646600-7083-5130-a54a-ec016c9b6e2e doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+  [S6] MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher
+       author=IOR PRESS year=2023 pages=15-16 doi=10.54392/irjmt2351
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=c40e3e45-6687-57e8-a5b2-d4dfd646a493 doc=2732c646-40a1-5442-953e-d75141481bb0
+       citation=(PRESS, 2023) reference=doi:10.54392/irjmt2351
+  [S7] MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher
+       author=IOR PRESS year=2023 pages=16 doi=10.54392/irjmt2351
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=6b8dded2-0564-5fc7-8891-f8772fd70f74 doc=2732c646-40a1-5442-953e-d75141481bb0
+       citation=(none: this source received no citation)
+  [S8] The Impact of Artificial Intelligence on Higher Education in England
+       author=Hengameh Karimi year=2023 pages=1 doi=10.4236/ce.2023.1412154
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=abstract
+       chunk=84e9f7c6-92c2-5299-bf48-da625a695055 doc=1f62710e-3bb9-5091-a23e-3edb61886d12
+       citation=(none: this source received no citation)
+====================================================================================================================
+QUESTION 2: What evidence links virtual reality with student engagement in higher education?
+====================================================================================================================
+  mode             : evidence_only
+  model            : qwen3.5:35b (0.35.1)
+  prompt version   : system_v2:6ca8b9ca+user_v2:5f9685ea
+  prompt tokens    : 5539 (estimated 7129)
+  output tokens    : 365
+  latency          : retrieval 0.46s + generation 1.71s
+  context          : 6 blocks, ~5668 tokens
+  markers produced : ['S1', 'S2', 'S3', 'S5', 'S4']
+
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 12 (sentences checked: 13)
+  supported        : 12
+  partially sup.   : 0
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 0
+  markers replaced : 12 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (2 with metadata warnings)
+  validation time  : 0.0433s
+
+INTEGRITY
+  internal markers left in validated_answer : 0 []
+  citations mapped to a real source          : 5/5 []
+  citations without a chunk id               : 0
+  non-evidence source cited as scholarship   : 0
+  withheld sentences equal unsupported count : True
+  markers in original answer                 : 5 distinct
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       Research indicates that virtual reality (VR) contributes to increased learner engagement by providing interactive and ex
+       reason: the cited evidence contains 94% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.9375
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       Unlike traditional teaching methods which often rely on passive learning, VR allows students to explore virtual worlds, 
+       reason: the cited evidence contains 95% of the claim's content terms; its content is spread over the cited passages (57% best sentence)
+       - [S1] SUPPORTED single=0.5714 union=0.9524
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S2
+       A study comparing VR-based learning environments to traditional classroom settings found a clear and statistically signi
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (56% best sentence)
+       - [S2] SUPPORTED single=0.5625 union=0.875
+       [S2] -> ("The Impact of Virtual Reality", n.d.)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.735 sources=S3
+       This increase is attributed to the immersive nature of the technology, which fosters deeper involvement, higher motivati
+       reason: the cited evidence contains 62% of the claim's content terms; its content is spread over the cited passages (31% best sentence)
+       - [S3] SUPPORTED single=0.3077 union=0.6154
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Qualitative data from students further supports these findings by highlighting themes such as increased motivation, enjo
+       reason: the cited evidence contains 100% of the claim's content terms; its content is spread over the cited passages (47% best sentence)
+       - [S3] SUPPORTED single=0.4667 union=1.0
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Students reported feeling more motivated to participate due to the dynamic nature of VR sessions, which they found more 
+       reason: the cited evidence contains 93% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S3] SUPPORTED single=0.5 union=0.9286
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    7. claim              SUPPORTED           method=lexical_single_sentence confidence=0.795 sources=S5
+       Other research confirms that immersive VR significantly outperforms desktop VR in terms of student motivation and sense 
+       reason: the cited evidence contains 82% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7273 union=0.8182
+       [S5] -> (Zaatar, 2024)
+    8. claim              SUPPORTED           method=lexical_single_sentence confidence=0.781 sources=S5
+       Additionally, a meta-analysis of randomized controlled studies on anatomy education found that VR improved student inter
+       reason: the cited evidence contains 77% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7692 union=0.7692
+       [S5] -> (Zaatar, 2024)
+    9. non_claim          UNCERTAIN           method=lexical_weak_overlap confidence=0.0 sources=-
+       Despite these positive links to engagement, several challenges affect the widespread adoption of VR in higher education.
+       reason: not a claim sentence
+   10. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S1
+       The high cost of equipment and software, along with ongoing maintenance expenses, presents a significant financial barri
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (43% best sentence)
+       - [S1] SUPPORTED single=0.4286 union=0.7857
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   11. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Accessibility issues also arise, as not all students have equal access to the necessary technology due to financial cons
+       reason: the cited evidence contains 85% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.8462 union=0.8462
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   12. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Furthermore, successful implementation requires instructors to possess specific technical skills and pedagogical trainin
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6154 union=0.9231
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   13. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S4
+       Other studies identify potential health risks and difficulties in adapting to the technology as additional obstacles rep
+       reason: the cited evidence contains 85% of the claim's content terms; its content is spread over the cited passages (46% best sentence)
+       - [S4] SUPPORTED single=0.4615 union=0.8462
+       [S4] -> ("Information Technology Students' Perceptions Toward", 2024)
+
+WARNINGS
+  - reference_metadata_warning: doi:10.3991/ijim.v17i07.37211 (missing_author)
+  - reference_metadata_warning: title:theimpactofvirtualrealityonstudentengagementinhighereducation (missing_author, missing_year, missing_doi)
+
+SOURCE MAP
+SOURCE MAP
+  [S1] The Impact of Virtual Reality on Student Engagement in Higher Education
+       author=ssrn year=unknown pages=2-3 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=f21f5993-8d94-5f1e-b737-11d12affa810 doc=a1bfb598-4a4c-5bda-bc05-33eecaf3d761
+       citation=("The Impact of Virtual Reality", n.d.) reference=title:theimpactofvirtualrealityonstudentengagementinhighereducation fallbacks=missing_author,missing_year
+  [S2] The Impact of Virtual Reality on Student Engagement in Higher Education
+       author=ssrn year=unknown pages=1-2 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=310fbdde-aacd-59fc-97da-b8086c2c481b doc=a1bfb598-4a4c-5bda-bc05-33eecaf3d761
+       citation=("The Impact of Virtual Reality", n.d.) reference=title:theimpactofvirtualrealityonstudentengagementinhighereducation fallbacks=missing_author,missing_year
+  [S3] The Impact of Virtual Reality on Student Engagement in Higher Education
+       author=ssrn year=unknown pages=3-4 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=31899385-8f40-5746-8467-c40ba0bc3591 doc=a1bfb598-4a4c-5bda-bc05-33eecaf3d761
+       citation=("The Impact of Virtual Reality", n.d.) reference=title:theimpactofvirtualrealityonstudentengagementinhighereducation fallbacks=missing_author,missing_year
+  [S4] Information Technology Students' Perceptions Toward Using Virtual Reality Technology for E
+       author=unknown year=2024 pages=6-7 doi=10.3991/ijim.v17i07.37211
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=99bf07fb-9571-5a69-a791-23f364084c8e doc=909de705-027f-58f8-92c1-911ff9f1429b
+       citation=("Information Technology Students' Perceptions Toward", 2024) reference=doi:10.3991/ijim.v17i07.37211 fallbacks=missing_author
+  [S5] Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Edu
+       author=Muriel T. Zaatar year=2024 pages=1-2 doi=10.18178/ijiet.2024.14.5.2092
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=f966ef1f-e727-5d16-979a-6a2129e78abf doc=75b5d75b-1b7b-5620-94a3-194b2a2b08e3
+       citation=(Zaatar, 2024) reference=doi:10.18178/ijiet.2024.14.5.2092
+  [S6] ANALYSIS OF THE APPLICATION OF ARTIFICIAL INTELLIGENCE IN TECHNICAL AND TECHNOLOGICAL TRAI
+       author=unknown year=2024 pages=8-9 doi=10.24857/rgsa.v18n4-145
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=conclusion
+       chunk=94e5ec32-6729-5472-b4dd-b56b8977c2d4 doc=3bf66162-0a2a-5cde-a73f-10ac28bc5b83
+       citation=(none: this source received no citation)
+====================================================================================================================
+QUESTION 3: How is generative AI affecting academic integrity?
+====================================================================================================================
+  mode             : evidence_only
+  model            : qwen3.5:35b (0.35.1)
+  prompt version   : system_v2:6ca8b9ca+user_v2:5f9685ea
+  prompt tokens    : 6171 (estimated 7415)
+  output tokens    : 289
+  latency          : retrieval 0.44s + generation 1.38s
+  context          : 8 blocks, ~5833 tokens
+  markers produced : ['S5', 'S7', 'S1', 'S2', 'S8', 'S4', 'S3', 'S6']
+
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 7
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 1
+  withheld         : 0
+  annotated        : 2
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 1 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 8
+  references       : 4 (3 with metadata warnings)
+  validation time  : 0.0295s
+
+INTEGRITY
+  internal markers left in validated_answer : 0 []
+  citations mapped to a real source          : 8/8 []
+  citations without a chunk id               : 0
+  non-evidence source cited as scholarship   : 0
+  withheld sentences equal unsupported count : True
+  markers in original answer                 : 8 distinct
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S5
+       Generative AI tools present significant challenges to academic integrity by enabling potential cheating and plagiarism t
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (43% best sentence)
+       - [S5] SUPPORTED single=0.4286 union=0.7857
+       [S5] -> (AL-Smadi, 2022)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.781 sources=S7
+       The ease with which students can obtain detailed answers from these systems risks blurring the boundaries between indepe
+       reason: the cited evidence contains 77% of the claim's content terms; a single cited sentence carries it
+       - [S7] SUPPORTED single=0.6923 union=0.7692
+       [S7] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Consequently, 75% of students in a study of Ghanaian universities cited academic integrity as a primary concern when usi
+       reason: the cited evidence contains 93% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.7143 union=0.9286
+       number: 75% (percent) found in S1
+       [S1] -> ("Impact of Generative AI in", 2024)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.762 sources=S2
+       To address these risks, scholars emphasize the necessity of developing clear ethical guidelines and implementing advance
+       reason: the cited evidence contains 71% of the claim's content terms; its content is spread over the cited passages (35% best sentence)
+       - [S2] SUPPORTED single=0.3529 union=0.7059
+       [S2] -> ("Impact of Generative AI in", 2024)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.767 sources=S8
+       Institutions are urged to establish specific policies that define misuse, such as flagging the use of AI to generate ess
+       reason: the cited evidence contains 72% of the claim's content terms; its content is spread over the cited passages (44% best sentence)
+       - [S8] SUPPORTED single=0.4444 union=0.7222
+       [S8] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S4
+       Furthermore, there is a strong call for robust governance frameworks that ensure transparency and accountability to main
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S4] SUPPORTED single=0.3571 union=0.7857
+       [S4] -> (Chan, 2024)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.73 sources=S2
+       Educators also highlight the need for AI literacy programs to help students understand the capabilities and limitations 
+       reason: the cited evidence contains 60% of the claim's content terms; its content is spread over the cited passages (20% best sentence)
+       - [S2] SUPPORTED single=0.2 union=0.6
+       [S2] -> ("Impact of Generative AI in", 2024)
+    8. claim              PARTIALLY_SUPPORTED method=lexical_merged_findings confidence=0.5 sources=S3
+       A majority of faculty members consider training on ethical AI usage as highly important, with many advocating for assign
+       reason: two separately-sourced findings are joined in one sentence: 'A majority of faculty members consider training ' matches passage 2, 'many advocating for assignments that foster crit' matches passage 9, and no single passage states the whole claim (47% at best)
+       - [S3] PARTIALLY_SUPPORTED single=0.4706 union=0.8824
+       [S3] -> ("Impact of Generative AI in", 2024)
+       decision: annotated
+    9. claim              UNCERTAIN           method=lexical_weak_overlap confidence=0.25 sources=S6
+       Despite the potential for enhanced learning efficiency, the literature suggests that without balanced strategies and reg
+       reason: only weak lexical overlap with the evidence (19%)
+       - [S6] UNCERTAIN single=0.0625 union=0.1875
+       [S6] -> (Li, 2024)
+       decision: annotated
+
+WARNINGS
+  - partially_supported_claim: A majority of faculty members consider training on ethical AI usage as highly important, with many advocating for assignments that foster critical thinking to mitigate overreliance [S3]. (method: lexical_merged_findings; two separately-sourced findings are joined in one sentence: 'A majority of faculty members consider training ' matches passage 2, 'many advocating for assignments that foster crit' matches passage 9, and no single passage states the whole claim (47% at best))
+  - uncertain_claim: Despite the potential for enhanced learning efficiency, the literature suggests that without balanced strategies and regulatory frameworks, the risks to academic honesty remain substantial [S6]. (method: lexical_weak_overlap; only weak lexical overlap with the evidence (19%))
+  - reference_metadata_warning: doi:10.9734/ajrcos/2024/v17i7491 (missing_author)
+  - reference_metadata_warning: title:chatgptandbeyondthegenerativeairevolutionineducation (missing_doi)
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+
+SOURCE MAP
+SOURCE MAP
+  [S1] Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the U
+       author=Japheth Kodua Wiredu a year=2024 pages=1-2 doi=10.9734/ajrcos/2024/v17i7491
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=abstract
+       chunk=ad57e51b-641e-5f80-a4c5-a0e8883d78d8 doc=5c0fb81a-a4ea-5945-a428-73b48cb6220e
+       citation=("Impact of Generative AI in", 2024) reference=doi:10.9734/ajrcos/2024/v17i7491 fallbacks=missing_author
+  [S2] Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the U
+       author=Japheth Kodua Wiredu a year=2024 pages=15-16 doi=10.9734/ajrcos/2024/v17i7491
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=dcc945d8-3fba-504f-8f9a-1a732a1b9256 doc=5c0fb81a-a4ea-5945-a428-73b48cb6220e
+       citation=("Impact of Generative AI in", 2024) reference=doi:10.9734/ajrcos/2024/v17i7491 fallbacks=missing_author
+  [S3] Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the U
+       author=Japheth Kodua Wiredu a year=2024 pages=13-15 doi=10.9734/ajrcos/2024/v17i7491
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 doc=5c0fb81a-a4ea-5945-a428-73b48cb6220e
+       citation=("Impact of Generative AI in", 2024) reference=doi:10.9734/ajrcos/2024/v17i7491 fallbacks=missing_author
+  [S4] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=176 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=96646600-7083-5130-a54a-ec016c9b6e2e doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+  [S5] ChatGPT and Beyond: The Generative AI Revolution in Education
+       author=Mohammad AL-Smadi year=2022 pages=16 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=e14fc117-42c4-55a3-9bce-24b2af450372 doc=69f892c9-9ee1-5ceb-be68-e4a92e1ad120
+       citation=(AL-Smadi, 2022) reference=title:chatgptandbeyondthegenerativeairevolutionineducation
+  [S6] A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education
+       author=Ming Li year=2024 pages=15 doi=10.4018/IJISMD.365913
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=61e52b94-f3be-51e8-8740-8f468ede9839 doc=f7e05f84-2b77-58b2-9fa9-3eb4559a50d9
+       citation=(Li, 2024) reference=doi:10.4018/ijismd.365913
+  [S7] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=82 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=a22db4fd-4151-5e10-abaa-e29f1947b477 doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+  [S8] Generative AI in Higher Education; The ChatGPT Effect
+       author=Cecilia Ka Yuk Chan year=2024 pages=124 doi=none
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=a1d4360a-19df-5cf4-90f7-ef7467a6901f doc=03978b38-e55f-54c6-9845-bd7cf847e959
+       citation=(Chan, 2024) reference=title:generativeaiinhighereducationthechatgpteffect
+====================================================================================================================
+QUESTION 4: What evidence supports adaptive learning in higher education?
+====================================================================================================================
+  mode             : evidence_only
+  model            : qwen3.5:35b (0.35.1)
+  prompt version   : system_v2:6ca8b9ca+user_v2:5f9685ea
+  prompt tokens    : 5571 (estimated 6821)
+  output tokens    : 270
+  latency          : retrieval 0.49s + generation 1.29s
+  context          : 6 blocks, ~5350 tokens
+  markers produced : ['S1', 'S2', 'S3', 'S5', 'S4']
+
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 8
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 1
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 1 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (0 with metadata warnings)
+  validation time  : 0.0384s
+
+INTEGRITY
+  internal markers left in validated_answer : 0 []
+  citations mapped to a real source          : 5/5 []
+  citations without a chunk id               : 0
+  non-evidence source cited as scholarship   : 0
+  withheld sentences equal unsupported count : True
+  markers in original answer                 : 4 distinct
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.756 sources=S1,S2
+       Several studies suggest that adaptive learning can improve student outcomes in higher education by personalizing instruc
+       reason: the cited evidence contains 69% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.6875
+       - [S2] SUPPORTED single=0.375 union=0.6875
+       [S1,S2] -> (Magaña, 2023)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Research indicates that adaptive tutorials in mathematics higher education environments have led to significant improvem
+       reason: the cited evidence contains 89% of the claim's content terms; its content is spread over the cited passages (39% best sentence)
+       - [S3] SUPPORTED single=0.3889 union=0.8889
+       number: 98% (percent) found in S3
+       [S3] -> (Weltman, 2018)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.787 sources=S3
+       Furthermore, data from these studies show that students who voluntarily used adaptive tutorials achieved higher median s
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (42% best sentence)
+       - [S3] SUPPORTED single=0.4211 union=0.7895
+       [S3] -> (Weltman, 2018)
+    4. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       The integration of artificial intelligence in STEM higher education is also cited as a key benefit for facilitating pers
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6667 union=0.9167
+       [S5] -> (PRESS, 2023)
+    5. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       AI systems are described as capable of analyzing vast amounts of data on student performance and preferences to deliver 
+       reason: the cited evidence contains 88% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7059 union=0.8824
+       [S5] -> (PRESS, 2023)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.75 sources=S5
+       These systems can identify common misconceptions across groups of learners, allowing instructors to adjust their teachin
+       reason: the cited evidence contains 67% of the claim's content terms; its content is spread over the cited passages (33% best sentence)
+       - [S5] SUPPORTED single=0.3333 union=0.6667
+       [S5] -> (PRESS, 2023)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.795 sources=S2,S4
+       However, the literature also highlights specific challenges associated with implementing these technologies in higher se
+       reason: the cited evidence contains 82% of the claim's content terms; its content is spread over the cited passages (45% best sentence)
+       - [S2] SUPPORTED single=0.4545 union=0.8182
+       - [S4] PARTIALLY_SUPPORTED single=0.4545 union=0.5455
+       [S2,S4] -> (Magaña, 2023)
+    8. claim              PARTIALLY_SUPPORTED method=lexical_multi_sentence confidence=0.5 sources=S2
+       Reported obstacles include a lack of technology training for teachers, the costs involved, and the need for accurate and
+       reason: only 57% of the claim's content terms occur in the cited evidence
+       - [S2] PARTIALLY_SUPPORTED single=0.3571 union=0.5714
+       [S2] -> (Magaña, 2023)
+       decision: annotated
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Additionally, ensuring the accuracy of algorithms, addressing data biases, and protecting student privacy are noted as c
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.75 union=0.9375
+       [S5] -> (PRESS, 2023)
+
+WARNINGS
+  - partially_supported_claim: Reported obstacles include a lack of technology training for teachers, the costs involved, and the need for accurate and timely feedback mechanisms [S2]. (method: lexical_multi_sentence; only 57% of the claim's content terms occur in the cited evidence)
+
+SOURCE MAP
+SOURCE MAP
+  [S1] A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCA
+       author=Manuel Antonio Rodríguez Magaña year=2023 pages=5-6 doi=10.22533/at.ed.5583332308092
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=0e95273e-8081-568d-978f-c4a2400c9c04 doc=5f048c34-a44c-56ec-8957-42f72b833dc3
+       citation=(Magaña, 2023) reference=doi:10.22533/at.ed.5583332308092
+  [S2] A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCA
+       author=Manuel Antonio Rodríguez Magaña year=2023 pages=3-4 doi=10.22533/at.ed.5583332308092
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=d9542bfb-dc9b-5c5a-816b-5ff771cc1bbc doc=5f048c34-a44c-56ec-8957-42f72b833dc3
+       citation=(Magaña, 2023) reference=doi:10.22533/at.ed.5583332308092
+  [S3] Evaluation of an adaptive tutorial supporting the teaching of mathematics
+       author=Heather Richelle Weltman year=2018 pages=13 doi=10.1080/03043797.2018.1513993
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=187b6f5d-5a50-56a9-a4bb-62a263256f01 doc=44f926d0-c46b-5ef9-9790-6c2c005b47b1
+       citation=(Weltman, 2018) reference=doi:10.1080/03043797.2018.1513993
+  [S4] A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCA
+       author=Manuel Antonio Rodríguez Magaña year=2023 pages=6-7 doi=10.22533/at.ed.5583332308092
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=6dd9400d-5457-51eb-b480-995e7774b6b2 doc=5f048c34-a44c-56ec-8957-42f72b833dc3
+       citation=(Magaña, 2023) reference=doi:10.22533/at.ed.5583332308092
+  [S5] MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher
+       author=IOR PRESS year=2023 pages=3-4 doi=10.54392/irjmt2351
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=895645b6-d3df-55c8-9cf1-da6e5499dc31 doc=2732c646-40a1-5442-953e-d75141481bb0
+       citation=(PRESS, 2023) reference=doi:10.54392/irjmt2351
+  [S6] 060624-28.张善文+An Adaptive Learning Method Based on Knowledge Graph.docx
+       author=Shanwen Zhang year=2023 pages=3-4 doi=10.25236/FER.2023.060624
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=abstract
+       chunk=e18c52a5-1624-53ff-88df-612d7b7cd3ac doc=f74eb586-1fa8-5ae7-a1c5-88db338a7399
+       citation=(none: this source received no citation)
+====================================================================================================================
+QUESTION 5: What is Design Science Research Methodology and how is it used?
+====================================================================================================================
+  mode             : evidence_only
+  model            : qwen3.5:35b (0.35.1)
+  prompt version   : system_v2:6ca8b9ca+user_v2:5f9685ea
+  prompt tokens    : 6486 (estimated 7420)
+  output tokens    : 331
+  latency          : retrieval 1.11s + generation 1.56s
+  context          : 6 blocks, ~5928 tokens
+  markers produced : ['S1', 'S2', 'S5', 'S3']
+
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 8
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 1
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 3 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 4
+  references       : 2 (2 with metadata warnings)
+  validation time  : 0.0331s
+
+INTEGRITY
+  internal markers left in validated_answer : 0 []
+  citations mapped to a real source          : 4/4 []
+  citations without a chunk id               : 0
+  non-evidence source cited as scholarship   : 0
+  withheld sentences equal unsupported count : True
+  markers in original answer                 : 4 distinct
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Design Science Research (DSR) is described as an important and legitimate paradigm within Information Systems that invol
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6471 union=0.9412
+       [S1] -> ("Positioning and Presenting Design Science", 2013)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.767 sources=S1
+       The paradigm has faced challenges regarding its full potential impact due to gaps in understanding and applying DSR conc
+       reason: the cited evidence contains 72% of the claim's content terms; its content is spread over the cited passages (39% best sentence)
+       - [S1] SUPPORTED single=0.3889 union=0.7222
+       [S1] -> ("Positioning and Presenting Design Science", 2013)
+    3. claim              SUPPORTED           method=quotation_exact confidence=0.76 sources=S2
+       Within the field, DSR is sometimes referred to by alternative labels including "systemeering," a "constructive" approach
+       reason: the cited evidence contains 70% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S2] SUPPORTED single=0.5 union=0.7
+       quote: found (normalized) systemeering,
+       quote: found (verbatim) constructive
+       quote: found (verbatim) engineering approach
+       [S2] -> ("Positioning and Presenting Design Science", 2013)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.764 sources=S2
+       The methodology emphasizes that contributing to knowledge is the foremost criterion for publication, requiring researche
+       reason: the cited evidence contains 71% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S2] SUPPORTED single=0.3571 union=0.7143
+       [S2] -> ("Positioning and Presenting Design Science", 2013)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.75 sources=S5
+       A key aspect of DSR is the development of artifacts where the design itself is a crucial element for revealing new knowl
+       reason: the cited evidence contains 67% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S5] SUPPORTED single=0.5 union=0.6667
+       [S5] -> ("A systematic review of immersive", 2019)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.73 sources=S3
+       Researchers are encouraged to position their work within specific quadrants of a knowledge contribution framework, such 
+       reason: the cited evidence contains 60% of the claim's content terms; its content is spread over the cited passages (27% best sentence)
+       - [S3] SUPPORTED single=0.2667 union=0.6
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+    7. claim              PARTIALLY_SUPPORTED method=lexical_multi_sentence confidence=0.5 sources=S3
+       To communicate these contributions effectively, scholars propose a publication schema that substitutes the description o
+       reason: only 47% of the claim's content terms occur in the cited evidence
+       - [S3] PARTIALLY_SUPPORTED single=0.1765 union=0.4706
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+       decision: annotated
+    8. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       This schema suggests that the introduction should specify the purpose and scope of the artifact, identify the class of p
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S3] SUPPORTED single=0.5 union=0.875
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+    9. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.794 sources=S3
+       The literature notes that while guidance exists on presenting DSR, there is often insufficient advice on how to establis
+       reason: the cited evidence contains 81% of the claim's content terms; its content is spread over the cited passages (44% best sentence)
+       - [S3] SUPPORTED single=0.4375 union=0.8125
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+
+WARNINGS
+  - partially_supported_claim: To communicate these contributions effectively, scholars propose a publication schema that substitutes the description of the DSR artifact for a traditional results section found in behavioral science papers [S3]. (method: lexical_multi_sentence; only 47% of the claim's content terms occur in the cited evidence)
+  - reference_metadata_warning: doi:10.1016/j.compedu.2019.103778 (missing_author)
+  - reference_metadata_warning: doi:10.25300/misq/2013/37.2.01 (missing_author)
+
+SOURCE MAP
+SOURCE MAP
+  [S1] Positioning and Presenting Design Science Research for Maximum Impact
+       author=degro year=2013 pages=1-3 doi=10.25300/MISQ/2013/37.2.01
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=dfc4ff10-443d-53e2-b18f-fdc1b55c0ada doc=e8df9121-58aa-53a5-9eb8-158f3f8fc806
+       citation=("Positioning and Presenting Design Science", 2013) reference=doi:10.25300/misq/2013/37.2.01 fallbacks=missing_author
+  [S2] Positioning and Presenting Design Science Research for Maximum Impact
+       author=degro year=2013 pages=3 doi=10.25300/MISQ/2013/37.2.01
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=24bb3690-a0c0-5b0f-a95e-c047a529df73 doc=e8df9121-58aa-53a5-9eb8-158f3f8fc806
+       citation=("Positioning and Presenting Design Science", 2013) reference=doi:10.25300/misq/2013/37.2.01 fallbacks=missing_author
+  [S3] Positioning and Presenting Design Science Research for Maximum Impact
+       author=degro year=2013 pages=14 doi=10.25300/MISQ/2013/37.2.01
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=a07dd477-55f0-53e2-8ca8-555bac21c9ae doc=e8df9121-58aa-53a5-9eb8-158f3f8fc806
+       citation=("Positioning and Presenting Design Science", 2013) reference=doi:10.25300/misq/2013/37.2.01 fallbacks=missing_author
+  [S4] A systematic review of immersive virtual reality applications for higher education: Design
+       author=radianti year=2019 pages=11-12 doi=10.1016/j.compedu.2019.103778
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=ce933356-6d8f-5e0c-be80-8ac8a940e877 doc=35975b07-3c97-5029-8308-6d2b00b97f30
+       citation=(none: this source received no citation)
+  [S5] A systematic review of immersive virtual reality applications for higher education: Design
+       author=radianti year=2019 pages=10-11 doi=10.1016/j.compedu.2019.103778
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=0a54666b-2fa4-59f3-a7fb-0d41ec8850e8 doc=35975b07-3c97-5029-8308-6d2b00b97f30
+       citation=("A systematic review of immersive", 2019) reference=doi:10.1016/j.compedu.2019.103778 fallbacks=missing_author
+  [S6] An evaluation of the use of Turnitin as a tool for electronic submission, marking, and fee
+       author=unknown year=2022 pages=5-6 doi=10.33422/etconf.v1i1.32
+       class=evidence citable=True role=literature evidence=True ocr=False content_type=body
+       chunk=f0429c1c-3a8d-5e26-b4f2-dee1b8655ac0 doc=41763bf0-909f-5dcd-9776-7f02d3c6a575
+       citation=(none: this source received no citation)
+====================================================================================================================
+PART B - RECORDED RAG-011 ANSWERS, VALIDATED AS THEY WERE
+====================================================================================================================
+The answers below are the verbatim RAG-011 answers recorded in
+docs/rag011-generation-evaluation.txt, validated against the exact chunks that
+answer cited (read back from the corpus by chunk id). Nothing was regenerated:
+this is the §1 route, and it is what makes the known partially-supported claim
+reproducible.
+====================================================================================================================
+RECORDED ANSWER: What is AI governance in higher education?
+====================================================================================================================
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 12 (sentences checked: 12)
+  supported        : 12
+  partially sup.   : 0
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 0
+  markers replaced : 12 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (1 with metadata warnings)
+  validation time  : 0.0347s
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       AI governance in higher education refers to the responsibility of senior management to formulate policies, establish eth
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (59% best sentence)
+       - [S1] SUPPORTED single=0.5882 union=0.8824
+       [S1] -> (Chan, 2024)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       This dimension focuses on ensuring that institutions operate within legal and ethical boundaries while striving for acad
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.8333 union=0.9167
+       [S1] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S1
+       Senior management plays a crucial role in understanding, identifying, and preventing academic misconduct and ethical dil
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.7857
+       [S1] -> (Chan, 2024)
+    4. claim              SUPPORTED           method=lexical_single_sentence confidence=0.768 sources=S5
+       Effective governance requires addressing specific areas such as data privacy, transparency, accountability, and security
+       reason: the cited evidence contains 73% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=0.7273
+       [S5] -> (Chan, 2024)
+    5. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       It involves establishing clear guidelines for the proper attribution of AI-generated content to promote academic honesty
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6364 union=1.0
+       [S5] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S5
+       Governance also necessitates implementing measures to ensure equitable access to AI technologies, thereby preventing the
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S5] SUPPORTED single=0.3571 union=0.7857
+       [S5] -> (Chan, 2024)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S2
+       The ethical and sustainable development of artificial intelligence depends on good governance, which includes creating s
+       reason: the cited evidence contains 100% of the claim's content terms; its content is spread over the cited passages (57% best sentence)
+       - [S2] SUPPORTED single=0.5714 union=1.0
+       [S2] -> (Singh, 2024)
+    8. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S6
+       Policymakers and institutions must develop data governance frameworks that protect student privacy and safeguard sensiti
+       reason: the cited evidence contains 93% of the claim's content terms; a single cited sentence carries it
+       - [S6] SUPPORTED single=0.6 union=0.9333
+       [S6] -> (PRESS, 2023)
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S2
+       Without sound ethical standards and principles, the smooth implementation of AI in this sensitive sector is not possible
+       reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+       - [S2] SUPPORTED single=1.0 union=1.0
+       [S2] -> (Singh, 2024)
+   10. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S3
+       Collaboration among all stakeholders, including universities, teachers, students, and staff, is essential for the succes
+       reason: the cited evidence contains 90% of the claim's content terms; a single cited sentence carries it
+       - [S3] SUPPORTED single=0.9 union=0.9
+       [S3] -> (Chan, 2024)
+   11. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       A robust governance framework allows senior management to create a conducive environment for the ethical use of AI, miti
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6875 union=0.9375
+       [S5] -> (Chan, 2024)
+   12. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Ultimately, these governance actions contribute to enhanced trust, compliance, and responsible AI usage within the acade
+       reason: the cited evidence contains 91% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.8182 union=0.9091
+       [S5] -> (Chan, 2024)
+
+WARNINGS
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+
+REFERENCES
+  1. Chan, C.K.Y. (2024) 'Generative AI in Higher Education; The ChatGPT Effect', pp. 175-176. [metadata_warning: missing_doi]
+  2. PRESS, I. (2023) 'MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review', pp. 15-16. doi:10.54392/irjmt2351
+  3. Singh, V.V. (2024) 'Assessment of Artificial Intelligence-based digital learning systems in higher education amid the pandemic using Analytic Hierarchy', pp. 2-3. doi:10.21203/rs.3.rs-3828524/v1
+====================================================================================================================
+RECORDED ANSWER: What evidence links virtual reality with student engagement in higher education?
+====================================================================================================================
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 12 (sentences checked: 13)
+  supported        : 12
+  partially sup.   : 0
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 0
+  markers replaced : 12 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (2 with metadata warnings)
+  validation time  : 0.0428s
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       Research indicates that virtual reality (VR) contributes to increased learner engagement by providing interactive and ex
+       reason: the cited evidence contains 94% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.9375
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S1
+       Unlike traditional teaching methods which often rely on passive learning, VR allows students to explore virtual worlds, 
+       reason: the cited evidence contains 95% of the claim's content terms; its content is spread over the cited passages (57% best sentence)
+       - [S1] SUPPORTED single=0.5714 union=0.9524
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S2
+       A study comparing VR-based learning environments to traditional classroom settings found a clear and statistically signi
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (56% best sentence)
+       - [S2] SUPPORTED single=0.5625 union=0.875
+       [S2] -> ("The Impact of Virtual Reality", n.d.)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.735 sources=S3
+       This increase is attributed to the immersive nature of the technology, which fosters deeper involvement, higher motivati
+       reason: the cited evidence contains 62% of the claim's content terms; its content is spread over the cited passages (31% best sentence)
+       - [S3] SUPPORTED single=0.3077 union=0.6154
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Qualitative data from students further supports these findings by highlighting themes such as increased motivation, enjo
+       reason: the cited evidence contains 100% of the claim's content terms; its content is spread over the cited passages (47% best sentence)
+       - [S3] SUPPORTED single=0.4667 union=1.0
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Students reported feeling more motivated to participate due to the dynamic nature of VR sessions, which they found more 
+       reason: the cited evidence contains 93% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S3] SUPPORTED single=0.5 union=0.9286
+       [S3] -> ("The Impact of Virtual Reality", n.d.)
+    7. claim              SUPPORTED           method=lexical_single_sentence confidence=0.795 sources=S5
+       Other research confirms that immersive VR significantly outperforms desktop VR in terms of student motivation and sense 
+       reason: the cited evidence contains 82% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7273 union=0.8182
+       [S5] -> (Zaatar, 2024)
+    8. claim              SUPPORTED           method=lexical_single_sentence confidence=0.781 sources=S5
+       Additionally, a meta-analysis of randomized controlled studies on anatomy education found that VR improved student inter
+       reason: the cited evidence contains 77% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7692 union=0.7692
+       [S5] -> (Zaatar, 2024)
+    9. non_claim          UNCERTAIN           method=lexical_weak_overlap confidence=0.0 sources=-
+       Despite these positive links to engagement, several challenges affect the widespread adoption of VR in higher education.
+       reason: not a claim sentence
+   10. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S1
+       The high cost of equipment and software, along with ongoing maintenance expenses, presents a significant financial barri
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (43% best sentence)
+       - [S1] SUPPORTED single=0.4286 union=0.7857
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   11. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Accessibility issues also arise, as not all students have equal access to the necessary technology due to financial cons
+       reason: the cited evidence contains 85% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.8462 union=0.8462
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   12. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Furthermore, successful implementation requires instructors to possess specific technical skills and pedagogical trainin
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6154 union=0.9231
+       [S1] -> ("The Impact of Virtual Reality", n.d.)
+   13. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S4
+       Other studies identify potential health risks and difficulties in adapting to the technology as additional obstacles rep
+       reason: the cited evidence contains 85% of the claim's content terms; its content is spread over the cited passages (46% best sentence)
+       - [S4] SUPPORTED single=0.4615 union=0.8462
+       [S4] -> ("Information Technology Students' Perceptions Toward", 2024)
+
+WARNINGS
+  - reference_metadata_warning: doi:10.3991/ijim.v17i07.37211 (missing_author)
+  - reference_metadata_warning: title:theimpactofvirtualrealityonstudentengagementinhighereducation (missing_author, missing_year, missing_doi)
+
+REFERENCES
+  1. "Information Technology Students' Perceptions Toward Using Virtual Reality Technology for Educational Purposes" (2024), pp. 6-7. doi:10.3991/ijim.v17i07.37211 [metadata_warning: missing_author]
+  2. "The Impact of Virtual Reality on Student Engagement in Higher Education" (n.d.), pp. 2-3. [metadata_warning: missing_author, missing_year, missing_doi]
+  3. Zaatar, M.T. (2024) 'Exploring the Virtual Frontier: The Impact of Virtual Reality on Undergraduate Biology Education at the American University in Dubai', pp. 1-2. doi:10.18178/ijiet.2024.14.5.2092
+====================================================================================================================
+RECORDED ANSWER: How is generative AI affecting academic integrity?
+====================================================================================================================
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 7
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 1
+  withheld         : 0
+  annotated        : 2
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 1 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 8
+  references       : 4 (3 with metadata warnings)
+  validation time  : 0.0294s
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S5
+       Generative AI tools present significant challenges to academic integrity by enabling potential cheating and plagiarism t
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (43% best sentence)
+       - [S5] SUPPORTED single=0.4286 union=0.7857
+       [S5] -> (AL-Smadi, 2022)
+    2. claim              SUPPORTED           method=lexical_single_sentence confidence=0.781 sources=S7
+       The ease with which students can obtain detailed answers from these systems risks blurring the boundaries between indepe
+       reason: the cited evidence contains 77% of the claim's content terms; a single cited sentence carries it
+       - [S7] SUPPORTED single=0.6923 union=0.7692
+       [S7] -> (Chan, 2024)
+    3. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Consequently, 75% of students in a study of Ghanaian universities cited academic integrity as a primary concern when usi
+       reason: the cited evidence contains 93% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.7143 union=0.9286
+       number: 75% (percent) found in S1
+       [S1] -> ("Impact of Generative AI in", 2024)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.762 sources=S2
+       To address these risks, scholars emphasize the necessity of developing clear ethical guidelines and implementing advance
+       reason: the cited evidence contains 71% of the claim's content terms; its content is spread over the cited passages (35% best sentence)
+       - [S2] SUPPORTED single=0.3529 union=0.7059
+       [S2] -> ("Impact of Generative AI in", 2024)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.767 sources=S8
+       Institutions are urged to establish specific policies that define misuse, such as flagging the use of AI to generate ess
+       reason: the cited evidence contains 72% of the claim's content terms; its content is spread over the cited passages (44% best sentence)
+       - [S8] SUPPORTED single=0.4444 union=0.7222
+       [S8] -> (Chan, 2024)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.786 sources=S4
+       Furthermore, there is a strong call for robust governance frameworks that ensure transparency and accountability to main
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S4] SUPPORTED single=0.3571 union=0.7857
+       [S4] -> (Chan, 2024)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.73 sources=S2
+       Educators also highlight the need for AI literacy programs to help students understand the capabilities and limitations 
+       reason: the cited evidence contains 60% of the claim's content terms; its content is spread over the cited passages (20% best sentence)
+       - [S2] SUPPORTED single=0.2 union=0.6
+       [S2] -> ("Impact of Generative AI in", 2024)
+    8. claim              PARTIALLY_SUPPORTED method=lexical_merged_findings confidence=0.5 sources=S3
+       A majority of faculty members consider training on ethical AI usage as highly important, with many advocating for assign
+       reason: two separately-sourced findings are joined in one sentence: 'A majority of faculty members consider training ' matches passage 2, 'many advocating for assignments that foster crit' matches passage 9, and no single passage states the whole claim (47% at best)
+       - [S3] PARTIALLY_SUPPORTED single=0.4706 union=0.8824
+       [S3] -> ("Impact of Generative AI in", 2024)
+       decision: annotated
+    9. claim              UNCERTAIN           method=lexical_weak_overlap confidence=0.25 sources=S6
+       Despite the potential for enhanced learning efficiency, the literature suggests that without balanced strategies and reg
+       reason: only weak lexical overlap with the evidence (19%)
+       - [S6] UNCERTAIN single=0.0625 union=0.1875
+       [S6] -> (Li, 2024)
+       decision: annotated
+
+WARNINGS
+  - partially_supported_claim: A majority of faculty members consider training on ethical AI usage as highly important, with many advocating for assignments that foster critical thinking to mitigate overreliance [S3]. (method: lexical_merged_findings; two separately-sourced findings are joined in one sentence: 'A majority of faculty members consider training ' matches passage 2, 'many advocating for assignments that foster crit' matches passage 9, and no single passage states the whole claim (47% at best))
+  - uncertain_claim: Despite the potential for enhanced learning efficiency, the literature suggests that without balanced strategies and regulatory frameworks, the risks to academic honesty remain substantial [S6]. (method: lexical_weak_overlap; only weak lexical overlap with the evidence (19%))
+  - reference_metadata_warning: doi:10.9734/ajrcos/2024/v17i7491 (missing_author)
+  - reference_metadata_warning: title:chatgptandbeyondthegenerativeairevolutionineducation (missing_doi)
+  - reference_metadata_warning: title:generativeaiinhighereducationthechatgpteffect (missing_doi)
+
+REFERENCES
+  1. "Impact of Generative AI in Academic Integrity and Learning Outcomes: A Case Study in the Upper East Region" (2024), pp. 1-2. doi:10.9734/ajrcos/2024/v17i7491 [metadata_warning: missing_author]
+  2. AL-Smadi, M. (2022) 'ChatGPT and Beyond: The Generative AI Revolution in Education', p. 16. [metadata_warning: missing_doi]
+  3. Chan, C.K.Y. (2024) 'Generative AI in Higher Education; The ChatGPT Effect', p. 82. [metadata_warning: missing_doi]
+  4. Li, M. (2024) 'A Bibliometric Analysis of Artificial Intelligence Applications in Global Higher Education', p. 15. doi:10.4018/IJISMD.365913
+====================================================================================================================
+RECORDED ANSWER: What evidence supports adaptive learning in higher education?
+====================================================================================================================
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 8
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 1
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 1 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 5
+  references       : 3 (0 with metadata warnings)
+  validation time  : 0.0387s
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.756 sources=S1,S2
+       Several studies suggest that adaptive learning can improve student outcomes in higher education by personalizing instruc
+       reason: the cited evidence contains 69% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S1] SUPPORTED single=0.5 union=0.6875
+       - [S2] SUPPORTED single=0.375 union=0.6875
+       [S1,S2] -> (Magaña, 2023)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       Research indicates that adaptive tutorials in mathematics higher education environments have led to significant improvem
+       reason: the cited evidence contains 89% of the claim's content terms; its content is spread over the cited passages (39% best sentence)
+       - [S3] SUPPORTED single=0.3889 union=0.8889
+       number: 98% (percent) found in S3
+       [S3] -> (Weltman, 2018)
+    3. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.787 sources=S3
+       Furthermore, data from these studies show that students who voluntarily used adaptive tutorials achieved higher median s
+       reason: the cited evidence contains 79% of the claim's content terms; its content is spread over the cited passages (42% best sentence)
+       - [S3] SUPPORTED single=0.4211 union=0.7895
+       [S3] -> (Weltman, 2018)
+    4. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       The integration of artificial intelligence in STEM higher education is also cited as a key benefit for facilitating pers
+       reason: the cited evidence contains 92% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.6667 union=0.9167
+       [S5] -> (PRESS, 2023)
+    5. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       AI systems are described as capable of analyzing vast amounts of data on student performance and preferences to deliver 
+       reason: the cited evidence contains 88% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.7059 union=0.8824
+       [S5] -> (PRESS, 2023)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.75 sources=S5
+       These systems can identify common misconceptions across groups of learners, allowing instructors to adjust their teachin
+       reason: the cited evidence contains 67% of the claim's content terms; its content is spread over the cited passages (33% best sentence)
+       - [S5] SUPPORTED single=0.3333 union=0.6667
+       [S5] -> (PRESS, 2023)
+    7. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.795 sources=S2,S4
+       However, the literature also highlights specific challenges associated with implementing these technologies in higher se
+       reason: the cited evidence contains 82% of the claim's content terms; its content is spread over the cited passages (45% best sentence)
+       - [S2] SUPPORTED single=0.4545 union=0.8182
+       - [S4] PARTIALLY_SUPPORTED single=0.4545 union=0.5455
+       [S2,S4] -> (Magaña, 2023)
+    8. claim              PARTIALLY_SUPPORTED method=lexical_multi_sentence confidence=0.5 sources=S2
+       Reported obstacles include a lack of technology training for teachers, the costs involved, and the need for accurate and
+       reason: only 57% of the claim's content terms occur in the cited evidence
+       - [S2] PARTIALLY_SUPPORTED single=0.3571 union=0.5714
+       [S2] -> (Magaña, 2023)
+       decision: annotated
+    9. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S5
+       Additionally, ensuring the accuracy of algorithms, addressing data biases, and protecting student privacy are noted as c
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S5] SUPPORTED single=0.75 union=0.9375
+       [S5] -> (PRESS, 2023)
+
+WARNINGS
+  - partially_supported_claim: Reported obstacles include a lack of technology training for teachers, the costs involved, and the need for accurate and timely feedback mechanisms [S2]. (method: lexical_multi_sentence; only 57% of the claim's content terms occur in the cited evidence)
+
+REFERENCES
+  1. Magaña, M.A.R. (2023) 'A NEW EDUCATIONAL APPROACH IN THE HYBRID ADAPTIVE LEARNING MODEL IN HIGHER SECONDARY EDUCATION', pp. 5-6. doi:10.22533/at.ed.5583332308092
+  2. PRESS, I. (2023) 'MULTIDISCIPLINARY TECHNOVATION The Emerging Role of Artificial Intelligence in STEM Higher Education: A Critical Review', pp. 3-4. doi:10.54392/irjmt2351
+  3. Weltman, H.R. (2018) 'Evaluation of an adaptive tutorial supporting the teaching of mathematics', p. 13. doi:10.1080/03043797.2018.1513993
+====================================================================================================================
+RECORDED ANSWER: What is Design Science Research Methodology and how is it used?
+====================================================================================================================
+VALIDATION SUMMARY
+  status           : ok
+  validator        : deterministic
+  claims           : 9 (sentences checked: 9)
+  supported        : 8
+  partially sup.   : 1
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 1
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 3 checked, 0 not found
+  numbers          : 0 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 4
+  references       : 2 (2 with metadata warnings)
+  validation time  : 0.0333s
+
+CLAIMS
+CLAIMS
+    1. claim              SUPPORTED           method=lexical_single_sentence confidence=0.8 sources=S1
+       Design Science Research (DSR) is described as an important and legitimate paradigm within Information Systems that invol
+       reason: the cited evidence contains 94% of the claim's content terms; a single cited sentence carries it
+       - [S1] SUPPORTED single=0.6471 union=0.9412
+       [S1] -> ("Positioning and Presenting Design Science", 2013)
+    2. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.767 sources=S1
+       The paradigm has faced challenges regarding its full potential impact due to gaps in understanding and applying DSR conc
+       reason: the cited evidence contains 72% of the claim's content terms; its content is spread over the cited passages (39% best sentence)
+       - [S1] SUPPORTED single=0.3889 union=0.7222
+       [S1] -> ("Positioning and Presenting Design Science", 2013)
+    3. claim              SUPPORTED           method=quotation_exact confidence=0.76 sources=S2
+       Within the field, DSR is sometimes referred to by alternative labels including "systemeering," a "constructive" approach
+       reason: the cited evidence contains 70% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S2] SUPPORTED single=0.5 union=0.7
+       quote: found (normalized) systemeering,
+       quote: found (verbatim) constructive
+       quote: found (verbatim) engineering approach
+       [S2] -> ("Positioning and Presenting Design Science", 2013)
+    4. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.764 sources=S2
+       The methodology emphasizes that contributing to knowledge is the foremost criterion for publication, requiring researche
+       reason: the cited evidence contains 71% of the claim's content terms; its content is spread over the cited passages (36% best sentence)
+       - [S2] SUPPORTED single=0.3571 union=0.7143
+       [S2] -> ("Positioning and Presenting Design Science", 2013)
+    5. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.75 sources=S5
+       A key aspect of DSR is the development of artifacts where the design itself is a crucial element for revealing new knowl
+       reason: the cited evidence contains 67% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S5] SUPPORTED single=0.5 union=0.6667
+       [S5] -> ("A systematic review of immersive", 2019)
+    6. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.73 sources=S3
+       Researchers are encouraged to position their work within specific quadrants of a knowledge contribution framework, such 
+       reason: the cited evidence contains 60% of the claim's content terms; its content is spread over the cited passages (27% best sentence)
+       - [S3] SUPPORTED single=0.2667 union=0.6
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+    7. claim              PARTIALLY_SUPPORTED method=lexical_multi_sentence confidence=0.5 sources=S3
+       To communicate these contributions effectively, scholars propose a publication schema that substitutes the description o
+       reason: only 47% of the claim's content terms occur in the cited evidence
+       - [S3] PARTIALLY_SUPPORTED single=0.1765 union=0.4706
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+       decision: annotated
+    8. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.8 sources=S3
+       This schema suggests that the introduction should specify the purpose and scope of the artifact, identify the class of p
+       reason: the cited evidence contains 88% of the claim's content terms; its content is spread over the cited passages (50% best sentence)
+       - [S3] SUPPORTED single=0.5 union=0.875
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+    9. claim              SUPPORTED           method=lexical_multi_sentence confidence=0.794 sources=S3
+       The literature notes that while guidance exists on presenting DSR, there is often insufficient advice on how to establis
+       reason: the cited evidence contains 81% of the claim's content terms; its content is spread over the cited passages (44% best sentence)
+       - [S3] SUPPORTED single=0.4375 union=0.8125
+       [S3] -> ("Positioning and Presenting Design Science", 2013)
+
+WARNINGS
+  - partially_supported_claim: To communicate these contributions effectively, scholars propose a publication schema that substitutes the description of the DSR artifact for a traditional results section found in behavioral science papers [S3]. (method: lexical_multi_sentence; only 47% of the claim's content terms occur in the cited evidence)
+  - reference_metadata_warning: doi:10.1016/j.compedu.2019.103778 (missing_author)
+  - reference_metadata_warning: doi:10.25300/misq/2013/37.2.01 (missing_author)
+
+REFERENCES
+  1. "A systematic review of immersive virtual reality applications for higher education: Design elements, lessons learned, and research agenda" (2019), pp. 10-11. doi:10.1016/j.compedu.2019.103778 [metadata_warning: missing_author]
+  2. "Positioning and Presenting Design Science Research for Maximum Impact" (2013), pp. 1-3. doi:10.25300/MISQ/2013/37.2.01 [metadata_warning: missing_author]
+====================================================================================================================
+PART C - OPTIONAL SEMANTIC LAYER (BGE-M3) ON THE UNCERTAIN CLAIM
+====================================================================================================================
+question: How is generative AI affecting academic integrity?
+validator: deterministic+embedding_bge_m3
+  status           : ok
+  validator        : deterministic+embedding_bge_m3
+  claims           : 9 (sentences checked: 9)
+  supported        : 7
+  partially sup.   : 2
+  unsupported      : 0
+  uncertain        : 0
+  withheld         : 0
+  annotated        : 2
+  markers replaced : 9 (removed on headings: 0)
+  quotations       : 0 checked, 0 not found
+  numbers          : 1 checked, 0 absent from the evidence
+  invalid markers  : []
+  non-evidence     : []
+  elevated risk    : 0 claims
+  sources cited    : 8
+  references       : 4 (3 with metadata warnings)
+  validation time  : 0.2170s
+
+  SUPPORTED           lexical_multi_sentence   confidence=0.786 Generative AI tools present significant challenges to academic integrity by enabling poten
+  SUPPORTED           lexical_single_sentence  confidence=0.781 The ease with which students can obtain detailed answers from these systems risks blurring
+  SUPPORTED           lexical_single_sentence  confidence=0.8 Consequently, 75% of students in a study of Ghanaian universities cited academic integrity
+  SUPPORTED           lexical_multi_sentence   confidence=0.762 To address these risks, scholars emphasize the necessity of developing clear ethical guide
+  SUPPORTED           lexical_multi_sentence   confidence=0.767 Institutions are urged to establish specific policies that define misuse, such as flagging
+  SUPPORTED           lexical_multi_sentence   confidence=0.786 Furthermore, there is a strong call for robust governance frameworks that ensure transpare
+  SUPPORTED           lexical_multi_sentence   confidence=0.73 Educators also highlight the need for AI literacy programs to help students understand the
+  PARTIALLY_SUPPORTED lexical_merged_findings  confidence=0.5 A majority of faculty members consider training on ethical AI usage as highly important, w
+  PARTIALLY_SUPPORTED embedding_semantic       confidence=0.5 Despite the potential for enhanced learning efficiency, the literature suggests that witho
+====================================================================================================================
+PART E - TARGETED CHECKS ON REAL CORPUS TEXT
+====================================================================================================================
+Each row below is one claim sentence validated against a real corpus chunk: the
+first four use the chunk the RAG-011 integrity answer cited (S3), the next two use
+a real non-evidence chunk (my_work) and a real OCR chunk.
+  CHECK number present in the evidence: SUPPORTED [lexical_single_sentence] confidence=0.8 risk=False numbers=(56.7%=True) quotes=()
+        claim: The majority of faculty, 56.7%, consider training on ethical AI usage as highly important [S3]
+        reason: the cited evidence contains 100% of the claim's content terms; a single cited sentence carries it
+        chunk: f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 role=literature ocr=False
+  CHECK number absent from the evidence: UNSUPPORTED [numeric_missing] confidence=0.95 risk=False numbers=(88%=False) quotes=()
+        claim: The majority of faculty, 88%, consider training on ethical AI usage as highly important [S3]
+        reason: the value 88% does not appear in the cited evidence and is not derivable from it
+        chunk: f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 role=literature ocr=False
+  CHECK p-value formatting difference: UNSUPPORTED [numeric_missing] confidence=0.95 risk=False numbers=(12%=True, p < 0.05=False) quotes=()
+        claim: Only 12% advocate for regulating AI access to prevent over-reliance (p < 0.05) [S3]
+        reason: the value p < 0.05 does not appear in the cited evidence and is not derivable from it
+        chunk: f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 role=literature ocr=False
+  CHECK exact quotation: SUPPORTED [quotation_exact] confidence=0.79 risk=False numbers=(56.7%=True) quotes=(verbatim)
+        claim: The source states "The majority of faculty, 56.7%, consider training on ethical AI usage as highly important" 
+        reason: the cited evidence contains 80% of the claim's content terms; a single cited sentence carries it
+        chunk: f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 role=literature ocr=False
+  CHECK altered quotation: UNSUPPORTED [quotation_mismatch] confidence=0.95 risk=False numbers=(60%=False) quotes=(not_found)
+        claim: The source states "The majority of faculty, 60%, consider training on ethical AI usage as highly important" [S
+        reason: the quotation does not occur in the cited source text: 'The majority of faculty, 60%, consider training on ethical AI usage as highly im' (not found)
+        chunk: f031110f-6dfc-5f1e-a5ac-df3a1a526ba3 role=literature ocr=False
+  CHECK non-evidence chunk cited as evidence: UNSUPPORTED [non_evidence_source] confidence=0.95 risk=False numbers=() quotes=()
+        claim: Artificial intelligence governance is discussed in this section [S6]
+        reason: cites only non-citable material: [S6] (the author's own work, guidance or a metadata-only record)
+        chunk: 048836fb-72a6-50cb-86b5-705f1793c0ba role=my_work ocr=False
+  CHECK OCR chunk cited: UNCERTAIN [lexical_weak_overlap] confidence=0.25 risk=True numbers=() quotes=()
+        claim: Artificial intelligence governance is discussed in this section [S7]
+        reason: only weak lexical overlap with the evidence (40%)
+        chunk: 03a07191-cffa-56e1-801a-9c8b00f04648 role=literature ocr=True
+====================================================================================================================
+PART D - ACCEPTANCE SUMMARY
+====================================================================================================================
+  Q1: claims=12 supported=12 partial=0 unsupported=0 uncertain=0 refs=3
+  Q2: claims=12 supported=12 partial=0 unsupported=0 uncertain=0 refs=3
+  Q3: claims=9 supported=7 partial=1 unsupported=0 uncertain=1 refs=4
+  Q4: claims=9 supported=8 partial=1 unsupported=0 uncertain=0 refs=3
+  Q5: claims=9 supported=8 partial=1 unsupported=0 uncertain=0 refs=2
+  RECORDED What is AI governance in higher educatio: claims=12 supported=12 partial=0 unsupported=0 uncertain=0
+  RECORDED What evidence links virtual reality with: claims=12 supported=12 partial=0 unsupported=0 uncertain=0
+  RECORDED How is generative AI affecting academic : claims=9 supported=7 partial=1 unsupported=0 uncertain=1
+  RECORDED What evidence supports adaptive learning: claims=9 supported=8 partial=1 unsupported=0 uncertain=0
+  RECORDED What is Design Science Research Methodol: claims=9 supported=8 partial=1 unsupported=0 uncertain=0
+  SEMANTIC Q3: claims=9 supported=7 partial=2 unsupported=0 uncertain=0
+    CHECK number present in the evidence: SUPPORTED [lexical_single_sentence] confidence=0.8 risk=False numbers=(56.7%=True) quotes=()
+    CHECK number absent from the evidence: UNSUPPORTED [numeric_missing] confidence=0.95 risk=False numbers=(88%=False) quotes=()
+    CHECK p-value formatting difference: UNSUPPORTED [numeric_missing] confidence=0.95 risk=False numbers=(12%=True, p < 0.05=False) quotes=()
+    CHECK exact quotation: SUPPORTED [quotation_exact] confidence=0.79 risk=False numbers=(56.7%=True) quotes=(verbatim)
+    CHECK altered quotation: UNSUPPORTED [quotation_mismatch] confidence=0.95 risk=False numbers=(60%=False) quotes=(not_found)
+    CHECK non-evidence chunk cited as evidence: UNSUPPORTED [non_evidence_source] confidence=0.95 risk=False numbers=() quotes=()
+    CHECK OCR chunk cited: UNCERTAIN [lexical_weak_overlap] confidence=0.25 risk=True numbers=() quotes=()
+  total wall clock: 27.2s

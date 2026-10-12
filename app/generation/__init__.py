@@ -22,6 +22,8 @@ from app.generation.grounding import (
     audit_markers,
     extract_markers,
     grounding_warnings,
+    sentence_has_claim_signal,
+    sentence_is_trivial,
     split_sentences,
 )
 from app.generation.models import (
@@ -80,5 +82,7 @@ __all__ = [
     "grounding_warnings",
     "model_summary",
     "prompt_version",
+    "sentence_has_claim_signal",
+    "sentence_is_trivial",
     "split_sentences",
 ]
