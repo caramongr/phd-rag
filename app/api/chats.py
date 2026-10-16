@@ -32,6 +32,7 @@ from app.chat.models import (
     ChatSummary,
     ContextReport,
 )
+from app.chat.providers import PROVIDER_LOCAL
 from app.chat.service import ChatService
 from app.web.service import ChatRunner
 
@@ -72,7 +73,7 @@ class RenameChatRequest(BaseModel):
 
 
 class MessageRequest(BaseModel):
-    """``{"message": "...", "consult_corpus": null}`` (§7, §8)."""
+    """``{"message": "...", "consult_corpus": null, "provider": null, "model": null}`` (§7)."""
 
     model_config = {"extra": "forbid"}
 
@@ -80,6 +81,11 @@ class MessageRequest(BaseModel):
     #: ``True`` consults the permanent corpus, ``False`` never does, ``null`` decides from
     #: the message's own wording.
     consult_corpus: bool | None = None
+    #: Who answers *this* message (RAG-016 §7): ``"ollama"`` (the default) or ``"deepseek"``.
+    provider: str | None = Field(default=None, max_length=40)
+    #: Which model of that provider answers it (RAG-016 FIX1): for example ``deepseek-flash``
+    #: or ``deepseek-v4-pro``. ``null`` means the provider's configured default.
+    model: str | None = Field(default=None, max_length=120)
 
     @field_validator("message")
     @classmethod
@@ -87,6 +93,20 @@ class MessageRequest(BaseModel):
         if not value.strip():
             raise ValueError("the message is empty")
         return value
+
+
+class RetryRequest(BaseModel):
+    """``{"provider": "deepseek", "model": "deepseek-v4-pro"}`` — who answers the existing
+    unanswered turn (RAG-016 §8, FIX1).
+
+    The whole body is optional: a retry with no body repeats the turn on the default provider
+    and model, exactly as before this stage.
+    """
+
+    model_config = {"extra": "forbid"}
+
+    provider: str | None = Field(default=None, max_length=40)
+    model: str | None = Field(default=None, max_length=120)
 
 
 class AttachmentRequest(BaseModel):
@@ -111,6 +131,10 @@ def message_json(message: ChatMessage) -> dict[str, Any]:
         "created_at": message.created_at,
         "ordering": message.ordering,
         "context_report": message.context_report,
+        # RAG-016 §7: which model wrote this answer. ``None`` on user messages and on a turn
+        # stored before this stage, which the UI renders without a badge.
+        "provider": message.provider,
+        "model": message.model,
     }
 
 
@@ -181,6 +205,16 @@ def report_json(report: ContextReport | None) -> dict[str, Any] | None:
         "omitted": [item.model_dump(mode="json") for item in report.omitted],
         "generation_retries": report.generation_retries,
         "retry_reason": report.retry_reason,
+        # RAG-016 §19: what the provider reported for this answer. ``None`` means the provider
+        # said nothing, and the UI shows no row rather than a guess.
+        "provider": report.provider,
+        "model": report.model,
+        "input_tokens": report.input_tokens,
+        "cached_input_tokens": report.cached_input_tokens,
+        "output_tokens": report.output_tokens,
+        "reasoning_tokens": report.reasoning_tokens,
+        "latency_seconds": report.latency_seconds,
+        "request_id": report.request_id,
     }
 
 
@@ -195,6 +229,7 @@ def answer_json(answer: ChatAnswer) -> dict[str, Any]:
         ),
         "failure": answer.failure,
         "retried": bool(report and report["generation_retries"]),
+        "provider": answer.provider,
         "model": answer.model,
         "wall_seconds": answer.wall_seconds,
         "prompt_tokens": answer.prompt_tokens,
@@ -223,7 +258,12 @@ def _service(runner: ChatRunner) -> ChatService:
 
 @router.get("/chat/info")
 def chat_info(runner: ChatRunner = Depends(get_chat_runner)) -> dict[str, Any]:
-    """What the composer needs to know: model, window, accepted formats and limits."""
+    """What the composer needs to know: models, window, accepted formats and limits.
+
+    ``providers`` is the model selector's whole vocabulary (RAG-016 §6). It carries ids, labels
+    and model names only — never a key, a base URL with credentials, or anything read from the
+    environment.
+    """
     service = _service(runner)
     settings = service.settings
     return {
@@ -237,6 +277,27 @@ def chat_info(runner: ChatRunner = Depends(get_chat_runner)) -> dict[str, Any]:
         "max_attachments_per_chat": settings.chat_max_attachments_per_chat,
         "corpus_retrieval_available": service.corpus_available,
         "prompt_version": service.prompt_version,
+        "default_provider": PROVIDER_LOCAL,
+        "providers": [
+            {
+                "id": option.id,
+                "label": option.label,
+                "group": option.group,
+                "kind": option.kind,
+                "models": [
+                    {"id": item.id, "label": item.label} for item in option.models
+                ],
+                "available": option.available,
+                "note": option.note,
+                # What the provider itself listed, when it could be read. Informational: it
+                # never adds or removes a selectable model (RAG-016 FIX1).
+                "reported_models": list(option.reported_models),
+                # The option's own window, so the UI can say where the context goes without
+                # inventing a number the server would not use.
+                "num_ctx": option.num_ctx,
+            }
+            for option in service.provider_options()
+        ],
     }
 
 
@@ -285,9 +346,16 @@ def send_message(
     body: MessageRequest,
     runner: ChatRunner = Depends(get_chat_runner),
 ) -> dict[str, Any]:
-    """Answer one message in a conversation, saving both turns."""
+    """Answer one message in a conversation, saving both turns.
+
+    The provider is chosen for *this* message (RAG-016 §7); a chat is never bound to one model.
+    """
     answer = _service(runner).send_message(
-        chat_id, body.message, consult_corpus=body.consult_corpus
+        chat_id,
+        body.message,
+        consult_corpus=body.consult_corpus,
+        provider=body.provider,
+        model=body.model,
     )
     return answer_json(answer)
 
@@ -295,14 +363,22 @@ def send_message(
 @router.post("/chats/{chat_id}/retry")
 def retry_last_message(
     chat_id: str,
+    body: RetryRequest | None = None,
     runner: ChatRunner = Depends(get_chat_runner),
 ) -> dict[str, Any]:
     """Answer the last user turn again, without adding a second copy of it (FIX1 §6).
 
-    This is the recovery the UI offers after a failed generation: the conversation keeps
-    exactly one user message, and the answer is written for that existing turn.
+    Returns the answer for the existing turn. The body may name a different provider *and*
+    model, which is how a turn the local model could not answer is handed to DeepSeek — or the
+    other way round — with no duplicate user message and no new chat (RAG-016 §8, FIX1).
     """
-    return answer_json(_service(runner).retry_last(chat_id))
+    return answer_json(
+        _service(runner).retry_last(
+            chat_id,
+            provider=body.provider if body else None,
+            model=body.model if body else None,
+        )
+    )
 
 
 @router.post("/chats/{chat_id}/attachments", status_code=201)
@@ -363,6 +439,7 @@ __all__ = [
     "MessageRequest",
     "NewChatRequest",
     "RenameChatRequest",
+    "RetryRequest",
     "answer_json",
     "attachment_json",
     "chat_json",

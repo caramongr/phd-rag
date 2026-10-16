@@ -20,6 +20,11 @@ const chatState = {
   info: null,
   busy: false,
   lastReport: null,
+  /* The model chosen for the NEXT message (RAG-016 §7, FIX1). It is a property of the turn, not
+     of the chat: switching provider or model changes nothing about what is already stored and
+     never starts a new chat. */
+  provider: null,
+  model: null,
 };
 
 /* ------------------------------------------------------------------ helpers */
@@ -134,14 +139,15 @@ function retryButton(label) {
 }
 
 function showFailure(failure, retriable) {
-  const detail = chatText(failure.message, "Ollama did not return an answer.");
+  const detail = chatText(failure.message, "The model did not return an answer.");
   const retried = failure.retries
     ? ` It was tried a second time (the runner reported: ${chatText(failure.retry_reason)}).`
     : "";
   notice(
     "error",
-    "The model could not answer",
-    `Ollama said: ${detail}.${retried} Your message is saved; retrying answers that same message — it is never sent twice.`,
+    `${providerLabel(failure.provider)} could not answer`,
+    `${detail}${retried} Your message is saved, and the model selector is still yours: choose ` +
+      "another model and use Retry this turn — the message is never sent twice.",
     retriable === false ? null : retryButton()
   );
 }
@@ -151,6 +157,115 @@ function showError(error) {
     .filter((part) => part)
     .join(" ");
   notice("error", error.message || "The request failed", detail);
+}
+
+/* --------------------------------------------------------- which model answers */
+
+/* The selector is driven entirely by `/api/chat/info` (RAG-016 §6, FIX1): the server says which
+   providers and models exist, what they are called, whether they can be used, and what the
+   privacy consequence of choosing one is. Nothing about a provider is invented here. */
+
+function providerOption(id) {
+  const info = chatState.info;
+  if (!info || !info.providers) return null;
+  return info.providers.find((item) => item.id === id) || null;
+}
+
+function modelOption(providerId, modelId) {
+  const provider = providerOption(providerId);
+  if (!provider) return null;
+  return (provider.models || []).find((item) => item.id === modelId) || null;
+}
+
+/* The name the server gave a model, falling back to the id it is stored under — which is never
+   wrong, only less pretty. */
+function modelLabel(providerId, modelId) {
+  const option = modelOption(providerId, modelId);
+  if (option) return option.label;
+  return modelId ? String(modelId) : "";
+}
+
+function providerLabel(id) {
+  if (!id) return "The model";
+  if (id === "deepseek") return "DeepSeek";
+  if (id === "ollama") return "Local model";
+  return String(id);
+}
+
+/* The selected model, as one line: "DeepSeek V4 Pro — ☁ cloud". */
+function selectionSummary() {
+  const provider = providerOption(chatState.provider);
+  const name =
+    modelLabel(chatState.provider, chatState.model) ||
+    (provider ? provider.label : providerLabel(chatState.provider));
+  const suffix = provider && provider.kind === "cloud" ? "☁ cloud" : "🔒 local";
+  return `${name} — ${suffix}`;
+}
+
+/* Which model wrote a stored answer. A turn stored before RAG-016 has no provider, and is
+   shown without a badge rather than being attributed to a guess. */
+function providerTag(message) {
+  if (message.role !== "assistant" || !message.provider) return null;
+  const prefix = message.provider === "deepseek" ? "☁" : "🔒";
+  const name = modelLabel(message.provider, message.model) || providerLabel(message.provider);
+  return chatEl("span", { class: "model-tag", text: `${prefix} ${name}` });
+}
+
+/* One entry per model, grouped by provider, exactly as the server describes them: the local
+   model first, then each DeepSeek model. An option carries "provider:model" so choosing one
+   says both. */
+function renderModelPicker() {
+  const select = node("model-select");
+  const info = chatState.info;
+  if (!info || !info.providers) return;
+  select.replaceChildren();
+  info.providers.forEach((provider) => {
+    const group = chatEl("optgroup", { label: provider.group || provider.id });
+    (provider.models || []).forEach((model) => {
+      const suffix = provider.kind === "cloud" ? "☁ Cloud" : "🔒 Local";
+      const option = chatEl("option", {
+        value: `${provider.id}:${model.id}`,
+        text: `${model.label} — ${suffix}`,
+      });
+      option.disabled = !provider.available;
+      option.title = provider.available
+        ? provider.note
+        : `${provider.label} is not configured on this server.`;
+      group.append(option);
+    });
+    select.append(group);
+  });
+  const usable = selectableOptions(info, select);
+  if (usable.length) {
+    const wanted = `${chatState.provider}:${chatState.model}`;
+    const chosen = usable.includes(wanted) ? wanted : usable[0];
+    select.value = chosen;
+    applySelection(chosen);
+  }
+  renderProviderNote();
+}
+
+function selectableOptions(info, select) {
+  return [...select.options].filter((option) => !option.disabled).map((option) => option.value);
+}
+
+function applySelection(value) {
+  const [providerId, ...rest] = String(value).split(":");
+  chatState.provider = providerId;
+  chatState.model = rest.join(":");
+}
+
+function renderProviderNote() {
+  const provider = providerOption(chatState.provider);
+  const note = node("model-note");
+  if (!provider) {
+    note.textContent = "";
+    note.className = "model-note";
+    return;
+  }
+  const label = modelLabel(chatState.provider, chatState.model);
+  note.textContent = `${provider.note}${label ? ` · ${label}` : ""}`;
+  note.className = provider.kind === "cloud" ? "model-note cloud" : "model-note";
 }
 
 function setBusy(busy) {
@@ -236,8 +351,9 @@ function appendMessage(message) {
       chatEl("header", { class: "message-head" }, [
         chatEl("span", {
           class: "message-role",
-          text: message.role === "user" ? "You" : "Qwen (local model)",
+          text: message.role === "user" ? "You" : providerLabel(message.provider),
         }),
+        providerTag(message),
         chatEl("span", { class: "message-time", text: chatText(message.created_at) }),
       ]),
       chatEl("div", { class: "message-body", text: chatText(message.content) })
@@ -290,6 +406,8 @@ function renderContext(report) {
     return;
   }
   const rows = [
+    ["Answer provided by", report.provider ? providerLabel(report.provider) : "not recorded"],
+    ["Model reported", chatText(report.model, "not reported")],
     ["Configured context window (num_ctx)", report.num_ctx.toLocaleString()],
     ["Input budget used", `${report.input_budget_tokens.toLocaleString()} tokens`],
     ["Output headroom kept", `${report.output_headroom_tokens.toLocaleString()} tokens`],
@@ -307,6 +425,23 @@ function renderContext(report) {
         : "no",
     ],
   ];
+  /* Provider-reported numbers (RAG-016 §19). Only the fields the provider actually returned
+     are shown, and nothing is priced: a token count that was not reported stays absent. */
+  const providerRows = [
+    ["Input tokens (reported)", report.input_tokens],
+    ["Cached input tokens", report.cached_input_tokens],
+    ["Output tokens (reported)", report.output_tokens],
+    ["Reasoning tokens", report.reasoning_tokens],
+  ];
+  providerRows.forEach(([key, value]) => {
+    if (typeof value === "number") rows.push([key, value.toLocaleString()]);
+  });
+  if (typeof report.latency_seconds === "number") {
+    // Sub-second answers are also real, so they keep two decimals instead of rounding to 0.0.
+    const seconds = report.latency_seconds;
+    rows.push(["Latency", `${seconds < 10 ? seconds.toFixed(2) : seconds.toFixed(1)} s`]);
+  }
+  if (report.request_id) rows.push(["Provider request id", report.request_id]);
   const list = chatEl("dl", { class: "kv" });
   rows.forEach(([key, value]) => {
     list.append(chatEl("dt", { text: key }), chatEl("dd", { text: String(value) }));
@@ -343,8 +478,13 @@ function renderContext(report) {
 function renderInfo() {
   const info = chatState.info;
   if (!info) return;
+  // The window is the selected model's own window: the cloud model is budgeted separately,
+  // so showing the local number while DeepSeek is selected would be a lie.
+  const option = providerOption(chatState.provider);
+  const contextWindow =
+    option && typeof option.num_ctx === "number" ? option.num_ctx : info.num_ctx;
   const hint = node("chat-hint");
-  hint.textContent = `Model: ${info.model} · context window ${info.num_ctx.toLocaleString()} tokens · attaches ${info.accepted_formats.join(", ")} up to ${bytes(info.max_attachment_bytes)} · ${info.max_attachments_per_chat} files per chat`;
+  hint.textContent = `Model: ${selectionSummary()} · context window ${Number(contextWindow).toLocaleString()} tokens · attaches ${info.accepted_formats.join(", ")} up to ${bytes(info.max_attachment_bytes)} · ${info.max_attachments_per_chat} files per chat`;
 }
 
 /* ------------------------------------------------------------------ actions */
@@ -358,6 +498,7 @@ async function loadChats() {
 async function loadInfo() {
   chatState.info = await chatJSON("/api/chat/info");
   node("consult-corpus").parentElement.hidden = !chatState.info.corpus_retrieval_available;
+  renderModelPicker();
   renderInfo();
 }
 
@@ -526,6 +667,8 @@ async function sendMessage(event) {
         body: JSON.stringify({
           message,
           consult_corpus: consult ? true : null,
+          provider: chatState.provider,
+          model: chatState.model,
         }),
       }
     );
@@ -539,8 +682,9 @@ async function sendMessage(event) {
   }
 }
 
-/* Ask the server to answer the last user message again. The user message is not resent: the
-   server regenerates the answer for the turn that is already in the conversation. */
+/* Ask the server to answer the last user message again, with whichever model is selected now.
+   The user message is not resent: the server regenerates the answer for the turn that is
+   already in the conversation, so changing model never duplicates what the user typed. */
 async function retryLast() {
   if (chatState.busy || !chatState.chat) return;
   notice(null, "");
@@ -548,9 +692,13 @@ async function retryLast() {
   try {
     const payload = await chatJSON(
       `/api/chats/${encodeURIComponent(chatState.chat.id)}/retry`,
-      { method: "POST" }
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ provider: chatState.provider, model: chatState.model }),
+      }
     );
-    applyAnswer(payload);
+    applyAnswer(payload, { appendUser: false });
     await refreshTitles();
   } catch (error) {
     showError(error);
@@ -559,8 +707,10 @@ async function retryLast() {
   }
 }
 
-function applyAnswer(payload) {
-  appendMessage(payload.user_message);
+/* `appendUser: false` is for a retry: the turn being answered is already on screen, so
+   appending it again would show the user's own message twice even though only one is stored. */
+function applyAnswer(payload, { appendUser = true } = {}) {
+  if (appendUser) appendMessage(payload.user_message);
   if (payload.assistant_message) {
     appendMessage(payload.assistant_message);
   } else {
@@ -609,6 +759,12 @@ async function chatBoot() {
   node("advanced-toggle").addEventListener("click", () => {
     // The chat is visible now, so the click shows the advanced screen.
     showAdvanced(!node("chat-view").hidden);
+  });
+  node("model-select").addEventListener("change", (event) => {
+    // Only the next answer changes: no new chat, no re-render of what is already stored.
+    applySelection(event.target.value);
+    renderProviderNote();
+    renderInfo();
   });
   const input = node("composer-input");
   input.addEventListener("keydown", (event) => {

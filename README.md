@@ -82,6 +82,43 @@ on a machine without CUDA fails instead of quietly running on the CPU. The defau
 device is "CUDA when available, else CPU", so a plain run uses the GPU on this
 machine.
 
+### DeepSeek as a second model for the chat (RAG-016)
+
+The simple chat can be answered by the local model or by the DeepSeek API, chosen per message
+in the composer's **Model** list. DeepSeek is optional: without a key the chat is local-only
+and the cloud entry is shown greyed out. Nothing is uploaded and there is no automatic
+fallback — the cloud is used only when you select it, and only the context already selected for
+that one message is sent.
+
+```
+# Temporary (this shell only)
+$env:DEEPSEEK_API_KEY="sk-…"
+
+# Persistent (Windows). Affects NEW processes and terminals only: close and reopen
+# the terminal, then start the interface again.
+setx DEEPSEEK_API_KEY "sk-…"
+```
+
+| Variable | Default | What it is |
+|---|---|---|
+| `DEEPSEEK_API_KEY` | *(unset)* | the key; unset means the cloud provider is unavailable. Server-side only |
+| `DEEPSEEK_BASE_URL` | `https://api.deepseek.com` | the API endpoint |
+| `DEEPSEEK_MODEL` | `deepseek-flash` | the default DeepSeek model (shown as *DeepSeek V4.1 Flash*) |
+| `DEEPSEEK_MODELS` | `deepseek-v4-pro` | further models the selector offers (*DeepSeek V4 Pro*), comma-separated |
+| `PHD_RAG_DEEPSEEK_TIMEOUT` | `300` | seconds for one cloud answer |
+| `PHD_RAG_DEEPSEEK_NUM_CTX` | `1000000` | the provider window the context builder budgets against |
+| `PHD_RAG_DEEPSEEK_CONTEXT_TOKENS` | `96000` | input budget for one cloud turn |
+| `PHD_RAG_DEEPSEEK_MAX_OUTPUT_TOKENS` | `4096` | room kept for the cloud answer |
+
+The selector shows the default model first and the rest after it, so the two ids above appear as
+*DeepSeek V4.1 Flash* and *DeepSeek V4 Pro*. The window is a ceiling, not a target: a turn sends
+the input budget (96,000 tokens), never a million.
+
+Each variable is also read with the project's `PHD_RAG_` prefix (`PHD_RAG_DEEPSEEK_API_KEY`
+wins over `DEEPSEEK_API_KEY`). The key is never written to the database, returned by any
+endpoint, included in an error message or reported in the logs; the model ids and the
+provider's own `/models` answer are what the selector shows, so no name is hard-coded.
+
 ## Web interface
 
 One command starts the local interface — a FastAPI backend serving a static HTML/CSS/JS page,
@@ -106,6 +143,10 @@ The interface is a renderer over the mode service: `POST /api/mode` runs one mod
 RAG-013 and returns its `ModeResult` (plus a transport-only `notice` with a friendly message
 when a run needs explaining), `GET /api/modes` serves the mode copy the selector shows, and
 `GET /api/status` reports Ollama and index availability without loading a model.
+
+The default screen is the simple chat (`GET`/`POST /api/chats…`), whose **Model** list chooses
+the provider for the next message — the local Ollama model or DeepSeek — while the conversation
+itself always lives in the local SQLite database. `GET /api/chat/info` serves that list.
 
 For day-to-day use there is a manual with screenshots: [docs/manual.md](docs/manual.md) — what
 each mode is for, how to read a result, the advanced options, everyday recipes and a

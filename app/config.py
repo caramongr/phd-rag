@@ -159,6 +159,29 @@ DEFAULT_CHAT_ATTACHMENT_DIR = "data/chat/attachments"
 #: Characters of the first user message used as an automatic chat title.
 DEFAULT_CHAT_TITLE_CHARS = 60
 
+# --- Cloud generation provider (RAG-016) ---
+#: DeepSeek is a *manual* alternative for the simple chat only: it answers a turn when the
+#: user selects it for that turn, and nothing ever falls back to it on its own. The chat
+#: still lives in the local SQLite database and the local corpus is still the source of
+#: truth; only the context selected for one turn leaves the machine.
+DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+#: The two DeepSeek models this build offers, in selector order: the default first. Model ids
+#: are configuration, never application logic (RAG-016 §5): ``PHD_RAG_DEEPSEEK_MODELS`` adds
+#: more. ``deepseek-flash`` is the everyday model; ``deepseek-v4-pro`` is selected by hand when
+#: it is wanted (RAG-016 FIX1).
+DEFAULT_DEEPSEEK_MODEL = "deepseek-flash"
+DEFAULT_DEEPSEEK_MODELS: tuple[str, ...] = ("deepseek-v4-pro",)
+#: Wall-clock ceiling for one cloud answer.
+DEFAULT_DEEPSEEK_TIMEOUT = 300.0
+#: The provider's window for the current models (1M tokens). This is a *ceiling*, not a target:
+#: the input budget below is what a turn actually sends, so removing the old 128K window value
+#: does not make any request larger (RAG-016 FIX1).
+DEFAULT_DEEPSEEK_NUM_CTX = 1_000_000
+#: Input budget for one cloud turn. Deliberately unchanged by RAG-016 FIX1: a conversation does
+#: not send a million tokens just because the window allows it.
+DEFAULT_DEEPSEEK_CONTEXT_TOKENS = 96_000
+DEFAULT_DEEPSEEK_MAX_OUTPUT_TOKENS = 4_096
+
 
 class Settings(BaseModel):
     """Runtime configuration for the backend.
@@ -268,6 +291,17 @@ class Settings(BaseModel):
     chat_db_path: str = DEFAULT_CHAT_DB_PATH
     chat_attachment_dir: str = DEFAULT_CHAT_ATTACHMENT_DIR
     chat_title_chars: int = DEFAULT_CHAT_TITLE_CHARS
+
+    # Cloud generation provider (RAG-016). The key is server-side only: it is never stored,
+    # never serialised by the API and never written to a log or an error message.
+    deepseek_api_key: str | None = None
+    deepseek_base_url: str = DEFAULT_DEEPSEEK_BASE_URL
+    deepseek_model: str = DEFAULT_DEEPSEEK_MODEL
+    deepseek_models: tuple[str, ...] = DEFAULT_DEEPSEEK_MODELS
+    deepseek_timeout: float = DEFAULT_DEEPSEEK_TIMEOUT
+    deepseek_num_ctx: int = DEFAULT_DEEPSEEK_NUM_CTX
+    deepseek_context_tokens: int = DEFAULT_DEEPSEEK_CONTEXT_TOKENS
+    deepseek_max_output_tokens: int = DEFAULT_DEEPSEEK_MAX_OUTPUT_TOKENS
 
 
 def _parse_bool(value: str) -> bool:
@@ -525,6 +559,37 @@ def load_settings() -> Settings:
             "PHD_RAG_CHAT_ATTACHMENT_DIR", DEFAULT_CHAT_ATTACHMENT_DIR
         ),
         chat_title_chars=int(os.getenv("PHD_RAG_CHAT_TITLE_CHARS", str(DEFAULT_CHAT_TITLE_CHARS))),
+        # The RAG-016 documentation uses the provider's own variable names. Both spellings are
+        # read so the documented names work and the project's ``PHD_RAG_`` prefix still wins.
+        deepseek_api_key=(
+            os.getenv("PHD_RAG_DEEPSEEK_API_KEY") or os.getenv("DEEPSEEK_API_KEY") or None
+        ),
+        deepseek_base_url=(
+            os.getenv("PHD_RAG_DEEPSEEK_BASE_URL")
+            or os.getenv("DEEPSEEK_BASE_URL")
+            or DEFAULT_DEEPSEEK_BASE_URL
+        ).rstrip("/"),
+        deepseek_model=(
+            os.getenv("PHD_RAG_DEEPSEEK_MODEL") or os.getenv("DEEPSEEK_MODEL") or DEFAULT_DEEPSEEK_MODEL
+        ),
+        deepseek_models=_parse_csv(
+            os.getenv("PHD_RAG_DEEPSEEK_MODELS") or os.getenv("DEEPSEEK_MODELS"),
+            DEFAULT_DEEPSEEK_MODELS,
+        ),
+        deepseek_timeout=float(
+            os.getenv("PHD_RAG_DEEPSEEK_TIMEOUT", str(DEFAULT_DEEPSEEK_TIMEOUT))
+        ),
+        deepseek_num_ctx=int(
+            os.getenv("PHD_RAG_DEEPSEEK_NUM_CTX", str(DEFAULT_DEEPSEEK_NUM_CTX))
+        ),
+        deepseek_context_tokens=int(
+            os.getenv("PHD_RAG_DEEPSEEK_CONTEXT_TOKENS", str(DEFAULT_DEEPSEEK_CONTEXT_TOKENS))
+        ),
+        deepseek_max_output_tokens=int(
+            os.getenv(
+                "PHD_RAG_DEEPSEEK_MAX_OUTPUT_TOKENS", str(DEFAULT_DEEPSEEK_MAX_OUTPUT_TOKENS)
+            )
+        ),
     )
 
 

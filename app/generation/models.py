@@ -336,6 +336,9 @@ class ModelFailure(BaseModel):
     status_code: int | None = None
     endpoint: str | None = None
     retryable: bool = False
+    #: The provider's own words, with secrets removed (RAG-016 §17). Kept for logs and the
+    #: debug panel; the user-facing sentence stays in ``message``.
+    detail: str = ""
 
     @property
     def is_unavailable(self) -> bool:

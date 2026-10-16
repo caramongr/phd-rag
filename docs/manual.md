@@ -1,8 +1,9 @@
 # PhD RAG — user manual
 
 This is the manual for the local interface. The default screen is a **simple chat** with saved
-conversations and file attachments (RAG-015); the five academic working modes added in RAG-014
-are still there, behind the **Advanced** button in the top bar.
+conversations and file attachments (RAG-015), where the **Model** list chooses whether the next
+message is answered by the local model or by the DeepSeek API (RAG-016); the five academic
+working modes added in RAG-014 are still there, behind the **Advanced** button in the top bar.
 
 If you only read one paragraph: **start it with one command, type in the box at the bottom, and
 press Send.** Attach a document when you want to work on one. Open **Advanced** when you want
@@ -39,7 +40,8 @@ cd F:\phd-rag
 Then open <http://127.0.0.1:8000/> in your browser. Type in the composer at the bottom, press
 **Send** (`Ctrl+Enter` sends too). Your conversations are saved on the left; a new one starts
 with **+ New chat**. **Attach** adds a PDF, DOCX, TXT or Markdown file to the conversation you
-are in. Nothing leaves your machine.
+are in. Nothing leaves your machine unless you pick DeepSeek in the **Model** list, which is
+off until you give it a key.
 
 For the academic modes — Evidence, Writing, Consistency, Supervisor, Research — click
 **Advanced** in the top bar.
@@ -53,6 +55,12 @@ page tells you whether they are.
 |---|---|---|
 | **Ollama**, with the model you configured | the status bar shows `Ollama 0.35.1 · qwen3.5:35b` | start Ollama (`ollama serve`), or install the model (`ollama pull qwen3.5:35b`) |
 | **The corpus index** | the status bar shows `phd_rag_chunks_v1 · 11,469 points` | build it with the RAG-008 indexing command (see the README) |
+
+Optionally, **DeepSeek** as a second and third model to answer the chat with: set
+`DEEPSEEK_API_KEY` before starting the interface (see the README for the exact commands) and the
+cloud entries in the **Model** list become selectable (*DeepSeek V4.1 Flash* and *DeepSeek V4
+Pro* by default). Without a key the list still shows them, greyed out, and the chat is
+local-only.
 
 ![The status bar](manual-images/02-status-bar.png)
 
@@ -68,6 +76,9 @@ Three notes that save time later:
   against `.qdrant_data` — or see [Troubleshooting](#9-troubleshooting).
 * **Conversations live in `data\chat\`** — a SQLite file and a folder of attachments. They
   are never added to `data\literature` or `data\my_work`.
+* **DeepSeek is optional and needs a key.** Set `DEEPSEEK_API_KEY` before starting the
+  interface to make the cloud entry usable (see the README). Without it, the chat is local-only
+  and nothing about it changes.
 
 ## 3. The screen
 
@@ -79,7 +90,7 @@ The default page is the chat:
 | **Chat header** | the conversation's name, with **Rename** and **Delete** |
 | **Conversation** | your messages and the model's answers, oldest first |
 | **Attachment chips** | the files attached to this conversation, with how much text was read. The `×` detaches one |
-| **Composer** | **Attach**, your message, **Send**. `Ctrl+Enter` sends; the checkbox asks for the permanent corpus |
+| **Composer** | **Attach**, your message, **Send**. `Ctrl+Enter` sends; the checkbox asks for the permanent corpus; the **Model** list chooses who answers the next message |
 | **Context and debug** (collapsed) | how the context window was spent on the last answer, including anything left out |
 | **Advanced** (top bar) | the RAG-014 screen: the five modes, the advanced options and the result panels |
 
@@ -115,6 +126,51 @@ repeated-token abort is retried once automatically, with a fresh model load, bef
 and when that happens it says so under **Context and debug**.
 
 ![The context summary after an answer](manual-images/17-context-panel.png)
+
+### 3.1.1 Choosing the model per message
+
+The **Model** list in the composer chooses who answers the *next* message. It applies to that
+message only: the conversation is not bound to one model, and switching never starts a new chat
+or changes what is already stored.
+
+```
+Local
+  Qwen 3.5 35B          🔒 Local     processing stays on this computer; the default
+DeepSeek
+  DeepSeek V4.1 Flash   ☁ Cloud      the everyday cloud model
+  DeepSeek V4 Pro       ☁ Cloud      the slower, stronger one, chosen by hand
+```
+
+The line under the list repeats which model you are about to use, and the window it works in.
+Messages already in the conversation keep a small badge showing the model that wrote them (🔒 for
+the local model, ☁ for a DeepSeek model), so a conversation that used several is still readable
+afterwards.
+
+Three things follow from that:
+
+* **Nothing is sent anywhere unless you choose it.** A local turn stays local: your question,
+  your attachments and any retrieved corpus excerpts never leave the machine. Choosing a
+  DeepSeek model sends *only what this one message needs* — the instructions, the relevant part
+  of the conversation, the attached documents' text and the corpus excerpts retrieved for this
+  message. Your corpus, your index and your other files are not uploaded.
+* **Changing model mid-conversation keeps the thread.** The next model reads the same saved
+  conversation, whoever wrote each earlier answer — switching between Flash and Pro included.
+* **Retry answers the message that is already there.** If Ollama fails, switch the list to a
+  DeepSeek model and press **Retry this turn**; if DeepSeek fails, switch back and do the same.
+  The failed turn is answered once, for the user message already in the conversation — nothing is
+  typed again and no duplicate appears. There is no automatic fallback in either direction, so
+  your material is never sent to the cloud because a local run failed.
+
+DeepSeek needs an API key on the server (see [Before the first run](#2-before-the-first-run)):
+without one, the entries are shown as unavailable and cannot be selected. The key is never sent
+to the page. Which DeepSeek models the list offers comes from the configuration
+(`DEEPSEEK_MODEL` and `DEEPSEEK_MODELS`, see the README); by default it is *DeepSeek V4.1 Flash*
+and *DeepSeek V4 Pro*.
+
+When DeepSeek answers, **Context and debug** also reports what the provider itself returned —
+model, input tokens, cached input tokens, output tokens, reasoning tokens (a count only),
+latency and its request id. Numbers the provider did not report are simply absent; nothing is
+estimated or priced.
 
 ### 3.2 The advanced screen
 
@@ -377,6 +433,12 @@ detail collapsed underneath. Here is what each one means and what to do about it
 | Notice: **The retrieved evidence was not enough to answer** | sources were found, but the model reported they do not cover the question | broaden the question, raise `candidate_k`, or check whether the corpus actually holds work on this |
 | Chat notice: **The model could not answer** with *prediction aborted, token repeat limit reached* | Ollama's own runner has ended up repeating a single token, so its guard stopped the prediction. The chat already retried the turn once, with a fresh model load | press **Retry this turn** (your message is never sent twice), and if it fails again restart Ollama — that clears it. The context window is not the problem |
 | Chat notice: **This message has no answer yet** | the last turn failed to generate; one user turn is stored and answerable | press **Retry this turn**; do not type the message again |
+| Chat notice: **DeepSeek authentication failed** | the key configured on the server was rejected | check `DEEPSEEK_API_KEY` and restart the interface; meanwhile switch the **Model** list back to the local model and press **Retry this turn** |
+| Chat notice: **DeepSeek rate limit reached** / **service is temporarily unavailable** / **request timed out** | the cloud provider refused or did not answer in time; nothing was retried automatically because a cloud request is billed | wait a moment, then press **Retry this turn** — or switch back to the local model. Your message is saved either way |
+| Chat notice: **DeepSeek refused the request because the account balance is insufficient** | the account has no credit left | top up, or use the local model |
+| Chat notice: **DeepSeek does not recognise the model …** | `DEEPSEEK_MODEL` names an id the provider does not offer | set it to an id DeepSeek lists and restart, or pick another entry in the **Model** list |
+| Chat notice: **That model is not available** | the requested model is not one this installation offers | choose one of the entries in the **Model** list; the notice names the ids that are configured |
+| Chat notice: **DeepSeek is not configured** | no key is set on the server | set `DEEPSEEK_API_KEY` and restart, or use the local model |
 | Chat notice: **That file cannot be attached** / **too large** | the extension is not PDF/DOCX/TXT/MD, or the file is over the size limit | convert the file, or raise `PHD_RAG_CHAT_MAX_ATTACHMENT_BYTES` |
 | Chat: a document was attached but the model ignores it | the attachment's text could not be extracted (chip says *could not be read*) | check the chip, re-attach a text-based copy (or a searchable PDF), and see *Context and debug* |
 | Notice: **Nothing matched this query** | neither the corpus nor the providers returned anything | use different words; the corpus and the Internet indexes match on vocabulary |
@@ -418,6 +480,13 @@ Being clear about this is part of using it well.
   passages are not sent to any third party. The only outbound traffic is the metadata query
   that Research mode sends to Crossref and OpenAlex (public bibliographic APIs), which carries
   your search terms — nothing from your documents.
+* **The one exception is deliberate and yours to make.** When you select DeepSeek for a
+  message, that message's assembled context — instructions, the relevant part of the
+  conversation, the text of the documents attached to the chat, and the corpus excerpts
+  retrieved for that message — is sent to the DeepSeek API, and DeepSeek's answer is stored
+  here. Everything else stays local: the rest of the corpus, the index, other chats, and the
+  files themselves. There is no automatic fallback to DeepSeek, and the API key lives only in
+  the server process, never in the page or the saved conversation.
 * The `data/` directory holding the corpus is not tracked in git: it contains third-party
   published PDFs plus your own drafts and supervision material.
 * **Your conversations are local too.** They live in `data\chat\chat.sqlite3` and

@@ -79,6 +79,16 @@ class ChatResult:
     wall_seconds: float = 0.0
     model_details: dict[str, Any] = field(default_factory=dict)
     failure: ModelFailure | None = None
+    #: Which provider answered (RAG-016). ``"ollama"`` or ``"deepseek"``; the chat service
+    #: records the provider it selected, so this is only informative for direct callers.
+    provider: str = ""
+    #: Billed input tokens the provider served from its own prompt cache, when it says so.
+    cached_input_tokens: int | None = None
+    #: Reasoning tokens the provider billed, when it says so. The reasoning *text* is never
+    #: requested, returned or stored (RAG-016 §15).
+    reasoning_tokens: int | None = None
+    #: The provider's request identifier, for support and debugging.
+    request_id: str = ""
 
     @property
     def ok(self) -> bool:

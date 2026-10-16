@@ -667,6 +667,7 @@ button.block {
 }
 
 .corpus-toggle,
+.model-picker,
 #chat-hint {
   grid-column: 1 / -1;
   display: flex;
@@ -679,6 +680,39 @@ button.block {
 
 .corpus-toggle input {
   width: auto;
+}
+
+/* The model selector (RAG-016 §6): one small row, no settings panel. The note next to it is
+   the privacy statement for whichever model is selected. */
+.model-picker label {
+  font-weight: 600;
+}
+
+.model-picker select {
+  width: auto;
+  min-width: 14rem;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.4rem;
+}
+
+.model-note {
+  color: var(--muted);
+}
+
+.model-note.cloud {
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.model-tag {
+  font-size: 0.7rem;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.05rem 0.45rem;
+  margin-left: 0.4rem;
+  color: var(--muted);
 }
 
 .plain-list {

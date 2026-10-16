@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import datetime as _datetime
 from enum import Enum
-from typing import Any
+from typing import Any, Sequence
 
 from pydantic import BaseModel, ConfigDict
 
@@ -75,6 +75,11 @@ class ChatMessage(BaseModel):
     #: How the request that produced this assistant message spent the context window (§15).
     #: ``None`` for user messages.
     context_report: dict[str, Any] | None = None
+    #: Which provider answered this turn (RAG-016 §7): ``"ollama"`` or ``"deepseek"``.
+    #: ``None`` for user messages and for turns stored before RAG-016, which keep loading.
+    provider: str | None = None
+    #: The model id that answered, as the provider reported it.
+    model: str | None = None
 
 
 class ChatAttachment(BaseModel):
@@ -170,6 +175,21 @@ class ContextReport(BaseModel):
     generation_retries: int = 0
     #: Why the retry happened, in Ollama's own words.
     retry_reason: str = ""
+    # --- which provider answered (RAG-016 §19) ---
+    #: ``"ollama"`` or ``"deepseek"``.
+    provider: str = ""
+    #: The model id the answer came from, as the provider reported it.
+    model: str = ""
+    #: Token counts the *provider* reported for this turn. ``None`` means the provider said
+    #: nothing; no number is ever estimated into these fields.
+    input_tokens: int | None = None
+    cached_input_tokens: int | None = None
+    output_tokens: int | None = None
+    reasoning_tokens: int | None = None
+    #: How long the provider took to answer.
+    latency_seconds: float | None = None
+    #: The provider's request id, for support and debugging.
+    request_id: str = ""
     attachments: tuple[AttachmentUsage, ...] = ()
     omitted: tuple[OmittedContextItem, ...] = ()
 
@@ -193,6 +213,9 @@ class ChatAnswer(BaseModel):
     assistant_message: ChatMessage | None = None
     report: ContextReport | None = None
     failure: dict[str, Any] | None = None
+    #: Which provider answered (RAG-016 §7). Empty when the turn failed before a provider was
+    #: reached, which only happens for a misconfiguration.
+    provider: str = ""
     model: str = ""
     wall_seconds: float = 0.0
     prompt_tokens: int | None = None
@@ -273,6 +296,49 @@ class NothingToRetryError(ChatError):
         super().__init__(detail)
 
 
+class UnsupportedProviderError(ChatError):
+    """The requested provider is not one this build can answer with (RAG-016 §6)."""
+
+    kind = "unsupported_provider"
+    title = "That model choice is not available"
+
+    def __init__(self, requested: str) -> None:
+        super().__init__(
+            f"'{requested}' is not a model this application can use. Choose the local model "
+            "or DeepSeek."
+        )
+        self.requested = requested
+
+
+class UnsupportedModelError(ChatError):
+    """The requested model is not one the provider offers (RAG-016 FIX1)."""
+
+    kind = "unsupported_model"
+    title = "That model is not available"
+
+    def __init__(self, provider: str, requested: str, offered: Sequence[str] = ()) -> None:
+        choices = ", ".join(offered) if offered else "the configured models"
+        super().__init__(
+            f"'{requested}' is not a {provider} model this application offers. Select one of: "
+            f"{choices}."
+        )
+        self.provider = provider
+        self.requested = requested
+        self.offered = tuple(offered)
+
+
+class ProviderNotConfiguredError(ChatError):
+    """The provider was selected but is unusable on this server (RAG-016 §4)."""
+
+    status_code = 503
+    kind = "provider_not_configured"
+    title = "That model is not configured"
+
+    def __init__(self, provider: str, detail: str) -> None:
+        super().__init__(detail)
+        self.provider = provider
+
+
 class MessageTooLargeError(ChatError):
     """The mandatory part of the request does not fit the context window."""
 
@@ -300,6 +366,9 @@ __all__ = [
     "MessageTooLargeError",
     "NothingToRetryError",
     "OmittedContextItem",
+    "ProviderNotConfiguredError",
     "UnsupportedAttachmentError",
+    "UnsupportedModelError",
+    "UnsupportedProviderError",
     "utc_now",
 ]

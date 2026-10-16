@@ -24,7 +24,6 @@ from app.retrieval.models import Candidate, RetrievalResponse
 from app.web.service import ChatRunner, ModeRunner, make_corpus_provider
 from tests.generation_support import FakeGenerationModel, candidate, retrieval_response
 
-
 def chat_settings(tmp_path: Path, **overrides: Any) -> Settings:
     """Settings whose only storage is inside ``tmp_path``."""
     values: dict[str, Any] = {
@@ -122,6 +121,7 @@ def build_chat(
     tmp_path: Path,
     *,
     model: Any | None = None,
+    cloud_model: Any | None = None,
     corpus: Any | None = None,
     **setting_overrides: Any,
 ) -> tuple[ChatService, Any, Settings]:
@@ -131,6 +131,7 @@ def build_chat(
     service = ChatService(
         settings=settings,
         model=scripted,
+        cloud_model=cloud_model,
         corpus_retrieval=corpus,
     )
     return service, scripted, settings
@@ -140,6 +141,7 @@ def build_client(
     tmp_path: Path,
     *,
     model: FakeGenerationModel | None = None,
+    cloud_model: Any | None = None,
     corpus: Any | None = None,
     mode_harness: Any | None = None,
     **setting_overrides: Any,
@@ -151,6 +153,10 @@ def build_client(
     chat's corpus retrieval then runs through the *same* mode runner, exactly as it does in the
     application. Without a harness the chat gets an offline corpus double, so no test ever
     loads BGE-M3 or opens a Qdrant store.
+
+    ``cloud_model`` replaces the DeepSeek client, so no test ever reaches the network: it is
+    the only way a cloud turn is exercised, and a test asserts on it to prove which provider
+    answered.
     """
     settings = chat_settings(tmp_path, **setting_overrides)
     scripted = model or FakeGenerationModel(content="Answer from the conversation.")
@@ -162,7 +168,12 @@ def build_client(
             settings=settings, service_factory=lambda *_, **__: mode_harness.service
         )
         provider = corpus if corpus is not None else make_corpus_provider(mode_runner)
-    service = ChatService(settings=settings, model=scripted, corpus_retrieval=provider)
+    service = ChatService(
+        settings=settings,
+        model=scripted,
+        cloud_model=cloud_model,
+        corpus_retrieval=provider,
+    )
     runner = ChatRunner(settings=settings, service_factory=lambda **_: service)
     application = create_app(
         settings=settings, mode_runner=mode_runner, chat_runner=runner
@@ -216,7 +227,112 @@ def last_messages(model: FakeGenerationModel) -> list[tuple[str, str]]:
     return [(item.role, item.content) for item in model.calls[-1]["messages"]]
 
 
+# --- the cloud provider double (RAG-016) -------------------------------------
+
+#: A DeepSeek key that only ever exists in a test. Never a real one.
+FAKE_DEEPSEEK_KEY = "sk-test-not-a-real-key"
+
+
+class FakeCloudModel:
+    """A scripted DeepSeek client: no network, no key, fully deterministic.
+
+    It records its calls exactly like :class:`~tests.generation_support.FakeGenerationModel`
+    does, so a test can assert *which* provider received a turn by looking at which double was
+    called — which is how "no automatic failover" is checked (RAG-016 §8, §23).
+    """
+
+    def __init__(
+        self,
+        *,
+        content: str = "Answer from the cloud.",
+        failure: ModelFailure | None = None,
+        name: str = "deepseek-flash",
+        models: Sequence[str] = ("deepseek-flash", "deepseek-v4-pro"),
+        prompt_tokens: int = 1200,
+        generated_tokens: int = 80,
+        cached_input_tokens: int | None = 900,
+        reasoning_tokens: int | None = None,
+        request_id: str = "req-fake-1",
+        wall_seconds: float = 1.25,
+        available_models_error: Exception | None = None,
+    ) -> None:
+        self.provider = "deepseek"
+        self.name = name
+        self.content = content
+        self.failure = failure
+        self.models = tuple(models)
+        self.prompt_tokens = prompt_tokens
+        self.generated_tokens = generated_tokens
+        self.cached_input_tokens = cached_input_tokens
+        self.reasoning_tokens = reasoning_tokens
+        self.request_id = request_id
+        self.wall_seconds = wall_seconds
+        self.available_models_error = available_models_error
+        self.calls: list[dict[str, Any]] = []
+        self.listed = 0
+
+    def chat(
+        self,
+        messages: Sequence[Any],
+        *,
+        options: Any = None,
+        think: bool | None = None,
+    ) -> Any:
+        """Record the call and return the scripted result."""
+        self.calls.append(
+            {"messages": list(messages), "options": options, "think": think, "model": self.name}
+        )
+        return ChatResult(
+            model=self.name,
+            content="" if self.failure else self.content,
+            done_reason="stop",
+            prompt_tokens=self.prompt_tokens,
+            generated_tokens=self.generated_tokens,
+            cached_input_tokens=self.cached_input_tokens,
+            reasoning_tokens=self.reasoning_tokens,
+            request_id=self.request_id,
+            wall_seconds=self.wall_seconds,
+            model_details={"provider": "deepseek", "model": self.name},
+            failure=self.failure,
+            provider="deepseek",
+        )
+
+    def available_models(self, *, timeout: float | None = None) -> tuple[str, ...]:
+        """The ids a real client would have read from ``/models``."""
+        self.listed += 1
+        if self.available_models_error is not None:
+            raise self.available_models_error
+        return self.models
+
+    def use_model(self, model: str) -> None:
+        """Point this client at another model id, as the real client does (RAG-016 FIX1)."""
+        clean = str(model or "").strip()
+        if clean:
+            self.name = clean
+
+    def models_requested(self) -> list[str]:
+        """The model id each call was made with, in order."""
+        return [str(call.get("model") or "") for call in self.calls]
+
+    def describe(self) -> dict[str, Any]:
+        return {"provider": "deepseek", "model": self.name}
+
+    @property
+    def last_prompt(self) -> str:
+        """The last message of the most recent call."""
+        if not self.calls:
+            return ""
+        return self.calls[-1]["messages"][-1].content
+
+
+def cloud_failure(kind: str = "auth_error", message: str = "DeepSeek authentication failed.") -> Any:
+    """A failed cloud :class:`ChatResult` with the provider's own classification."""
+    return ModelFailure(kind=kind, message=message, status_code=401, retryable=False)
+
+
 __all__ = [
+    "FAKE_DEEPSEEK_KEY",
+    "FakeCloudModel",
     "FakeCorpusRetrieval",
     "REPEAT_ABORT_MESSAGE",
     "ScriptedModel",
@@ -226,6 +342,7 @@ __all__ = [
     "build_client",
     "candidate",
     "chat_settings",
+    "cloud_failure",
     "docx_bytes",
     "failure_result",
     "last_messages",
